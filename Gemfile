@@ -22,6 +22,8 @@ group :production do
   # gems specifically for Heroku go here
   gem "pg"
 end
+gem 'thin'
+gem 'heroku'
 
 # Use unicorn as the web server
 # gem 'unicorn'
