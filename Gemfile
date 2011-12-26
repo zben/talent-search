@@ -7,7 +7,7 @@ gem "nifty-generators", :group => :development
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'nested_form',:git => 'git://github.com/ryanb/nested_form.git'
-gem 'sqlite3'
+
 gem 'formtastic'
 gem 'active_hash'
 # Gems used only for assets and not required
@@ -18,6 +18,9 @@ group :assets do
   gem 'uglifier'
 end
 gem 'jquery-rails'
+group :development do
+  gem 'sqlite3'
+end
 group :production do
   # gems specifically for Heroku go here
   gem "pg"
