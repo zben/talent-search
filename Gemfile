@@ -17,8 +17,11 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
-
 gem 'jquery-rails'
+group :production do
+  # gems specifically for Heroku go here
+  gem "pg"
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
