@@ -1,0 +1,22 @@
+-if params[:action] == 'new'
+  %h2 Add Education History
+-else
+  %h2 Update Education History 
+
+
+
+= semantic_nested_form_for @user do |f|
+  = f.semantic_fields_for :educations do |education|
+    = education.input :school
+    .row
+      .span6= education.input :degree_type,:label=>'Degree',:as=>:select,:collection=>DegreeType.all
+      .span6= education.input :program 
+      .span4=education.input :GPA
+    .row  
+      .span4=education.input :start_date,:as=>:string
+      .span4=education.input :end_date, :as=>:string
+    =education.input :comment,  :input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+    = education.link_to_remove "Remove this degree" 
+  = f.link_to_add "Add a degree", :educations
+  = f.buttons 
+

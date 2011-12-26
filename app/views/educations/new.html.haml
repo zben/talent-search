@@ -1,0 +1,44 @@
+- title "New Education"
+
+= form_for @education do |f|
+  = f.error_messages
+  %p
+    = f.label :user_id
+    %br
+    = f.number_field :user_id
+  %p
+    = f.label :school
+    %br
+    = f.text_field :school
+  %p
+    = f.label :school_location
+    %br
+    = f.text_field :school_location
+  %p
+    = f.label :degree_type
+    %br
+    = f.text_field :degree_type
+  %p
+    = f.label :program
+    %br
+    = f.text_field :program
+  %p
+    = f.label :start_date
+    %br
+    = f.date_select :start_date
+  %p
+    = f.label :end_date
+    %br
+    = f.date_select :end_date
+  %p
+    = f.label :GPA
+    %br
+    = f.text_field :GPA
+  %p
+    = f.label :comment
+    %br
+    = f.text_area :comment
+  %p
+    = f.submit
+
+

@@ -1,0 +1,24 @@
+- title "New Exam"
+
+= form_for @exam do |f|
+  = f.error_messages
+  %p
+    = f.label :user_id
+    %br
+    = f.number_field :user_id
+  %p
+    = f.label :exam_name
+    %br
+    = f.text_field :exam_name
+  %p
+    = f.label :score
+    %br
+    = f.number_field :score
+  %p
+    = f.label :date
+    %br
+    = f.date_select :date
+  %p
+    = f.submit
+
+

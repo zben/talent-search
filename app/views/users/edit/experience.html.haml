@@ -1,0 +1,19 @@
+-if params[:action] == 'new'
+  %h2 Add Work History
+-else
+  %h2 Update Work History 
+
+
+.row.span12
+  = semantic_nested_form_for @user do |f|
+    = f.semantic_fields_for :experiences do |exp|
+      .span12= exp.input :company_name,:label=>'Company'
+      .span12= exp.input :job_title
+      .span12= exp.input :description,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+      .row
+        .span4=exp.input :start_date,:as=>:string
+        .span4=exp.input :end_date, :as=>:string
+      = exp.link_to_remove "Remove this degree" 
+    = f.link_to_add "Add a degree", :experiences
+    = f.buttons 
+

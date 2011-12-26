@@ -1,0 +1,14 @@
+-if params[:action] == 'new'
+  %h2 Create Profile
+-else
+  %h2 Update profile 
+= semantic_form_for (@user.profile || Profile.new) do |f| 
+  = f.inputs do
+    = f.input :user_id,:as=>:hidden, :value=>current_user.id
+    = f.input :firstname
+    = f.input :lastname
+    = f.input :birthday, :start_year=>1900
+    = f.input :gender, :as=>:radio,:collection => Gender.all
+    = f.input :citizenship, :as=>:select, :collection => Country.all,:prompt => "Select one..." 
+    = f.input :residence_country, :as=>:select, :collection => Country.all,:prompt => "Select one if any" 
+  = f.buttons 

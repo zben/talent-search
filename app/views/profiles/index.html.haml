@@ -1,0 +1,25 @@
+- title "Profiles"
+
+%table
+  %tr
+    %th User
+    %th Firstname
+    %th Lastname
+    %th Birthday
+    %th Gender
+    %th Nationality1
+    %th Nationality2
+  - for profile in @profiles
+    %tr
+      %td= profile.user_id
+      %td= profile.firstname
+      %td= profile.lastname
+      %td= profile.birthday
+      %td= profile.gender
+      %td= profile.nationality1
+      %td= profile.nationality2
+      %td= link_to 'Show', profile
+      %td= link_to 'Edit', edit_profile_path(profile)
+      %td= link_to 'Destroy', profile, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Profile", new_profile_path

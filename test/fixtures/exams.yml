@@ -1,0 +1,11 @@
+one:
+  user_id: 1
+  exam_name: MyString
+  score: 1
+  date: 2011-12-13
+
+two:
+  user_id: 1
+  exam_name: MyString
+  score: 1
+  date: 2011-12-13

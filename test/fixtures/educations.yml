@@ -1,0 +1,21 @@
+one:
+  user_id: 1
+  school: MyString
+  school_location: MyString
+  degree_type: MyString
+  program: MyString
+  start_date: 2011-12-13
+  end_date: 2011-12-13
+  GPA: 1.5
+  comment: MyText
+
+two:
+  user_id: 1
+  school: MyString
+  school_location: MyString
+  degree_type: MyString
+  program: MyString
+  start_date: 2011-12-13
+  end_date: 2011-12-13
+  GPA: 1.5
+  comment: MyText

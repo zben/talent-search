@@ -1,0 +1,44 @@
+
+.topbar{
+  position:static;
+}
+
+
+
+footer{
+    text-align:center;
+    margin-top:0;
+}
+
+.landing{
+    background-color:#AFCBF3;
+ 
+    padding-top:40px;
+    min-height:400px;
+    h2{
+        text-align:center;
+        color:#FFF;
+    }
+}
+
+form{
+    input{
+      margin-bottom:10px;
+    }
+    li{
+      list-style-type:none;
+    }
+  
+}
+
+label{
+  width:60px;
+}
+
+input, textarea{
+  width:65%;
+}
+
+legend{
+  display:none;
+}

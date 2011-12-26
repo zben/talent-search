@@ -1,0 +1,17 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+# app/assets/stylesheets/application.css
+  *= require formtastic
+  *= require my_formtastic_changes
+  
+  # app/assets/stylesheets/ie6.css
+  *= require formtastic_ie6
+  
+  # app/assets/stylesheets/ie7.css
+  *= require formtastic_ie7

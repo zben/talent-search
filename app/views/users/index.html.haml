@@ -1,0 +1,12 @@
+- title "Users"
+
+%table.zebra-striped.bordered-table
+  %tr
+    %th Email
+    %th Join Date
+  - for user in @users
+    %tr
+      %td= user.email
+      %td= user.created_at
+      
+

@@ -1,0 +1,17 @@
+one:
+  user_id: 1
+  company_name: MyString
+  company_location: MyString
+  job_title: MyString
+  description: MyText
+  start_date: 2011-12-13
+  end_date: 2011-12-13
+
+two:
+  user_id: 1
+  company_name: MyString
+  company_location: MyString
+  job_title: MyString
+  description: MyText
+  start_date: 2011-12-13
+  end_date: 2011-12-13
