@@ -1,0 +1,47 @@
+%h2=t('Sign up')
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  .row
+    .span2= f.label :email 
+    .span4= f.email_field :email,:placeholder=> "使用学校或公司邮件地址"
+  .row
+    .span2= f.label :password
+    .span4= f.password_field :password 
+  .row
+    .span2= f.label :password_confirmation
+    .span4= f.password_field :password_confirmation
+  
+  .row
+    .span2= f.label '用户类别'
+    .span4= f.select :type_id, options_for_select([['个人用户',1],['机构/企业用户',2]])
+  .row
+    .span2= f.label '邀请码'
+    .span4= text_field_tag :invitation_code  
+  =render 'pages/agreement'
+  .row
+    %p.span4.offset3
+      =check_box_tag 'agreement','true'    
+      =t('I agree to') 
+      =link_to t('the service terms'),"",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true"
+  .row
+    .span4.offset3= f.submit t("Agree to service terms first"),:class=>"btn primary disabled",:disabled=>"disabled"
+
+= render :partial => "devise/shared/links" 
+
+
+
+:javascript
+  $("input[name=agreement]").click(function(){
+  if ($("input[name=agreement]").is(":checked"))
+  {
+    $("input[type=submit]")[0].value="#{t("Sign up")}";
+    $("input[type=submit]")[0].disabled=false;
+  }
+  else
+  {
+    $("input[type=submit]")[0].value="#{t("Agree to service terms first")}";
+    $("input[type=submit]")[0].disabled="disabled";
+  }
+  });

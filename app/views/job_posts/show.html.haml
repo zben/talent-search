@@ -1,0 +1,66 @@
+.row
+  .span11
+    =link_to "申请职位",'',:class=>'btn primary'
+    =link_to "收藏职位",'',:class=>'btn primary'
+    .row
+      .span2.lab 公司名称:
+      .span5=(name=@job_post.company_name).blank? ? '未公开' : name
+    .row
+      .span2.lab 所属行业:
+      .span5=(name=@job_post.industry).blank? ? '未填' : name.name
+    .row
+      .span2.lab 职位:
+      .span5=(name=@job_post.title).blank? ? '未填' : name
+    .row
+      .span2.lab 工作类型:  
+      .span2=(name=@job_post.job_type).blank? ? '未填' : name.name
+    .row
+      .span2.lab 工作年限:
+      .span2=(years=@job_post.years_required).to_f==0 ? '无要求' : "#{years}年"
+    .row
+      .span2.lab 薪酬:
+      .span2=(salary=@job_post.salary).to_f==0 ? '面议' : "#{salary} RMB"
+    .row
+      .span2.lab 所在省市:
+      .span4
+        =(name=@job_post.city).blank? ? '' : name.province.name
+        =(name=@job_post.city).blank? ? '未填' : name.name
+    .row
+      .span2.lab 截止日期:
+      .span4=(date=@job_post.expiration).nil? ? '未填' : l(date, :format=>:long)
+    .row
+      .span2.lab 工作描述:
+      .span8.description=@job_post.description || '未填'
+    .row
+      .span2.lab 用人要求:
+      .span8.description=@job_post.job_requirement || '未填'
+
+    .row
+      .span2.lab 联系人:
+      .span4=(person=@job_post.contact_person).blank? ? '未填' : person 
+    .row
+      .span2.lab 电话号码:
+      .span4=(no=@job_post.phone_number).blank? ? '未填' : no
+    .row
+      .span2.lab 电子邮件:
+      .span4=(email=@job_post.email).blank? ? '未填' : mail_to(email)
+    .row
+      .span2.lab 相关网页:
+      .span4=@job_post.website || '未填'
+    .row
+      .span2.lab 相关技能:
+      .span8=(skills=@job_post.skills).blank? ? '未填' : render(skills)
+    =link_to "申请职位",'',:class=>'btn primary'
+    =link_to "收藏职位",'',:class=>'btn primary'
+
+
+    = link_to "Edit", edit_job_post_path(@job_post)
+    =link_to "Destroy", @job_post, :confirm => 'Are you sure?', :method => :delete 
+    =link_to "View All", job_posts_path
+  .span5
+    %h4 最佳匹配职位
+    =render JobPost.limit(5)  
+    %h4 相关技能职位
+    =render JobPost.limit(5)  
+    %h4 最热门职位
+    =render JobPost.limit(5)  

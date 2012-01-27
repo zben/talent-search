@@ -1,0 +1,21 @@
+one:
+  name: MyString
+  short_description: MyText
+  long_description: MyText
+  location_id: 1
+  contact_person: MyString
+  phone_number: MyString
+  email: MyString
+  logo: MyString
+  website: MyString
+
+two:
+  name: MyString
+  short_description: MyText
+  long_description: MyText
+  location_id: 1
+  contact_person: MyString
+  phone_number: MyString
+  email: MyString
+  logo: MyString
+  website: MyString

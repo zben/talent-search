@@ -1,0 +1,16 @@
+=form_for @job_post do |f|
+  =select_tag "province", options_from_collection_for_select(Province.all, "id", "name")
+  =select_tag "city",[]
+  
+:javascript
+
+  $(document).ready(function() {
+    initDynamicOptionLists();
+  });
+
+  var names = new DynamicOptionList();
+  names.addDependentFields("province","city");
+  names.forValue(1).addOptionsTextValue("真人",1);
+ 
+  names.forValue(2).addOptionsTextValue("作战",1);
+

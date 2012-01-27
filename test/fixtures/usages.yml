@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  find_job: false
+  find_project: false
+  find_partner: false
+  find_money: false
+
+two:
+  user_id: 1
+  find_job: false
+  find_project: false
+  find_partner: false
+  find_money: false

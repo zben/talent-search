@@ -1,0 +1,33 @@
+<% title "Organization Profiles" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Short Description</th>
+    <th>Long Description</th>
+    <th>Location</th>
+    <th>Contact Person</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>Logo</th>
+    <th>Website</th>
+  </tr>
+  <% for organization_profile in @organization_profiles %>
+    <tr>
+      <td><%= organization_profile.name %></td>
+      <td><%= organization_profile.short_description %></td>
+      <td><%= organization_profile.long_description %></td>
+      <td><%= organization_profile.location_id %></td>
+      <td><%= organization_profile.contact_person %></td>
+      <td><%= organization_profile.phone_number %></td>
+      <td><%= organization_profile.email %></td>
+      <td><%= organization_profile.logo %></td>
+      <td><%= organization_profile.website %></td>
+      <td><%= link_to "Show", organization_profile %></td>
+      <td><%= link_to "Edit", edit_organization_profile_path(organization_profile) %></td>
+      <td><%= link_to "Destroy", organization_profile, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Organization Profile", new_organization_profile_path %></p>

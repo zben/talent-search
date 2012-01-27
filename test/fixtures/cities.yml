@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name_ch: MyString
+  name_en: MyString
+  province_id: 1
+
+two:
+  name_ch: MyString
+  name_en: MyString
+  province_id: 1

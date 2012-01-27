@@ -9,6 +9,7 @@ gem "nifty-generators", :group => :development
 gem 'nested_form',:git => 'git://github.com/ryanb/nested_form.git'
 
 gem 'formtastic'
+gem 'formtastic-bootstrap'
 gem 'active_hash'
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,16 +19,20 @@ group :assets do
   gem 'uglifier'
 end
 gem 'jquery-rails'
+gem "paperclip", "~> 2.0"
 group :development do
   gem 'sqlite3'
 end
+#gem 'mongoid'
+#gem 'bson_ext'
+gem 'thin'
 group :production do
   # gems specifically for Heroku go here
+  gem "heroku"
   gem "pg"
 end
-gem 'thin'
-gem 'heroku'
-
+gem "erb2haml", :group => :development
+gem "faker"
 # Use unicorn as the web server
 # gem 'unicorn'
 

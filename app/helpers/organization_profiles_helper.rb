@@ -1,0 +1,2 @@
+module OrganizationProfilesHelper
+end

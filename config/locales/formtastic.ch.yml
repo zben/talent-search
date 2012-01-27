@@ -1,0 +1,18 @@
+ch:
+  formtastic:
+    titles:
+      post_details: "Post details"
+    labels:
+      post:
+        title: "Choose a title..."
+        body: "Write something..."
+        edit:
+          title: "Edit title"
+    hints:
+      post:
+        title: "Choose a good title for you post."
+        body: "Write something inspiring here."
+    actions:
+      create: "添加{{model}}"
+      update: "保存修改"
+      dummie: "Launch!"

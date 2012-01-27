@@ -1,0 +1,35 @@
+one:
+  title: MyString
+  city_id: 1
+  industry_id: 1
+  years_required: 1
+  company_name: MyString
+  company_id: 1
+  description: MyText
+  job_requirement: MyText
+  job_type_id: 1
+  salary: 1
+  expiration: 2012-01-07
+  contact_person: MyString
+  phone_number: MyString
+  email: MyString
+  logo: MyString
+  website: MyString
+
+two:
+  title: MyString
+  city_id: 1
+  industry_id: 1
+  years_required: 1
+  company_name: MyString
+  company_id: 1
+  description: MyText
+  job_requirement: MyText
+  job_type_id: 1
+  salary: 1
+  expiration: 2012-01-07
+  contact_person: MyString
+  phone_number: MyString
+  email: MyString
+  logo: MyString
+  website: MyString

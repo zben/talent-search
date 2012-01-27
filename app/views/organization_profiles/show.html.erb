@@ -1,0 +1,44 @@
+<% title "Organization Profile" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organization_profile.name %>
+</p>
+<p>
+  <strong>Short Description:</strong>
+  <%= @organization_profile.short_description %>
+</p>
+<p>
+  <strong>Long Description:</strong>
+  <%= @organization_profile.long_description %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @organization_profile.location_id %>
+</p>
+<p>
+  <strong>Contact Person:</strong>
+  <%= @organization_profile.contact_person %>
+</p>
+<p>
+  <strong>Phone Number:</strong>
+  <%= @organization_profile.phone_number %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @organization_profile.email %>
+</p>
+<p>
+  <strong>Logo:</strong>
+  <%= @organization_profile.logo %>
+</p>
+<p>
+  <strong>Website:</strong>
+  <%= @organization_profile.website %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_organization_profile_path(@organization_profile) %> |
+  <%= link_to "Destroy", @organization_profile, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", organization_profiles_path %>
+</p>

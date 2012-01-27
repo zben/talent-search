@@ -7,3 +7,28 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $('#skill_picker').click(function(event){ 
+    if($(this).text() == '查看所有技能'){
+       $('.skill_list').show();
+       $(this).text('不使用选择列表');
+       $('.skill_list input').attr("disabled", false);
+     }
+     else{
+       $('.skill_list').hide();
+       $(this).text('查看所有技能');
+       $('.skill_list input').attr("disabled", true);
+     }
+     event.preventDefault();
+  });
+
+  initDynamicOptionLists();
+
+
+  
+
+
+});
+
+

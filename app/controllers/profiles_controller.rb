@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def new
-    @profile = Profile.new
+    redirect_to user_new_path(current_user.id,'profile')
   end
 
   def create

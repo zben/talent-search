@@ -25,20 +25,121 @@ form{
     input{
       margin-bottom:10px;
     }
+    .input{
+      margin:0px;
+    }
     li{
       list-style-type:none;
     }
   
 }
-
+select{
+  width:100%;
+}
+select.date{
+  width:68px;
+}
+.input{
+  margin:0;
+}
 label{
   width:60px;
 }
 
 input, textarea{
-  width:65%;
+  width:100%;
 }
-
+form .clearfix {
+    margin-bottom: 0px;
+}
 legend{
   display:none;
 }
+
+label{
+  width:100%;
+  text-align:left;
+}
+
+
+.modal-body{
+  height:400px;
+  overflow:auto;
+}
+
+ul#triple{
+  xwidth:760px;
+  margin-bottom:20px;
+  overflow:hidden;
+
+}
+ul#triple li{
+  line-height:1.5em;
+
+  float:left;
+  display:inline;
+  width:33.333%;
+}
+
+.collapse {
+
+  h3{
+  background:url("http://webcloud.se/static/i/arrows.png") no-repeat scroll 0 -26px transparent;
+  padding-left:25px;
+    a{
+      text-decoration:none;
+    }
+  }
+  h3.active{
+   background-position:0 15px;
+  }
+}
+
+.main{
+  padding:10px;
+  border-left:1px solid black;
+  border-right:1px solid black;
+}
+.skill_list{
+display:none;
+}
+.label{
+  background-color:transparent;
+}
+
+fieldset{margin:0;padding:0;}
+
+
+form ol{margin:0px;padding:0px;}
+li.fragment label{display:none;}
+li.fragment{
+  display:inline-block;
+  padding:0px;
+  margin:0px;
+  margin-right:5px;
+  
+}
+.collapse h3{
+  font-size:14px;
+} 
+.lab{font-weight:bold;}
+.description{
+  background-color:#F5F5FF;
+  min-height:200px;
+  padding:10px;
+  margin-bottom:10px;  
+  }
+.job_post_snippet{
+  .lab a{
+    color:#999;
+  }
+}  
+.skill_item{background-color:#F5F5FF;display:inline-block;border-radius:5px;padding:2px;min-width:60px;text-align:center}
+.right{
+  text-align:right;
+  label{
+    text-align:right;
+  }
+}
+
+

@@ -1,14 +1,65 @@
 -if params[:action] == 'new'
-  %h2 Create Profile
+  %h2 #{t("Create")}#{t("profile")}
 -else
-  %h2 Update profile 
-= semantic_form_for (@user.profile || Profile.new) do |f| 
-  = f.inputs do
-    = f.input :user_id,:as=>:hidden, :value=>current_user.id
-    = f.input :firstname
-    = f.input :lastname
-    = f.input :birthday, :start_year=>1900
-    = f.input :gender, :as=>:radio,:collection => Gender.all
-    = f.input :citizenship, :as=>:select, :collection => Country.all,:prompt => "Select one..." 
-    = f.input :residence_country, :as=>:select, :collection => Country.all,:prompt => "Select one if any" 
-  = f.buttons 
+  %h2 #{t("Update")}#{t("profile")}
+
+= semantic_nested_form_for @user do |f|
+  = f.error_messages  
+  = f.input :this_step,:as=>:hidden,:value=>'profile'
+  = f.input :next_step,:as=>:hidden,:value=>'education' if params[:action] == 'new'
+  = f.semantic_fields_for :profile  do |p| 
+    = p.inputs do
+      .row
+        .span2= p.input :firstname if I18n.default_locale!=:ch
+        .span2= p.input :lastname
+        .span2= p.input :firstname if I18n.default_locale==:ch
+        .span4= p.input :birthday, :as=>:date,:start_year=>1900
+      .row  
+        .span2= p.input :gender_id, :as=>:select,:collection => Gender.all,:prompt => t("Select one") 
+        .span2= p.input :citizenship,:as=>:select, :collection => Country.all,:prompt => t("Select one") 
+        .span2= p.input :province_id, :as=>:select, :collection => Province.all,:prompt => t("Select one") 
+        .span2= p.input :residence_country, :as=>:select, :collection => Country.all,:prompt => t("Select one") 
+      .span10= p.input :intro_title
+      .span10= p.input :intro, :input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+      .span10= p.input :avatar
+      .span10= check_box_tag :remove_avatar, 1, false
+  
+  
+  
+  = f.semantic_fields_for :usage  do |m| 
+    = m.inputs do
+      =f.label "使用本网站的目的"
+      .row
+        .span4= m.input :find_job,:as=>:boolean
+        .span4= m.input :find_project,:as=>:boolean
+      .row
+        .span4= m.input :find_partner,:as=>:boolean
+        .span4= m.input :find_money,:as=>:boolean
+        
+  = f.link_to_add "Add profile", :profile
+  = f.link_to_add "Add Usage", :usage
+  
+  
+
+  .row.span16.actions
+    .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
+  
+
+
+:javascript
+  $(document).ready(function() {
+    $('a[data-association=profile]').hide();
+    $('a[data-association=usage]').hide();
+    
+    if("#{@user.usage.nil?}"=="true"){
+      $('a[data-association=usage]').click();
+      
+    }
+    if("#{@user.profile.nil?}"=="true"){
+      $('a[data-association=profile]').click();
+      
+    }
+    
+    
+    
+  });  

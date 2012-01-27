@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  industry_id: 1
+  user_id: 1
+  interest_id: 1
+
+two:
+  industry_id: 1
+  user_id: 1
+  interest_id: 1

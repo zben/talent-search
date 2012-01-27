@@ -3,18 +3,25 @@ Talent::Application.routes.draw do
 
 
 
-  resources :exams
+  resources :job_posts
 
-  resources :educations
+  resources :organization_profiles
 
-  resources :experiences
+#  resources :exams
 
-  resources :profiles
+#  resources :educations
 
-  devise_for :users
+#  resources :experiences
+
+#  resources :profiles
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
   resources :users
   match 'users/:id/new/:info'=>'users#new',:as=>'user_new'
   match 'users/:id/edit/:info'=>'users#edit',:as=>'user_edit'
+  match 'users/:id/profile'=>'users#edit',:as=>'user_profile'
+  match 'skills/list'=>'job_posts#skills',:as=>'skills_list'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -63,7 +70,7 @@ Talent::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'users#index'
+  root :to => 'users#profile'
 
   # See how all your routes lay out with "rake routes"
 

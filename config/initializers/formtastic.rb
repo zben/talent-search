@@ -7,7 +7,7 @@
 # around attributes with Hash or Array) values, so make sure you understand what's happening. 
 # See the documentation for class_attribute in ActiveSupport for more information.
 # --------------------------------------------------------------------------------------------------
-
+Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
 # Set the default text field size when input is a string. Default is nil.
 # Formtastic::SemanticFormBuilder.default_text_field_size = 50
 

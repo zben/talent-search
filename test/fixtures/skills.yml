@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  skill_category_id: 1
+  name_en: MyString
+  name_ch: MyString
+
+two:
+  skill_category_id: 1
+  name_en: MyString
+  name_ch: MyString

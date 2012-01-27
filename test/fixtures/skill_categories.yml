@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name_en: MyString
+  name_ch: MyString
+
+two:
+  name_en: MyString
+  name_ch: MyString

@@ -1,0 +1,25 @@
+= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error]
+= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] 
+= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| 
+  .row
+    .span4
+      /= f.label :email 
+      = f.email_field :email,:placeholder=>"电子邮件" 
+    .span3
+      /= f.label :password 
+      = f.password_field :password,:placeholder=>"密码" 
+    .span1= submit_tag t('Sign in') ,:class=>"btn"
+    .span2=link_to t('Sign up'), new_user_registration_path,:class=>"btn"
+    
+  
+-#= render :partial => "devise/shared/links" 
+
+.row
+  .span5
+    %h4 最新工作
+    =render :partial=>'job_posts/job_post',:as=>:job_post, :collection=>JobPost.limit(4)
+  .span5
+    %h4 最新加入
+    =render :partial=>'users/user',:as=>:user,:collection=>User.limit(5)
+  

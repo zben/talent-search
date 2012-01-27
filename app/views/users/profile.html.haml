@@ -1,0 +1,25 @@
+=render 'users/navigation'
+.row
+  .span4
+    =image_tag @user.profile.avatar.url(:medium)
+    %h3=@user.profile.fullname
+    %h5="#{@user.profile.age}岁, #{@user.profile.gender.name}"
+    %h5="#{@user.profile.residence}, #{@user.profile.nationality}国籍"
+    
+    
+  .span12
+    %h3 个性标题
+    =@user.profile.intro_title
+    %h3 工作经验
+    =render @user.experiences
+    %h3 学历
+    =render @user.educations
+    %h3 标准考试成绩
+    =render @user.exams
+    %h3 语言能力
+    =render @user.languages
+    %h3 其他技能
+    =render @user.skills
+    %h3 自我评价
+    .span12=@user.profile.intro
+    

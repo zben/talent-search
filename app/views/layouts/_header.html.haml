@@ -3,11 +3,11 @@
         .container
             =link_to '孙悟空',root_path,:class=>"brand"
             %ul.nav
-                %li=link_to '找人',users_path
-                %li=link_to '您的账户',user_path(current_user) if user_signed_in? 
-                %li=link_to "加入",new_user_registration_path if !user_signed_in?
+                %li=link_to '主页',current_user || root_path
+                %li=link_to '工作',job_posts_path if user_signed_in? 
+                %li=link_to "收藏夹",new_user_registration_path if !user_signed_in?
+                %li=link_to "设置",new_user_session_path if !user_signed_in?
+                %li=link_to "注册",new_user_registration_path if !user_signed_in?
                 %li=link_to "登录",new_user_session_path if !user_signed_in?
                 %li=link_to "退出",destroy_user_session_path,:method => :delete if user_signed_in?
-                %li=link_to "寻创业",''
-                %li=link_to "找工作",''
-                %li=link_to "找任务",''
+                

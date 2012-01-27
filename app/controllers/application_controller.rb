@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery
-  
+    before_filter :set_locale
+ 
     def authenticate!    
         unless user_signed_in?
-            render "pages/landing"
+            redirect_to new_user_session_path
         end
     end
     
@@ -13,6 +14,12 @@ class ApplicationController < ActionController::Base
       else
         user_new_path(resource.id,'profile')
       end
+    end
+    
+    
+    def set_locale
+      I18n.default_locale = params[:locale] if params[:locale]
+      I18n.locale = params[:locale] || I18n.default_locale
     end
 
 end

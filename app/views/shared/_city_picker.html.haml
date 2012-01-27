@@ -1,0 +1,21 @@
+.span2
+  =f.label :province
+  =select_tag "province", options_from_collection_for_select(Province.all, "id", "name")
+.span2
+  =f.input :city_id,:as=>:select,:collection => City.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
+  
+
+:javascript
+
+  var names = new DynamicOptionList();
+  names.addDependentFields("province","job_post[city_id]");
+  var info = #{Province.all.map{|x| [x,x.cities]}.to_json};
+  for (var i=0;i<info.length;i++){
+    for(var j=0;j<info[i][1].length;j++){
+      var province_id = info[i][0]['id'];
+      var city_id = info[i][1][j]['id'];
+      var city_name = info[i][1][j]['name_ch']; 
+      names.forValue(province_id).addOptionsTextValue(city_name,city_id);
+    }
+  }
+ 

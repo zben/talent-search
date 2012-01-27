@@ -1,0 +1,224 @@
+ch:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b%d日"
+      long: "%Y年%b%d日"
+    day_names:
+      - 星期日
+      - 星期一
+      - 星期二
+      - 星期三
+      - 星期四
+      - 星期五
+      - 星期六
+    abbr_day_names:
+      - 日
+      - 一
+      - 二
+      - 三
+      - 四
+      - 五
+      - 六
+    month_names:
+      - ~
+      - 一月
+      - 二月
+      - 三月
+      - 四月
+      - 五月
+      - 六月
+      - 七月
+      - 八月
+      - 九月
+      - 十月
+      - 十一月
+      - 十二月
+    abbr_month_names:
+      - ~
+      - 1月
+      - 2月
+      - 3月
+      - 4月
+      - 5月
+      - 6月
+      - 7月
+      - 8月
+      - 9月
+      - 10月
+      - 11月
+      - 12月
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%Y年%b%d日 %A %H:%M:%S %Z"
+      short: "%b%d日 %H:%M"
+      long: "%Y年%b%d日 %H:%M"
+    am: "上午"
+    pm: "下午"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "半分钟"
+      less_than_x_seconds:
+        one: "不到一秒"
+        other: "不到 %{count} 秒"
+      x_seconds:
+        one: "一秒"
+        other: "%{count} 秒"
+      less_than_x_minutes:
+        one: "不到一分钟"
+        other: "不到 %{count} 分钟"
+      x_minutes:
+        one: "一分钟"
+        other: "%{count} 分钟"
+      about_x_hours:
+        one: "大约一小时"
+        other: "大约 %{count} 小时"
+      x_days:
+        one: "一天"
+        other: "%{count} 天"
+      about_x_months:
+        one: "大约一个月"
+        other: "大约 %{count} 个月"
+      x_months:
+        one: "一个月"
+        other: "%{count} 个月"
+      about_x_years:
+        one: "大约一年"
+        other: "大约 %{count} 年"
+      over_x_years:
+        one: "一年多"
+        other: "%{count} 年多"
+      almost_x_years:
+        one:   "接近一年"
+        other: "接近 %{count} 年"
+    prompts:
+      year:   "年"
+      month:  "月"
+      day:    "日"
+      hour:   "时"
+      minute: "分"
+      second: "秒"
+
+  errors:
+    format: "%{message}"
+  activerecord:
+    models:
+      user: "用户"
+      profile: "个人信息"
+      usage: "使用网站目的"
+      job_post: "职位"
+    attributes:
+      job_post:
+        title: "职位名称"
+        company_name: "公司名称"
+        city_id: "工作地点"
+        industry_id: "行业"
+        job_type_id: "工作性质"
+        years_required: "经验"
+        salary: "薪酬"
+        description: "职位描述"
+        job_requirement: "职位要求"
+        contact_person: "联系人"
+        phone_number: "电话号码"
+        email: "电子邮件"
+        expiration: "截止日期"
+        logo: "上传图片"
+        website: "网站"
+      language: 
+        language_option_id: "语言"
+        language_level_id: "能力程度"
+      experience:
+        company_name: "公司"
+        job_title: "职位"
+        description: "工作成就"
+        start_date: "开始日期"
+        end_date: "结束日期（可不填）"
+      exam:
+        exam_name: "考试名称"
+        score: "分数"
+        date: "考试日期"
+      education:
+        school: "学校名称"
+        degree_type: "学位"
+        program: "专业"
+        GPA: "学分"
+        start_date: "开始日期"
+        end_date: "完成日期（或预计完成日期）"
+        comment: "总结"
+      profile:
+        firstname: "名"
+        lastname: "姓"
+        birthday: "生日"
+        gender: "性别"
+        citizenship: "国籍"
+        province: "省籍"
+        residence_country: "现在居住国"  
+        intro: "自我点评"
+        intro_title: "个性标题"
+      usage:
+        find_job: "寻找全职工作机会"
+        find_project: "寻找短期项目接活"
+        find_partner: "寻找创业伙伴和朋友"
+        find_money: "寻找创业资金"
+        citizenship: "国籍"
+        province: "省籍"
+        residence_country: "现在居住国"  
+        intro: "自我点评"
+        intro_title: "个性标题"
+      user:
+        email: "电子邮件"
+        password: "密码"
+        password_confirmation: "再次输入密码" 
+    errors:
+      header: "表格无法提交"
+      message: "请改正下列错误再重试"
+      messages:
+        blank: "%{attribute}不能为空"
+      models:
+        profile:
+          attributes:
+            firstname:
+              blank: "名不能为空"
+        user:
+          attributes:
+            email:
+              taken: "电子邮件地址已经被占用"
+              blank: "电子邮件地址不能为空"
+              too_short: "您的邮件邮件太短"
+              invalid: "您的电子邮件地址不能使用"  
+            password:
+              confirmation: "请完整输入两遍密码"
+              blank: "密码不能为空"
+              too_short: "密码太短"  
+            password_confirmation:
+              blank: "两次密码输入不相符" 
+  male: "男"
+  female: "女"
+  gender: "性别"
+  Firstname: "名"
+  update: "更新"
+  create: "创建"
+  profile: "个人信息"
+  I agree to: "我同意"
+  the service terms: "用户协议"
+  Sign up: "注册"
+  Agree to service terms first: "请先同意服务条款"
+  Create: "创建"
+  Update: "更新"
+  Select one: "请选择"
+  Next Step: "下一步"
+  Save Changes: "保存修改"
+  Save: "保存"
+  Sign in: "登录"
+  remember me: "浏览器提示登录信息"
+  update successful: "更新成功！"
+  Education History: "学历"
+  Add: "添加"
+  Remove: "删除"
+

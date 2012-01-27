@@ -1,19 +1,24 @@
--if params[:action] == 'new'
-  %h2 Add Work History
+-if @is_new
+  %h2 添加工作经验
 -else
-  %h2 Update Work History 
+  %h2 更新工作经验 
 
-
-.row.span12
-  = semantic_nested_form_for @user do |f|
-    = f.semantic_fields_for :experiences do |exp|
-      .span12= exp.input :company_name,:label=>'Company'
-      .span12= exp.input :job_title
-      .span12= exp.input :description,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
-      .row
-        .span4=exp.input :start_date,:as=>:string
-        .span4=exp.input :end_date, :as=>:string
-      = exp.link_to_remove "Remove this degree" 
-    = f.link_to_add "Add a degree", :experiences
-    = f.buttons 
+=render 'shared/flash',:flash=>flash
+.row
+  .span12
+    = semantic_nested_form_for @user do |f|
+      = f.error_messages  
+      = f.input :this_step,:as=>:hidden,:value=>'experience'
+      = f.input :next_step,:as=>:hidden,:value=>'skill' if @is_new
+      = f.semantic_fields_for :experiences do |exp|
+        .span12= exp.input :company_name
+        .span12= exp.input :job_title
+        .span12= exp.input :description,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+        .row
+          .span4=exp.input :start_date,:as=>:string
+          .span4=exp.input :end_date, :as=>:string
+        = exp.link_to_remove "删除工作经验" 
+      = f.link_to_add "添加工作经验", :experiences
+      .row.span16.actions
+        .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
 

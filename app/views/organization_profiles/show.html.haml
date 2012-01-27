@@ -1,0 +1,33 @@
+- title "Organization Profile"
+%p
+  %strong Name:
+  = @organization_profile.name
+%p
+  %strong Short Description:
+  = @organization_profile.short_description
+%p
+  %strong Long Description:
+  = @organization_profile.long_description
+%p
+  %strong Location:
+  = @organization_profile.location_id
+%p
+  %strong Contact Person:
+  = @organization_profile.contact_person
+%p
+  %strong Phone Number:
+  = @organization_profile.phone_number
+%p
+  %strong Email:
+  = @organization_profile.email
+%p
+  %strong Logo:
+  = @organization_profile.logo
+%p
+  %strong Website:
+  = @organization_profile.website
+%p
+  = link_to "Edit", edit_organization_profile_path(@organization_profile)
+  |
+  \#{link_to "Destroy", @organization_profile, :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", organization_profiles_path}
