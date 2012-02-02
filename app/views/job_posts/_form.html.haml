@@ -1,15 +1,16 @@
 = semantic_form_for @job_post do |f|
   = f.error_messages
   = f.inputs do
+
     .row
       .span8=f.input :company_name
       .span4=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
     .row
       .span3=f.input :title
-      .span2=f.input :job_type_id, :as=>:select, :collection=>JobType.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
+      .span2=f.input :job_type, :as=>:select, :collection=>JobPost.job_types_for_select,:prompt => t("Select one")
       .span1=f.input :years_required,:placeholder=>"年"
       .span2=f.input :salary
-      =render 'shared/city_picker',:f=>f
+      =render 'shared/city_picker',:f=>f,:item=>'job_post'
     .span12=f.input :description,:input_html => { :class => 'autogrow', :rows => 10}
     .span12=f.input :job_requirement,:rows=>10,:input_html => { :class => 'autogrow', :rows => 10}
     .row
@@ -25,7 +26,7 @@
       .span4=f.input :website
     =render 'shared/skill_picker',:item=>@job_post
 
-    = f.buttons :commit 
+    = submit_tag "添加职位",:class=>"btn"
  
  
 

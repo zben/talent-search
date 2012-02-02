@@ -11,6 +11,7 @@ gem 'nested_form',:git => 'git://github.com/ryanb/nested_form.git'
 gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'active_hash'
+gem "seedbank"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -19,12 +20,16 @@ group :assets do
   gem 'uglifier'
 end
 gem 'jquery-rails'
-gem "paperclip", "~> 2.0"
+#gem "paperclip", "~> 2.0"
 group :development do
   gem 'sqlite3'
 end
-#gem 'mongoid'
-#gem 'bson_ext'
+gem 'mongoid'
+gem 'bson_ext'
+gem 'mongoid_fulltext'
+gem 'simple_enum', :path => "lib/simple_enum"
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem "aws-s3",            :require => "aws/s3"
 gem 'thin'
 group :production do
   # gems specifically for Heroku go here

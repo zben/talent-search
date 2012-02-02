@@ -1,16 +1,21 @@
-class Country < ActiveYaml::Base
+class Country
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  include ActiveHash::Associations
+  field :name_ch
+  field :name_en
+   
   has_many :citizens, :class_name=>"Profile",:foreign_key=>'citizenship'
   has_many :residents, :class_name=>"Profile",:foreign_key=>'residence_country'
-  set_root_path "app/models"
-#  self.data = [
-#    {:id => 1, :name => "China"},
-#    {:id => 2, :name => "United States"}
-#  ]
+  has_many :provinces
 
-  def name
-    eval("name_#{I18n.default_locale}")
-  end
+
+
+  
+#  def self.using_object_ids?
+#  false 
+#  end
+  
+  
 end
 

@@ -1,8 +1,11 @@
 # encoding: UTF-8
-class Interest < ActiveRecord::Base
+class Interest
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  
   has_many :industries_users
-  has_many :industries, :through=>:industries_users
-  has_many :users, :through=>:industries_users
+#  has_many :industries, :through=>:industries_users
+#  has_many :users, :through=>:industries_users
   
   def self.populate
     Interest.create(:name_ch=>"求职",:name_en=>"Jobs")

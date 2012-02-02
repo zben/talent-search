@@ -13,7 +13,7 @@
       .span5=(name=@job_post.title).blank? ? '未填' : name
     .row
       .span2.lab 工作类型:  
-      .span2=(name=@job_post.job_type).blank? ? '未填' : name.name
+      .span2=(name=@job_post.job_type).blank? ? '未填' : name
     .row
       .span2.lab 工作年限:
       .span2=(years=@job_post.years_required).to_f==0 ? '无要求' : "#{years}年"

@@ -107,7 +107,7 @@ ch:
 
   errors:
     format: "%{message}"
-  activerecord:
+  mongoid:
     models:
       user: "用户"
       profile: "个人信息"
@@ -119,9 +119,9 @@ ch:
         company_name: "公司名称"
         city_id: "工作地点"
         industry_id: "行业"
-        job_type_id: "工作性质"
+        job_type: "工作性质"
         years_required: "经验"
-        salary: "薪酬"
+        salary: "薪酬（单位:万）"
         description: "职位描述"
         job_requirement: "职位要求"
         contact_person: "联系人"
@@ -130,15 +130,16 @@ ch:
         expiration: "截止日期"
         logo: "上传图片"
         website: "网站"
+        province: "工作省份"
       language: 
         language_option_id: "语言"
-        language_level_id: "能力程度"
+        language_level: "能力程度"
       experience:
         company_name: "公司"
         job_title: "职位"
         description: "工作成就"
         start_date: "开始日期"
-        end_date: "结束日期（可不填）"
+        end_date: "结束日期（不填表示尚未结束）"
       exam:
         exam_name: "考试名称"
         score: "分数"
@@ -152,15 +153,30 @@ ch:
         end_date: "完成日期（或预计完成日期）"
         comment: "总结"
       profile:
+        name: "明"
         firstname: "名"
         lastname: "姓"
         birthday: "生日"
         gender: "性别"
         citizenship: "国籍"
-        province: "省籍"
+        province_id: "省籍"
         residence_country: "现在居住国"  
         intro: "自我点评"
         intro_title: "个性标题"
+      org_profile:
+        company_name: "公司名称"
+        short_description: "简要介绍"
+        long_description: "详细介绍"
+        people_count: "机构人数"
+        province: "总部省份"
+        contact_person: "联系人"
+        email: "电子邮件"
+        phone_number: "联系电话"
+        avatar: "公司商标图案"
+        website: "官方网站"
+        industry_id: "所属行业"
+        city_id: "总部城市"  
+        avatar:  
       usage:
         find_job: "寻找全职工作机会"
         find_project: "寻找短期项目接活"
@@ -175,6 +191,15 @@ ch:
         email: "电子邮件"
         password: "密码"
         password_confirmation: "再次输入密码" 
+        avatar: "上传头像"
+      job_search:
+        city_id: "城市"
+        industry_id: "行业"
+        max_salary: "最高薪水"
+        min_salary: "最低薪水"
+        keywords: "关键词"
+        province: "省份"
+        
     errors:
       header: "表格无法提交"
       message: "请改正下列错误再重试"
@@ -205,6 +230,7 @@ ch:
   update: "更新"
   create: "创建"
   profile: "个人信息"
+  org_profile: "企业机构信息"
   I agree to: "我同意"
   the service terms: "用户协议"
   Sign up: "注册"

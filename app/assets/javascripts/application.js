@@ -23,10 +23,6 @@ $(document).ready(function() {
      event.preventDefault();
   });
 
-  initDynamicOptionLists();
-
-
-  
 
 
 });

@@ -15,7 +15,7 @@
   
   .row
     .span2= f.label '用户类别'
-    .span4= f.select :type_id, options_for_select([['个人用户',1],['机构/企业用户',2]])
+    .span4= f.select :_type, options_for_select([['个人用户','IndUser'],['机构/企业用户','OrgUser']])
   .row
     .span2= f.label '邀请码'
     .span4= text_field_tag :invitation_code  

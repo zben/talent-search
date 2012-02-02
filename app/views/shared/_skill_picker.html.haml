@@ -19,13 +19,13 @@
       .row.collapse
         %h3=category.name
         %ul#triple.span12
-          -category.skills.each do |skill|
+          -category.skills.asc(:name_ch).each do |skill|
             %li
-              = check_box_tag "job_post[skill_ids][]", skill.id, item.skills.include?(skill)
+              = check_box_tag "jobpost[skill_ids][]", skill.id, item.skills.include?(skill),:disabled=>true
               = skill.name
 
 
 :javascript
 
-
-  $(".skills input").autoSuggest("http://localhost:3000/skills/list", {asHtmlID: "skills", selectedValuesProp: "id", selectedItemProp: "name_#{I18n.locale}", searchObjProps: "name_#{I18n.locale}", startText: "在此输入技能",matchCase: false, preFill:#{item.skills.to_json}});
+  $(".skills input").autoSuggest("http://localhost:3000/skills/list", {asHtmlID: "skills", selectedValuesProp: "_id", selectedItemProp: "name_#{I18n.locale}", searchObjProps: "name_#{I18n.locale}", startText: "在此输入技能",matchCase: false, preFill:
+  #{item.skills.to_json}});

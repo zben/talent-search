@@ -1,8 +1,10 @@
-
-
-
-class Skill < ActiveRecord::Base
-
+class Skill
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  
+  field :name_ch
+  field :name_en
+  
   belongs_to :skill_category
   has_and_belongs_to_many :users
   has_and_belongs_to_many :job_posts
@@ -12,11 +14,11 @@ class Skill < ActiveRecord::Base
   end
   
   def self.populate
-       data=File.new("app/models/skills_file.txt").lines
+       data=File.new("db/base_data/skills_file.txt").lines
        current_category = nil
        SkillCategory.delete_all
        Skill.delete_all
-       transaction do 
+
          data.each do |line|
           if !line.strip.empty?
             if line.start_with?(" ")==false
@@ -28,6 +30,6 @@ class Skill < ActiveRecord::Base
             end
           end
         end
-      end 
+       
   end
 end

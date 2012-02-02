@@ -10,16 +10,15 @@ class JobPostsController < ApplicationController
 
   def new
     @job_post = JobPost.new
+    @job_post.industry_id=current_user.org_profile.industry_id unless current_user.org_profile.nil?
   end
 
   def create
     @job_post = JobPost.new(params[:job_post])
 
     if @job_post.save
-      params[:as_values_skills].split(",").each do |skill_id|
-          @job_post.skills << Skill.find(skill_id)
-      end
-
+      current_user.job_posts << @job_post
+      
       redirect_to @job_post, :notice => "Successfully created job post."
     else
       render :action => 'new'
@@ -48,8 +47,5 @@ class JobPostsController < ApplicationController
     redirect_to job_posts_url, :notice => "Successfully destroyed job post."
   end
   
-  def skills
-      render :json=>Skill.where("name_#{I18n.locale} LIKE '%#{params[:q]}%'")
-      
-  end
+
 end

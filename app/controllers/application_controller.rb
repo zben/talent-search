@@ -9,10 +9,18 @@ class ApplicationController < ActionController::Base
     end
     
     def after_sign_in_path_for(resource)
-      if resource.profile
-        user_path(resource.id)
+      if resource.class.name=="IndUser"
+        if resource.profile
+          ind_user_path(resource.id)
+        else
+          ind_user_new_path(resource.id,'profile')
+        end
       else
-        user_new_path(resource.id,'profile')
+        if resource.org_profile
+          org_user_path(resource.id)
+        else
+          org_user_new_path(resource.id,'profile')
+        end
       end
     end
     
