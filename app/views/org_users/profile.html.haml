@@ -1,0 +1,67 @@
+=render 'org_users/navigation'
+
+.row
+  .span12
+    %h1=@user.org_profile.company_name  
+    .row
+      .span3
+        所属行业:
+        =@user.org_profile.industry.name    
+      .span3
+        公司总部:
+        =@user.org_profile.city.fullname
+      .span3
+        公司人数:
+        =@user.org_profile.people_count  
+    
+
+    .row
+      .span10
+        %h3 简要介绍
+        =@user.org_profile.short_description
+      .span10
+        %h3 详细介绍
+        =@user.org_profile.long_description
+        
+    .row
+      
+      .span2
+        %h4 联系人
+        =@user.org_profile.contact_person
+      
+      .span3
+        %h4 电话号码
+        =@user.org_profile.phone_number
+      
+      .span3
+        %h4 电子邮件
+        =@user.org_profile.email
+     
+    .row
+      .span12
+        %h4 官方网站
+        =@user.org_profile.website
+      
+  .span4
+    =image_tag @user.logo.url(:medium)
+.row
+  .span12
+    %h3 最近发布职位 
+
+    %table.zebra-striped
+      %tr
+        %th 职位
+        %th 薪酬
+        %th 地点
+        %th 截止日期
+        %th
+        %th
+      - for job_post in @user.job_posts.limit(5)
+        %tr
+          %td=link_to job_post.title,job_post
+          %td= job_post.salary ||'面议'
+          %td= job_post.city.name
+          %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
+          %td= link_to "收藏", job_post
+          %td= link_to "查看", edit_job_post_path(job_post)
+      

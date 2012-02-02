@@ -1,0 +1,406 @@
+Business, Accounting, Human Resource & Legal//商业, 会计, 人力资源与法律
+  Accounting//会计
+  Audit//审计
+  Business Analysis//商业分析
+  Business Plans//商业计划书
+  Contracts//合同
+  Employment Law//聘用合同
+  ERP//企业资源计划
+  Event Planning//合同策划
+  Finance//金融
+  Fundraising//融资
+  Human Resources//人力资源
+  Inventory Management//库存管理
+  ISO9001// ISO9001
+  Legal//法律
+  Legal Research//法律研究
+  Management//管理
+  MYOB// MYOB
+  Patents//专利
+  Payroll//薪金
+  PeopleSoft// PeopleSoft
+  Personal Development//个体发展
+  Project Management//项目管理
+  Property Law//物权法
+  Public Relations//公共关系
+  Quickbooks & Quicken// Quickbooks & Quicken
+  Recruitment//招募，雇佣
+  Salesforce.com//一种做销售管理的软件
+  SAS// SAS
+  Tax Law//税法
+  Visa / Immigration//签证/移民 
+
+Data Administration//数据管理
+  Customer Support//客户服务
+  Data Entry//数据录入
+  Data Processing//数据处理
+  Desktop Support//桌面支持
+  Excel // Excel
+  Order Processing//订单处理
+  Phone Support//电话服务
+  Technical Support//技术支持
+  Transcription//转录
+  Video Upload//视频上传
+  Virtual Assistant//虚拟助理
+  Web Search//网络搜索 
+
+Design, Media and Architecture//设计,媒体与建筑 
+  3ds Max// 3ds Max
+  ActionScript//游戏编程软件
+  Advertisement Design//广告设计
+  After Effects//后期合成
+     Animation//动画
+  Arts & Crafts//工艺品
+  Audio Services//视频服务
+  Banner Design//横幅设计
+  Blog Design//博客设计
+  Brochure Design//宣传册设计
+  Building Architecture//建筑设计
+  Business Cards//名片
+  Capture NX2//摄影软件
+  Caricature & Cartoons//漫画&卡通
+  CGI// CGI
+  Commercials//商业股票
+  Concept Design//概念设计
+  Corporate Identity//企业标识
+  Covers & Packaging//封面及包装
+  CSS//级联样式表
+  Dreamweaver// Dreamweaver
+  Fashion Design//时装设计
+  Fashion Modeling//时尚造型
+  Final Cut Pro// Final Cut Pro
+  Finale / Sibelius//压轴/西贝柳斯，音乐创作软件
+  Flash//动画
+  Flex// Flex
+  Flyer Design//宣传页设计
+  Furniture Design//家具设计
+  Google SketchUp//Google 地球建模
+  Graphic Design//图像设计
+  Icon Design//图标设计
+  Illustrator//插画设计
+  Industrial Design//工业设计
+  Infographics//信息图表
+  Interior Design//内部设计
+  Invitation Design//邀请设计
+  Landing Pages//登陆页面
+  Logo Design//标志设计
+  Motion Graphics//动态图形 
+  Music//音乐
+  Photo Editing//照片编辑
+  Photography//摄影
+  Photoshop // Photoshop
+  Post-Production//后期制作
+  Poster Design//宣传海报设计
+  Pre-production//前期生产
+  Presentations//演示
+  Prezi//一个幻灯片演示与制作的在线影院
+  Print//印刷，出版
+  PSD to HTML//PSD转为HTML
+  PSD2CMS // PSD2CMS
+  QuarkXPress//桌面排版软件
+  Shopify Templates//电子商务解决方案
+  Stationery Design//信纸设计
+  Sticker Design//便利贴设计
+  T-Shirts//T恤设计？
+  Typography//凸版印刷术
+  Videography//录像
+  Visual Arts//视觉艺术
+  Website Design//网站设计
+  Word // Word 
+  
+Engineering and Science//工程与科学
+     Aeronautical Engineering//航空工程
+  Aerospace Engineering//航空航天工程
+  Algorithm//算法
+  Astrophysics//天体物理学
+  AutoCAD// AutoCAD
+  Biology//生物科学
+  Biotechnology//生物技术
+  Broadcast Engineering//广播工程
+  CAD/CAM//计算机辅助设计/计算机辅助制造
+  Chemical Engineering//化学工程
+  Civil Engineering//土木工程
+  Clean Technology//清洁能源技术
+  Climate Sciences//气候科学
+  Construction Monitoring//建筑监理
+  Cryptography//加密
+  Data Mining//数据挖掘
+  Electrical Engineering//电子工程
+     Electronics//电学
+  Engineering//工程科学
+  Engineering Drawing//工业制图
+  Finite Element Analysis//有限元分析
+  Genetic Engineering//遗传工程
+  Geology//地质学
+  GPS//全球定位系统
+  Home Design//家居设计
+  Human Sciences//人文科学
+  Imaging//成像
+  Industrial Engineering//工业工程
+  Instrumentation//仪器仪表 
+  Linear Programming//线性规划
+  Machine Learning//人工智能
+  Manufacturing Design//制造设计
+  Materials Engineering//材料工程
+  Mathematics//数学
+  Matlab & Mathematica//2个数学软件
+  Mechanical Engineering//机械工程
+  Mechatronics//机电一体化
+  Medical//医疗
+  Microcontroller//微控制器
+  Microstation//微型工作站
+  Mining Engineering//采矿工程
+  Nanotechnology//纳米技术
+  Natural Language//自然语言（人工智能分科）
+  PCB Layout//电路图布局
+  Petroleum Engineering//石油工程
+  PLC & SCADA // PLC & SCADA
+  Product Management//产品管理
+  Project Scheduling//项目调度
+  Quantum science//量子科学
+  Remote Sensing//遥感
+  Robotics//机器人学
+  RTOS//实时操作系统
+  Scientific Research//科学研究
+  Solidworks // Solidworks
+  Statistics//统计学
+  Structural Engineering//结构工程
+  Telecommunications Engineering//通讯工程
+  Verilog / VHDL // Verilog / VHDL
+  Wireless//无线技术 
+Product sourcing and manufacturing//产品供源与生产
+  Buyer Sourcing//买家开发
+  Logistics & Shipping//物流和运输
+  Manufacturing//生产制造
+  Product Design//产品设计
+  Product Sourcing//为新产品找供应商
+  Supplier Sourcing//供应商采购 
+Sales and Marketing//销售与营销
+  Ad Planning & Buying//广告策划和购买
+  Advertising//广告宣传
+  Affiliate Marketing//联盟营销
+  Branding//品牌建立
+  Bulk Marketing//批量市场营销
+  Classifieds Posting//分类广告
+  CRM//客户关系管理
+  eBay // eBay
+  Google Adsense // Google Adsense
+  Internet Marketing//网络营销
+  Leads//客户对购买产品或服务展示兴趣
+  Market Research//市场调查
+  Marketing//市场营销
+     MLM//多层级营销
+  Sales//销售代表
+  SEM / Adwords//搜索引擎营销
+  Telemarketing//电话营销
+  Viral Marketing//病毒式营销 
+Website, IT and software//网站, IT与软件
+     .NET // .NET
+  Active Directory // Active Directory
+  Agile Development // Agile Development
+  AJAX // AJAX
+  Amazon Web Services // Amazon Web Services
+  Apache // Apache
+  Apache Solr // Apache Solr
+  Apple Safari // Apple Safari
+  AS400 & iSeries // AS400 & iSeries
+  ASP // ASP
+  Assembly // Assembly
+  Asterisk PBX // Asterisk PBX
+  AutoHotkey // AutoHotkey
+  Azure // Azure
+  Balsamiq // Balsamiq
+  BigCommerce // BigCommerce
+  Blog Install //  Blog Install
+  BMC Remedy // BMC Remedy
+  Boonex Dolphin // Boonex Dolphin
+  Business Catalyst // Business Catalyst
+  C Programming // C Programming
+  C# Programming // C# Programming
+  C++ Programming // C++ Programming
+  CakePHP // CakePHP
+  Chordiant // Chordiant
+  Chrome OS // Chrome OS
+  Cisco // Cisco
+  Cloud Computing // Cloud Computing
+  CMS // CMS
+  COBOL // COBOL
+  Cocoa // Cocoa
+  Codeigniter // Codeigniter
+  Cold Fusion // Cold Fusion
+  Computer Graphics // Computer Graphics
+  Computer Security // Computer Security
+  CRE Loaded // CRE Loaded
+  CS-Cart // CS-Cart
+  CubeCart // CubeCart
+  CUDA //CUDA
+  Dart //Dart
+  Database Administration // Database Administration
+  Debugging //Debugging
+  Delphi //Delphi
+  Django //Django
+  DNS //DNS
+  DOS //DOS
+  DotNetNuke //DotNetNuke
+  Drupal //Drupal
+  Dynamics AX //Dynamics AX
+  eCommerce //eCommerce
+  eLearning //eLearning
+  Electronic Forms //Electronic Forms
+  Embedded Software //Embedded Software
+  Erlang// Erlang
+  Expression Engine //Expression Engine
+  Face Recognition //Face Recognition
+  Facebook //Facebook
+  FileMaker FileMaker
+  Firefox //Firefox
+  Fortran //Fortran
+  Forum Software //Forum Software
+  FreelancerAPI //FreelancerAPI
+  Game Consoles //Game Consoles
+  Game Design //Game Design
+  Gamification //Gamification
+  Google Analytics //Google Analytics
+  Google App Engine //Google App Engine
+  Google Buzz //Google Buzz
+  Google Checkout //Google Checkout
+  Google Chrome //Google Chrome
+  Google Earth //Google Earth
+  Google Go //Google Go
+  Google Plus //Google Plus
+  Google Wave //Google Wave
+  GPGPU //GPGPU
+  Grease Monkey //Grease Monke
+  Haskell //Haskell
+  HP Openview //HP Openview
+  HTML// HTML
+  HTML5// HTML5
+  IBM Tivoli //IBM Tivoli
+  IIS //IIS
+  Interspire //Interspire
+  J2EE //J2EE
+  Java //Java
+  JavaFX //JavaFX
+  Javascript //Javascript
+  Joomla //Joomla
+  jQuery / Prototype //jQuery / Prototype
+  JSP //JSP
+  Kinect// Kinect
+  LabVIEW// LabVIEW
+  Link Building //Link Building
+  Linkedin// Linkedin
+  Linux// Linux
+  Lotus Notes //Lotus Notes
+  Mac OS //Mac OS
+  Magento //Magento
+  Metatrader //Metatrader
+  Microsoft //Microsoft
+  Microsoft Access //Microsoft Access
+  Microsoft Exchange //Microsoft Exchange
+  Microsoft Expression //Microsoft Expression
+  MMORPG //MMORPG
+  MODx //MODx
+  MVC //MVC
+  MySpace //MySpace
+  MySQL //MySQL
+  Nginx //Nginx
+  Ningv //Ning
+  NoSQL Couch & Mongo// NoSQL Couch & Mongo
+  Objective C //Objective C
+  OCR// OCR
+  Oracle //Oracle
+  OSCommerce //OSCommerce
+  Parallels Automation //Parallels Automation
+  Parallels Desktop //Parallels Desktop
+  Pattern Matching //Pattern Matching
+  Paypal API //Paypal API
+  Pentaho //Pentaho
+  Perl //Perl
+  Photoshop Coding //Photoshop Coding
+  PHP //PHP
+  PICK Multivalue DB //PICK Multivalue DB
+  Plesk //Plesk
+  Prestashop //Prestashop
+  Prolog //Prolog
+  Protoshare //Protoshare
+  Python //Python
+  REALbasic //REALbasic
+  Rocket Engine// Rocket Engine
+  Ruby & Ruby on Rails //Ruby & Ruby on Rails
+  SAP //SAP
+  Script Install //Script Install
+  Scrum Development //Scrum Development
+  Sencha / YahooUI //Sencha / YahooUI
+  SEO //SEO
+  Sharepoint //Sharepoint
+  Shell Script// Shell Script
+  Shopping Carts //Shopping Carts
+  Silverlight //Silverlight
+  Smarty PHP //Smarty PHP
+  Social Engine //Social Engine
+  Social Networking //Social Networking
+  Software Architecture //Software Architecture
+  Software Testing //Software Testing
+  Solaris //Solaris
+  SQL //SQL
+  Symfony PHP //Symfony PHP
+  System Admin// System Admin
+  TaoBao API// TaoBao API
+  TestStand //TestStand
+  Tumblr //Tumblr
+  Twitter// Twitter
+  UML Design //UML Design
+  Unity 3D //Unity 3D
+  UNIX //UNIX
+  Usability Testing //Usability Testing
+  User Interface / IA // User Interface / IA
+  vBulletin //vBulletin
+  Virtual Worlds //Virtual Worlds
+  Virtuemart //Virtuemart
+  Virtuozzo //Virtuozzo
+  Visual Basic //Visual Basic
+  Visual Foxpro //Visual Foxpro
+  VoIP //VoIP
+  Volusion //Volusion
+  vTiger //vTiger
+  Web Scraping //Web Scraping
+  Web Security //Web Security
+  Website Management //Website Management
+  Website Testing// Website Testing
+  Windows Desktop// Windows Desktop
+  Windows Server //Windows Server
+  Wordpress //Wordpress
+  WPF //WPF
+  XML// XML
+  XSLT //XSLT
+  Yii //Yii
+  YouTube //YouTube
+  Zen Cart // Zen Cart
+  Zend // Zend
+     
+Writing//文书写作
+  Academic Writing//学术类写作
+  Book Writing//写书
+  Editing//编辑
+  Fiction//小说
+  Financial Research//金融研究
+  Forum Posting//论坛发帖
+  Ghostwriting//代笔
+  Grant Writing//基金申请撰写
+  Medical Writing//医药英语写作
+  Newsletters//通讯
+  Poetry//诗
+  Powerpoint // Powerpoint
+  Press Releases//新闻稿
+  Proofreading//校对
+  Publishing//出版
+  Report Writing//撰写报告
+  Research//研究
+  Resumes//简历
+  Screenwriting//编剧
+  Short Stories//短篇小说
+  Speech Writing//演讲写作
+  Technical Writing//技术写作
+  Translation//翻译
+  Travel Writing//游记 
+ 

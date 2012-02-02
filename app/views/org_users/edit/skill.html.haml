@@ -1,0 +1,20 @@
+-if @is_new
+  %h2 添加您感兴趣的人才技能
+-else
+  %h2 更新您感兴趣的人才技能 
+
+
+=render 'shared/flash',:flash=>flash
+
+
+.row
+  .span12
+    = semantic_nested_form_for @user do |f|
+      = f.error_messages  
+      = hidden_field_tag :current_step, 'skill' if @is_new
+      =render 'shared/skill_picker',:item=>@user
+      .row.span16.actions
+        .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
+
+
+

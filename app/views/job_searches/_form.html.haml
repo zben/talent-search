@@ -1,0 +1,10 @@
+=semantic_form_for @search do |f|
+  =f.inputs do
+    .row 
+      .span3=f.input :industry_id, :as=>:select, :collection=>Industry.all
+      =render 'shared/city_picker',:f=>f,:item=>'job_search'
+      .span2=f.input :min_salary
+      .span2=f.input :max_salary
+      .span2=f.input :keywords
+      .span2
+        =submit_tag "搜索",:class=>"btn"

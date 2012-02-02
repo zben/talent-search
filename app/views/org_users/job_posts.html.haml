@@ -1,0 +1,19 @@
+=render 'org_users/navigation'
+%table.zebra-striped
+  %tr
+
+    %th 职位
+    %th 薪酬
+    %th 地点
+    %th 截止日期
+    %th
+    %th
+  - for job_post in @job_posts
+    %tr
+
+      %td=link_to job_post.title,job_post
+      %td= job_post.salary ||'面议'
+      %td= job_post.city.name
+      %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
+      %td= link_to "收藏", job_post
+      %td= link_to "查看", edit_job_post_path(job_post)
