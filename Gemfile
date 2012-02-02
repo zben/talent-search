@@ -27,7 +27,7 @@ end
 gem 'mongoid'
 gem 'bson_ext'
 gem 'mongoid_fulltext'
-gem 'simple_enum'
+gem 'simple_enum', :git => 'git://github.com/lwe/simple_enum.git'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "aws-sdk",            :require => "aws/s3"
 gem 'thin'

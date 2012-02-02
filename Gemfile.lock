@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/lwe/simple_enum.git
+  revision: d854e5d1caa498a5cac82e9ec90a1216b33012a1
+  specs:
+    simple_enum (1.5.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: git://github.com/ryanb/nested_form.git
   revision: 54da3123d9f1b14b37df608794508adccd6ac5ba
   specs:
@@ -166,8 +173,6 @@ GEM
       tilt (~> 1.3.2)
     seedbank (0.0.7)
     sexp_processor (3.0.10)
-    simple_enum (1.4.1)
-      activesupport (~> 3.0)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -220,7 +225,7 @@ DEPENDENCIES
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
   seedbank
-  simple_enum
+  simple_enum!
   sqlite3
   thin
   turn
