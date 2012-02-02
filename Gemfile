@@ -29,7 +29,7 @@ gem 'bson_ext'
 gem 'mongoid_fulltext'
 gem 'simple_enum', :path => "lib/simple_enum"
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
-gem "aws-s3",            :require => "aws/s3"
+gem "aws-sdk",            :require => "aws/s3"
 gem 'thin'
 group :production do
   # gems specifically for Heroku go here
