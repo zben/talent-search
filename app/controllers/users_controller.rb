@@ -14,13 +14,15 @@ class UsersController < ApplicationController
   def new 
     @user = User.find(params[:id])
     @is_new = true
-    render "users/edit/#{params[:info]}"
+    redirect_to ind_user_new_path(params[:id],params[:info]) if current_user.is_a? IndUser
+    redirect_to org_user_new_path(params[:id],params[:info]) if current_user.is_a? OrgUser
   end
  
   
   def edit
     @user = User.find(params[:id])
-    render "users/edit/#{params[:info]}"
+    redirect_to ind_user_edit_path(params[:id],params[:info]) if current_user.is_a? IndUser
+    redirect_to org_user_edit_path(params[:id],params[:info]) if current_user.is_a? OrgUser
   end
 
 
@@ -43,7 +45,7 @@ class UsersController < ApplicationController
   end
   
   def profile
-    @user = current_user
+    redirect_to current_user
   end
   
 end

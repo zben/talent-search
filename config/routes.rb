@@ -30,6 +30,11 @@ Talent::Application.routes.draw do
   match 'org_users/:id/new/:info'=>'org_users#new',:as=>'org_user_new'
   match 'org_users/:id/edit/:info'=>'org_users#edit',:as=>'org_user_edit'
   match 'org_users/:id/profile'=>'org_users#profile',:as=>'org_user_profile'
+  
+  match 'users/:id/new/:info'=>'users#new',:as=>'user_new'
+  match 'users/:id/edit/:info'=>'users#edit',:as=>'user_edit'
+  match 'users/:id/profile'=>'users#profile',:as=>'user_profile'
+  
   match 'org_users/:id/jobs_posts'=>'org_users#job_posts',:as=>'org_user_job_posts'
   
   match 'skills/list'=>'skills#list',:as=>'skills_list'
