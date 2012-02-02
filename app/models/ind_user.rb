@@ -1,5 +1,6 @@
 class IndUser < User
 
+  
    include Mongoid::Paperclip
     if Rails.env.production?  
       has_mongoid_attached_file :avatar,
@@ -22,7 +23,7 @@ class IndUser < User
           :large    => ['500x500>',   :jpg]
         }
     end
-    
+
     
   def steps
     %w{profile education exam language experience skill} 
