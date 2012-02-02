@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     end
     
     def after_sign_in_path_for(resource)
+      puts "USER CLASS"
+      puts current_user.class
       if current_user.class.name=="IndUser"
         if current_user.profile
           ind_user_path(current_user.id)
