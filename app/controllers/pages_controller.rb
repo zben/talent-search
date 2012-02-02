@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    redirect_to IndUser.first
+    redirect_to current_user
   end
   
   def landing
