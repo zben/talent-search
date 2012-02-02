@@ -32,7 +32,7 @@ class JobPost
   belongs_to :user
   has_and_belongs_to_many :skills
   
-  fulltext_search_in :title, :description, :job_requirement
+#  fulltext_search_in :title, :description, :job_requirement
   
   def mcount user
     (skills.to_set & user.skills.to_set).size    
