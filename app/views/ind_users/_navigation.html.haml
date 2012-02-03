@@ -1,7 +1,5 @@
 %ul.tabs
-  %li{:class=>"#{params[:action]=='profile' ? 'active':''}"}=link_to t('profile'),"#"
-  %li=link_to '推荐职位',"#"
-  %li=link_to '推荐任务',"#"
-  %li=link_to '推荐项目',"#"
-  %li=link_to '推荐合伙人',"#"
+  %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='show' ? 'active':''}"}=link_to t('profile'),@user
+  -unless params[:controller]=='ind_users' && @user!=current_user
+    %li{:class=>"#{params[:controller]=='job_searches' && params[:action]=='show' ? 'active':''}"}=link_to '推荐职位',default_jobs_path 
 

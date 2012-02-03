@@ -26,6 +26,10 @@ class JobPost
       :job_type, :salary, :expiration, :contact_person, 
       :phone_number, :email, :logo, :website, :user_id, :skill_ids
   
+  validates :title, :city_id,
+      :description, :job_requirement, 
+      :job_type,  :expiration, :email, :user_id, :presence=>true
+      
   belongs_to :industry
   belongs_to :city
   field :city_id, type: Integer

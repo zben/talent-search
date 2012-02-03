@@ -8,8 +8,8 @@ class IndUsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    render :profile
   end
+  
   
   def new 
     @user = User.find(params[:id])
@@ -34,7 +34,7 @@ class IndUsersController < ApplicationController
       update_skills(@user,params) unless params[:skills].nil?
       next_step = params[:current_step].nil? ? nil : @user.next_step(params[:current_step])   
       if next_step.nil?
-        redirect_to :back
+        redirect_to @user
       else
         @is_new = true
         redirect_to ind_user_new_path(@user.id,"#{next_step}")
@@ -44,8 +44,5 @@ class IndUsersController < ApplicationController
     end
   end
   
-  def profile
-    @user = current_user
-  end
   
 end

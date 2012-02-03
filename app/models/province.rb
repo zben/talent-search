@@ -6,9 +6,8 @@ class Province
   field :name_en
   
   belongs_to :country
-  has_many :profiles
+
   has_many :cities
-  
   
 
 end

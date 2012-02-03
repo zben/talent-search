@@ -21,7 +21,9 @@ Talent::Application.routes.draw do
   resources :ind_users
   resources :org_users
   
+  match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'
   resources :job_searches
+
   resources :talent_searches
   match 'ind_users/:id/new/:info'=>'ind_users#new',:as=>'ind_user_new'
   match 'ind_users/:id/edit/:info'=>'ind_users#edit',:as=>'ind_user_edit'

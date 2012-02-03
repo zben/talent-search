@@ -1,19 +1,30 @@
+=render 'ind_users/navigation'
 =render 'job_searches/form'
-%table.zebra-striped
-  %tr
-    %th 公司/机构
-    %th 职位
-    %th 薪酬
-    %th 地点
-    %th 截止日期
-    %th
-    %th
-  - for job_post in @job_posts
+%h4 
+  =@is_new ? "自动匹配职位" : "搜索结果"
+
+-if @job_posts.empty?   
+  -if @is_new
+    没有找到匹配您技能的职位。请添加技能获取匹配！
+    =link_to "添加技能",user_edit_path(current_user.id,"skill"),:class=>"btn"
+  -else
+    搜索结果为0,请试试别的搜索参数！
+-else    
+  %table.zebra-striped
     %tr
-      %td= job_post.company_name 
-      %td=link_to job_post.title,job_post
-      %td= job_post.salary ||'面议'
-      %td= job_post.city.name
-      %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
-      %td= link_to "收藏", job_post
-      %td= link_to "查看", edit_job_post_path(job_post)
+      %th 公司/机构
+      %th 职位
+      %th 薪酬
+      %th 地点
+      %th 截止日期
+      %th
+      %th
+    - for job_post in @job_posts
+      %tr
+        %td= job_post.company_name 
+        %td=link_to job_post.title,job_post
+        %td= job_post.salary ||'面议'
+        %td= job_post.city.name
+        %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
+        %td= link_to "收藏", job_post
+        %td= link_to "查看", edit_job_post_path(job_post)

@@ -1,8 +1,8 @@
 %ul.tabs
-  %li{:class=>"#{params[:action]=='profile' ? 'active':''}"}=link_to t('org_profile'),org_user_profile_path(current_user)
+  %li{:class=>"#{params[:action]=='show' ? 'active':''}"}=link_to t('org_profile'), current_user
   %li{:class=>"#{params[:action]=='job_posts' ? 'active':''}"}=link_to "所有职位发布",org_user_job_posts_path(current_user)
-  -if current_user.is_a? OrgUser
+  -if @user == current_user
     %li{:class=>"#{params[:controller]=='job_posts' ? 'active':''}"}=link_to '发布职位',new_job_post_path 
-    %li=link_to '搜索人才',"#" 
-    %li=link_to '收藏夹',"#" 
+    /%li=link_to '搜索人才',"#" 
+    /%li=link_to '收藏夹',"#" 
 

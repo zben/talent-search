@@ -4,7 +4,7 @@ class JobSearch
   include ApplicationHelper
 
   field :industry_id, type: Integer
-  field :city_id, type: Integer 
+  field :province_id, type: Integer 
   field :min_salary, type: Integer
   field :max_salary, type: Integer
   field :keywords

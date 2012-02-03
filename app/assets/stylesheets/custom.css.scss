@@ -141,8 +141,17 @@ li.fragment{
     text-align:right;
   }
 }
-form.job_search input[type="submit"]{
-margin-top:22px;
-width:100%;
+form.job_search {
+  input[type="submit"],a.btn{
+  margin-top:22px;
+  width:100%;
+  }
 }
 
+#notice{
+  background-color:grey;
+  padding:20px;
+  margin:20px;
+  color:white;
+  font-size:20px;
+}

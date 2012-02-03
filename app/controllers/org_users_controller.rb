@@ -8,7 +8,7 @@ class OrgUsersController < ApplicationController
   
   def show
     @user = OrgUser.find(params[:id])
-    render :profile
+
   end
   
   def new 
@@ -32,7 +32,7 @@ class OrgUsersController < ApplicationController
       update_skills(@user,params) unless params[:skills].nil?
       next_step = params[:current_step].nil? ? nil : @user.next_step(params[:current_step])   
       if next_step.nil?
-        redirect_to :back
+        redirect_to @user
       else
         @is_new = true
         redirect_to org_user_new_path(@user.id,"#{next_step}")
@@ -42,11 +42,10 @@ class OrgUsersController < ApplicationController
     end
   end
   
-  def profile
-    @user = User.find(params[:id])
-  end
+
   
   def job_posts 
+    @user = User.find(params[:id])  
     @job_posts = JobPost.where(:user_id=>params[:id])
   end
   

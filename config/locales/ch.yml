@@ -121,7 +121,7 @@ ch:
         industry_id: "行业"
         job_type: "工作性质"
         years_required: "经验"
-        salary: "薪酬（单位:万）"
+        salary: "薪酬（单位:元）"
         description: "职位描述"
         job_requirement: "职位要求"
         contact_person: "联系人"
@@ -193,12 +193,11 @@ ch:
         password_confirmation: "再次输入密码" 
         avatar: "上传头像"
       job_search:
-        city_id: "城市"
+        province_id: "省份"
         industry_id: "行业"
         max_salary: "最高薪水"
         min_salary: "最低薪水"
         keywords: "关键词"
-        province: "省份"
         
     errors:
       header: "表格无法提交"

@@ -2,9 +2,13 @@
   =f.inputs do
     .row 
       .span3=f.input :industry_id, :as=>:select, :collection=>Industry.all
-      =render 'shared/city_picker',:f=>f,:item=>'job_search'
+      .span2=f.input :province_id, :as=>:select, :collection=>Province.all
+      
       .span2=f.input :min_salary
       .span2=f.input :max_salary
       .span2=f.input :keywords
       .span2
-        =submit_tag "搜索",:class=>"btn"
+        =submit_tag "搜索全部职位",:class=>"btn"
+      .span2
+        =link_to "查看默认匹配",default_jobs_path,:class=>"btn"
+        

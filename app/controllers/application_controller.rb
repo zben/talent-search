@@ -1,9 +1,12 @@
+#encoding: UTF-8
+
 class ApplicationController < ActionController::Base
     protect_from_forgery
     before_filter :set_locale
  
     def authenticate!    
         unless user_signed_in?
+            flash[:notice]="请先登录"
             redirect_to new_user_session_path
         end
     end

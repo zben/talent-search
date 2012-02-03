@@ -29,7 +29,7 @@ class Profile
                        
   embedded_in :user
   belongs_to :province
-
+  field :province_id, type: Integer
 
 #  if Rails.env.production?  
 #      has_mongoid_attached_file :avatar,

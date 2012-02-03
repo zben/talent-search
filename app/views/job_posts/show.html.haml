@@ -3,14 +3,14 @@
     =link_to "申请职位",'',:class=>'btn primary'
     =link_to "收藏职位",'',:class=>'btn primary'
     .row
-      .span2.lab 公司名称:
-      .span5=(name=@job_post.company_name).blank? ? '未公开' : name
+      %h3.span8=@job_post.user.is_a?(OrgUser) ? link_to(@job_post.company_name,@job_post.user) : @job_post.company_name
+    .row
+      
+      %h3.span5=(name=@job_post.title).blank? ? '未填' : name
     .row
       .span2.lab 所属行业:
       .span5=(name=@job_post.industry).blank? ? '未填' : name.name
-    .row
-      .span2.lab 职位:
-      .span5=(name=@job_post.title).blank? ? '未填' : name
+ 
     .row
       .span2.lab 工作类型:  
       .span2=(name=@job_post.job_type).blank? ? '未填' : name

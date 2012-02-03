@@ -1,5 +1,6 @@
 class JobPostsController < ApplicationController
   include ApplicationHelper
+  before_filter :authenticate!
   def index
     @job_posts = JobPost.all
   end
@@ -9,6 +10,7 @@ class JobPostsController < ApplicationController
   end
 
   def new
+    
     @job_post = JobPost.new
     @job_post.industry_id=current_user.org_profile.industry_id unless current_user.org_profile.nil?
   end
