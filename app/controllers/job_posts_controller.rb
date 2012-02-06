@@ -7,11 +7,15 @@ class JobPostsController < ApplicationController
 
   def show
     @job_post = JobPost.find(params[:id])
+    @same_industry_jobs = JobPost.where(:industry_id=>@job_post.industry_id).limit(6) - @job_post.to_a
+    @same_company_jobs = JobPost.where(:user_id=>@job_post.user_id).limit(6)-@job_post.to_a
+    @related_skill_jobs = @job_post.related_jobs[0..5]-@job_post.to_a
   end
 
   def new
     
     @job_post = JobPost.new
+    @job_post.company_name = current_user.org_profile.company_name unless current_user.org_profile.nil?
     @job_post.industry_id=current_user.org_profile.industry_id unless current_user.org_profile.nil?
   end
 

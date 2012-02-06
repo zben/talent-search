@@ -7,7 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
+//= require tinymce-jquery
 $(document).ready(function() {
   $('#skill_picker').click(function(event){ 
     if($(this).text() == '查看所有技能'){
@@ -22,6 +22,18 @@ $(document).ready(function() {
      }
      event.preventDefault();
   });
+  
+
+    $('.tiny textarea').tinymce({
+    theme : "advanced",
+    theme_advanced_buttons1 : "bold,italic,underline, separator,justifyleft, justifycenter,justifyright,  justifyfull,bullist,numlist",
+    theme_advanced_buttons2: "",
+    theme_advanced_buttons3: "",
+    theme_advanced_buttons4: "",
+    theme_advanced_toolbar_location : "top",
+    theme_advanced_toolbar_align : "left",
+      
+    });
 
 
 

@@ -1,7 +1,9 @@
 class OrgUser < User
   include Mongoid::Paperclip
-  
-
+    has_many :bookmarks, :foreign_key=>"user_id"
+    has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
+    
+    has_many :bookmarks, :foreign_key=>"user_id"    
     if Rails.env.production?  
       has_mongoid_attached_file :logo,
         :path => ':logo/:id/:style.:extension',
@@ -54,4 +56,10 @@ class OrgUser < User
         x.skills << Skill.all.shuffle[0..5]
         x.save!
   end
+  
+  def matching_talent
+    skills.map{|skill| skill.users}.flatten.uniq.sort!{|a,b| a.mcount(self)<=>b.mcount(self)}
+  end
+  
+  
 end

@@ -1,21 +1,25 @@
--if @is_new
-  %h2 添加考试分数
--else
-  %h2 更新考试分数 
+=render 'ind_users/navigation'
+.row
+  =render 'ind_users/side_nav'
+  .span12.offset1
+    -if @is_new
+      %h2 添加考试分数
+    -else
+      %h2 更新考试分数 
 
-=render 'shared/flash',:flash=>flash
+    =render 'shared/flash',:flash=>flash
 
-= semantic_nested_form_for @user do |f|
-  = f.error_messages  
-  = hidden_field_tag :current_step, 'exam' if @is_new
-  = f.semantic_fields_for :exams do |exam|
-    .row
-      .span4= exam.input :exam_name,:as=>:select,:collection=>ExamType.all
-      .span3= exam.input :score 
-      .span3=exam.input :date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
-    
-    = exam.link_to_remove "删除考试分数" 
-  = f.link_to_add "添加考试分数", :exams
-  .row.span16.actions
-    .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
+    = semantic_nested_form_for @user do |f|
+      = f.error_messages  
+      = hidden_field_tag :current_step, 'exam' if @is_new
+      = f.semantic_fields_for :exams do |exam|
+        .row
+          .span4= exam.input :exam_name,:as=>:select,:collection=>ExamType.all
+          .span3= exam.input :score 
+          .span3=exam.input :date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
+        
+        = exam.link_to_remove "删除考试分数" 
+      = f.link_to_add "添加考试分数", :exams
+      .row
+        .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
 

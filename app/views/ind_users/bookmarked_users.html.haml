@@ -1,0 +1,22 @@
+=render 'ind_users/navigation'
+
+%h4 您关注的人
+
+-if @users.empty?   
+  您没有关注任何人。现在就去认识一些人吧!
+-else    
+  %table.zebra-striped
+    %tr
+      %th 名字
+      %th 最高学历
+      %th 从事行业
+      %th
+      %th
+    - for user in @users
+      %tr{:id=>"#{user.id}"}
+        %td= user.profile.name
+        %td= user.educations.blank? ? "不详" : user.educations[0].degree_type
+        %td= user.experiences.blank? ? "不详": user.experiences[0].industry.name 
+
+        %td= bookmark_code(user)
+        %td= link_to "查看", user,:class=>"btn"

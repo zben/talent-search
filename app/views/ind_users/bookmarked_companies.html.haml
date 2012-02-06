@@ -1,0 +1,23 @@
+=render 'ind_users/navigation'
+
+%h4 收藏公司
+
+-if @companies.empty?   
+  您没有收藏任何公司。现在就去看看公司吧!
+-else    
+  %table.zebra-striped
+    %tr
+      %th 公司/机构
+      %th 公司人数
+      %th 所属行业
+      %th 总部地点
+      %th
+      %th
+    - for company in @companies
+      %tr{:id=>"#{company.id}"}
+        %td= company.org_profile.company_name 
+        %td= company.org_profile.people_count
+        %td= company.org_profile.industry.name
+        %td= company.org_profile.city.fullname
+        %td= bookmark_code(company)
+        %td= link_to "查看", company,:class=>"btn"

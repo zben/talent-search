@@ -1,7 +1,7 @@
 -if user.profile
   .row
     .span6
-      .lab=link_to user.profile.fullname, user
+      .lab=link_to user.profile.name, user
       #{user.profile.age}岁,
       #{user.profile.gender},
       -unless user.profile.residence_country.nil?

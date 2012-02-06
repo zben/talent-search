@@ -1,6 +1,8 @@
 class User 
   include Mongoid::Document
   include Mongoid::Timestamps
+  
+ 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
    
@@ -35,6 +37,8 @@ class User
   accepts_nested_attributes_for :org_profile,:allow_destroy => true
   accepts_nested_attributes_for :usage,:allow_destroy => true
   
+  
+  
   def matches
     jobs = skills.map{|skill| skill.job_posts}.flatten.uniq
     jobs.sort!{|a,b| a.mcount(self) <=> b.mcount(self)}
@@ -53,5 +57,8 @@ class User
     industries.each{|x| x.industries_users.create(:user_id=>self.id,:interest_id=>Interest.where(:name_ch=>interest_type)[0].id)}
   end
  
+   def bookmarked type
+     bookmarks.where(:bookmarkable_type=>type).map(&:bookmarkable)
+   end
   
 end

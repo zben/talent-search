@@ -1,0 +1,25 @@
+=render 'ind_users/navigation'
+
+%h4 收藏职位
+
+-if @job_posts.empty?   
+  您没有收藏任何职位。现在就去浏览职位吧!
+-else    
+  %table.zebra-striped
+    %tr
+      %th 公司/机构
+      %th 职位
+      %th 薪酬
+      %th 地点
+      %th 截止日期
+      %th
+      %th
+    - for job_post in @job_posts
+      %tr{:id=>"#{job_post.id}"}
+        %td= job_post.company_name 
+        %td=link_to job_post.title,job_post
+        %td= job_post.salary ||'面议'
+        %td= job_post.city.name
+        %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
+        %td= bookmark_code(job_post)
+        %td= link_to "查看", job_post,:class=>"btn"

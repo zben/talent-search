@@ -3,6 +3,7 @@ class JobPost
   include Mongoid::Document
   include Mongoid::Timestamps
   include ApplicationHelper
+  has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
   
   include SimpleEnum::Mongoid
   as_enum :job_type,    :"全职"=>1,:"兼职"=>2, :"短期项目"=>3
@@ -47,6 +48,12 @@ class JobPost
     users.sort!{|a,b| a.mcount(self) <=> b.mcount(self)}
   end
   
+  def related_jobs
+    jobs = skills.map{|skill| skill.job_posts}.flatten.uniq
+    jobs.sort!{|a,b| mcount(a) <=> mcount(b)}
+  end
+  
+  
 
   def self.populate
     JobPost.delete_all
@@ -64,11 +71,5 @@ class JobPost
       end
   end
   
-  def company
-    if !user.nil?
-      user.org_profile.company_name
-    else
-      company_name
-    end 
-  end
+
 end

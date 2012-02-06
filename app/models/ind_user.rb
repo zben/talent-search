@@ -1,6 +1,8 @@
 class IndUser < User
-
-  
+    has_many :bookmarks, :foreign_key=>"user_id"
+    has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
+#    
+   
    include Mongoid::Paperclip
     if Rails.env.production?  
       has_mongoid_attached_file :avatar,
@@ -24,7 +26,7 @@ class IndUser < User
         }
     end
 
-    
+
   def steps
     %w{profile education exam language experience skill} 
     #+ 

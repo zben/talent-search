@@ -46,6 +46,23 @@ module ApplicationHelper
     user.save
   end
   
+  def yearmonth date
+    date.blank? ? nil : l(date,:format=>:long2)
+  end
+  
+  def bookmark_code bookmarkable
+    result = bookmarkable.bookmarkings.where(:user_id=>current_user.id)
+    if result.count==0
+      link_to "关注",bookmark_path(bookmarkable.class.name,bookmarkable.id),:class=>'btn primary',:id=>"#{bookmarkable.id}",:remote=>true
+    else
+      link_to "取消关注",unbookmark_path(result[0].id),:class=>'btn primary',:id=>"#{bookmarkable.id}",:remote=>true,:"data-confirm"=>"您确认要取消关注吗?"
+    end
+  end
+  
+  def view_code bookmarkable
+    link_to "查看",bookmarkable,:class=>"btn"
+  end
+
 end
 
 

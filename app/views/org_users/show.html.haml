@@ -10,18 +10,20 @@
       .span3
         公司总部:
         =@user.org_profile.city.fullname
-      .span3
+      .span2
         公司人数:
         =@user.org_profile.people_count  
+      .span2
+        =bookmark_code @user if current_user.is_a? IndUser  
     
 
     .row
       .span10
         %h3 简要介绍
-        .description=@user.org_profile.short_description
+        .short.description=@user.org_profile.short_description
       .span10
         %h3 详细介绍
-        .description=@user.org_profile.long_description
+        .description=raw @user.org_profile.long_description
         
     .row
       
@@ -35,12 +37,12 @@
       
       .span3
         %h4 电子邮件
-        =@user.org_profile.email
+        =mail_to @user.org_profile.email
      
     .row
       .span12
         %h4 官方网站
-        =@user.org_profile.website
+        =link_to @user.org_profile.website,@user.org_profile.website
       
   .span4
     =image_tag @user.logo.url(:medium)

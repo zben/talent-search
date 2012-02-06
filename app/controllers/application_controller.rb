@@ -16,15 +16,15 @@ class ApplicationController < ActionController::Base
       puts current_user.class
       if current_user.class.name=="IndUser"
         if current_user.profile
-          user_path(current_user.id)
+          default_jobs_path
         else
-          user_new_path(current_user.id,'profile')
+          ind_user_new_path(current_user.id,'profile')
         end
       else
         if current_user.org_profile
-          user_path(current_user.id)
+          org_user_path(current_user.id)
         else
-          user_new_path(current_user.id,'profile')
+          org_user_new_path(current_user.id,'profile')
         end
       end
     end

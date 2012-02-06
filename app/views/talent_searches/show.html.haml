@@ -1,0 +1,27 @@
+=render 'org_users/navigation'
+=render 'talent_searches/form'
+%h4 
+  =@is_new ? "自动匹配人才" : "搜索结果"
+
+-if @users.empty?   
+  -if @is_new
+    没有找到匹配您需求的人才。请添加技能获取匹配！
+    =link_to "添加所需技能",user_edit_path(current_user.id,"skill"),:class=>"btn"
+  -else
+    搜索结果为0,请试试别的搜索参数！
+-else    
+  %table.zebra-striped
+    %tr
+      %th 姓名
+      %th 年龄
+      %th 学历
+      %th 公司
+      %th 技能
+     
+    - for user in @users
+      %tr
+        %td=user.profile.blank? ? "不详" : user.profile.name 
+        %td=user.profile.blank? ? "不详" : user.profile.age
+        %td=user.educations.blank? ? "不详" : user.educations[0].degree_type
+        %td=user.experiences.blank? ? "不详" : user.experiences[0].company_name
+        %td=render user.skills

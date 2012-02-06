@@ -44,5 +44,22 @@ class IndUsersController < ApplicationController
     end
   end
   
+  def bookmarked_users
+      @users = current_user.bookmarked("IndUser")
+  end
   
+  def bookmarked_companies
+      @companies = current_user.bookmarked("OrgUser")
+  end
+  
+  def bookmarked_jobs
+    @job_posts = current_user.bookmarked("JobPost")
+  end
+  
+  
+  def job_posts 
+    @user = User.find(params[:id])  
+    @job_posts = JobPost.where(:user_id=>params[:id])
+  end
+ 
 end

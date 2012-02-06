@@ -1,8 +1,9 @@
 .job_post_snippet.row
   .span6
-    .lab=link_to job_post.company,job_post.user if job_post.user.is_a? OrgUser
-    .lab=job_post.company unless job_post.user.is_a? OrgUser
+    .lab=link_to job_post.company_name,job_post.user if job_post.user.is_a? OrgUser
+    .lab=job_post.company_name unless job_post.user.is_a? OrgUser
     
     =link_to job_post.title ,job_post
-  .span2
-    #{time_ago_in_words(job_post.created_at)}以前
+  -if  params[:controller]=="devise/sessions" 
+    .span2
+      #{time_ago_in_words(job_post.created_at)}以前

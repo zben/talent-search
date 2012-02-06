@@ -2,7 +2,7 @@
   .span3 专业: #{education.program} 学位: #{education.degree_type}
   .span3 学校: #{education.school} 
   .span2 学分: #{education.GPA} 
-  .span3 时间: #{education.start_date}-#{education.end_date || "至今"}
+  .span3 #{yearmonth(education.start_date)} -- #{yearmonth(education.end_date) || "至今"}
   .span12 总结: #{education.comment}
 
 

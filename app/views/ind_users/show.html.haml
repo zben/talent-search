@@ -1,25 +1,38 @@
 =render 'ind_users/navigation'
 .row
-  .span4
-    =image_tag @user.avatar.url(:medium)
-    %h3=@user.profile.fullname
-    %h5="#{@user.profile.age}岁, #{@user.profile.gender}"
-    %h5="#{@user.profile.residence}, #{@user.profile.nationality}国籍"
-    
-    
+  =render 'ind_users/side_nav_public'
   .span12
-    %h3 个性标题
+    %h3 
+      个性标题
+      .edit=link_to "更新",ind_user_edit_path(current_user.id,'profile') if current_user==@user
     =@user.profile.intro_title
-    %h3 工作经验
+
+    %h3 
+      工作经验
+      .edit=link_to "更新",ind_user_edit_path(current_user.id,'experience') if current_user==@user
     =render @user.experiences
-    %h3 学历
+
+    %h3 
+      学历
+      .edit=link_to "更新",ind_user_edit_path(current_user.id,'education') if current_user==@user
     =render @user.educations
-    %h3 标准考试成绩
+
+    %h3 
+      标准考试成绩
+      .edit=link_to "更新",ind_user_edit_path(current_user.id,'exam') if current_user==@user
     =render @user.exams
-    %h3 语言能力
+
+    %h3 
+      语言能力
+      .edit=link_to "更新",ind_user_edit_path(current_user.id,'language') if current_user==@user
     =render @user.languages
-    %h3 其他技能
+    %h3 
+      其他技能
+      .edit=link_to "更新",ind_user_edit_path(current_user.id,'skill') if current_user==@user
     =render @user.skills
-    %h3 自我评价
+    %h3 
+      自我评价
+      .edit=link_to "更新",ind_user_edit_path(current_user.id,'profile') if current_user==@user
+    
     .span12=@user.profile.intro
     

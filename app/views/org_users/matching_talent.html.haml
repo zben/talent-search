@@ -1,0 +1,16 @@
+=render 'org_users/navigation'
+%table.zebra-striped
+  %tr
+    %th 姓名
+    %th 年龄
+    %th 学历
+    %th 公司
+    %th 技能
+   
+  - for user in @matching_talent
+    %tr
+      %td=user.profile.name
+      %td=user.profile.age
+      %td=user.educations[0].degree_type
+      %td=user.experiences[0].company_name
+      %td=render user.skills. 

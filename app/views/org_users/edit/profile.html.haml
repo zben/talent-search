@@ -1,52 +1,59 @@
--if params[:action] == 'new'
-  %h2 #{t("Create")}#{t("org_profile")}
--else
-  %h2 #{t("Update")}#{t("org_profile")}
+=render 'org_users/navigation'
+.row
+  =render 'org_users/side_nav'
+  .span12.offset1
+
+    -if params[:action] == 'new'
+      %h2 #{t("Create")}#{t("org_profile")}
+    -else
+      %h2 #{t("Update")}#{t("org_profile")}
 
 
-= semantic_nested_form_for @user do |f|
-  = f.error_messages  
-  = hidden_field_tag :current_step, 'profile' if @is_new
-  
-  = f.semantic_fields_for :org_profile  do |p| 
-    = p.inputs do
-      .row
-        .span10= p.input :company_name
-      .row
-        .span3= p.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
-        .span2= p.input :people_count
-        = render 'shared/city_picker',:f=>p, :item=>'org_user[org_profile_attributes]'
-      .row  
-        .span10= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
-      .row
-        .span10= p.input :long_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 15, :cols => 20, :maxlength => 500  }
-      .row  
-        .span2= p.input :contact_person 
-        .span2= p.input :email
-        .span2= p.input :phone_number
-      .row  
-        .span10= p.input :website
-          
-      .row
-        .span5 
-          =f.input :logo
-        .span2
-          = f.label "删除商标"
-          = check_box_tag :remove_avatar, 1, false
-      .row
-        .span5=image_tag @user.logo(:medium) unless @user.logo.nil?
+    = semantic_nested_form_for @user do |f|
+      = f.error_messages  
+      = hidden_field_tag :current_step, 'profile' if @is_new
+      
+      = f.semantic_fields_for :org_profile  do |p| 
+        = p.inputs do
+          .row
+            .span10= p.input :company_name
+          .row
+            .span3= p.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
+            .span2= p.input :people_count
+            = render 'shared/city_picker',:f=>p, :item=>'org_user[org_profile_attributes]'
+          .row  
+            .span10= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+            
+          .row
+            .span10.tiny= p.input :long_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 15, :cols => 20, :maxlength => 500  }
+          .row
+          .row  
+            .span2= p.input :contact_person 
+            .span2= p.input :email
+            .span2= p.input :phone_number
+          .row  
+            .span10= p.input :website
+              
+          .row
+            .span5 
+              =f.input :logo
+            .span2
+              = f.label "删除商标"
+              = check_box_tag :remove_avatar, 1, false
+          .row
+            .span5=image_tag @user.logo(:medium) unless @user.logo.nil?
 
 
-        
+            
 
-  
+      
 
-  
-  
+      
+      
 
-  .row.span16.actions
-    .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
-  
+      .row.span16.actions
+        .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
+      
 
 
 

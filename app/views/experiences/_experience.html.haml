@@ -1,7 +1,7 @@
 .row.span12
   .span3 职位: #{experience.job_title} 
   .span5 公司: #{experience.company_name}
-  .span3 时间: #{experience.start_date} -- #{experience.end_date || "至今"}
+  .span3 #{yearmonth(experience.start_date)} -- #{yearmonth(experience.end_date) || "至今"}
   .span12 工作业绩: #{experience.description}
 
 

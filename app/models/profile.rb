@@ -54,13 +54,10 @@ class Profile
 #        }
 #    end
   
-  def fullname
-    if lastname.size<3
-    lastname+firstname
-    else
-    firstname+' '+lastname
-    end
-  end
+  def name
+    fullname = (lastname || "") +(firstname || "")
+    fullname.length > 5 ? (firstname|| "")+" "+(lastname||"") : fullname 
+  end  
   
   def nationality
       Country.find(citizenship).name

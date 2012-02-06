@@ -22,12 +22,18 @@ Talent::Application.routes.draw do
   resources :org_users
   
   match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'
+  match 'talent_searches/default'=>'talent_searches#show',:as=>'default_talent'
   resources :job_searches
 
   resources :talent_searches
   match 'ind_users/:id/new/:info'=>'ind_users#new',:as=>'ind_user_new'
   match 'ind_users/:id/edit/:info'=>'ind_users#edit',:as=>'ind_user_edit'
   match 'ind_users/:id/profile'=>'ind_users#profile',:as=>'ind_user_profile'
+  
+  match 'bookmarked/users'=>'ind_users#bookmarked_users', :as=>"bookmarked_users"
+  match 'bookmarked/companies'=>'ind_users#bookmarked_companies', :as=>"bookmarked_companies"
+  match 'bookmarked/jobs'=>'ind_users#bookmarked_jobs', :as=>"bookmarked_jobs"
+  
   
   match 'org_users/:id/new/:info'=>'org_users#new',:as=>'org_user_new'
   match 'org_users/:id/edit/:info'=>'org_users#edit',:as=>'org_user_edit'
@@ -38,8 +44,12 @@ Talent::Application.routes.draw do
   match 'users/:id/profile'=>'users#profile',:as=>'user_profile'
   
   match 'org_users/:id/jobs_posts'=>'org_users#job_posts',:as=>'org_user_job_posts'
+  match 'ind_users/:id/jobs_posts'=>'ind_users#job_posts',:as=>'ind_user_job_posts'
   
   match 'skills/list'=>'skills#list',:as=>'skills_list'
+  
+  match 'bookmark/:type/:id'=>'bookmarks#bookmark', :as=>'bookmark'
+  match 'unbookmark/:id'=>'bookmarks#unbookmark', :as=>'unbookmark'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

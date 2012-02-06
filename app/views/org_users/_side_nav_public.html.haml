@@ -1,0 +1,6 @@
+.span3
+
+
+  =image_tag @user.logo.url(:medium)
+  =link_to "关注","" ,:class=>'btn' unless @user==current_user
+  =link_to "留言","",:class=>'btn' unless @user==current_user

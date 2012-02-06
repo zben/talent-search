@@ -1,24 +1,30 @@
--if @is_new
-  %h2 添加工作经验
--else
-  %h2 更新工作经验 
-
-=render 'shared/flash',:flash=>flash
+=render 'ind_users/navigation'
 .row
-  .span12
-    = semantic_nested_form_for @user do |f|
-      = f.error_messages  
-      = hidden_field_tag :current_step,'experience' if @is_new
+  =render 'ind_users/side_nav'
+  .span12.offset1
+  
+    -if @is_new
+      %h2 添加工作经验
+    -else
+      %h2 更新工作经验 
 
-      = f.semantic_fields_for :experiences do |exp|
-        .span12= exp.input :company_name
-        .span12= exp.input :job_title
-        .span12= exp.input :description,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
-        .row
-          .span4=exp.input :start_date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
-          .span4=exp.input :end_date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
-        = exp.link_to_remove "删除工作经验" 
-      = f.link_to_add "添加工作经验", :experiences
-      .row.span16.actions
-        .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
+    =render 'shared/flash',:flash=>flash
+    .row
+      .span12
+        = semantic_nested_form_for @user do |f|
+          = f.error_messages  
+          = hidden_field_tag :current_step,'experience' if @is_new
+
+          = f.semantic_fields_for :experiences do |exp|
+            .row
+              .span7= exp.input :company_name
+              .span4= exp.input :job_title
+            .span11= exp.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 3, :cols => 20, :maxlength => 500  }
+            .row
+              .span4=exp.input :start_date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
+              .span4=exp.input :end_date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
+            = exp.link_to_remove "删除工作经验" 
+          = f.link_to_add "添加工作经验", :experiences
+          .row
+            .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
 

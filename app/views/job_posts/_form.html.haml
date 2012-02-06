@@ -4,12 +4,8 @@
     =hidden_field_tag "job_post[user_id]", current_user.id
     -if current_user.is_a? OrgUser
       .row
-        .span8
-          %h3= current_user.org_profile.company_name
-        .span4
-          %h3=current_user.org_profile.industry.name
-        =hidden_field_tag "job_post[company_name]", current_user.org_profile.company_name
-        =hidden_field_tag "job_post[industry_id]", current_user.org_profile.industry.id
+        .span8=f.input :company_name
+        .span4=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
     -else
       .row
         .span8=f.input :company_name
@@ -20,8 +16,8 @@
       .span1=f.input :years_required,:placeholder=>"年"
       .span2=f.input :salary
       =render 'shared/city_picker',:f=>f,:item=>'job_post'
-    .span12=f.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
-    .span12=f.input :job_requirement,:as=>:text,:rows=>10,:input_html => { :class => 'autogrow', :rows => 10}
+    .span12.tiny=f.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
+    .span12.tiny=f.input :job_requirement,:as=>:text,:rows=>10,:input_html => { :class => 'autogrow', :rows => 10}
     .row
       .span2=f.input :contact_person
       .span3=f.input :phone_number
@@ -32,7 +28,9 @@
    
     .row
       /.span4=f.input :logo
-      .span4=f.input :website
+
+      .span4
+        =f.input :website,:input_html => { :placeholder => 'http://www.example.com'}
     =render 'shared/skill_picker',:item=>@job_post
 
     = submit_tag "添加职位",:class=>"btn"

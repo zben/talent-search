@@ -125,10 +125,13 @@ li.fragment{
 .lab{font-weight:bold;}
 .description{
   background-color:#F5F5FF;
-  min-height:200px;
+  min-height:100px;
   padding:10px;
   margin-bottom:10px;  
   }
+
+.short{min-height:50px;}  
+
 .job_post_snippet{
   .lab a{
     color:#999;
@@ -155,3 +158,27 @@ form.job_search {
   color:white;
   font-size:20px;
 }
+
+h3 .edit a{font-size:12px;font-weight:normal;}
+
+ul.side_nav{
+  padding:0;
+  margin:0;
+  li{
+    display:block;
+    padding:5px 0;
+    a{
+      padding-left:10px;
+    }
+  }
+  li.active{
+      background-color:grey;
+      a{color:white;}
+  }
+  
+} 
+
+span.mceEditor{
+  float:left;
+}
+

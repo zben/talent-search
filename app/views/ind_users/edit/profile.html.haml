@@ -1,53 +1,58 @@
--if params[:action] == 'new'
-  %h2 #{t("Create")}#{t("profile")}
--else
-  %h2 #{t("Update")}#{t("profile")}
+=render 'ind_users/navigation'
+
+.row
+  =render 'ind_users/side_nav'
+  .span12.offset1
+    -if params[:action] == 'new'
+      %h2 #{t("Create")}#{t("profile")}
+    -else
+      %h2 #{t("Update")}#{t("profile")}
 
 
-= semantic_nested_form_for @user do |f|
-  = f.error_messages  
-  = hidden_field_tag :current_step, 'profile' if @is_new
-  
-  = f.semantic_fields_for :profile  do |p| 
-    = p.inputs do
+    = semantic_nested_form_for @user do |f|
+      = f.error_messages  
+      = hidden_field_tag :current_step, 'profile' if @is_new
+      
+      = f.semantic_fields_for :profile  do |p| 
+        = p.inputs do
+          .row
+            .span2= p.input :firstname if I18n.default_locale!=:ch
+            .span2= p.input :lastname
+            .span2= p.input :firstname if I18n.default_locale==:ch
+            .span4= p.input :birthday, :as=>:date,:start_year=>1960, :end_year=>Date.today.year-18
+          .row  
+            .span2= p.input :gender, :as=>:select,:collection => Profile.genders_for_select,:prompt => t("Select one") 
+            .span2= p.input :citizenship,:as=>:select, :collection => Country.all,:prompt => t("Select one") 
+            .span2= p.input :province_id, :as=>:select, :collection => Province.all,:prompt => t("Select one") 
+            .span2= p.input :residence_country, :as=>:select, :collection => Country.all,:prompt => t("Select one") 
+          .span10= p.input :intro_title
+          .span10= p.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+          .row
+            .span5 
+              =f.input :avatar
+            .span2
+              = f.label "删除头像"
+              = check_box_tag :remove_avatar, 1, false
+
+          .row
+            .span5=image_tag @user.avatar(:medium) if @user.avatar
+
+      = f.semantic_fields_for :usage  do |m| 
+        = m.inputs do
+          =f.label "使用本网站的目的"
+          .row
+            .span4= m.input :find_job,:as=>:boolean
+            .span4= m.input :find_project,:as=>:boolean
+          .row
+            .span4= m.input :find_partner,:as=>:boolean
+            .span4= m.input :find_money,:as=>:boolean
+            
+
+      
+
       .row
-        .span2= p.input :firstname if I18n.default_locale!=:ch
-        .span2= p.input :lastname
-        .span2= p.input :firstname if I18n.default_locale==:ch
-        .span4= p.input :birthday, :as=>:date,:start_year=>1960, :end_year=>Date.today.year-18
-      .row  
-        .span2= p.input :gender, :as=>:select,:collection => Profile.genders_for_select,:prompt => t("Select one") 
-        .span2= p.input :citizenship,:as=>:select, :collection => Country.all,:prompt => t("Select one") 
-        .span2= p.input :province_id, :as=>:select, :collection => Province.all,:prompt => t("Select one") 
-        .span2= p.input :residence_country, :as=>:select, :collection => Country.all,:prompt => t("Select one") 
-      .span10= p.input :intro_title
-      .span10= p.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
-      .row
-        .span5 
-          =f.input :avatar
-        .span2
-          = f.label "删除头像"
-          = check_box_tag :remove_avatar, 1, false
-
-      .row
-        .span5=image_tag @user.avatar(:medium) if @user.avatar
-
-  = f.semantic_fields_for :usage  do |m| 
-    = m.inputs do
-      =f.label "使用本网站的目的"
-      .row
-        .span4= m.input :find_job,:as=>:boolean
-        .span4= m.input :find_project,:as=>:boolean
-      .row
-        .span4= m.input :find_partner,:as=>:boolean
-        .span4= m.input :find_money,:as=>:boolean
-        
-
-  
-
-  .row.span16.actions
-    .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
-  
+        .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
+      
 
 
 

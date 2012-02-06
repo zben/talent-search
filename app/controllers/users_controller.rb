@@ -6,10 +6,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
   
-  def show
-    @user = User.find(params[:id])
-    render :profile
-  end
+#  def show
+#    @user = User.find(params[:id])
+#    render :profile
+#  end
   
   def new 
     @user = User.find(params[:id])
