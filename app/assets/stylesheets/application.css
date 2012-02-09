@@ -6,7 +6,7 @@
  *= require_tree . 
 */
 
-# app/assets/stylesheets/application.css
+  # app/assets/stylesheets/application.css
   *= require formtastic
 
   *= require my_formtastic_changes
