@@ -17,12 +17,17 @@
       .span1=f.input :years_required,:placeholder=>"年"
       .span2=f.input :salary
       =render 'shared/city_picker',:f=>f,:item=>'job_post'
-    .span12.tiny=f.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
-    .span12.tiny=f.input :job_requirement,:as=>:text,:rows=>10,:input_html => { :class => 'autogrow', :rows => 10}
+    .row
+      .span12
+        .tiny=f.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
+    .row
+      .span12
+        .tiny=f.input :job_requirement,:as=>:text,:rows=>10,:input_html => { :class => 'autogrow', :rows => 10}
     .row
       .span2=f.input :contact_person
       .span3=f.input :phone_number
       .span3=f.input :email
+    .row
       .span4
         =f.label :expiration
         =f.date_select :expiration,{},{:class=>"date"}

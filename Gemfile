@@ -7,9 +7,9 @@ gem "nifty-generators", :group => :development
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'nested_form',:git => 'git://github.com/ryanb/nested_form.git'
-gem 'tinymce-rails',:git => 'git://github.com/spohlenz/tinymce-rails.git'
 
-gem 'formtastic'
+
+gem 'formtastic',:git => 'https://github.com/justinfrench/formtastic.git'
 gem 'formtastic-bootstrap'
 gem 'active_hash'
 gem "seedbank"
@@ -21,6 +21,7 @@ group :assets do
   gem 'uglifier'
 end
 gem 'jquery-rails'
+gem 'tinymce-rails',:git => 'git://github.com/spohlenz/tinymce-rails.git'
 #gem "paperclip", "~> 2.0"
 group :development do
   gem 'sqlite3'

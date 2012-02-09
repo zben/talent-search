@@ -18,6 +18,13 @@ GIT
     tinymce-rails (3.4.8)
       railties (>= 3.1)
 
+GIT
+  remote: https://github.com/justinfrench/formtastic.git
+  revision: 8e26afb150f6e5b5d76b4e4b659460e449f5487a
+  specs:
+    formtastic (2.1.0.rc)
+      actionpack (~> 3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -86,8 +93,6 @@ GEM
     execjs (1.2.13)
       multi_json (~> 1.0)
     faker (0.3.1)
-    formtastic (2.0.2)
-      rails (~> 3.0)
     formtastic-bootstrap (1.1.2)
       formtastic
       rails (~> 3.1.0)
@@ -216,7 +221,7 @@ DEPENDENCIES
   devise
   erb2haml
   faker
-  formtastic
+  formtastic!
   formtastic-bootstrap
   haml
   heroku
