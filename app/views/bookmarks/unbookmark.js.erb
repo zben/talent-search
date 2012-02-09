@@ -1,3 +1,3 @@
-$("#<%=@bookmarkable.id%> a")[0].text="关注";
-$("#<%=@bookmarkable.id%> a")[0].href = "<%= bookmark_path(@bookmarkable.class,@bookmarkable.id)%>";
+$("a#<%=@bookmarkable.id%>")[0].text="关注";
+$("a#<%=@bookmarkable.id%>")[0].href = "<%= bookmark_path(@bookmarkable.class,@bookmarkable.id)%>";
 $("tr#<%=@bookmarkable.id%>").hide();
