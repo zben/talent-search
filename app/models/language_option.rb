@@ -7,7 +7,7 @@ class LanguageOption
   field :name_en
   field :name_ch
   
-  has_many :languages
+
 
   def self.populate
     data = [
