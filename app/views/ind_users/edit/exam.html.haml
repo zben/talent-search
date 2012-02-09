@@ -16,7 +16,7 @@
         .row
           .span4= exam.input :exam_name,:as=>:select,:collection=>ExamType.all
           .span3= exam.input :score 
-          .span3=exam.input :date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
+          .span3.yearmonth=exam.input :date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
         
         = exam.link_to_remove "删除考试分数" 
       = f.link_to_add "添加考试分数", :exams

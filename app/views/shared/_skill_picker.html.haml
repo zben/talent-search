@@ -27,5 +27,5 @@
 
 :javascript
 
-  $(".skills input").autoSuggest("http://localhost:3000/skills/list", {asHtmlID: "skills", selectedValuesProp: "_id", selectedItemProp: "name_#{I18n.locale}", searchObjProps: "name_#{I18n.locale}", startText: "在此输入技能",matchCase: false, preFill:
+  $(".skills input").autoSuggest("/skills/list", {asHtmlID: "skills", selectedValuesProp: "_id", selectedItemProp: "name_#{I18n.locale}", searchObjProps: "name_#{I18n.locale}", startText: "在此输入技能",matchCase: false, preFill:
   #{item.skills.to_json}});
