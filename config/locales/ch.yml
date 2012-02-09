@@ -199,6 +199,10 @@ ch:
         max_salary: "最高薪水"
         min_salary: "最低薪水"
         keywords: "关键词"
+      talent_search:
+        min_age: "最低年龄"
+        max_age: "最高年龄"
+        keywords: "关键词"
         
     errors:
       header: "表格无法提交"

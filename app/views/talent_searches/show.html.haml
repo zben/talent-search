@@ -19,7 +19,7 @@
       %th
       %th
     - for user in @users
-      %tr{:id=>"#{user.id}"}
+      %tr
         %td= user.profile.nil? ? "" : user.profile.name
         %td= user.educations.blank? ? "不详" : user.educations[0].degree_type
         %td= user.experiences.blank? ? "不详": user.experiences.count 
