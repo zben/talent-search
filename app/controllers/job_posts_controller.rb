@@ -23,6 +23,7 @@ class JobPostsController < ApplicationController
     @job_post = JobPost.new(params[:job_post])
 
     if @job_post.save
+      update_skills(@job_post, params)
       current_user.job_posts << @job_post
       
       redirect_to @job_post, :notice => "Successfully created job post."

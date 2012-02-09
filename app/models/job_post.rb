@@ -21,11 +21,12 @@ class JobPost
   field :phone_number
   field :logo
   field :website
- 
+  field :is_official, type: Boolean, default: true
+  
   attr_accessible :title, :city_id, :industry_id, :years_required, 
       :company_name, :company_id, :description, :job_requirement, 
       :job_type, :salary, :expiration, :contact_person, 
-      :phone_number, :email, :logo, :website, :user_id, :skill_ids
+      :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
   
   validates :title, :city_id,
       :description, :job_requirement, 

@@ -49,4 +49,8 @@ class OrgUsersController < ApplicationController
     @job_posts = JobPost.where(:user_id=>params[:id])
   end
   
+  def bookmarked_users
+      @users = current_user.bookmarked("IndUser")
+  end
+  
 end

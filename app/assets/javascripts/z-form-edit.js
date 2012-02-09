@@ -6,6 +6,6 @@ $(document).ready(function() {
   $('li.fragment select').addClass('date');
     $('.actions').removeClass('actions');
   $('.skill_list').hide();  
-  $("ol li:nth-child(3) select.date").val('1').hide()
+  $(".yearmonth ol li:nth-child(3) select.date").val('1').hide()
 });
 

@@ -1,7 +1,9 @@
 .row
   .span11
     =link_to "申请职位",'',:class=>'btn primary' if current_user.is_a?(IndUser) and current_user!=@job_post.user 
-
+    =link_to "历史发布",org_user_job_posts_path(current_user.id),:class=>'btn primary' if current_user==@job_post.user 
+    =link_to "添加职位",new_job_post_path,:class=>'btn primary' if current_user==@job_post.user 
+    
     .row
       %h3.span8=@job_post.user.is_a?(OrgUser) ? link_to(@job_post.company_name,@job_post.user) : @job_post.company_name
     .row

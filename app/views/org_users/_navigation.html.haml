@@ -5,7 +5,7 @@
     %li{:class=>"#{params[:controller]=='job_posts' ? 'active':''}"}=link_to '发布职位',new_job_post_path 
     %li{:class=>"#{params[:action]=='edit' ? 'active':''}"}=link_to '设置',org_user_edit_path(current_user.id,'profile') 
     %li{:class=>"#{params[:controller]=='talent_searches' ? 'active':''}"}=link_to '推荐人才',default_talent_path 
-    %li{:class=>"#{params[:controller]=='job_posts' ? 'active':''}"}=link_to '关注人才',new_job_post_path 
+    %li{:class=>"#{params[:action]=='bookmarked_users' ? 'active':''}"}=link_to '关注人才',bookmarked_users_for_companies_path
     
     /%li=link_to '搜索人才',"#" 
     /%li=link_to '收藏夹',"#" 

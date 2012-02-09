@@ -30,7 +30,8 @@ Talent::Application.routes.draw do
   match 'ind_users/:id/edit/:info'=>'ind_users#edit',:as=>'ind_user_edit'
   match 'ind_users/:id/profile'=>'ind_users#profile',:as=>'ind_user_profile'
   
-  match 'bookmarked/users'=>'ind_users#bookmarked_users', :as=>"bookmarked_users"
+  match 'bookmarked/ind/users'=>'ind_users#bookmarked_users', :as=>"bookmarked_users"
+  match 'bookmarked/org/users'=>'org_users#bookmarked_users', :as=>"bookmarked_users_for_companies"
   match 'bookmarked/companies'=>'ind_users#bookmarked_companies', :as=>"bookmarked_companies"
   match 'bookmarked/jobs'=>'ind_users#bookmarked_jobs', :as=>"bookmarked_jobs"
   

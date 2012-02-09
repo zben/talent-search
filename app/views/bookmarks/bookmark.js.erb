@@ -1,2 +1,2 @@
-$("#<%=@bookmarkable.id=%>")[0].text="取消关注";
-$("#<%=@bookmarkable.id%>")[0].href = "<%= unbookmark_path(@bookmark.id)%>";
+$("#<%=@bookmarkable.id=%> a")[0].text="取消关注";
+$("#<%=@bookmarkable.id%> a")[0].href = "<%= unbookmark_path(@bookmark.id)%>";

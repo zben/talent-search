@@ -1,4 +1,4 @@
-=render 'ind_users/navigation'
+=render 'ind_users/navigation' unless params[:controller]=="ind_users" and params[:action]=="new"
 .row
   =render 'ind_users/side_nav'
   .span12.offset1
@@ -22,8 +22,8 @@
         .row
           .span3= education.input :program 
           
-          .span3=education.input :start_date,:as=>:date, :start_year=>1990, :end_year=>Date.today.year
-          .span3=education.input :end_date,:as=>:date, :start_year=>1990, :end_year=>Date.today.year+5
+          .span3.yearmonth=education.input :start_date,:as=>:date, :start_year=>1990, :end_year=>Date.today.year
+          .span3.yearmonth=education.input :end_date,:as=>:date, :start_year=>1990, :end_year=>Date.today.year+5
         .row
           .span11=education.input :comment, :as=>:text, :input_html => { :class => 'autogrow', :rows => 3, :cols => 15, :maxlength => 500  }
         = education.link_to_remove "#{t('Remove')} #{t('Education History')}" 

@@ -1,4 +1,4 @@
-=render 'org_users/navigation'
+=render 'org_users/navigation' unless params[:controller]=="org_users" and params[:action]=="new"
 .row
   =render 'org_users/side_nav'
   .span12.offset1
