@@ -29,8 +29,8 @@ class JobPost
       :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
   
   validates :title, :city_id,
-      #:description, :job_requirement, 
-      :job_type_cd,  :expiration, :email, :presence=>true
+      #:description, :job_requirement, :job_type,  
+      :expiration, :email, :presence=>true
       
   belongs_to :industry
   belongs_to :city
