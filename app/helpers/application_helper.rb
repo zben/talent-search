@@ -53,9 +53,11 @@ module ApplicationHelper
   def bookmark_code bookmarkable
     result = bookmarkable.bookmarkings.where(:user_id=>current_user.id)
     if result.count==0
-      link_to "关注",bookmark_path(bookmarkable.class.name,bookmarkable.id),:class=>'btn primary',:id=>"#{bookmarkable.id}",:remote=>true
+      link_to "关注",toggle_bookmark_path(bookmarkable.class.name,bookmarkable.id.to_s),
+        :class=>"btn primary #{bookmarkable.id}",:remote=>true
     else
-      link_to "取消关注",unbookmark_path(result[0].id),:class=>'btn primary',:class=>"{bookmarkable.id}",:remote=>true,:"data-confirm"=>"您确认要取消关注吗?"
+      link_to "取消关注",toggle_bookmark_path(bookmarkable.class.name,bookmarkable.id.to_s),
+        :class=>"btn primary #{bookmarkable.id}",:remote=>true
     end
   end
   

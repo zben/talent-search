@@ -27,4 +27,4 @@
         %td= job_post.city.name
         %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
         %td= bookmark_code job_post
-        %td= link_to "查看", job_post_path(job_post)
+        %td= view_code job_post

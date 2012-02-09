@@ -49,8 +49,8 @@ Talent::Application.routes.draw do
   
   match 'skills/list'=>'skills#list',:as=>'skills_list'
   
-  match 'bookmark/:type/:id'=>'bookmarks#bookmark', :as=>'bookmark'
-  match 'unbookmark/:id'=>'bookmarks#unbookmark', :as=>'unbookmark'
+  match 'bookmark/:type/:id'=>'bookmarks#bookmark', :as=>'toggle_bookmark'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
