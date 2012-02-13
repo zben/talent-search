@@ -1,7 +1,7 @@
 .span3
 
 
-  =image_tag @user.avatar.url(:medium)
+  .avatar.medium=image_tag @user.avatar.url(:medium),:width=>150
   %h3=@user.profile.name
   %h5="#{@user.profile.age}岁, #{@user.profile.gender}"
   %h5="#{@user.profile.residence}, #{@user.profile.nationality}国籍"

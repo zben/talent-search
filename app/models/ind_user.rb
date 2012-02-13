@@ -7,6 +7,7 @@ class IndUser < User
     if Rails.env.production?  
       has_mongoid_attached_file :avatar,
         :path => ':avatar/:id/:style.:extension',
+        :default_url => '/assets/avatars/:style/missing.png',
         :storage => :s3,
         :bucket => 'talent-search',
         :s3_credentials => {:access_key_id => ENV['S3_KEY'],:secret_access_key => ENV['S3_SECRET']},
@@ -18,6 +19,8 @@ class IndUser < User
         }
     else    
       has_mongoid_attached_file :avatar,
+        :default_url => '/assets/avatars/:style/missing.png',
+
         :styles => {
           :original => ['1920x1680>', :jpg],
           :small    => ['30x30#',   :jpg],

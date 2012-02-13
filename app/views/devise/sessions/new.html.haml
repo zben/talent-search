@@ -20,8 +20,9 @@
     %h4 最新工作
     
     
-    =render :partial=>'job_posts/job_post',:as=>:job_post, :collection=>JobPost.limit(5)
+    =render :partial=>'job_posts/job_post',:as=>:job_post, :collection=>JobPost.desc('created_at').limit(5)
   .span8
     %h4 最新加入
-    =render :partial=>'ind_users/ind_user',:as=>:user,:collection=>User.limit(5)
+    =render :partial=>'ind_users/ind_user',:as=>:user,:collection=>User.desc('created_at').where("profile.ne"=>nil).limit(5)
+    
   
