@@ -26,18 +26,12 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+    def after_inactive_sign_up_path_for(resource) 
+      awaiting_confirmation (resource) 
+    end
+
     def awaiting_confirmation(resource) 
-        flash[:notice]="请查收您的邮件"
-        redirect_to new_user_session_path
-    end
-    def after_sign_up_path_for(resource)
-      "http://google.com"
-
-    end
-    
-    def after_inactive_sign_up_path_for(resource)
-      "http://yahoo.com"
-
+      render :text=>"hello"
     end
 
     def set_locale
