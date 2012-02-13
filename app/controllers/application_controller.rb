@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    def after_inactive_sign_up_path_for(resource)
+    def after_sign_up_path_for(resource)
       flash[:notice]="感谢您的加入！请查收您的邮件确认。"
       new_user_session_path
     end
