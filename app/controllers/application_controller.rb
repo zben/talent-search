@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
     end
     
     def after_sign_in_path_for(resource)
-
       if current_user._type=="IndUser"
         if current_user.profile
           default_jobs_path
@@ -28,7 +27,10 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    
+    def after_sign_up_path_for(resource)
+      flash[:notice]="感谢您的加入！请查收您的邮件确认。"
+      redirect_to new_user_session_path
+    end
     def set_locale
       I18n.default_locale = params[:locale] if params[:locale]
       I18n.locale = params[:locale] || I18n.default_locale
