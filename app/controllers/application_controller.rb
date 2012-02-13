@@ -26,7 +26,10 @@ class ApplicationController < ActionController::Base
         end
       end
     end
-    
+    def awaiting_confirmation(resource) 
+        flash[:notice]="请查收您的邮件"
+        redirect_to new_user_session_path
+    end
     def after_sign_up_path_for(resource)
       "http://google.com"
 
