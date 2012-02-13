@@ -26,13 +26,7 @@ class ApplicationController < ActionController::Base
         end
       end
     end
-    def after_inactive_sign_up_path_for(resource) 
-      awaiting_confirmation (resource) 
-    end
 
-    def awaiting_confirmation(resource) 
-      render :text=>"hello"
-    end
 
     def set_locale
       I18n.default_locale = params[:locale] if params[:locale]
