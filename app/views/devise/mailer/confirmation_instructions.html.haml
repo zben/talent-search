@@ -1,4 +1,7 @@
 %p
-  Welcome #{@resource.email}!
-%p You can confirm your account through the link below:
+  您好！欢迎加入悟空海外人才网!
+%p 您可以点击以下链接确认您的邮箱,开始使用我们的服务。
 %p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+
+%p 
+  如果您有任何的疑问，欢迎和我们联系。
