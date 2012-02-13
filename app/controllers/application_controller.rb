@@ -28,10 +28,15 @@ class ApplicationController < ActionController::Base
     end
     
     def after_sign_up_path_for(resource)
-      flash[:notice]="感谢您的加入！请查收您的邮件确认。"
-      new_user_session_path
+      "http://google.com"
+
     end
     
+    def after_inactive_sign_up_path_for(resource)
+      "http://yahoo.com"
+
+    end
+
     def set_locale
       I18n.default_locale = params[:locale] if params[:locale]
       I18n.locale = params[:locale] || I18n.default_locale
