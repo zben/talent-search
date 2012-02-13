@@ -15,6 +15,8 @@ Talent::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -27,4 +29,16 @@ Talent::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => "legendben@gmail.com",
+    :domain               => "gmail.com",
+    :password             => '....0.0.',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+  config.action_mailer.default_url_options = { :host => 'gmail.com' }
+
 end
