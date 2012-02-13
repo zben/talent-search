@@ -20,8 +20,8 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
   
-  def after_sign_up_path_for(resource)
+  def after_inactive_sign_up_path_for(resource)
     flash[:notice]= "请查收邮件"
-    redirect_to new_user_session_path
+    new_user_session_path
   end    
 end 
