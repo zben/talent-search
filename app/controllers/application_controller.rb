@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     
     def after_inactive_sign_up_path_for(resource)
       flash[:notice]="感谢您的加入！请查收您的邮件确认。"
-      redirect_to new_user_session_path
+      new_user_session_path
     end
     
     def set_locale
