@@ -1,6 +1,7 @@
 = # coding: UTF-8 
 
 =render "#{current_user.class.to_s.pluralize.underscore}/navigation"
-- title "New Job Post"
+-if current_user.is_a? IndUser
+  "申明:如需发布职位,您必须得到此公司的授权,发布信息必须为真实信息。"
 = render 'form'
 %p= link_to "Back to List", job_posts_path
