@@ -19,7 +19,7 @@ class User
   field :current_sign_in_at, :type => Time
   field :last_sign_in_at,    :type => Time
   field :current_sign_in_ip, :type => String
-  field :last_sign_in_ip,    :type => Stringable
+  field :last_sign_in_ip,    :type => String
    
    field :invitation_token
    field :invitation_sent_at, type: Time
@@ -28,6 +28,12 @@ class User
    field :invited_by_id
    field :invited_by_type
     
+  ## Confirmable
+   field :confirmation_token,   :type => String
+   field :confirmed_at,         :type => Time
+   field :confirmation_sent_at, :type => Time
+   field :unconfirmed_email,    :type => String # Only if using reconfirmable
+  
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:confirmable
 
