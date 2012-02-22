@@ -2,7 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 gem 'haml'
-gem 'devise'
+gem 'devise',           '~> 2.0.0'
+gem 'devise_invitable', '~> 1.0.0'
 gem "nifty-generators", :group => :development
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

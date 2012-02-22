@@ -80,10 +80,14 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     daemons (1.1.5)
-    devise (1.5.3)
+    devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
-      warden (~> 1.1)
+      railties (~> 3.1)
+      warden (~> 1.1.1)
+    devise_invitable (1.0.0)
+      devise (~> 2.0.0)
+      rails (~> 3.0)
     erb2haml (0.1.2)
       haml
       hpricot
@@ -136,7 +140,7 @@ GEM
     multi_xml (0.4.1)
     nifty-generators (0.4.6)
     nokogiri (1.5.0)
-    orm_adapter (0.0.5)
+    orm_adapter (0.0.6)
     paperclip (2.5.0)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
@@ -207,7 +211,7 @@ GEM
       multi_json (>= 1.0.2)
     unicode_utils (1.0.0)
     uuidtools (2.1.2)
-    warden (1.1.0)
+    warden (1.1.1)
       rack (>= 1.0)
 
 PLATFORMS
@@ -218,7 +222,8 @@ DEPENDENCIES
   aws-sdk
   bson_ext
   coffee-rails (~> 3.1.0)
-  devise
+  devise (~> 2.0.0)
+  devise_invitable (~> 1.0.0)
   erb2haml
   faker
   formtastic!
