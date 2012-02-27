@@ -21,12 +21,12 @@
     .span4= text_field_tag :invitation_code  
   =render 'pages/agreement'
   .row
-    %p.span4.offset3
+    %p.span4.offset1
       =check_box_tag 'agreement','true'    
       =t('I agree to') 
       =link_to t('the service terms'),"",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true"
   .row
-    .span4.offset3= f.submit t("Agree to service terms first"),:class=>"btn primary disabled",:disabled=>"disabled"
+    = f.submit t("Agree to service terms first"),:class=>"span4 offset1 btn primary disabled",:disabled=>"disabled"
 
 = render :partial => "devise/shared/links" 
 
@@ -36,12 +36,12 @@
   $("input[name=agreement]").click(function(){
   if ($("input[name=agreement]").is(":checked"))
   {
-    $("input[type=submit]")[0].value="#{t("Sign up")}";
+    $("input[type=submit]").val("#{t("Sign up")}").removeClass("disabled");
     $("input[type=submit]")[0].disabled=false;
   }
   else
   {
-    $("input[type=submit]")[0].value="#{t("Agree to service terms first")}";
+    $("input[type=submit]").val("#{t('Agree to service terms first')}").addClass("disabled");
     $("input[type=submit]")[0].disabled="disabled";
   }
   });

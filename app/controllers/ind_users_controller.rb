@@ -23,6 +23,8 @@ class IndUsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    @user.build_profile if @user.profile.nil?
+    @user.build_usage if @user.usage.nil?
     render "ind_users/edit/#{params[:info]}"
   end
 
