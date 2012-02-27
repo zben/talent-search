@@ -1,0 +1,9 @@
+%h2 发送邀请
+= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f|
+  = devise_error_messages!
+  =f.hidden_field :_type,:value=>'IndUser'
+  %p
+    = f.label :email
+    %br/
+    = f.text_field :email
+  %p= f.submit "发送",:class=>'btn'

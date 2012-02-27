@@ -151,13 +151,15 @@ form.job_search {
   }
 }
 
-#notice{
-  background-color:grey;
+#notice, #error{
+  background-color:green;
   padding:20px;
   margin:20px;
   color:white;
   font-size:20px;
 }
+
+#error{background-color:red;}
 
 h3 .edit{display:inline-block;}
 h3 .edit a{font-size:12px;font-weight:normal;}
@@ -189,3 +191,21 @@ body, td, pre{font-size:15px;}
   border:1px solid #888;
   border-radius:4px;
 }
+
+.hidden{
+  display:none;
+}
+
+.shout_box{
+  background-color:#C7EEFE;
+  margin:5px;
+  padding:5px;
+}
+
+.shout img{
+  margin:5px;
+  padding:2px;
+  border:1px solid silver;
+}
+
+h2,h3,h4{background-color:#C7EEFE;padding:2px 5px;}

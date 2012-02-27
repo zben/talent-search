@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class User 
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -40,7 +41,9 @@ class User
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :educations_attributes,:experiences_attributes,:exams_attributes,:languages_attributes,
-                  :profile_attributes,:usage_attributes,:skill_ids,:_type,:avatar,:logo,:org_profile_attributes
+                  :profile_attributes,:usage_attributes,:skill_ids,:_type,
+                  :avatar,:logo,:chinese_resume,:english_resume,
+                  :org_profile_attributes, :old_password
 
   embeds_one :profile
   embeds_one :org_profile
@@ -53,6 +56,8 @@ class User
  
   has_many :industries_users
   has_many :job_posts
+  has_many :shouts
+  has_many :activity_feeds
   #has_many :industries, :through=>:industries_users
   #has_many :interests,:through=>:industries_users
   
@@ -85,8 +90,15 @@ class User
     industries.each{|x| x.industries_users.create(:user_id=>self.id,:interest_id=>Interest.where(:name_ch=>interest_type)[0].id)}
   end
  
-   def bookmarked type
-     bookmarks.where(:bookmarkable_type=>type).map(&:bookmarkable)
+   def bookmarked types
+     bookmarks.where(:bookmarkable_type.in=>types.to_a).map(&:bookmarkable)
    end
   
+  def name
+    if is_a? IndUser
+      profile.name || "匿名用户"
+    elsif is_a? OrgUser
+      org_profile.company_name || "匿名公司"
+    end  
+  end
 end

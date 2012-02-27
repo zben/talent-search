@@ -7,3 +7,10 @@
   %h5="#{@user.profile.residence}, #{@user.profile.nationality}国籍"
   =link_to "关注","" ,:class=>'btn' unless @user==current_user
   =link_to "留言","",:class=>'btn' unless @user==current_user
+  
+  %h4 中文简历
+  =link_to "下载", @user.chinese_resume.to_s
+  
+  %h4 英文简历
+  =link_to "下载", @user.english_resume.to_s
+  

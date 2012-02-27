@@ -157,7 +157,7 @@ ch:
         name: "明"
         firstname: "名"
         lastname: "姓"
-        birthday: "生日"
+        birthday: "出生年"
         gender: "性别"
         citizenship: "国籍"
         province_id: "省籍"

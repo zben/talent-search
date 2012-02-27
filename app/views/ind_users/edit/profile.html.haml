@@ -1,4 +1,4 @@
-=render 'ind_users/navigation' unless params[:controller]=="ind_users" and params[:action]=="new"
+/=render 'ind_users/navigation' unless params[:controller]=="ind_users" and params[:action]=="new"
 
 .row
   =render 'ind_users/side_nav'
@@ -19,14 +19,14 @@
             .span2= p.input :firstname if I18n.default_locale!=:ch
             .span2= p.input :lastname
             .span2= p.input :firstname if I18n.default_locale==:ch
-            .span4= p.input :birthday, :as=>:date,:start_year=>1960, :end_year=>Date.today.year-18
+            .span4.yearonly= p.input :birthday, :as=>:date,:start_year=>1960, :end_year=>Date.today.year-18
           .row  
             .span2= p.input :gender, :as=>:select,:collection => Profile.genders_for_select,:prompt => t("Select one") 
             .span2= p.input :citizenship,:as=>:select, :collection => Country.all,:prompt => t("Select one") 
             .span2= p.input :province_id, :as=>:select, :collection => Province.all,:prompt => t("Select one") 
             .span2= p.input :residence_country, :as=>:select, :collection => Country.all,:prompt => t("Select one") 
-          .span10= p.input :intro_title
-          .span10= p.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+          .span10= p.input :intro_title,:hint=>"例如：经验丰富的职业经理人，设计独到的新一代平面设计师。"
+          .span10= p.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  },:hint=>"提示：你可以总结自己的长处和特点，让企业更容易的关注你。"
           .row
             .span5 
               =f.input :avatar
@@ -35,11 +35,19 @@
               = check_box_tag :remove_avatar, 1, false
 
           .row
+            .span5 
+              =f.input :chinese_resume
+
+          .row
+            .span5 
+              =f.input :english_resume
+
+          .row
             .span5=image_tag @user.avatar(:medium) unless params[:action]=="new"
 
       = f.semantic_fields_for :usage  do |m| 
         = m.inputs do
-          =f.label "使用本网站的目的"
+          %h2 使用本网站的意愿
           .row
             .span4= m.input :find_job,:as=>:boolean
             .span4= m.input :find_project,:as=>:boolean

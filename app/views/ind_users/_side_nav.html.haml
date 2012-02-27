@@ -8,7 +8,10 @@
     
     
   -else  
-    %ul.side_nav    
+    %ul.side_nav  
+      %li 修改账户信息
+      %li{:class=>"#{params[:info]=='account'? "active":""}"}=link_to "修改密码",ind_user_edit_path(current_user.id,'account')
+      
       %li 修改个人信息
       %li{:class=>"#{params[:info]=='profile'? "active":""}"}=link_to "基本信息",ind_user_edit_path(current_user.id,'profile')
       %li{:class=>"#{params[:info]=='education'? "active":""}"}=link_to "教育经历",ind_user_edit_path(current_user.id,'education')

@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   
   def update
     @user =  User.find(params[:id])
+
     if @user.update_attributes(params[:user])
       remove_avatar(@user) unless params["remove_avatar"].nil?
       update_skills(@user,params) unless params[:skills].nil?

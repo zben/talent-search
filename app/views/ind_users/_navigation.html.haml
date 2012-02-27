@@ -1,12 +1,39 @@
-%ul.tabs
+%ul{:class=>"tabs",:"data-tabs"=>"tabs"}
   %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='show' ? 'active':''}"}=link_to "自我展示",@user
   -if @user.nil? || @user==current_user
     %li{:class=>"#{params[:controller]=='job_searches' && params[:action]=='show' ? 'active':''}"}=link_to '推荐职位',default_jobs_path 
     %li{:class=>"#{params[:action]=='edit'  ? 'active':''}"}=link_to "个人设置",ind_user_edit_path(current_user.id,'profile')
-    %li{:class=>"#{params[:action]=='bookmarked_users'  ? 'active':''}"}=link_to "收藏个人",bookmarked_users_path
-    %li{:class=>"#{params[:action]=='bookmarked_companies'  ? 'active':''}"}=link_to "收藏企业",bookmarked_companies_path
-    %li{:class=>"#{params[:action]=='bookmarked_jobs'  ? 'active':''}"}=link_to "收藏职位",bookmarked_jobs_path
+
     %li{:class=>"#{params[:action]=='new'  ? 'active':''}"}=link_to "发布职位",new_job_post_path
     %li{:class=>"#{params[:action]=='job_posts'  ? 'active':''}"}=link_to "发布存档",ind_user_job_posts_path(current_user)
+    
+ 
+
         
+    %li{:class=>"dropdown #{params[:action]=~/bookmarked/  ? 'active':''}",:"data-dropdown"=>"dropdown" }
+      =link_to_function "收藏夹",'$(".dropdown-menu").toggle()', :class=>"dropdown-toggle" 
+      %ul.dropdown-menu
+        %li{:class=>"#{params[:action]=='bookmarked_users'  ? 'active':''}"}=link_to "关注的个人",bookmarked_users_path
+        %li{:class=>"#{params[:action]=='bookmarked_companies'  ? 'active':''}"}=link_to "关注的企业",bookmarked_companies_path
+        %li{:class=>"#{params[:action]=='bookmarked_jobs'  ? 'active':''}"}=link_to "收藏的职位",bookmarked_jobs_path
+
+:javascript
+  $(".dropdown-toggle").hover(
+    function () {
+      $(this).addClass('active');
+      $(".dropdown-menu").show();
+    }, 
+    function () {
+      $(this).removeClass('active');
+      $(".dropdown-menu").hide();
+    }
+  );
+  $(".dropdown-menu").hover(
+    function () {
+      $(this).show();
+    }, 
+    function () {
+      $(this).hide();
+    }
+  );
 

@@ -7,5 +7,8 @@ $(document).ready(function() {
     $('.actions').removeClass('actions');
   $('.skill_list').hide();  
   $(".yearmonth ol li:nth-child(3) select.date").val('1').hide()
+  $(".yearonly ol li:nth-child(3) select.date").val('1').hide()
+  $(".yearonly ol li:nth-child(2) select.date").val('1').hide()
+
 });
 

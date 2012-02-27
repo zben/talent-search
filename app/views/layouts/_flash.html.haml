@@ -1,0 +1,6 @@
+- if !flash.nil?
+  - flash.each do |key, msg|
+    %div{:id => key}
+      %p{:style => "float:right;"}= link_to_function 'X', "$('##{key}').hide('slow')"
+      %p= msg
+      .clear

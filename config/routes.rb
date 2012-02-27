@@ -20,6 +20,7 @@ Talent::Application.routes.draw do
   resources :users
   resources :ind_users
   resources :org_users
+  resources :shouts
   
   match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'
   match 'talent_searches/default'=>'talent_searches#show',:as=>'default_talent'

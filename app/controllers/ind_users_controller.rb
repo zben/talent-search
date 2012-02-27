@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class IndUsersController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate!
@@ -27,20 +28,27 @@ class IndUsersController < ApplicationController
 
   def update
     @user =  User.find(params[:id])
-    @user.update_attributes(params[:ind_user])
-    if @user.save
-      logger.info params[:ind_user]
-      remove_avatar(@user) unless params["remove_avatar"].nil?
-      update_skills(@user,params) unless params[:skills].nil?
-      next_step = params[:current_step].nil? ? nil : @user.next_step(params[:current_step])   
-      if next_step.nil?
-        redirect_to @user
-      else
-        @is_new = true
-        redirect_to ind_user_new_path(@user.id,"#{next_step}")
-      end
-    else
+    if params[:ind_user][:old_password] &&！current_user.valid_password?(params[:ind_user][:old_password])
+      flash[:error]="请正确输入旧密码"
       redirect_to :back
+    else
+      @user.update_attributes(params[:ind_user])
+      if @user.save
+        sign_in(@user, :bypass => true)
+        logger.info params[:ind_user]
+        remove_avatar(@user) unless params["remove_avatar"].nil?
+        update_skills(@user,params) unless params[:skills].nil?
+        next_step = params[:current_step].nil? ? nil : @user.next_step(params[:current_step])   
+        if next_step.nil?
+          redirect_to @user
+        else
+          @is_new = true
+          redirect_to ind_user_new_path(@user.id,"#{next_step}")
+        end
+      else
+      flash[:error]="修改密码不成功。请确认你输入了同样的密码两次,您的密码有足够的复杂程度。"
+        redirect_to :back
+      end
     end
   end
   

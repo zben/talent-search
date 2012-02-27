@@ -64,6 +64,12 @@ module ApplicationHelper
   def view_code bookmarkable
     link_to "查看",bookmarkable,:class=>"btn"
   end
+  
+  def highlight_link text 
+    regex = Regexp.new '(https?:\/\/|www\.)(([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?([^\.,\?\!\;\:\-，。？！\s]))'
+    text.gsub!( regex, '<a target="blank" href="http://www.\2">超链接</a>' )
+    text
+  end
 
 end
 

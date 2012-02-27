@@ -1,13 +1,29 @@
 %div.topbar
-    .topbar-inner
-        .container
-            =link_to '孙悟空',root_path,:class=>"brand"
-            %ul.nav
-                %li=link_to '主页',current_user || root_path
-                /%li=link_to '工作',job_posts_path if user_signed_in? 
-                /%li=link_to "收藏夹",new_user_registration_path if !user_signed_in?
-                /%li=link_to "设置",new_user_session_path if !user_signed_in?
-                %li=link_to "注册",new_user_registration_path if !user_signed_in?
-                %li=link_to "登录",new_user_session_path if !user_signed_in?
-                %li=link_to "退出",destroy_user_session_path,:method => :delete if user_signed_in?
-                
+  .topbar-inner
+    .container
+      =link_to '孙悟空',root_path,:class=>"brand"
+      %ul.nav
+        %li=link_to '工作圈',current_user || root_path
+        /%li=link_to '工作',job_posts_path if user_signed_in? 
+        /%li=link_to "收藏夹",new_user_registration_path if !user_signed_in?
+
+        %li=link_to "注册",new_user_registration_path if !user_signed_in?
+        %li=link_to "登录",new_user_session_path if !user_signed_in?
+
+        %li=link_to "邀请好友",new_invitation_path(:user) if user_signed_in? 
+        /'#invite',:"data-controls-modal"=>"invite",:"data-backdrop"=>true
+        %li{:class=>"#{params[:action]=='edit'? 'active':''}"}=link_to "设置",user_edit_path(current_user.id,'account') if user_signed_in?
+        %li=link_to "退出",destroy_user_session_path,:method => :delete if user_signed_in?
+      
+.modal.hide.fade#invite
+  .modal-header
+    =link_to '×','',:class=>"close", :"data-dismiss"=>"modal"
+    %h3 邀请朋友加入
+  =form_tag 'invite' do 
+    .modal-body
+      =text_field_tag :email
+      =text_area_tag :content,
+      "悟空海外人才网,帮助海外人才找到中国的契机。希望对你有帮助！"
+    .modal-footer
+      =submit_tag "发出邀请",:class=>"btn primary"
+      =link_to "Close","#",:class=>"btn"

@@ -1,4 +1,4 @@
-=render 'ind_users/navigation' unless params[:controller]=="ind_users" and params[:action]=="new"
+/=render 'ind_users/navigation' unless params[:controller]=="ind_users" and params[:action]=="new"
 .row
   =render 'ind_users/side_nav'
   .span12.offset1
@@ -7,7 +7,6 @@
     -else
       %h2 更新考试分数 
 
-    =render 'shared/flash',:flash=>flash
 
     = semantic_nested_form_for @user do |f|
       = f.error_messages  

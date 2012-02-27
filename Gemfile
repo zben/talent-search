@@ -14,6 +14,7 @@ gem 'formtastic',:git => 'https://github.com/justinfrench/formtastic.git'
 gem 'formtastic-bootstrap'
 gem 'active_hash'
 gem "seedbank"
+gem 'kaminari'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -28,6 +28,28 @@ class IndUser < User
           :large    => ['500x500>',   :jpg]
         }
     end
+    
+    if Rails.env.production?  
+      has_mongoid_attached_file :chinese_resume,
+        :path => ':resume/chinese/:id',
+        :storage => :s3,
+        :bucket => 'talent-search',
+        :s3_credentials => {:access_key_id => ENV['S3_KEY'],:secret_access_key => ENV['S3_SECRET']},
+   
+    else    
+      has_mongoid_attached_file :chinese_resume,
+       
+    end
+    
+    if Rails.env.production?  
+      has_mongoid_attached_file :english_resume,
+        :path => ':resume/english/:id',
+        :storage => :s3,
+        :bucket => 'talent-search',
+        :s3_credentials => {:access_key_id => ENV['S3_KEY'],:secret_access_key => ENV['S3_SECRET']},
+    else    
+      has_mongoid_attached_file :english_resume,        
+    end
 
 
   def steps
