@@ -6,11 +6,51 @@
   %h5="#{@user.profile.age}岁, #{@user.profile.gender}"
   %h5="#{@user.profile.residence}, #{@user.profile.nationality}国籍"
   =link_to "关注","" ,:class=>'btn' unless @user==current_user
-  =link_to "留言","",:class=>'btn' unless @user==current_user
+  =link_to "留言","###",:id=>'message',:class=>'btn',"data-backdrop"=>"true",:"data-controls-modal"=>'messageModal' unless @user==current_user
   
   %h4 中文简历
   =link_to "下载", @user.chinese_resume.to_s
   
   %h4 英文简历
   =link_to "下载", @user.english_resume.to_s
-  
+
+  - unless @user==current_user
+    %div{:id=>"messageModal",:class=>"modal hide fade in"}
+      = form_for @message,:url=>{:action=>"messages_users"},:remote => true,:"data-type"=>"json" do |f|
+        .modal-header
+          %a{:class=>"close",:href=>"###"}="x"
+          %h3{:style=>"background-color:#ffffff;"}="给#{@user.profile.name}留言"
+        .modal-body{:style=>"height:300px;"}
+          %fieldset
+            = f.hidden_field :user_id
+            .row
+              .span2= f.label :title,"标题*"
+              .span6= f.text_field :title,:placeholder=> "请填写标题",:required=>"required"
+            .row
+              .span2= f.label :content,"留言内容*"
+              .span6= f.text_area :content,:rows=>"12",:placeholder=> "请填写内容",:required=>"required"
+        .modal-footer
+          .row
+            %div{:id=>"messageResult",:class=>"span6"}= ""
+            .pull-right
+              = submit_tag "发送",:class=>"btn primary"
+              =link_to "取消","#",:class=>"btn secondary",:onclick=>"closeMessageModal();return false;"
+    :javascript
+      function closeMessageModal(){
+        $("#messageModal").modal("hide");
+        $("#messageResult").html("");
+      }
+      $(document).ready(function(){
+        $("#messageModal form").bind("ajax:beforeSend",function(){
+          $("#messageResult").html("正在发送，请稍后！");
+        }).bind("ajax:success",function(event,data, status, xhr){
+          $("#messageResult").html(data.info);
+          if(data.result){
+            document.location.href=data.url;
+          }else{
+            
+          }
+        }).bind("",function(event,xhr, status, error){
+          $("#messageResult").html("发送错误，请重试！");
+        });
+      });

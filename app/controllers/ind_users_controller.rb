@@ -9,6 +9,10 @@ class IndUsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    if @user!=current_user
+      @message=Message.new
+      @message.user = @user
+    end
   end
   
   
@@ -30,7 +34,7 @@ class IndUsersController < ApplicationController
 
   def update
     @user =  User.find(params[:id])
-    if params[:ind_user][:old_password] &&！current_user.valid_password?(params[:ind_user][:old_password])
+    if params[:ind_user][:old_password] &&!current_user.valid_password?(params[:ind_user][:old_password])
       flash[:error]="请正确输入旧密码"
       redirect_to :back
     else
@@ -65,7 +69,25 @@ class IndUsersController < ApplicationController
   def bookmarked_jobs
     @job_posts = current_user.bookmarked("JobPost")
   end
-  
+
+  def messages_users
+    @message = Message.new(params[:message])
+    if !@message.user.nil? && @message.user!=current_user   # message.user must not be nil or current_url
+      @message.sender=current_user
+      if @message.save
+      else
+      end
+      mail=Notifier.to_message(@message)
+      mail.deliver
+      @result={:url=>ind_user_path(current_user.id),:result=>true,:info=>"留言已经发送！"}
+      if current_user.is_a? OrgUser
+        #@url=org_user_path(current_user.id)
+      end
+      respond_to do |format|
+            format.json { render :json => @result }
+      end
+    end
+  end
   
   def job_posts 
     @user = User.find(params[:id])  
