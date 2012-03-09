@@ -79,7 +79,7 @@ class IndUsersController < ApplicationController
       end
       mail=Notifier.to_message(@message)
       mail.deliver
-      @result={:url=>ind_user_path(current_user.id),:result=>false,:info=>"留言已经发送！"}
+      @result={:url=>ind_user_path(current_user.id),:result=>true,:info=>"留言已经发送！"}
       if current_user.is_a? OrgUser
         #@url=org_user_path(current_user.id)
       end
