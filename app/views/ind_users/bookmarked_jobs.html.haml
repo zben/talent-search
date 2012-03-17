@@ -9,7 +9,7 @@
     %tr
       %th 公司/机构
       %th 职位
-      %th 薪酬
+      %th 月薪
       %th 地点
       %th 截止日期
       %th
@@ -23,3 +23,6 @@
         %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
         %td= bookmark_code(job_post)
         %td= link_to "查看", job_post,:class=>"btn"
+        
+.row
+  .span10= paginate @job_posts

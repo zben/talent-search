@@ -1,0 +1,6 @@
+-if  activity_feed.user!=nil && (activity_feed.user.profile!=nil || activity_feed.user.org_profile!=nil)
+  .shout_box
+    =link_to activity_feed.user.name, activity_feed.user
+    =activity_feed.verb
+    =link_to(activity_feed.text, activity_feed.link) unless activity_feed.text.blank?
+    

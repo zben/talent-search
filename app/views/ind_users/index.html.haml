@@ -1,24 +1,23 @@
 - title "Users"
-
 %table.zebra-striped.bordered-table
   %tr
-    %th 姓
-    %th 名
+    %th 姓名
     %th 年龄
     %th 所在地
     %th 目的
     %th 加入日期
     
-  - for user in @users
+  - for user in @ind_users
     %tr
-      %td=link_to user.profile.lastname, user
-      %td= user.profile.firstname
+      %td=link_to user.profile.name, user
       %td= user.profile.age
-      %td= user.profile.residence
+      %td= user.profile.residence=="美国" ? image_tag("blank.gif", class: "flag flag-us") : image_tag("blank.gif", class: "flag flag-cn") 
       %td
         =user.usage.find_job ? "找工作 ":''
         =user.usage.find_project ? "找任务 ":''
         =user.usage.find_partner ? "找创业伙伴 ":''
         =user.usage.find_money ? "找资金 ":''
-      %td= l user.profile.created_at.to_date, :format=>:long
+      %td= l user.created_at.to_date, :format=>:long
 
+.row
+  .span10= paginate @ind_users

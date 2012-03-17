@@ -5,7 +5,7 @@
   %h3=@user.profile.name
   %h5="#{@user.profile.age}岁, #{@user.profile.gender}"
   %h5="#{@user.profile.residence}, #{@user.profile.nationality}国籍"
-  =link_to "关注","" ,:class=>'btn' unless @user==current_user
+  = bookmark_code @user unless @user==current_user
   =link_to "留言","",:class=>'btn' unless @user==current_user
   
   %h4 中文简历

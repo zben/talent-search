@@ -4,8 +4,8 @@
       .span3=f.input :industry_id, :as=>:select, :collection=>Industry.all
       .span2=f.input :province_id, :as=>:select, :collection=>Province.all
       
-      .span2=f.input :min_salary
-      .span2=f.input :max_salary
+      .span2=f.input :salary, :as=>:select, :collection => JobPost.salaries_for_select(:value)
+      .span2=f.input :years_required, :as=>:select, :collection => JobPost.years_requireds_for_select(:value)
       .span2=f.input :keywords
       .span2
         =submit_tag "搜索全部职位",:class=>"btn"

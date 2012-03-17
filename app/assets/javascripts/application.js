@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     $('.tiny textarea').tinymce({
     theme : "advanced",
-    theme_advanced_buttons1 : "bold,italic,underline, separator,justifyleft, justifycenter,justifyright,  justifyfull,bullist,numlist",
+    theme_advanced_buttons1 : "bullist,numlist",
     theme_advanced_buttons2: "",
     theme_advanced_buttons3: "",
     theme_advanced_buttons4: "",
@@ -34,9 +34,8 @@ $(document).ready(function() {
     theme_advanced_toolbar_align : "left",
       
     });
-
-
-  
+    
+    $(".alert-message").alert()
 });
 
 

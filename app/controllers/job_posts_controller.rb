@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class JobPostsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate!
@@ -7,9 +8,10 @@ class JobPostsController < ApplicationController
 
   def show
     @job_post = JobPost.find(params[:id])
-    @same_industry_jobs = JobPost.where(:industry_id=>@job_post.industry_id).limit(6) - @job_post.to_a
-    @same_company_jobs = JobPost.where(:user_id=>@job_post.user_id).limit(6)-@job_post.to_a
+    @same_industry_jobs = JobPost.current.where(:industry_id=>@job_post.industry_id).limit(6) - @job_post.to_a
+    @same_company_jobs = JobPost.current.where(:user_id=>@job_post.user_id).limit(6)-@job_post.to_a
     @related_skill_jobs = @job_post.related_jobs[0..5]-@job_post.to_a
+    @latest_jobs = JobPost.current.limit(5)
   end
 
   def new

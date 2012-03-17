@@ -10,15 +10,21 @@
 
     = semantic_nested_form_for @user do |f|
       = f.error_messages  
-      = hidden_field_tag :current_step, 'exam' if @is_new
+      = hidden_field_tag :current_step, 'exam' 
+      = hidden_field_tag :is_new, 'true' if @is_new
       = f.semantic_fields_for :exams do |exam|
         .row
-          .span4= exam.input :exam_name,:as=>:select,:collection=>ExamType.all
-          .span3= exam.input :score 
+          .span5= exam.input :exam_name,:placeholder=>"例如: TOFEL, SAT, GRE, GMAT, CFA Level 1"
+          .span2= exam.input :score 
+          .span2= exam.input :max_score 
           .span3.yearmonth=exam.input :date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
         
         = exam.link_to_remove "删除考试分数" 
       = f.link_to_add "添加考试分数", :exams
       .row
         .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
-
+-if @user.exams.empty?
+  :javascript
+    $(document).ready(function() {
+       $('.add_nested_fields').click();
+    });

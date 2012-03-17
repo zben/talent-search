@@ -5,7 +5,7 @@
     .span10.shout_box
       =raw shout.message_with_link
       %p
-        #{link_to shout.user.name, shout.user} (发布于#{time_ago_in_words(shout.created_at)}以前)
+        #{link_to shout.user.name, shout.user} #{l(shout.created_at,:format=>:long)}  
         =link_to_function "回复","$(\"##{shout.id}\").toggle()"
         =link_to "删除",shout_path(shout),:method=>:delete if current_user==shout.user
 

@@ -19,4 +19,4 @@
       %li{:class=>"#{params[:info]=='language'? "active":""}"}=link_to "语言能力",ind_user_edit_path(current_user.id,'language')
       %li{:class=>"#{params[:info]=='experience'? "active":""}"}=link_to "工作经历",ind_user_edit_path(current_user.id,'experience')
 
-      %li{:class=>"#{params[:info]=='skill'? "active":""}"}=link_to "其他能力",ind_user_edit_path(current_user.id,'skill')
+      %li{:class=>"#{params[:info]=='skill'? "active":""}"}=link_to "能力特长",ind_user_edit_path(current_user.id,'skill')

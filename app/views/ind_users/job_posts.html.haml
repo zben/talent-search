@@ -3,7 +3,7 @@
   %tr
     %th 公司
     %th 职位
-    %th 薪酬
+    %th 月薪
     %th 地点
     %th 截止日期
    
@@ -14,4 +14,6 @@
       %td= job_post.salary ||'面议'
       %td= job_post.city.name
       %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
-     
+
+.row
+  .span10= paginate @job_posts

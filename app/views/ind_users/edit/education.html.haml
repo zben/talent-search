@@ -10,7 +10,8 @@
 
     = semantic_nested_form_for @user do |f|
       = f.error_messages  
-      = hidden_field_tag :current_step, 'education' if @is_new
+      = hidden_field_tag :current_step, 'education' 
+      = hidden_field_tag :is_new, 'true' if @is_new
       = f.semantic_fields_for :educations do |education|
         .row
           .span6= education.input :school
@@ -32,3 +33,8 @@
       .row
         .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
 
+-if @user.educations.empty?
+  :javascript
+    $(document).ready(function() {
+       $('.add_nested_fields').click();
+    });

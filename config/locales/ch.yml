@@ -4,7 +4,7 @@ ch:
       default: "%Y-%m-%d"
       short: "%b%d日"
       long: "%Y年%b%d日"
-      long2: "%Y年%b"
+      long2: "%Y 年 %m 月"
     day_names:
       - 星期日
       - 星期一
@@ -78,20 +78,20 @@ ch:
         one: "一分钟"
         other: "%{count} 分钟"
       about_x_hours:
-        one: "大约一小时"
-        other: "大约 %{count} 小时"
+        one: "一小时"
+        other: " %{count} 小时"
       x_days:
         one: "一天"
         other: "%{count} 天"
       about_x_months:
-        one: "大约一个月"
-        other: "大约 %{count} 个月"
+        one: "一个月"
+        other: " %{count} 个月"
       x_months:
         one: "一个月"
         other: "%{count} 个月"
       about_x_years:
-        one: "大约一年"
-        other: "大约 %{count} 年"
+        one: "一年"
+        other: " %{count} 年"
       over_x_years:
         one: "一年多"
         other: "%{count} 年多"
@@ -108,6 +108,11 @@ ch:
 
   errors:
     format: "%{message}"
+    
+  activerecord:
+    errors:
+      header: "表格提交出错。"
+      message: "请更改下列错误。"  
   mongoid:
     models:
       user: "用户"
@@ -118,32 +123,38 @@ ch:
       job_post:
         title: "职位名称"
         company_name: "公司名称"
-        city_id: "工作地点"
-        industry_id: "行业"
+        company_type: "公司性质"
+        city_id: "工作城市"
+        province_id: "工作省份"
+        industry_id: "行业*"
         job_type: "工作性质"
-        years_required: "经验"
-        salary: "薪酬（单位:元）"
+        years_required: "经验要求"
+        salary: "月薪（单位:元）"
         description: "职位描述"
         job_requirement: "职位要求"
         contact_person: "联系人"
         phone_number: "电话号码"
         email: "电子邮件"
-        expiration: "截止日期"
+        expiration: "截止日期*"
         logo: "上传图片"
-        website: "网站"
-        province: "工作省份"
+        website: "职位招聘网站（选填）"
+        province: "工作省份*"
+        city: "工作城市*"
+        industry: "行业"
       language: 
         language_option_id: "语言"
         language_level: "能力程度"
       experience:
         company_name: "公司"
         job_title: "职位"
+        industry_id: "行业"
         description: "工作成就"
         start_date: "开始日期"
         end_date: "结束日期（不填表示尚未结束）"
       exam:
         exam_name: "考试名称"
-        score: "分数"
+        score: "分数(如相关)"
+        max_score: "最高可得分数"
         date: "考试日期"
       education:
         school: "学校名称"
@@ -193,11 +204,14 @@ ch:
         password: "密码"
         password_confirmation: "再次输入密码" 
         avatar: "上传头像"
+        chinese_resume: "中文简历"
+        english_resume: "英文简历"
+        languages: "语言"
       job_search:
         province_id: "省份"
         industry_id: "行业"
-        max_salary: "最高薪水"
-        min_salary: "最低薪水"
+        salary: "月薪"
+        years_required: "经验要求"
         keywords: "关键词"
       talent_search:
         min_age: "最低年龄"
@@ -227,6 +241,20 @@ ch:
               too_short: "密码太短"  
             password_confirmation:
               blank: "两次密码输入不相符" 
+        ind_user:
+          attributes:
+            experiences:
+              invalid: "您的工作经历信息不符合要求"
+            educations:
+              invalid: "您的学历信息不符合要求"
+            languages:
+              invalid: "您的语言能力信息不符合要求"            
+            exams:
+              invalid: "您的考试获奖信息不符合要求"
+            skills:
+              invalid: "您的技能信息不符合要求"
+            profile:
+              invalid: "您的个人信息不符合要求"
   male: "男"
   female: "女"
   gender: "性别"

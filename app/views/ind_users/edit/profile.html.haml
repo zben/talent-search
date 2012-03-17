@@ -11,7 +11,8 @@
 
     = semantic_nested_form_for @user do |f|
       = f.error_messages  
-      = hidden_field_tag :current_step, 'profile' if @is_new
+      = hidden_field_tag :current_step, 'profile' 
+      = hidden_field_tag :is_new, 'true' if @is_new
       
       = f.semantic_fields_for :profile  do |p| 
         = p.inputs do
@@ -33,6 +34,8 @@
             .span2
               = f.label "删除头像"
               = check_box_tag :remove_avatar, 1, false
+          .row
+            .span5=image_tag @user.avatar(:medium) unless params[:action]=="new"
 
           .row
             .span5 
@@ -42,9 +45,7 @@
             .span5 
               =f.input :english_resume
 
-          .row
-            .span5=image_tag @user.avatar(:medium) unless params[:action]=="new"
-
+       
       = f.semantic_fields_for :usage  do |m| 
         = m.inputs do
           %h2 使用本网站的意愿

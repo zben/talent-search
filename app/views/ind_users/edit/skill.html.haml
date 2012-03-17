@@ -14,7 +14,8 @@
       .span12
         = semantic_nested_form_for @user do |f|
           = f.error_messages  
-          = hidden_field_tag :current_step, 'skill' if @is_new
+          = hidden_field_tag :current_step, 'skill' 
+          = hidden_field_tag :is_new, 'true' if @is_new
           =render 'shared/skill_picker',:item=>@user
           .row
             .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"

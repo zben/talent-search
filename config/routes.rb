@@ -7,14 +7,6 @@ Talent::Application.routes.draw do
 
   resources :organization_profiles
 
-#  resources :exams
-
-#  resources :educations
-
-#  resources :experiences
-
-#  resources :profiles
-
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :users
@@ -22,6 +14,7 @@ Talent::Application.routes.draw do
   resources :org_users
   resources :shouts
   
+  match 'overview' => 'ind_users#show', :as=>'ind_user_overview'
   match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'
   match 'talent_searches/default'=>'talent_searches#show',:as=>'default_talent'
   resources :job_searches
@@ -41,6 +34,7 @@ Talent::Application.routes.draw do
   match 'org_users/:id/edit/:info'=>'org_users#edit',:as=>'org_user_edit'
   match 'org_users/:id/profile'=>'org_users#profile',:as=>'org_user_profile'
   
+  match 'users/:id/update/account'=>"users#update_email_or_password",:as=>'user_update_email_or_password'
   match 'users/:id/new/:info'=>'users#new',:as=>'user_new'
   match 'users/:id/edit/:info'=>'users#edit',:as=>'user_edit'
   match 'users/:id/profile'=>'users#profile',:as=>'user_profile'
@@ -52,60 +46,7 @@ Talent::Application.routes.draw do
   
   match 'bookmark/:type/:id'=>'bookmarks#bookmark', :as=>'toggle_bookmark'
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
 
   root :to => 'pages#home' 
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  
 end

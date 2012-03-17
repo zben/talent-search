@@ -4,11 +4,11 @@
   .span12.offset1
  
 
-    = form_for @user do |f|
+    = form_for @user,:url=>user_update_email_or_password_path(@user) do |f|
       = f.error_messages  
       .row
-        .span2= f.label :email 
-        .span4= f.email_field :email,:placeholder=> "使用学校或公司邮件地址"
+        .span2= f.label "电子邮件"
+        .span4= f.label @user.email
       .row
         .span2= f.label "旧密码"
         .span4= f.password_field :old_password 

@@ -21,3 +21,6 @@
         %td= company.org_profile.city.fullname
         %td= bookmark_code(company)
         %td= link_to "查看", company,:class=>"btn"
+
+.row
+  .span10= paginate @companies

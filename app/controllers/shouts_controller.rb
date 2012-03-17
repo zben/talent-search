@@ -1,10 +1,10 @@
 class ShoutsController < ApplicationController
   include ApplicationHelper
+  before_filter :authenticate!
   
   def index
-    relevant_user_ids = current_user.bookmarked(['IndUser','OrgUser']).map(&:id).push(current_user.id)
-    @shouts = Shout.desc(:created_at).where(:user_id.in=>relevant_user_ids).page(params[:page]).per(10)
-    
+    @user = current_user
+    @shouts = @user.related_shouts.page(params[:page]).per(10)
   end
   
   def create

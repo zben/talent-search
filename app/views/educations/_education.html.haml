@@ -1,9 +1,16 @@
-.row.span12
-  .span3 专业: #{education.program} 学位: #{education.degree_type}
-  .span3 学校: #{education.school} 
-  .span2 学分: #{education.GPA} 
-  .span3 #{yearmonth(education.start_date)} -- #{yearmonth(education.end_date) || "至今"}
-  .span12 总结: #{education.comment}
+.profile_item
+  .row  
+    .span5 学校: #{education.school} 
+    .span3 学历: #{education.program}#{education.degree_type}
+    .span4="#{yearmonth(education.start_date)} - #{yearmonth(education.end_date) || '至今'}"
+  
+  -unless education.comment.blank?
+    .row
+      .span12
+        %h5 学业点评: 
+        %p #{education.comment}
+
+
 
 
 

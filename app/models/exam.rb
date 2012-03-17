@@ -4,10 +4,11 @@ class Exam
   
   field :exam_name
   field :score, type: Integer
+  field :max_score, type: Integer
   field :date, type: Date
   
-  attr_accessible :user_id, :exam_name, :score, :date
-  validates :exam_name, :score, :date, :presence=>true
+  attr_accessible :user_id, :exam_name, :score, :max_score, :date
+  validates :exam_name, :date, :presence=>true
   embedded_in :user
   
   def name

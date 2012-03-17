@@ -14,13 +14,18 @@
       .span12
         = semantic_nested_form_for @user do |f|
           = f.error_messages  
-          = hidden_field_tag :current_step, 'language' if @is_new
+          = hidden_field_tag :current_step, 'language' 
+          = hidden_field_tag :is_new, 'true' if @is_new
           = f.semantic_fields_for :languages do |l|
             .row
-              .span4=l.input :language_option_id,:as=>:select,:collection=>LanguageOption.all
+              .span4=l.input :language_option_id,:as=>:select,:collection=>LanguageOption.all,:required=>true
               .span4=l.input :language_level, :as=>:select,:collection=>Language.language_levels_for_select
               .span4= l.link_to_remove "删除语言能力" 
           = f.link_to_add "添加语言能力", :languages
           .row
             .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
-
+-if @user.languages.empty?
+  :javascript
+    $(document).ready(function() {
+       $('.add_nested_fields').click();
+    });

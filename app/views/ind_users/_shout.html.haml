@@ -1,0 +1,23 @@
+.shout
+  .row
+    .span1
+      %p=image_tag shout.user.avatar(:small)
+    .span6.shout_box
+      =raw shout.message_with_link
+      %p
+        #{link_to shout.user.name, shout.user} #{l(shout.created_at,:format=>:long)}  
+        =link_to "删除",shout_path(shout),:method=>:delete if current_user==shout.user
+
+
+  -shout.shouts.each do |reply|
+
+    .row
+      .span1.offset1
+        %p=image_tag reply.user.avatar(:small)
+      .span5.shout_box
+        =raw reply.message_with_link
+        %p
+          #{link_to reply.user.name, shout.user} (发布于#{time_ago_in_words(reply.created_at)}以前)
+          =link_to "删除",shout_path(reply),:method=>:delete if current_user==reply.user
+
+

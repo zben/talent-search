@@ -1,24 +1,11 @@
 .span2
   =f.label :province
-  =select_tag "province", options_from_collection_for_select(Province.all, "id", "name"),:prompt=>t('Select one')
+  =f.collection_select :province_id, Province.all, :id, :name, prompt: t('Select one')
 .span2
-  =f.input :city_id,:as=>:select,:collection => City.all.map{|x| [t(x.name), x.id]},:selected=>100,:prompt => t("Select one")
-  
+  /=f.input :city_id,:as=>:select,:collection => City.all.map{|x| [t(x.name), x.id]},:selected=>1,:prompt => t("Select one")
+  =f.label :city
+  =f.grouped_collection_select :city_id, Province.all, :cities, :name, :id, :name, include_blank: true 
 
-:javascript
-
-  var names = new DynamicOptionList();
-  names.addDependentFields("province","#{item}[city_id]");
-  var info = #{Province.all.map{|x| [x,x.cities]}.to_json};
-  for (var i=0;i<info.length;i++){
-    for(var j=0;j<info[i][1].length;j++){
-      var province_id = info[i][0]['_id'];
-      var city_id = info[i][1][j]['_id'];
-      var city_name = info[i][1][j]['name_ch']; 
-      names.forValue(province_id).addOptionsTextValue(city_name,city_id);
-    }
-  }
-  initDynamicOptionLists();
 
 
 

@@ -1,9 +1,12 @@
 %div.topbar
   .topbar-inner
     .container
-      =link_to '孙悟空',root_path,:class=>"brand"
+      /=link_to '孙悟空',root_path,:class=>"brand"
+      =link_to image_tag('logo.png',height: 60),root_path, :class=>"brand"
+      
       %ul.nav
         %li=link_to '工作圈',current_user || root_path
+        %li=link_to '所有用户',ind_users_path 
         /%li=link_to '工作',job_posts_path if user_signed_in? 
         /%li=link_to "收藏夹",new_user_registration_path if !user_signed_in?
 

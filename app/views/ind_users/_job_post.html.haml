@@ -1,0 +1,10 @@
+.job_post_snippet.shout_box.row
+  .span4
+    .lab=link_to job_post.company_name,job_post.user if job_post.user.is_a? OrgUser
+    .lab=job_post.company_name unless job_post.user.is_a? OrgUser
+    
+    =link_to job_post.title ,job_post
+  .span3
+    =job_post.city.fullname
+    %br
+    发布于#{time_ago_in_words(job_post.created_at)}以前

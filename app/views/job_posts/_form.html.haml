@@ -6,36 +6,36 @@
     -if current_user.is_a? OrgUser
       .row
         .span8=f.input :company_name
-        .span4=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
+        .span3=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
+        .span2=f.input :company_type, :as=>:select, :collection=>JobPost.company_types_for_select,:prompt => t("Select one")
     -else
       .row
         .span8=f.input :company_name
-        .span4=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
+        .span3=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
+        .span2=f.input :company_type, :as=>:select, :collection=>JobPost.company_types_for_select,:prompt => t("Select one")
     .row
       .span3=f.input :title
       .span2=f.input :job_type, :as=>:select, :collection=>JobPost.job_types_for_select,:prompt => t("Select one")
-      .span1=f.input :years_required,:placeholder=>"年"
-      .span2=f.input :salary
+      .span2=f.input :years_required, :as=>:select, :collection=>JobPost.years_requireds_for_select,:prompt => t("Select one")
+      .span2=f.input :salary, :as=>:select, :collection=>JobPost.salaries_for_select,:prompt => t("Select one")
+      
       =render 'shared/city_picker',:f=>f,:item=>'job_post'
     .row
-      .span12
+      .span13
         .tiny=f.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
     .row
-      .span12
+      .span13
         .tiny=f.input :job_requirement,:as=>:text,:rows=>10,:input_html => { :class => 'autogrow', :rows => 10}
     .row
       .span2=f.input :contact_person
       .span3=f.input :phone_number
-      .span3=f.input :email
-    .row
+      .span4=f.input :email
       .span4
         =f.label :expiration
         =f.date_select :expiration,{},{:class=>"date"}
    
     .row
-      /.span4=f.input :logo
-
-      .span4
+      .span13
         =f.input :website,:input_html => { :placeholder => 'http://www.example.com'}
     =render 'shared/skill_picker',:item=>@job_post
 

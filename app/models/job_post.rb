@@ -3,18 +3,20 @@ class JobPost
   include Mongoid::Document
   include Mongoid::Timestamps
   include ApplicationHelper
+  
+  scope :current, where(:expiration.gte=>Date.today)
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
   
   include SimpleEnum::Mongoid
-  as_enum :job_type,    :"全职"=>1,:"兼职"=>2, :"短期项目"=>3
-
-#  as_enum :years_required, :"无要求" => 0, :"1年以上" => 1, :"2年以上" => 2, :"3年以上" => 3, :"5年以上" => 5, :"10年以上" => 10
-  field :years_required, type: Integer
+  as_enum :job_type,    :"全职"=>1,:"兼职"=>2, :"短期项目"=>3, :"实习"=>4
+  as_enum :salary, :"5000元以下"=>1, :"5000元-1万元"=>2, :"1万元-2万元"=>3, :"2万元-3万元"=>4, :"3万以上"=>5
+  as_enum :years_required, :"无要求"=>1, :"1年以上"=>2, :"3年以上"=>3, :"5年以上"=>4, :"10年以上"=>5
+  as_enum :company_type, :"国企"=>1, :"民企"=>2, :"外企"=>3, :"非营利组织"=>4, :"学术研究机构"=>5
+  
   field :title
   field :description
   field :job_requirement
   field :company_name
-  field :salary, type: Integer
   field :expiration, type: Date
   field :contact_person
   field :email
@@ -23,21 +25,24 @@ class JobPost
   field :website
   field :is_official, type: Boolean, default: true
   
-  attr_accessible :title, :city_id, :industry_id, :years_required, 
+  attr_accessible :title, :city_id, :province_id, :company_type, :industry_id, :years_required, 
       :company_name, :company_id, :description, :job_requirement, 
       :job_type, :salary, :expiration, :contact_person, 
       :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
   
-  validates :title, :city_id,
-      #:description, :job_requirement, :job_type,  
+  validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,
+      :description, :job_requirement, :job_type, :years_required, 
       :expiration, :email, :presence=>true
       
   belongs_to :industry
+  field :industry_id, type: Integer
+  belongs_to :province
+  field :province_id, type: Integer
   belongs_to :city
   field :city_id, type: Integer
   belongs_to :user
   has_and_belongs_to_many :skills
-  
+  has_many :job_applications
 #  fulltext_search_in :title, :description, :job_requirement
   
   def mcount user
@@ -50,7 +55,7 @@ class JobPost
   end
   
   def related_jobs
-    jobs = skills.map{|skill| skill.job_posts}.flatten.uniq
+    jobs = skills.map{|skill| skill.job_posts.current}.flatten.uniq
     jobs.sort!{|a,b| mcount(a) <=> mcount(b)}
   end
   

@@ -3,6 +3,7 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   
+
  
 ## Database authenticatable
   field :email,              :type => String, :null => false
@@ -73,7 +74,7 @@ class User
   
   
   def matches
-    jobs = skills.map{|skill| skill.job_posts}.flatten.uniq
+    jobs = skills.map{|skill| skill.job_posts.current}.flatten.uniq
     jobs.sort!{|a,b| a.mcount(self) <=> b.mcount(self)}
   end
   
@@ -90,8 +91,12 @@ class User
     industries.each{|x| x.industries_users.create(:user_id=>self.id,:interest_id=>Interest.where(:name_ch=>interest_type)[0].id)}
   end
  
-   def bookmarked types
+   def bookmarked *types
      bookmarks.where(:bookmarkable_type.in=>types.to_a).map(&:bookmarkable)
+   end
+   
+   def bookmarked_ids *types
+     bookmarks.where(:bookmarkable_type.in=>types.to_a).map(&:bookmarkable_id)
    end
   
   def name
@@ -101,4 +106,13 @@ class User
       org_profile.company_name || "匿名公司"
     end  
   end
+  
+  def related_shouts including_self=true
+    user_ids = bookmarked(['IndUser','OrgUser']).map(&:id)
+    user_ids.push(id) if including_self
+    Shout.top_level.desc(:created_at).where(:user_id.in=>user_ids)
+  end
+  
+
+  
 end

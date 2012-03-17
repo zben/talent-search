@@ -1,69 +1,86 @@
 .row
   .span11
-    =link_to "申请职位",'',:class=>'btn primary' if current_user.is_a?(IndUser) and current_user!=@job_post.user 
-    =link_to "历史发布",send("#{current_user.class.to_s.underscore}_job_posts_path", current_user.id),:class=>'btn primary' if current_user==@job_post.user 
-    =link_to "添加职位",new_job_post_path,:class=>'btn primary' if current_user==@job_post.user 
-    
     .row
-      %h3.span8=@job_post.user.is_a?(OrgUser) ? link_to(@job_post.company_name,@job_post.user) : @job_post.company_name
+      .span11
+        -if current_user==@job_post.user 
+          =link_to "所有发布",send("#{current_user.class.to_s.underscore}_job_posts_path", current_user.id),:class=>'btn'
+          =link_to "添加",new_job_post_path,:class=>'btn' 
+        
+          = link_to "编辑", edit_job_post_path(@job_post) ,:class=>'btn' 
+          =link_to "删除", @job_post, :confirm => 'Are you sure?', :method => :delete ,:class=>'btn' 
+        
+        -elsif current_user.is_a?(IndUser) && current_user!=@job_post.user    
+          =link_to "申请职位",'',:class=>'btn'
+          =bookmark_code(@job_post) 
+        
+    %br    
     .row
-      
-      %h4.span9=(name=@job_post.title).blank? ? '未填' : name
-      =bookmark_code(@job_post) if current_user.is_a? IndUser
+      .span7
+        公司名称
+        %h4=@job_post.user.is_a?(OrgUser) ? link_to(@job_post.company_name,@job_post.user) : @job_post.company_name
+      .span2
+        行业
+        %h4=@job_post.industry.name 
+      .span2
+        公司性质
+        %h4=@job_post.company_type
     .row
-      .span2.lab 所属行业:
-      .span5=(name=@job_post.industry).blank? ? '未填' : name.name
- 
+      .span3 
+        职位名称
+        %h4=@job_post.title 
+      .span2
+        工作性质
+        %h4=@job_post.job_type
+      .span2
+        经验要求
+        %h4=@job_post.years_required 
+      .span2
+        月薪
+        %h4=@job_post.salary
+      .span2
+        工作地点
+        %h4
+          =@job_post.province.name
+          =@job_post.city.name    
+     
     .row
-      .span2.lab 工作类型:  
-      .span2=(name=@job_post.job_type).blank? ? '未填' : name
+      .span11
+        职位描述
+        .description=raw @job_post.description
     .row
-      .span2.lab 工作年限:
-      .span2=(years=@job_post.years_required).to_f==0 ? '无要求' : "#{years}年"
+      .span11 
+        用人要求:
+        .description=raw @job_post.job_requirement
+
     .row
-      .span2.lab 薪酬:
-      .span2=(salary=@job_post.salary).to_f==0 ? '面议' : "#{salary} RMB"
-    .row
-      .span2.lab 所在省市:
+      .span2
+        联系人
+        %h4=(person=@job_post.contact_person).blank? ? '未填' : person 
+      .span3
+        电话号码:
+        %h4=(no=@job_post.phone_number).blank? ? '未填' : no
       .span4
-        =(name=@job_post.city).blank? ? '' : name.province.name
-        =(name=@job_post.city).blank? ? '未填' : name.name
+        电子邮件:
+        %h4=(email=@job_post.email).blank? ? '未填' : mail_to(email)
+      .span3
+        截止日期:
+        %h4=l @job_post.expiration, :format=>:long
     .row
-      .span2.lab 截止日期:
-      .span4=(date=@job_post.expiration).nil? ? '未填' : l(date, :format=>:long)
+      .span10
+        相关网页:
+        %h4=(url=@job_post.website).blank? ? '未填' : link_to(url, url)
     .row
-      .span2.lab 工作描述:
-      .span8.description=raw @job_post.description || '未填'
-    .row
-      .span2.lab 用人要求:
-      .span8.description=raw @job_post.job_requirement || '未填'
+      .span10
+        相关技能:
+        %h4=(skills=@job_post.skills).blank? ? '未填' : render(skills)
+      
 
-    .row
-      .span2.lab 联系人:
-      .span4=(person=@job_post.contact_person).blank? ? '未填' : person 
-    .row
-      .span2.lab 电话号码:
-      .span4=(no=@job_post.phone_number).blank? ? '未填' : no
-    .row
-      .span2.lab 电子邮件:
-      .span4=(email=@job_post.email).blank? ? '未填' : mail_to(email)
-    .row
-      .span2.lab 相关网页:
-      .span4=link_to @job_post.website,"#{@job_post.website}" || '未填'
-    .row
-      .span2.lab 相关技能:
-      .span8=(skills=@job_post.skills).blank? ? '未填' : render(skills)
+
     
-    =link_to "申请职位",'',:class=>'btn primary' if current_user.is_a?(IndUser) and current_user!=@job_post.user 
-    =link_to "收藏职位",'',:class=>'btn primary' if current_user.is_a?(IndUser) and current_user!=@job_post.user
-
-
-    = link_to "编辑", edit_job_post_path(@job_post) if current_user==@job_post.user 
-    =link_to "删除", @job_post, :confirm => 'Are you sure?', :method => :delete if current_user==@job_post.user 
-
-  
-    
-  .span5
+  .span4
+    -unless @latest_jobs.blank?
+      %h4 悟空最新职位
+      =render @latest_jobs
     -unless @same_company_jobs.blank?
       %h4 同一来源职位
       =render @same_company_jobs

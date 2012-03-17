@@ -1,12 +1,17 @@
 !!!
 %html
     %head
-        %title 孙悟空
+        %title 悟空人才
         =stylesheet_link_tag    "application"
         =javascript_include_tag "application"
         = csrf_meta_tags
     %body
         =render 'layouts/header'
+        -if params[:action] == 'home'
+            .container
+                .row
+                    .home_page_image
+                        =image_tag('home_page.png',width: 800) 
         .container.main
             =render 'layouts/flash',:flash=>flash 
             = yield 

@@ -12,13 +12,16 @@
       .span12
         = semantic_nested_form_for @user do |f|
           = f.error_messages  
-          = hidden_field_tag :current_step,'experience' if @is_new
-
+          = hidden_field_tag :current_step, 'experience' 
+          = hidden_field_tag :is_new, 'true' if @is_new
+          
           = f.semantic_fields_for :experiences do |exp|
             .row
-              .span7= exp.input :company_name
-              .span4= exp.input :job_title
-            .span11= exp.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 3, :cols => 20, :maxlength => 500  }
+              .span6= exp.input :company_name
+              .span3= exp.input :job_title
+              .span3= exp.input :industry_id,:as=>:select,:collection=>Industry.all,:required=>true
+            .row
+              .span11= exp.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 3, :maxlength => 500 }
             .row
               .span4.yearmonth=exp.input :start_date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
               .span4.yearmonth=exp.input :end_date,:as=>:date,:start_year=>1990, :end_year=>Date.today.year
@@ -27,3 +30,8 @@
           .row
             .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
 
+-if @user.experiences.empty?
+  :javascript
+    $(document).ready(function() {
+       $('.add_nested_fields').click();
+    });

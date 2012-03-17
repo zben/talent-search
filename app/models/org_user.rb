@@ -2,8 +2,11 @@ class OrgUser < User
   include Mongoid::Paperclip
     has_many :bookmarks, :foreign_key=>"user_id"
     has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
+
+    has_many :bookmarks, :foreign_key=>"user_id"   
     
-    has_many :bookmarks, :foreign_key=>"user_id"    
+    scope :with_profile, where(:org_profile.ne=>nil) 
+    
     if Rails.env.production?  
       has_mongoid_attached_file :logo,
         :path => ':logo/:id/:style.:extension',

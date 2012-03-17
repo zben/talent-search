@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class UsersController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate!
@@ -48,5 +49,20 @@ class UsersController < ApplicationController
   def profile
     redirect_to current_user
   end
+  
+  def update_email_or_password
+    @user = User.find(params[:id]) 
+    if current_user.valid_password?(params["#{@user.class.name.underscore}"][:old_password]) == false
+      flash[:error] = "请正确输入旧密码"
+      redirect_to :back
+    elsif @user.update_attributes(params["#{@user.class.name.underscore}"])
+      redirect_to @user
+    else
+      flash[:error] = "修改密码不成功。请确认你输入了同样的密码两次而且您的密码有足够的复杂程度。"
+      redirect_to :back
+    end
+
+  end
+  
   
 end

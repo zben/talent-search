@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery
     before_filter :set_locale
-    
+
     def authenticate!    
         if !user_signed_in?
             flash[:notice]="请先登录"
@@ -23,13 +23,13 @@ class ApplicationController < ActionController::Base
     def after_sign_in_path_for(resource)
       if current_user._type=="IndUser"
         if current_user.profile
-          default_jobs_path
+          ind_user_overview_path
         else
           ind_user_new_path(current_user.id,'profile')
         end
       else
         if current_user.org_profile
-          org_user_path(current_user.id)
+          org_user_overview_path
         else
           org_user_new_path(current_user.id,'profile')
         end

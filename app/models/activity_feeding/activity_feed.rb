@@ -2,6 +2,7 @@
 class ActivityFeed
   include Mongoid::Document
   include Mongoid::Timestamps
+
   
   field :text
   field :link
@@ -15,5 +16,8 @@ class ActivityFeed
   
   belongs_to :user
    
+  def self.feed_for(user,*types)
+    where(:user_id.in=> user.bookmarked_ids(*types))
+  end
   
 end

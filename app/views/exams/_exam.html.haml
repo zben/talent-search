@@ -1,7 +1,13 @@
-.row.span12
-  .span3 考试: #{exam.name} 
-  .span2 分数: #{exam.score} 
-  .span3 日期: #{exam.date} 
+.profile_item
+  .row
+    .span5 项目: #{exam.exam_name}
+    .span3 
+      -if exam.score.blank?
+        =""
+      -else  
+        分数: #{exam.score}/#{exam.max_score}       
+    .span4="#{yearmonth(exam.date)}"
+
 
 
 
