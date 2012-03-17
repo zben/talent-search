@@ -4,7 +4,7 @@ class IndUsersController < ApplicationController
   before_filter :authenticate!
   
   def index
-    @ind_users = IndUser.with_profile.page(params[:page]).per(10)
+    @ind_users = IndUser.with_ind_profile.page(params[:page]).per(10)
   end
   
   def profile

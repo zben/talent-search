@@ -2,7 +2,7 @@ class IndUser < User
     has_many :bookmarks, :foreign_key=>"user_id"
     has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
     has_many :job_applications
-    scope :with_profile, where(:profile.ne=>nil)
+    scope :with_ind_profile, where(:profile.ne=>nil)
    
    include Mongoid::Paperclip
     if Rails.env.production?  
