@@ -4,10 +4,10 @@
     %li.active=link_to "用户信息", ind_user_profile_path(@user)
     
   -else
-    %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='show' ? 'active':''}"}
+    %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='overview' ? 'active':''}"}
       =link_to "主页", ind_user_overview_path
 
-    %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='profile' ? 'active':''}"}
+    %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='show' ? 'active':''}"}
       =link_to "个人资料",@user
     -if @user.nil? || @user==current_user
       %li{:class=>"#{params[:controller]=='shouts' && params[:action]=='index' ? 'active':''}"}

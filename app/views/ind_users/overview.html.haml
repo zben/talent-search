@@ -1,0 +1,21 @@
+=render 'navigation'
+
+.row
+  .span8
+    %h4 关注公司动态
+    =render collection: @org_activity_feeds, as: :activity_feed, partial: 'activity_feed'
+  .span8
+    %h4 关注个人动态
+    =render collection: @ind_activity_feeds, as: :activity_feed, partial: 'activity_feed'
+.row
+  .span8
+    -unless @matching_jobs.empty?
+      %h4 匹配职位
+      =render collection: @matching_jobs, partial: 'job_post'
+    -else
+      %h4 最新职位
+      =render collection: JobPost.limit(10), partial: 'job_post'
+  .span8
+    %h4 关注微博
+    =render collection: @status_update, partial: 'shout'
+

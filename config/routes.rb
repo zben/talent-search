@@ -14,7 +14,7 @@ Talent::Application.routes.draw do
   resources :org_users
   resources :shouts
   
-  match 'overview' => 'ind_users#show', :as=>'ind_user_overview'
+  match 'overview' => 'ind_users#overview', :as=>'ind_user_overview'
   match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'
   match 'talent_searches/default'=>'talent_searches#show',:as=>'default_talent'
   resources :job_searches

@@ -7,17 +7,16 @@ class IndUsersController < ApplicationController
     @ind_users = IndUser.with_ind_profile.page(params[:page]).per(10)
   end
   
-  def profile
-    @user = User.find(params[:id])
-  end
-  
-  def show 
-    @user = params[:id].nil? ? current_user : User.find(params[:id])
-    render :profile if @user != current_user
+  def overview
+    @user = current_user 
     @ind_activity_feeds = ActivityFeed.feed_for(current_user,'IndUser').limit(10)
     @org_activity_feeds = ActivityFeed.feed_for(current_user,'OrgUser').limit(10)
     @matching_jobs = current_user.matches[0..10] 
     @status_update = current_user.related_shouts.limit(10)
+  end
+  
+  def show 
+    @user = params[:id].nil? ? current_user : User.find(params[:id])
   end
   
   def new 
@@ -46,7 +45,7 @@ class IndUsersController < ApplicationController
       update_skills(@user,params) unless params[:skills].nil?
       next_step = params[:is_new].nil? ? nil : @user.next_step(params[:current_step])   
       if next_step.nil?
-        redirect_to ind_user_profile_path(@user)
+        redirect_to @user
       else
         @is_new = true
         redirect_to ind_user_new_path(@user.id,"#{next_step}")
