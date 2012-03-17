@@ -11,7 +11,7 @@ class Language
   embedded_in :user
   
   def language
-    LanguageOption.find(language_option_id.to_i).name
+    LanguageOption.find(language_option_id).name
   end
 
 end
