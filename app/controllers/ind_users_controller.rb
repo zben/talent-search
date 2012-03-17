@@ -72,7 +72,7 @@ class IndUsersController < ApplicationController
   
   def bookmarked_jobs
     @user = current_user
-    @job_posts = current_user.bookmarked("JobPost").compact.page(params[:page]).per(10)
+    @job_posts = Kaminari.paginate_array(current_user.bookmarked("JobPost").compact).page(params[:page]).per(10)
   end
 
   def job_posts 
