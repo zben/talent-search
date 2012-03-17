@@ -15,7 +15,7 @@ gem 'formtastic-bootstrap'
 gem 'active_hash'
 gem "seedbank"
 gem 'kaminari'
-gem 'declaractive_authorization'
+gem 'declarative_authorization'
 
 
 # Gems used only for assets and not required

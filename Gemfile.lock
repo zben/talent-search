@@ -80,6 +80,7 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     daemons (1.1.5)
+    declarative_authorization (0.5.5)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -226,6 +227,7 @@ DEPENDENCIES
   aws-sdk
   bson_ext
   coffee-rails (~> 3.1.0)
+  declarative_authorization
   devise (~> 2.0.0)
   devise_invitable (~> 1.0.0)
   erb2haml
