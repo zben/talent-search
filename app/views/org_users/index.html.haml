@@ -1,24 +1,21 @@
-- title "Users"
+%h3 所有注册企业与机构
 
-%table.zebra-striped.bordered-table
+%table.zebra-striped
   %tr
-    %th 姓
-    %th 名
-    %th 年龄
-    %th 所在地
-    %th 目的
-    %th 加入日期
-    
-  - for user in @users
-    %tr
-      %td=link_to user.profile.lastname, user
-      %td= user.profile.firstname
-      %td= user.profile.age
-      %td= user.profile.residence
-      %td
-        =user.usage.find_job ? "找工作 ":''
-        =user.usage.find_project ? "找任务 ":''
-        =user.usage.find_partner ? "找创业伙伴 ":''
-        =user.usage.find_money ? "找资金 ":''
-      %td= l user.profile.created_at.to_date, :format=>:long
+    %th 公司/机构
+    %th 公司人数
+    %th 所属行业
+    %th 总部地点
+    %th
+    %th
+  - for company in @users
+    %tr{:id=>"#{company.id}"}
+      %td= company.org_profile.company_name 
+      %td= company.org_profile.people_count
+      %td= company.org_profile.industry.name
+      %td= company.org_profile.city.fullname
+      %td= bookmark_code(company)
+      %td= link_to "查看", company,:class=>"btn"
 
+.row
+  .span10= paginate @users

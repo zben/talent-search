@@ -15,7 +15,7 @@ class JobPostsController < ApplicationController
   end
 
   def new
-    
+    @user = current_user
     @job_post = JobPost.new
     @job_post.company_name = current_user.org_profile.company_name unless current_user.org_profile.nil?
     @job_post.industry_id=current_user.org_profile.industry_id unless current_user.org_profile.nil?

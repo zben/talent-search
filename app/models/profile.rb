@@ -12,6 +12,7 @@ class Profile
   field :birthday, type: Date
   field :citizenship, type: Integer
   field :residence_country, type: Integer
+  field :residence_state, type: Integer
   field :intro
   field :intro_title
  

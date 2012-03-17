@@ -3,7 +3,7 @@ class OrgUsersController < ApplicationController
   before_filter :authenticate!
   
   def index
-    @users = OrgUser.all
+    @users = OrgUser.all.with_org_profile.page(params[:page]).per(10)
   end
   
   def show

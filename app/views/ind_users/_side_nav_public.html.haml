@@ -1,10 +1,23 @@
-.span3
+.span3.user_panel
 
 
   .avatar.medium=image_tag @user.avatar.url(:medium),:width=>150
   %h3=@user.profile.name
-  %h5="#{@user.profile.age}岁, #{@user.profile.gender}"
-  %h5="#{@user.profile.residence}, #{@user.profile.nationality}国籍"
+  %p 
+    %b 年龄:
+    #{@user.profile.age}岁 
+  %p
+    %b 性别:
+    #{@user.profile.gender} 
+  %p
+    %b 国籍:
+    #{@user.profile.nationality} 
+  %p 
+    %b 现居国:
+    #{@user.profile.residence} 
+  %p
+    %b 省/州:
+    #{@user.profile.province.name} 
   = bookmark_code @user unless @user==current_user
   =link_to "留言","",:class=>'btn' unless @user==current_user
   

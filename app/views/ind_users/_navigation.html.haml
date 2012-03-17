@@ -1,7 +1,7 @@
 %ul{:class=>"tabs",:"data-tabs"=>"tabs"}
 
   -if @user!=current_user
-    %li.active=link_to "用户信息", ind_user_profile_path(@user)
+    %li.active=link_to "用户信息", @user
     
   -else
     %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='overview' ? 'active':''}"}

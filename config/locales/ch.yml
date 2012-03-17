@@ -172,7 +172,9 @@ ch:
         gender: "性别"
         citizenship: "国籍"
         province_id: "省籍"
-        residence_country: "现在居住国"  
+        residence_country: "现居国家"
+        province: "现居省/州"  
+        province_id: "现居省/州"  
         intro: "自我点评"
         intro_title: "个性标题"
       org_profile:
