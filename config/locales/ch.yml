@@ -190,7 +190,7 @@ ch:
         website: "官方网站"
         industry_id: "所属行业"
         city_id: "总部城市"  
-        avatar:  
+
       usage:
         find_job: "寻找全职工作机会"
         find_project: "寻找短期项目接活"
@@ -206,6 +206,7 @@ ch:
         password: "密码"
         password_confirmation: "再次输入密码" 
         avatar: "上传头像"
+        logo: "公司Logo"
         chinese_resume: "中文简历"
         english_resume: "英文简历"
         languages: "语言"
@@ -219,7 +220,12 @@ ch:
         min_age: "最低年龄"
         max_age: "最高年龄"
         keywords: "关键词"
-        
+      company_search:
+        keywords: "关键词"
+        people_count: "公司人数"
+        province: "总部省份"
+        city: "总部城市"
+        industry_id: "行业"
     errors:
       header: "表格无法提交"
       message: "请改正下列错误再重试"
@@ -230,6 +236,11 @@ ch:
           attributes:
             firstname:
               blank: "名不能为空"
+        org_user:
+          attributes:
+            org_profile:
+              invalid: "公司信息不完全,请重新提交"
+        
         user:
           attributes:
             email:

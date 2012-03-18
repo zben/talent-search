@@ -1,5 +1,8 @@
 .span3
 
+  %ul.side_nav  
+    %li 修改账户信息
+    %li{:class=>"#{params[:info]=='account'? "active":""}"}=link_to "修改密码",org_user_edit_path(current_user.id,'account')
   %ul.side_nav    
     %li 修改机构信息
     %li{:class=>"#{params[:info]=='profile'? "active":""}"}=link_to "基本信息",org_user_edit_path(current_user.id,'profile')

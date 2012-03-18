@@ -1,13 +1,12 @@
 jQuery ->
 
-  cities = $('#job_post_city_id').html()
-  $('#job_post_province_id').change ->
-    province = $('#job_post_province_id :selected').text()
-    alert(province)
+  cities = $('#city_id select').html()
+  $('#province_id select').change ->
+    province = $('#province_id select :selected').text()
     options = $(cities).filter("optgroup[label='#{province}']").html()
     if options
-      $('#job_post_city_id').html(options)
+      $('#city_id select').html(options)
 
     else
-      $('#job_post_city_id').empty()
-  $('#job_post_province_id').change()
+      $('#city_id select').empty()
+  $('#province_id select').change()

@@ -3,6 +3,7 @@ class JobPostsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate!
   def index
+    @user = current_user
     @job_posts = JobPost.all
   end
 

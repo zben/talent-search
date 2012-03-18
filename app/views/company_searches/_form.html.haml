@@ -1,0 +1,14 @@
+=semantic_form_for @search do |f|
+  =f.inputs do
+    .row 
+      .span3
+        =f.input :keywords
+      
+        =submit_tag "搜索",:class=>"btn"
+      %h4.span3 附加选项
+      .span3=f.input :industry_id, :collection=>Industry.all
+      .span3=f.input :people_count, :as=>:select, :collection=>OrgProfile.people_counts_for_select
+      .span3=render 'shared/city_picker',:f=>f
+      %br
+      .span3=submit_tag "搜索",:class=>"btn"
+        

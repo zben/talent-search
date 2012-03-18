@@ -12,6 +12,7 @@
     = semantic_nested_form_for @user do |f|
       = f.error_messages  
       = hidden_field_tag :current_step, 'profile' if @is_new
+      = hidden_field_tag :is_new, 'true' if @is_new
       
       = f.semantic_fields_for :org_profile  do |p| 
         = p.inputs do
@@ -19,7 +20,7 @@
             .span10= p.input :company_name
           .row
             .span3= p.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
-            .span2= p.input :people_count
+            .span2= p.input :people_count, :as=>:select, :collection=> OrgProfile.people_counts_for_select,:prompt => t("Select one")   
             = render 'shared/city_picker',:f=>p, :item=>'org_user[org_profile_attributes]'
           .row  
             .span10= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
@@ -43,13 +44,6 @@
           .row
             .span5=image_tag @user.logo(:medium) unless params[:action]=="new"
 
-
-            
-
-      
-
-      
-      
 
       .row.span16.actions
         .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"

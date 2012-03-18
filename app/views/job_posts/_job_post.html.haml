@@ -4,6 +4,6 @@
     .lab=job_post.company_name unless job_post.user.is_a? OrgUser
     
     =link_to job_post.title ,job_post
-  -if  params[:controller]=="devise/sessions" 
+  -if  is_active?("devise/sessions#.")=='active' or is_active?("pages#home")=='active'  
     .span2
       #{time_ago_in_words(job_post.created_at)}以前

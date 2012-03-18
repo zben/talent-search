@@ -30,7 +30,7 @@ class OrgUsersController < ApplicationController
     if @user.save
       remove_avatar(@user) unless params["remove_avatar"].nil?
       update_skills(@user,params) unless params[:skills].nil?
-      next_step = params[:current_step].nil? ? nil : @user.next_step(params[:current_step])   
+      next_step = params[:is_new].nil? ? nil : @user.next_step(params[:current_step])   
       if next_step.nil?
         redirect_to @user
       else
@@ -38,7 +38,8 @@ class OrgUsersController < ApplicationController
         redirect_to org_user_new_path(@user.id,"#{next_step}")
       end
     else
-      redirect_to :back
+      @is_new = true unless params[:is_new].nil?
+      render "org_users/edit/#{params[:current_step]}"
     end
   end
   

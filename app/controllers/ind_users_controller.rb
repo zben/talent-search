@@ -51,9 +51,8 @@ class IndUsersController < ApplicationController
         redirect_to ind_user_new_path(@user.id,"#{next_step}")
       end
     else
-      params[:is_new].nil? ? 
-        render(:template=>"ind_users/edit/#{params[:current_step]}") :
-        render(:template=>"ind_users/new/#{params[:current_step]}")
+        @is_new = true unless params[:is_new].nil?
+        render "ind_users/edit/#{params[:current_step]}"
     end
   end
   

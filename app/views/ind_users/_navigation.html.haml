@@ -5,24 +5,22 @@
     
   -else
     %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='overview' ? 'active':''}"}
-      =link_to "主页", ind_user_overview_path
+      =link_to "工作圈主页", ind_user_overview_path
 
     %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='show' ? 'active':''}"}
-      =link_to "个人资料",@user
+      =link_to "求职简历",@user
     -if @user.nil? || @user==current_user
-      %li{:class=>"#{params[:controller]=='shouts' && params[:action]=='index' ? 'active':''}"}
-        =link_to "悟空微博",shouts_path
-      %li{:class=>"#{params[:controller]=='job_searches' && params[:action]=='show' ? 'active':''}"}
-        =link_to '搜索职位',default_jobs_path 
+      %li{:class=>is_active?('job_searches#show')}=link_to '搜职位',default_jobs_path 
+      %li{:class=>is_active?('company_searches#show')}=link_to '搜公司',default_companies_path 
 
 
-
-      %li{:class=>"#{params[:action]=='new'  ? 'active':''}"}
-        =link_to "发布职位",new_job_post_path
-      %li{:class=>"#{params[:action]=='job_posts'  ? 'active':''}"}
-        =link_to "发布存档",ind_user_job_posts_path(current_user)
-      
-   
+    %li{:class=>"dropdown #{is_active?("job_posts#new")} #{is_active?("ind_users#job_posts")}",:"data-dropdown"=>"dropdown" }
+      =link_to_function "职位发布",'$(".dropdown-menu").toggle()', :class=>"dropdown-toggle" 
+      %ul.dropdown-menu
+        %li=link_to "发布职位",new_job_post_path
+        %li=link_to "发布存档",ind_user_job_posts_path(current_user)
+          
+       
 
           
       %li{:class=>"dropdown #{params[:action]=~/bookmarked/  ? 'active':''}",:"data-dropdown"=>"dropdown" }
@@ -36,11 +34,11 @@
   $(".dropdown-toggle").hover(
     function () {
       $(this).addClass('active');
-      $(".dropdown-menu").show();
+      $(this).next(".dropdown-menu").show();
     }, 
     function () {
       $(this).removeClass('active');
-      $(".dropdown-menu").hide();
+      $(this).next(".dropdown-menu").hide();
     }
   );
   $(".dropdown-menu").hover(

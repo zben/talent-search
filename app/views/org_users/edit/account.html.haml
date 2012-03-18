@@ -1,0 +1,22 @@
+/=render 'ind_users/navigation' unless params[:controller]=="ind_users" and params[:action]=="new"
+.row
+  =render 'org_users/side_nav'
+  .span12.offset1
+ 
+
+    = form_for @user,:url=>user_update_email_or_password_path(@user) do |f|
+      = f.error_messages  
+      .row
+        .span2= f.label "电子邮件"
+        .span4= f.label @user.email
+      .row
+        .span2= f.label "旧密码"
+        .span4= f.password_field :old_password 
+      .row
+        .span2= f.label "新密码"
+        .span4= f.password_field :password 
+      .row
+        .span2= f.label "重输新密码"
+        .span4= f.password_field :password_confirmation
+      .row
+        .span4.offset3= f.submit "保存修改",:class=>"btn primary"

@@ -5,11 +5,12 @@
       =link_to image_tag('logo.png',height: 60),root_path, :class=>"brand"
       
       %ul.nav
-        %li=link_to '工作圈',current_user || root_path
-        %li{:class=>is_active?("ind_users#index")}=link_to '个人',ind_users_path 
-        %li{:class=>is_active?("org_users#index")}=link_to '公司',org_users_path 
-        %li{:class=>is_active?("job_posts#index")}=link_to '职位',job_posts_path 
-     
+        %li{:class=>is_active?("shouts#index")}=link_to "悟空微博",shouts_path
+        %li{:class=>"#{is_active?("job#.")}"}=link_to '工作圈',ind_user_overview_path || root_path
+        /%li=link_to '创业圈',current_user || root_path
+        /%li=link_to '活动圈',current_user || root_path
+
+        %li{:class=>is_active?("ind_users#index")}=link_to '找人',ind_users_path 
 
         %li=link_to "注册",new_user_registration_path if !user_signed_in?
         %li=link_to "登录",new_user_session_path if !user_signed_in?

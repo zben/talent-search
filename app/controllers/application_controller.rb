@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
         end
       else
         if current_user.org_profile
-          org_user_overview_path
+          org_user_job_posts_path(current_user.id)
         else
           org_user_new_path(current_user.id,'profile')
         end

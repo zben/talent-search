@@ -8,7 +8,7 @@ gem "nifty-generators", :group => :development
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'nested_form',:git => 'git://github.com/ryanb/nested_form.git'
-
+gem 'thin'
 
 gem 'formtastic',:git => 'https://github.com/justinfrench/formtastic.git'
 gem 'formtastic-bootstrap'

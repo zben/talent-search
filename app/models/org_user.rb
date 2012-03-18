@@ -21,6 +21,7 @@ class OrgUser < User
         }
     else    
       has_mongoid_attached_file :logo,
+        :default_url => '/assets/logo/:style/missing.png',
         :styles => {
           :original => ['1920x1680>', :jpg],
           :small    => ['30x30#',   :jpg],

@@ -84,4 +84,9 @@ class IndUser < User
         x.build_usage({find_job:true,find_project: Random.rand(2)==1,find_partner: Random.rand(2)==1, find_money: Random.rand(2)==1})
         x.save
   end
+  
+  def matching_companies
+    OrgUser.all
+  end
+  
 end

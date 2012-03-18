@@ -1,5 +1,7 @@
-.row
-  .span10.offset1
+.shout.row
+  .span1
+    %p=image_tag current_user.avatar(:small)
+  .span10
     =form_for Shout.new do |f|
       =f.text_area :message,:rows=>2
       =submit_tag '发布微博',:class=>'btn'

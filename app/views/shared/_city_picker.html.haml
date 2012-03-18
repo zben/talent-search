@@ -1,10 +1,10 @@
 .span2
   =f.label :province
-  =f.collection_select :province_id, Province.all, :id, :name, prompt: t('Select one')
+  #province_id=f.collection_select :province_id, Province.all, :id, :name, prompt: t('Select one'), include_blank: true
 .span2
   /=f.input :city_id,:as=>:select,:collection => City.all.map{|x| [t(x.name), x.id]},:selected=>1,:prompt => t("Select one")
   =f.label :city
-  =f.grouped_collection_select :city_id, Province.all, :cities, :name, :id, :name, include_blank: true 
+  #city_id=f.grouped_collection_select :city_id, Province.all, :cities, :name, :id, :name, include_blank: true
 
 
 

@@ -73,7 +73,7 @@ module ApplicationHelper
 
   def is_active? controller_and_action
     controller, action = controller_and_action.split("#")
-    (params[:controller]=~/#{controller}/ && params[:action]==action) ? 'active':''
+    (params[:controller]=~/#{controller}/ && params[:action]=~/#{action}/) ? 'active':''
   end
 end
 

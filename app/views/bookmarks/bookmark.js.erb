@@ -1,6 +1,6 @@
 <% if @is_bookmarked%> 
-$("a.<%=@bookmarkable.id=%>")[0].text="取消关注"
+$("a.<%=@bookmarkable.id=%>").text("取消关注");
 <% else %>
-$("a.<%=@bookmarkable.id%>")[0].text="关注";
+$("a.<%=@bookmarkable.id%>").text("关注");
 $("tr#<%=@bookmarkable.id%>").hide();
 <% end %>
