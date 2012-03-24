@@ -262,3 +262,12 @@ a.remove_nested_fields, a.add_nested_fields{
   float:left;
   padding-left:5px;
   }
+  
+.side .module{
+  -webkit-border-radius: 4px;
+  background-color:#AFCBF3;
+}
+.side .module h4{
+  border-radius-top:4px;
+  background-color: orange;
+}

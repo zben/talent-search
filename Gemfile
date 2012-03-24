@@ -16,7 +16,7 @@ gem 'active_hash'
 gem "seedbank"
 gem 'kaminari'
 gem 'declarative_authorization'
-
+gem 'bourbon'
 
 # Gems used only for assets and not required
 # in production environments by default.
