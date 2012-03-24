@@ -1,7 +1,7 @@
 %ul.tabs
-  %li{:class=>"#{params[:controller]=='org_users' && params[:action]=='show' ? 'active':''}"}=link_to t('org_profile'), current_user
-  %li{:class=>"#{params[:action]=='job_posts' ? 'active':''}"}=link_to "职位存档",org_user_job_posts_path(current_user.id)
-  -if @user.nil? || @user== current_user
+  %li{:class=>"#{params[:controller]=='org_users' && params[:action]=='show' ? 'active':''}"}=link_to t('org_profile'), @user || current_user
+  %li{:class=>"#{params[:action]=='job_posts' ? 'active':''}"}=link_to "职位存档",org_user_job_posts_path(@user.id)
+  -if @user.nil? || @user == current_user
     %li{:class=>"#{params[:controller]=='job_posts' ? 'active':''}"}=link_to '发布职位',new_job_post_path 
     %li{:class=>"#{params[:action]=='edit' ? 'active':''}"}=link_to '设置',org_user_edit_path(current_user.id,'profile') 
     %li{:class=>"#{params[:controller]=='talent_searches' ? 'active':''}"}=link_to '推荐人才',default_talent_path 
