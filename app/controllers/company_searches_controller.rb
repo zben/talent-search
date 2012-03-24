@@ -19,7 +19,7 @@ class CompanySearchesController < ApplicationController
     else 
       @search = CompanySearch.new
       @is_new = true
-      @users = @user.matching_companies
+      @users = @user.matching_companies.with_org_profile
     end
 
   end
