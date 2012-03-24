@@ -13,22 +13,22 @@
       = hidden_field_tag :current_step, 'education' 
       = hidden_field_tag :is_new, 'true' if @is_new
       = f.semantic_fields_for :educations do |education|
-        .row
-          .span6= education.input :school
-        
-          .span2= education.input :degree_type,:as=>:select,:collection=>Education.degree_types_for_select
-          .span1=education.input :GPA
-         
-        .row
-          .span3= education.input :program 
+        .list_item_box
+          .row
+            .span6= education.input :school
           
-          .span3.yearmonth=education.input :start_date,:as=>:date, :start_year=>1990, :end_year=>Date.today.year
-          .span3.yearmonth=education.input :end_date,:as=>:date, :start_year=>1990, :end_year=>Date.today.year+5
-        .row
-          .span11=education.input :comment, :as=>:text, :input_html => { :class => 'autogrow', :rows => 3, :cols => 15, :maxlength => 500  }
-        = education.link_to_remove "#{t('Remove')} #{t('Education History')}" 
-        %br
-        %br
+            .span2= education.input :degree_type,:as=>:select,:collection=>Education.degree_types_for_select
+
+           
+          .row
+            .span3= education.input :program 
+            
+            .span3.yearmonth=education.input :start_date,:as=>:date, :start_year=>1990, :end_year=>Date.today.year
+            .span3.yearmonth=education.input :end_date,:as=>:date, :start_year=>1990, :end_year=>Date.today.year+5
+          .row
+            .span11=education.input :comment, :as=>:text, :input_html => { :class => 'autogrow', :rows => 3, :cols => 15, :maxlength => 500  }
+          = education.link_to_remove "#{t('Remove')} #{t('Education History')}" 
+        
       = f.link_to_add "#{t('Add')} #{t('Education History')}", :educations
       .row
         .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"

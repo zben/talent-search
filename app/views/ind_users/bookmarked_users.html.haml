@@ -7,20 +7,34 @@
 -else    
   %table.zebra-striped
     %tr
-      %th 名字
-      %th 最高学历
-      %th 从事行业
-      %th
-      %th
+      %th{width:200} 名字
+      %th{width:500} 最近工作/学历
+      %th{width:100} 关注人数  
+      %th{width:100} 被关注
+      %th{width:100}
     - for user in @users
       
       %tr{:id=>"#{user.id}"}
-        %td= user.profile.name
-        %td= user.educations.blank? ? "不详" : user.educations[0].degree_type
-        %td= user.experiences.blank? ? "不详": user.experiences[0].industry.name
+        %td
+          .left= image_tag user.avatar(:small)
+          .left
+            %b= link_to user.profile.name, user
+            %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
+        %td    
+          -if !user.experiences.empty?
+            -ex = user.experiences[0]
+            %p
+              ="#{ex.job_title},#{ex.company_name}"
+              ="(#{l(ex.start_date,format: :short2)}-#{ex.end_date.nil? ? "至今" : l(ex.end_date,format: :short2)})"
+          -if !user.educations.empty?
+            -ed = user.educations[0]
+            %p
+              ="#{ed.program} #{ed.degree_type},#{ed.school}"
+              ="(#{l(ed.start_date,format: :short2)}-#{ed.end_date.nil? ? "至今" : l(ed.end_date,format: :short2)})"
+        %td= user.bookmarks.count
+        %td= user.bookmarkings.count
 
         %td= bookmark_code(user)
-        %td= link_to "查看", user,:class=>"btn"
         
 .row
   .span10= paginate @users

@@ -7,20 +7,23 @@
 -else    
   %table.zebra-striped
     %tr
-      %th 公司/机构
-      %th 公司人数
-      %th 所属行业
-      %th 总部地点
-      %th
-      %th
+      %th{width: 400} 公司/机构
+      %th{width: 150} 100天发布量
+      %th{width: 300} 最新职位
+      %th{width: 100} 粉丝
+      %th{width: 100}
     - for company in @companies
+      -pro = company.org_profile
       %tr{:id=>"#{company.id}"}
-        %td= company.org_profile.company_name 
-        %td= company.org_profile.people_count
-        %td= company.org_profile.industry.name
-        %td= company.org_profile.city.fullname
+        %td
+          .left=image_tag company.logo(:small)
+          .left
+            %b=link_to pro.company_name, company
+            %p="#{pro.city.fullname}, #{pro.people_count}, #{pro.industry.name}"
+        %td= company.job_posts.where(:created_at.gt=>Date.today-100.days).count
+        %td= (latest_job = company.job_posts.last).nil? ? "" : link_to(latest_job.title, latest_job) 
+        %td= company.bookmarkings.count
         %td= bookmark_code(company)
-        %td= link_to "查看", company,:class=>"btn"
 
 .row
   .span10= paginate @companies

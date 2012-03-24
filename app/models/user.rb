@@ -51,6 +51,12 @@ class User
   embeds_one :usage
   embeds_many :educations
   embeds_many :experiences
+  
+#  alias :orig_experiences :experiences
+#  def experiences
+#    orig_experiences.sort_by{|exp| exp.end_date || Date.today+10.years}.reverse
+#  end
+  
   embeds_many :exams
   embeds_many :languages
   has_and_belongs_to_many :skills

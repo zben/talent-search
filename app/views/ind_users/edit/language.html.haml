@@ -20,7 +20,9 @@
             .row
               .span4=l.input :language_option_id,:as=>:select,:collection=>LanguageOption.all,:required=>true
               .span4=l.input :language_level, :as=>:select,:collection=>Language.language_levels_for_select
-              .span4= l.link_to_remove "删除语言能力" 
+              .span4
+                %br
+                = l.link_to_remove "删除语言能力" 
           = f.link_to_add "添加语言能力", :languages
           .row
             .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"

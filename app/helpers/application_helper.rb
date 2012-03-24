@@ -57,7 +57,7 @@ module ApplicationHelper
         :class=>"btn primary #{bookmarkable.id}",:remote=>true
     else
       link_to "取消关注",toggle_bookmark_path(bookmarkable.class.name,bookmarkable.id.to_s),
-        :class=>"btn primary #{bookmarkable.id}",:remote=>true
+        :class=>"btn primary #{bookmarkable.id}",:remote=>true,:confirm=>"您确定要取消关注吗?"
     end
   end
   

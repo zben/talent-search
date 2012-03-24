@@ -5,6 +5,7 @@ ch:
       short: "%b%d日"
       long: "%Y年%b%d日"
       long2: "%Y 年 %m 月"
+      short2: "%Y年"
     day_names:
       - 星期日
       - 星期一

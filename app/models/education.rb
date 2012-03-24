@@ -3,6 +3,7 @@ class Education
   include Mongoid::Document
   include Mongoid::Timestamps
   include SimpleEnum::Mongoid
+  default_scope all(sort: [[ :end_date, :desc ]])
   as_enum :degree_type, :"专科"=>1,
                         :"学士"=>2,
                         :"硕士"=>3,

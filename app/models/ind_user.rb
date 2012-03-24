@@ -20,7 +20,7 @@ class IndUser < User
         }
     else    
       has_mongoid_attached_file :avatar,
-        :default_url => '/assets/avatars/:style/missing.png',
+        :default_url => 'avatars/:style/missing.png',
 
         :styles => {
           :original => ['1920x1680>', :jpg],

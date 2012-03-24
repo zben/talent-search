@@ -1,7 +1,7 @@
 class Exam 
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+  default_scope all(sort: [[ :end_date, :desc ]])
   field :exam_name
   field :score, type: Integer
   field :max_score, type: Integer

@@ -1,7 +1,7 @@
 class Experience 
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+  default_scope all(sort: [[ :end_date, :desc ]])
   field :company_name, type: String
   field :company_location, type: String
   

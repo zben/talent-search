@@ -7,7 +7,7 @@ class TalentSearchesController < ApplicationController
     @user = current_user
     if params[:id]
       @search = TalentSearch.find(params[:id]) 
-      @users = IndUser.all
+      @users = IndUser.with_ind_profile
       @users = @users.where("profile.birthday"=>{'$lte'=>Time.now - @search.min_age.to_i.years}) if @search.min_age
       
       @users = @users.where("profile.birthday"=>{'$gte'=>Time.now - @search.max_age.to_i.years})  if @search.max_age
