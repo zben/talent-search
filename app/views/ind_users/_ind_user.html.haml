@@ -1,10 +1,11 @@
 -if user.profile
-  .row
-    .span6
-      .lab=link_to user.profile.name, user
-      #{user.profile.age}岁,
-      #{user.profile.gender},
-      -unless user.profile.residence_country.nil?
-        身在#{user.profile.residence} 
-    .span2
-      #{time_ago_in_words(user.created_at)}以前
+  .job_post_snippet
+    .row
+      .span6
+        .lab=link_to user.profile.name, user
+        #{user.profile.age}岁,
+        #{user.profile.gender},
+        -unless user.profile.residence_country.nil?
+          身在#{user.profile.residence} 
+      .span2
+        #{time_ago_in_words(user.created_at)}以前
