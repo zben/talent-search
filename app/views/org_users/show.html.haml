@@ -1,7 +1,10 @@
-%ul{:class=>"tabs",:"data-tabs"=>"tabs"}
-  %li.active=link_to "企业/机构介绍", @user
-  %li=link_to "微博",ind_user_shouts_path(@user.id) if @user.is_a? IndUser
-  %li=link_to "微博",org_user_shouts_path(@user.id) if @user.is_a? OrgUser
+-if @user==current_user
+  =render 'org_users/navigation'
+-else
+  %ul{:class=>"tabs",:"data-tabs"=>"tabs"}
+    %li.active=link_to "企业/机构介绍", @user
+    %li=link_to "微博",ind_user_shouts_path(@user.id) if @user.is_a? IndUser
+    %li=link_to "微博",org_user_shouts_path(@user.id) if @user.is_a? OrgUser
 
 .row
   .span12
