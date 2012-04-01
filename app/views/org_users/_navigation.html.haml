@@ -3,7 +3,7 @@
   %li{:class=>"#{params[:action]=='job_posts' ? 'active':''}"}=link_to "职位存档",org_user_job_posts_path(current_user.id)
   -if @user.nil? || @user == current_user
     %li{:class=>"#{params[:controller]=='job_posts' ? 'active':''}"}=link_to '发布职位',new_job_post_path 
-    %li{:class=>"#{params[:action]=='bookmarked_users' ? 'active':''}"}=link_to '关注人才',bookmarked_users_for_companies_path
+
     
     /%li=link_to '搜索人才',"#" 
     /%li=link_to '收藏夹',"#" 
