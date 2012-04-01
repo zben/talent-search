@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
     @sender = sender
     @recipient = recipient
     @message = message
-    mail(:from=>"#{sender.name} <#{sender.email}>", 
+    mail(:from=>"悟空人才网 <#{sender.email}>", 
          :to => "#{recipient.name} <#{recipient.email}>", 
          :subject => "您收到了#{sender.name}发送的一封邮件")
   end

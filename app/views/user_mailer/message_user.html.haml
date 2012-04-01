@@ -3,4 +3,10 @@
   %head
     %meta{:content=>"text/html; charset=UTF-8",:'http-equiv'=>"Content-Type"}
   %body
-    %p=@message
+    %h3 你好，#{@sender.name} 对您发送了如下信息。
+    %p{:style=>"background-color:blue;"}=@message
+    
+    *若想直接回复对方,
+    =link_to "请点击此处", @sender
+    在对方的主页上留言。
+    
