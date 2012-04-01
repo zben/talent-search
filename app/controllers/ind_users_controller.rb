@@ -79,6 +79,9 @@ class IndUsersController < ApplicationController
     @job_posts = JobPost.where(:user_id=>params[:id]).page(params[:page]).per(10)
   end
 
-  
+  def shouts
+    @user = User.find(params[:id])
+    @shouts = @user.shouts.page(params[:page]).per(10) 
+  end
  
 end

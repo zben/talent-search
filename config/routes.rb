@@ -27,6 +27,8 @@ Talent::Application.routes.draw do
   match 'ind_users/:id/new/:info'=>'ind_users#new',:as=>'ind_user_new'
   match 'ind_users/:id/edit/:info'=>'ind_users#edit',:as=>'ind_user_edit'
   match 'ind_users/:id/profile'=>'ind_users#profile',:as=>'ind_user_profile'
+  match 'ind_users/:id/weibo'=>'ind_users#shouts',:as=>'ind_user_shouts'
+  
   
   match 'bookmarked/ind/users'=>'ind_users#bookmarked_users', :as=>"bookmarked_users"
   match 'bookmarked/org/users'=>'org_users#bookmarked_users', :as=>"bookmarked_users_for_companies"
@@ -37,6 +39,7 @@ Talent::Application.routes.draw do
   match 'org_users/:id/new/:info'=>'org_users#new',:as=>'org_user_new'
   match 'org_users/:id/edit/:info'=>'org_users#edit',:as=>'org_user_edit'
   match 'org_users/:id/profile'=>'org_users#profile',:as=>'org_user_profile'
+  match 'org_users/:id/weibo'=>'org_users#shouts',:as=>'org_user_shouts'
   
   match 'users/:id/update/account'=>"users#update_email_or_password",:as=>'user_update_email_or_password'
   match 'users/:id/new/:info'=>'users#new',:as=>'user_new'
