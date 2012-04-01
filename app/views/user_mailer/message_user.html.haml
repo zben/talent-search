@@ -4,9 +4,14 @@
     %meta{:content=>"text/html; charset=UTF-8",:'http-equiv'=>"Content-Type"}
   %body
     %h3 你好，#{@sender.name} 对您发送了如下信息。
-    %p{:style=>"background-color:blue;"}=@message
+    %p{:style=>"background-color:#F5F5FF;width:800px;border-radius:5px;padding:3px;"}=@message
     
     *若想直接回复对方,
-    =link_to "请点击此处", @sender
+    =link_to "请点击此处", ind_user_url(@sender) if @sender.is_a? IndUser
+    =link_to "请点击此处", org_user_url(@sender) if @sender.is_a? OrgUser
     在对方的主页上留言。
     
+    %h2 
+      寻找事业机遇，尽在 
+      =link_to "i5kong.com", root_url
+    =image_tag "http://talent.herokuapp.com/assets/logo.png"
