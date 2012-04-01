@@ -114,7 +114,7 @@ class User
   end
   
   def related_shouts including_self=true
-    user_ids = bookmarked(['IndUser','OrgUser']).map(&:id)
+    user_ids = bookmarked_ids('IndUser','OrgUser')
     user_ids.push(id) if including_self
     Shout.top_level.desc(:created_at).where(:user_id.in=>user_ids)
   end
