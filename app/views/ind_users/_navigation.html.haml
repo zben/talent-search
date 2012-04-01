@@ -1,34 +1,22 @@
 %ul{:class=>"tabs",:"data-tabs"=>"tabs"}
 
-  -if @user!=current_user
-    %li.active=link_to "用户信息", @user
-    
-  -else
-    %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='overview' ? 'active':''}"}
-      =link_to "工作圈主页", ind_user_overview_path
+  %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='overview' ? 'active':''}"}
+    =link_to "工作圈主页", ind_user_overview_path
 
-    %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='show' ? 'active':''}"}
-      =link_to "求职简历",@user
-    -if @user.nil? || @user==current_user
-      %li{:class=>is_active?('job_searches#show')}=link_to '搜职位',default_jobs_path 
-      %li{:class=>is_active?('company_searches#show')}=link_to '搜公司',default_companies_path 
+  %li{:class=>is_active?('job_searches#show')}=link_to '搜职位',default_jobs_path 
+  %li{:class=>is_active?('company_searches#show')}=link_to '搜公司',default_companies_path 
 
 
-    %li{:class=>"dropdown #{is_active?("job_posts#new")} #{is_active?("ind_users#job_posts")}",:"data-dropdown"=>"dropdown" }
-      =link_to_function "职位发布",'$(".dropdown-menu").toggle()', :class=>"dropdown-toggle" 
-      %ul.dropdown-menu
-        %li=link_to "发布职位",new_job_post_path
-        %li=link_to "发布存档",ind_user_job_posts_path(current_user)
-          
+  %li{:class=>"dropdown #{is_active?("job_posts#new")} #{is_active?("ind_users#job_posts")}",:"data-dropdown"=>"dropdown" }
+    =link_to_function "职位发布",'$(".dropdown-menu").toggle()', :class=>"dropdown-toggle" 
+    %ul.dropdown-menu
+      %li=link_to "发布职位",new_job_post_path
+      %li=link_to "发布存档",ind_user_job_posts_path(current_user)
+        
        
 
           
-      %li{:class=>"dropdown #{params[:action]=~/bookmarked/  ? 'active':''}",:"data-dropdown"=>"dropdown" }
-        =link_to_function "收藏夹",'$(".dropdown-menu").toggle()', :class=>"dropdown-toggle" 
-        %ul.dropdown-menu
-          %li{:class=>"#{params[:action]=='bookmarked_users'  ? 'active':''}"}=link_to "关注的个人",bookmarked_users_path
-          %li{:class=>"#{params[:action]=='bookmarked_companies'  ? 'active':''}"}=link_to "关注的企业",bookmarked_companies_path
-          %li{:class=>"#{params[:action]=='bookmarked_jobs'  ? 'active':''}"}=link_to "收藏的职位",bookmarked_jobs_path
+
 
 :javascript
   $(".dropdown-toggle").hover(

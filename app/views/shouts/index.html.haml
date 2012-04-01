@@ -1,4 +1,11 @@
-%h3 悟空微博
+%ul{:class=>"tabs",:"data-tabs"=>"tabs"}
+
+  %li{:class=>"#{params[:type]==nil ? 'active':''}"}=link_to "大家的微博", myshouts_path
+  %li{:class=>"#{params[:type]=="follow" ? 'active':''}"}=link_to "我关注的微博", myshouts_path("follow")
+  %li{:class=>"#{params[:type]=="me" ? 'active':''}"}=link_to "我写的微博", myshouts_path("me")
+     
+
+
 =render 'form'
 =render @shouts
 

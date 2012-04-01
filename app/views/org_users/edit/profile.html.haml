@@ -1,4 +1,4 @@
-=render 'org_users/navigation' unless params[:controller]=="org_users" and params[:action]=="new"
+
 .row
   =render 'org_users/side_nav'
   .span12.offset1
@@ -11,7 +11,7 @@
 
     = semantic_nested_form_for @user do |f|
       = f.error_messages  
-      = hidden_field_tag :current_step, 'profile' if @is_new
+      = hidden_field_tag :current_step, 'profile'
       = hidden_field_tag :is_new, 'true' if @is_new
       
       = f.semantic_fields_for :org_profile  do |p| 

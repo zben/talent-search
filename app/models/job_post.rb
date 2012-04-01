@@ -49,6 +49,11 @@ class JobPost
     (skills.to_set & user.skills.to_set).size    
   end
   
+  def mcount_percent user
+    percent = mcount(user)*100/skills.count
+    "#{percent}%"
+  end
+  
   def matches
     users = skills.map{|skill| skill.users}.flatten.uniq
     users.sort!{|a,b| a.mcount(self) <=> b.mcount(self)}

@@ -52,6 +52,7 @@ class OrgUsersController < ApplicationController
   
   def bookmarked_users
       @users = current_user.bookmarked("IndUser")
+      @users = Kaminari.paginate_array(@users).page(params[:page]).per(10)
   end
   
 end

@@ -1,0 +1,45 @@
+
+
+%h3 技能匹配人才
+%h4
+  匹配职位：
+  =link_to @job_post.title, @job_post   
+=link_to "返回职位列表", org_user_job_posts_path(@job_post.user) if current_user.is_a? OrgUser
+=link_to "返回职位列表", ind_user_job_posts_path(@job_post.user) if current_user.is_a? IndUser
+-if @users.empty?   
+  暂时没有匹配人才。
+  =link_to '多加些职位关键词吧！',edit_job_post_path(@job_post)
+-else    
+  %table.zebra-striped
+    %tr
+      %th{width:200} 名字 
+      %th{width:500} 最近工作/学历
+      %th{width:100} 匹配指数  
+      %th{width:100} 被关注
+      %th{width:100}
+    - for user in @users
+      
+      %tr{:id=>"#{user.id}"}
+        %td
+          .left= image_tag user.avatar(:small)
+          .left
+            %b= link_to user.profile.name, user
+            %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
+        %td    
+          -if !user.experiences.empty?
+            -ex = user.experiences[0]
+            %p
+              ="#{ex.job_title},#{ex.company_name}"
+              ="(#{l(ex.start_date,format: :short2)}-#{ex.end_date.nil? ? "至今" : l(ex.end_date,format: :short2)})"
+          -if !user.educations.empty?
+            -ed = user.educations[0]
+            %p
+              ="#{ed.program} #{ed.degree_type},#{ed.school}"
+              ="(#{l(ed.start_date,format: :short2)}-#{ed.end_date.nil? ? "至今" : l(ed.end_date,format: :short2)})"
+        %td= @job_post.mcount_percent(user)
+        %td= user.bookmarkings.count
+
+        %td= bookmark_code(user)
+        
+.row
+  .span10= paginate @users

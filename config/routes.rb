@@ -4,7 +4,7 @@ Talent::Application.routes.draw do
 
 
   resources :job_posts
-
+  match "job_posts/:id/match"=>"job_posts#matching_talent",:as=>'job_post_matching_talent'
   resources :organization_profiles
 
   devise_for :users, :controllers => {:registrations => "registrations"}
@@ -13,6 +13,9 @@ Talent::Application.routes.draw do
   resources :ind_users
   resources :org_users
   resources :shouts
+  match 'weibo(/:type)'=>'shouts#index', :as=>'myshouts'
+  
+  post 'send_message'=>"messages#create", :as=>'send_message'
   
   match 'overview' => 'ind_users#overview', :as=>'ind_user_overview'
   match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'

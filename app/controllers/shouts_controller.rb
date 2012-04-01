@@ -4,7 +4,13 @@ class ShoutsController < ApplicationController
   
   def index
     @user = current_user
-    @shouts = @user.related_shouts.page(params[:page]).per(10)
+    if params[:type]=="follow"
+      @shouts = @user.related_shouts(false).page(params[:page]).per(10)
+    elsif params[:type]=="me"
+      @shouts = @user.shouts.page(params[:page]).per(10)
+    else
+      @shouts = Shout.all.page(params[:page]).per(10)
+    end
   end
   
   def create

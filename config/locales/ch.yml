@@ -153,7 +153,7 @@ ch:
         start_date: "开始日期"
         end_date: "结束日期（不填表示尚未结束）"
       exam:
-        exam_name: "考试名称"
+        exam_name: "项目名称"
         score: "分数(如相关)"
         max_score: "最高可得分数"
         date: "考试日期"
@@ -165,6 +165,8 @@ ch:
         start_date: "开始日期"
         end_date: "完成日期（或预计完成日期）"
         comment: "总结"
+      shout:
+        message: "微博内容"
       profile:
         name: "明"
         firstname: "名"
@@ -190,7 +192,7 @@ ch:
         avatar: "公司商标图案"
         website: "官方网站"
         industry_id: "所属行业"
-        city_id: "总部城市"  
+        city: "总部城市"  
 
       usage:
         find_job: "寻找全职工作机会"

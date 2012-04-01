@@ -31,7 +31,7 @@ class OrgUser < User
     end
     
   def steps
-    %w{profile skill} 
+    %w{profile} 
     #+ 
     #self.usage.attributes.select{|key,value| value==true and key!="find_money"}.keys
   end
@@ -65,5 +65,7 @@ class OrgUser < User
     skills.map{|skill| skill.users}.flatten.uniq.sort!{|a,b| a.mcount(self)<=>b.mcount(self)}
   end
   
-  
+  def avatar *args
+    logo *args
+  end
 end

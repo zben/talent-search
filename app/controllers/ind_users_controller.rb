@@ -8,6 +8,7 @@ class IndUsersController < ApplicationController
   end
   
   def overview
+    redirect_to org_user_job_posts_path(current_user.id) if current_user.is_a? OrgUser
     @user = current_user 
     @ind_activity_feeds = ActivityFeed.feed_for(current_user,'IndUser').limit(10)
     @org_activity_feeds = ActivityFeed.feed_for(current_user,'OrgUser').limit(10)

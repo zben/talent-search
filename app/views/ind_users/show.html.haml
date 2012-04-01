@@ -1,4 +1,6 @@
-=render 'ind_users/navigation'
+%ul{:class=>"tabs",:"data-tabs"=>"tabs"}
+  %li.active=link_to "个人介绍", @user
+    
 .row
   =render 'ind_users/side_nav_public'
   .span12

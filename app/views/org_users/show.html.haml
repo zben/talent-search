@@ -3,6 +3,7 @@
 .row
   .span12
     %h1=@user.org_profile.company_name  
+    =link_to "编辑公司信息", org_user_edit_path(@user,'profile') if @user == current_user
     .row
       .span3
         所属行业:
@@ -10,7 +11,7 @@
       .span3
         公司总部:
         =@user.org_profile.city.fullname
-      .span2
+      .span3
         公司人数:
         =@user.org_profile.people_count  
       .span2
@@ -49,21 +50,23 @@
 .row
   .span12
     %h3 最近发布职位 
-
-    %table.zebra-striped
-      %tr
-        %th 职位
-        %th 月薪
-        %th 地点
-        %th 截止日期
-        %th
-        %th
-      - for job_post in @user.job_posts.limit(5)
+    -if @user.job_posts.empty?
+      暂无
+    -else
+      %table.zebra-striped
         %tr
-          %td=link_to job_post.title,job_post
-          %td= job_post.salary ||'面议'
-          %td= job_post.city.name
-          %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
-          %td= link_to "收藏", job_post
-          %td= link_to "查看", edit_job_post_path(job_post)
-    =link_to "查看全部职位", org_user_job_posts_path(@user)  
+          %th 职位
+          %th 月薪
+          %th 地点
+          %th 截止日期
+          %th
+          %th
+        - for job_post in @user.job_posts.limit(5)
+          %tr
+            %td=link_to job_post.title,job_post
+            %td= job_post.salary ||'面议'
+            %td= job_post.city.name
+            %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
+            %td= link_to "收藏", job_post
+            %td= link_to "查看", edit_job_post_path(job_post)
+      =link_to "查看全部职位", org_user_job_posts_path(@user)  

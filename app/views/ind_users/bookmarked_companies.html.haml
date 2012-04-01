@@ -1,9 +1,8 @@
-=render 'ind_users/navigation'
-
 %h4 收藏公司
 
 -if @companies.empty?   
-  您没有收藏任何公司。现在就去看看公司吧!
+  您没有收藏任何公司。
+  =link_to '现在就去看看公司吧!',default_companies_path
 -else    
   %table.zebra-striped
     %tr

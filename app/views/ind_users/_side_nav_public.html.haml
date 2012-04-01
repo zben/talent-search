@@ -19,8 +19,9 @@
     %b 省/州:
     #{@user.profile.province.name} 
   = bookmark_code @user unless @user==current_user
-  =link_to "留言","",:class=>'btn' unless @user==current_user
-  
+  =render 'pages/message_box'
+  =link_to "留言","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn' unless @user==current_user
+
   %h4 中文简历
   =link_to "下载", @user.chinese_resume.to_s
   

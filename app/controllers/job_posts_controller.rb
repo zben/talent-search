@@ -29,7 +29,7 @@ class JobPostsController < ApplicationController
       update_skills(@job_post, params)
       current_user.job_posts << @job_post
       
-      redirect_to @job_post, :notice => "Successfully created job post."
+      redirect_to @job_post, :notice => "成功新建职位。"
     else
       render :action => 'new'
     end
@@ -45,7 +45,7 @@ class JobPostsController < ApplicationController
     
     if @job_post.update_attributes(params[:job_post])
       update_skills(@job_post, params)
-      redirect_to @job_post, :notice  => "Successfully updated job post."
+      redirect_to @job_post, :notice  => "成功更新职位。"
     else
       render :action => 'edit'
     end
@@ -54,7 +54,13 @@ class JobPostsController < ApplicationController
   def destroy
     @job_post = JobPost.find(params[:id])
     @job_post.destroy
-    redirect_to job_posts_url, :notice => "Successfully destroyed job post."
+    redirect_to job_posts_url, :notice => "成功删除职位"
+  end
+  
+  def matching_talent
+    @job_post = JobPost.find(params[:id])
+    @users = @job_post.matches
+    @users = Kaminari.paginate_array(@users).page(params[:page]).per(10)
   end
   
 

@@ -77,20 +77,20 @@
 
 
     
-  .span4.side
+  .span5.side
     -unless @latest_jobs.blank?
       .module
         %h4 悟空最新职位
-        =render @latest_jobs
+        .list=render @latest_jobs
     -unless @same_company_jobs.blank?
       .module
         %h4 同一来源职位
-        =render @same_company_jobs
+        .list=render @same_company_jobs
     -unless @related_skill_jobs.blank?
       .module
         %h4 相关技能职位
-        =render @related_skill_jobs  
+        .list=render @related_skill_jobs  
     -unless @same_industry_jobs.blank?
       .module
         %h4 同一行业职位
-        =render @same_industry_jobs  
+        .list=render @same_industry_jobs  

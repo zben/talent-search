@@ -57,7 +57,7 @@ module ApplicationHelper
         :class=>"btn primary #{bookmarkable.id}",:remote=>true
     else
       link_to "取消关注",toggle_bookmark_path(bookmarkable.class.name,bookmarkable.id.to_s),
-        :class=>"btn primary #{bookmarkable.id}",:remote=>true,:confirm=>"您确定要取消关注吗?"
+        :class=>"btn primary #{bookmarkable.id}",:remote=>true
     end
   end
   
@@ -66,8 +66,8 @@ module ApplicationHelper
   end
   
   def highlight_link text 
-    regex = Regexp.new '(https?:\/\/|www\.)(([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?([^\.,\?\!\;\:\-，。？！\s]))'
-    text.gsub!( regex, '<a target="blank" href="http://\2">相关链接</a>' )
+    regex = Regexp.new '(https?:\/\/|www\.)(([-\w\.]+)+(:\d+)?(\/([\w\/_\-\.]*(\?\S+)?)?)?)'
+    text.gsub!( regex, '<a target="blank" href="http://\2">[链接:\3]</a>' )
     text
   end
 
