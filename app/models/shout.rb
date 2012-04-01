@@ -1,7 +1,7 @@
 class Shout
   include Mongoid::Document
   include Mongoid::Timestamps
-
+  default_scope all(sort: [[ :created_at, :desc ]])
   field :message
   field :message_with_link
   belongs_to :user

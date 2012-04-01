@@ -4,7 +4,7 @@ class User
   include Mongoid::Timestamps
   
 
- 
+  default_scope all(sort: [[ :created_at, :desc ]])
 ## Database authenticatable
   field :email,              :type => String, :null => false
   field :encrypted_password, :type => String, :null => false

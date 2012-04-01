@@ -28,8 +28,8 @@
           %li{:class=>"dropdown #{is_active?("users#edit")}",:"data-dropdown"=>"dropdown"}
             =link_to_function "我的账户",'$(".dropdown-menu.setting").toggle()', :class=>"dropdown-toggle" 
             %ul.dropdown-menu.setting
-              %li=link_to "更改密码",user_edit_path(current_user.id,'account') 
               %li=link_to "浏览我的主页",current_user
+              %li=link_to "更改密码",user_edit_path(current_user.id,'account') 
               %li=link_to "更改个人信息",user_edit_path(current_user.id,'profile')
               %li=link_to "邀请他人",new_invitation_path(:user)
               %li=link_to "退出",destroy_user_session_path,:method => :delete if user_signed_in?
