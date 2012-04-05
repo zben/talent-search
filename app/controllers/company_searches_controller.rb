@@ -11,7 +11,7 @@ class CompanySearchesController < ApplicationController
     else 
       @search = CompanySearch.new
       @is_new = true
-      @users = OrgUser.with_org_profile
+      @users = OrgUser.with_org_profile.page(params[:page]).per(10)
     end
 
   end

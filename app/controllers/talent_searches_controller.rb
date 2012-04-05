@@ -7,11 +7,11 @@ class TalentSearchesController < ApplicationController
     @user = current_user
     if params[:id]
       @search = TalentSearch.find(params[:id])
-      @users = @search.matching_talent.page(params[:page]).per(10)
+      @users = Kaminari.paginate_array(@search.matching_talent).page(params[:page]).per(10)
     else 
       @search = TalentSearch.new
       @is_new = true
-      @users = IndUser.all
+      @users = IndUser.with_ind_profile.page(params[:page]).per(10)
     end
 
   end

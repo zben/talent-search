@@ -1,4 +1,3 @@
-=render 'org_users/navigation'
 =render 'talent_searches/form'
 %h4 
   =@is_new ? "所有人才(#{IndUser.with_ind_profile.count}人)" : "搜索结果"
@@ -26,3 +25,4 @@
 
         %td= bookmark_code(user)
         %td= link_to "查看", user,:class=>"btn"
+  =paginate @users
