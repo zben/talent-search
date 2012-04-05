@@ -17,6 +17,7 @@ class JobSearch
       job_posts = job_posts.where(:salary_cd=>salary) if salary.present?
       job_posts = job_posts.where(:years_required_cd=>years_required) if years_required.present?
       job_posts = job_posts.any_of(
+          {company_name: /#{keywords}/},
           {description: /#{keywords}/},
           {title: /#{keywords}/},
           {job_requirement: /#{keywords}/},

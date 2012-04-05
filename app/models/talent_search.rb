@@ -18,6 +18,7 @@ class TalentSearch
 
 
       users = users.any_of(
+        {"profile.name"=> /#{keywords}/},
         {"profile.intro"=> /#{keywords}/},
         {"profile.intro_title"=> /#{keywords}/},
         {:_id.in=>
