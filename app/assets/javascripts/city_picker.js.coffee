@@ -9,4 +9,4 @@ jQuery ->
 
     else
       $('#city_id select').empty()
-  $('#province_id select').change()
+

@@ -10,7 +10,7 @@ ch:
       - 星期日
       - 星期一
       - 星期二
-      - 星期三
+      - 星期三o
       - 星期四
       - 星期五
       - 星期六
@@ -185,14 +185,14 @@ ch:
         short_description: "简要介绍"
         long_description: "详细介绍"
         people_count: "机构人数"
-        province: "总部省份"
+        province_id: "总部省份"
         contact_person: "联系人"
         email: "电子邮件"
         phone_number: "联系电话"
         avatar: "公司商标图案"
         website: "官方网站"
         industry_id: "所属行业"
-        city: "总部城市"  
+        city_id: "总部城市"  
 
       usage:
         find_job: "寻找全职工作机会"
@@ -209,7 +209,7 @@ ch:
         password: "密码"
         password_confirmation: "再次输入密码" 
         avatar: "上传头像"
-        logo: "公司Logo"
+        logo: "公司形象"
         chinese_resume: "中文简历"
         english_resume: "英文简历"
         languages: "语言"
@@ -232,8 +232,6 @@ ch:
     errors:
       header: "表格无法提交"
       message: "请改正下列错误再重试"
-      messages:
-        blank: "%{attribute}不能为空"
       models:
         profile:
           attributes:
@@ -243,7 +241,7 @@ ch:
           attributes:
             org_profile:
               invalid: "公司信息不完全,请重新提交"
-        
+            
         user:
           attributes:
             email:

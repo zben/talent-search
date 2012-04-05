@@ -10,7 +10,6 @@
 
 
     = semantic_nested_form_for @user do |f|
-      = f.error_messages  
       = hidden_field_tag :current_step, 'profile'
       = hidden_field_tag :is_new, 'true' if @is_new
       
@@ -19,9 +18,9 @@
           .row
             .span10= p.input :company_name
           .row
-            .span3= p.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
+            .span3= p.input :industry_id, :required=>true, :as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
             .span2= p.input :people_count, :as=>:select, :collection=> OrgProfile.people_counts_for_select,:prompt => t("Select one")   
-            = render 'shared/city_picker',:f=>p, :item=>'org_user[org_profile_attributes]'
+            = render 'shared/city_picker',:f=>p, :city_id=>@user.org_profile.city_id
           .row  
             .span10= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
             
@@ -42,7 +41,7 @@
               = f.label "删除商标"
               = check_box_tag :remove_avatar, 1, false
           .row
-            .span5=image_tag @user.logo(:medium) unless params[:action]=="new"
+            .span5=image_tag @user.logo(:medium) 
 
 
       .row.span16.actions

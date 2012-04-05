@@ -1,7 +1,7 @@
 =render 'org_users/navigation'
 =render 'talent_searches/form'
 %h4 
-  =@is_new ? "自动匹配人才" : "搜索结果"
+  =@is_new ? "所有人才(#{IndUser.with_ind_profile.count}人)" : "搜索结果"
 
 -if @users.empty?   
   -if @is_new

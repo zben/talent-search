@@ -19,13 +19,13 @@ class JobSearch
       
       unless keywords.blank?
         job_posts = job_posts.any_of(
-          {description: /#{@search.keywords}/},
-          {title: /#{@search.keywords}/},
-          {job_requirement: /#{@search.keywords}/},
+          {description: /keywords/},
+          {title: /keywords/},
+          {job_requirement: /keywords/},
           {:_id.in=>
             Skill.any_of(
-              {name_ch: /#{@search.keywords}/},
-              {name_en: /#{@search.keywords}/} 
+              {name_ch: /keywords/},
+              {name_en: /keywords/} 
             ).map(&:job_posts).flatten.map(&:_id)
           }
           )

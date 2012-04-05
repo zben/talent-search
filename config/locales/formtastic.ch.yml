@@ -13,6 +13,6 @@ ch:
         title: "Choose a good title for you post."
         body: "Write something inspiring here."
     actions:
-      create: "添加{{model}}"
+      create: "添加%{model}"
       update: "保存修改"
       dummie: "Launch!"

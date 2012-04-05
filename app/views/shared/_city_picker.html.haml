@@ -1,12 +1,7 @@
 .span2
-  =f.label :province
-  #province_id=f.collection_select :province_id, Province.all, :id, :name, prompt: t('Select one'), include_blank: true
+  #province_id=f.input :province_id, :as=>:select, :collection=>Province.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one"),:required=>true   
 .span2
-  /=f.input :city_id,:as=>:select,:collection => City.all.map{|x| [t(x.name), x.id]},:selected=>1,:prompt => t("Select one")
-  =f.label :city
-  #city_id=f.grouped_collection_select :city_id, Province.all, :cities, :name, :id, :name, include_blank: true
-
-
+  #city_id=f.input :city_id, :as=>:select, :collection=> option_groups_from_collection_for_select(Province.all,:cities,:name,:id,:name,city_id),:required=>true
 
 
  

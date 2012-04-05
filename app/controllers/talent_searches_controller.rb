@@ -6,19 +6,12 @@ class TalentSearchesController < ApplicationController
   def show
     @user = current_user
     if params[:id]
-      @search = TalentSearch.find(params[:id]) 
-      @users = IndUser.with_ind_profile
-      @users = @users.where("profile.birthday"=>{'$lte'=>Time.now - @search.min_age.to_i.years}) if @search.min_age
-      
-      @users = @users.where("profile.birthday"=>{'$gte'=>Time.now - @search.max_age.to_i.years})  if @search.max_age
-      @users = @users.any_of(
-        {"profile.intro"=> /#{@search.keywords}/},
-        {"profile.intro_title"=> /#{@search.keywords}/}
-      ) if @search.keywords
+      @search = TalentSearch.find(params[:id])
+      @users = @search.matching_talent.page(params[:page]).per(10)
     else 
       @search = TalentSearch.new
       @is_new = true
-      @users = @user.matching_talent
+      @users = IndUser.all
     end
 
   end

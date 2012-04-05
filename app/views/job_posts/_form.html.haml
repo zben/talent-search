@@ -1,5 +1,5 @@
 = semantic_form_for @job_post do |f|
-  = f.error_messages
+
   = f.inputs do
     =hidden_field_tag "job_post[user_id]", current_user.id
     =hidden_field_tag "job_post[is_official]", current_user.is_a?(OrgUser)
@@ -19,7 +19,7 @@
       .span2=f.input :years_required, :as=>:select, :collection=>JobPost.years_requireds_for_select,:prompt => t("Select one")
       .span2=f.input :salary, :as=>:select, :collection=>JobPost.salaries_for_select,:prompt => t("Select one")
       
-      =render 'shared/city_picker',:f=>f,:item=>'job_post'
+      =render 'shared/city_picker',:f=>f,:city_id=>@job_post.city_id
     .row
       .span13
         .tiny=f.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
@@ -39,7 +39,6 @@
         =f.input :website,:input_html => { :placeholder => 'http://www.example.com'}
     =render 'shared/skill_picker',:item=>@job_post
 
-    = submit_tag "添加职位",:class=>"btn"
- 
+    = f.action :submit, :button_html => { :class=>"btn primary"}
  
 
