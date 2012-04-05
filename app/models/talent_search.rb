@@ -16,18 +16,18 @@ class TalentSearch
       
       users = users.where("profile.birthday"=>{'$gte'=>Time.now - max_age.to_i.years})  unless max_age.nil?   
 
-      if !keywords.blank?
-        users = users.any_of(
-          {"profile.intro"=> /keywords/},
-          {"profile.intro_title"=> /keywords/},
-          {:_id.in=>
-            Skill.any_of(
-              {name_ch: /keywords/},
-              {name_en: /keywords/} 
-            ).map(&:users).flatten.map(&:_id)
-          }
-        ) 
-      end
+
+      users = users.any_of(
+        {"profile.intro"=> /#{keywords}/},
+        {"profile.intro_title"=> /#{keywords}/},
+        {:_id.in=>
+          Skill.any_of(
+            {name_ch: /#{keywords}/},
+            {name_en: /#{keywords}/} 
+          ).map(&:users).flatten.map(&:_id)
+        }
+      ) if keywords
+      
       users
   end
 end

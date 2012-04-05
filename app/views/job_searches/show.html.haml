@@ -28,3 +28,4 @@
         %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
         %td.span3= bookmark_code job_post
         %td= view_code job_post
+  =paginate @job_posts

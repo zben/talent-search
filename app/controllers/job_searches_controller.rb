@@ -7,7 +7,7 @@ class JobSearchesController < ApplicationController
     @user = current_user
     if params[:id]
       @search = JobSearch.find(params[:id]) 
-      @job_posts = @search.matching_jobs
+      @job_posts = @search.matching_jobs.page(params[:page]).per(10)
     else 
       @search = JobSearch.new
       @is_new = true

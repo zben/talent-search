@@ -16,21 +16,19 @@ class JobSearch
       job_posts = job_posts.where(:city_id.in=>Province.find(province_id.to_i).cities.map(&:id)) if province_id.present?
       job_posts = job_posts.where(:salary_cd=>salary) if salary.present?
       job_posts = job_posts.where(:years_required_cd=>years_required) if years_required.present?
-      
-      unless keywords.blank?
-        job_posts = job_posts.any_of(
-          {description: /keywords/},
-          {title: /keywords/},
-          {job_requirement: /keywords/},
+      job_posts = job_posts.any_of(
+          {description: /#{keywords}/},
+          {title: /#{keywords}/},
+          {job_requirement: /#{keywords}/},
           {:_id.in=>
             Skill.any_of(
-              {name_ch: /keywords/},
-              {name_en: /keywords/} 
+              {name_ch: /#{keywords}/},
+              {name_en: /#{keywords}/} 
             ).map(&:job_posts).flatten.map(&:_id)
           }
-          )
-      end
-      return job_posts
+          ) if keywords
+      
+      job_posts
   end
   
 end

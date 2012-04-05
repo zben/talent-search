@@ -12,11 +12,7 @@
         =link_to("浏览所有公司",default_companies_path,:class=>"btn")
 
     -if @users.empty?   
-      -if @is_new
-        没有找到匹配您需求的人才。请添加技能获取匹配！
-        =link_to "添加所需技能",user_edit_path(current_user.id,"skill"),:class=>"btn"
-      -else
-        搜索结果为0,请试试别的搜索参数！
+      搜索结果为0,请试试别的搜索参数！
     -else    
            
       %table.zebra-striped
@@ -34,3 +30,4 @@
             %td=user.org_profile.city.name
             %td=user.org_profile.people_count 
             %td=user.org_profile.industry.name 
+      =paginate @users
