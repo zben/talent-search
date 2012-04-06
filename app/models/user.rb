@@ -119,6 +119,9 @@ class User
     Shout.top_level.desc(:created_at).where(:user_id.in=>user_ids)
   end
   
-
+  def confirm
+    update_attribute(:confirmed_at,Time.now)
+  end
+  
   
 end
