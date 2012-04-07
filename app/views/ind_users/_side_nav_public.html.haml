@@ -22,9 +22,11 @@
   =render 'pages/message_box'
   =link_to "留言","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn' unless @user==current_user
 
-  %h4 中文简历
-  =link_to "下载", @user.chinese_resume.to_s
-  
-  %h4 英文简历
-  =link_to "下载", @user.english_resume.to_s
+  -unless @user.chinese_resume_file_name.nil?
+    %h4 中文简历
+    =link_to "下载", @user.chinese_resume.to_s
+
+  -unless @user.english_resume_file_name.nil?
+    %h4 英文简历
+    =link_to "下载", @user.english_resume.to_s
   

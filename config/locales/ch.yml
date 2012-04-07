@@ -226,8 +226,8 @@ ch:
       company_search:
         keywords: "关键词"
         people_count: "公司人数"
-        province: "总部省份"
-        city: "总部城市"
+        province_id: "总部省份"
+        city_id: "总部城市"
         industry_id: "行业"
     errors:
       header: "表格无法提交"

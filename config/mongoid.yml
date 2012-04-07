@@ -1,6 +1,6 @@
 development:
   host: localhost
-  database: talent_search_development
+  database: talent_development
 
 test:
   host: localhost
