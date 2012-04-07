@@ -9,7 +9,7 @@ gem "nifty-generators", :group => :development
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'nested_form',:git => 'git://github.com/ryanb/nested_form.git'
 gem 'thin'
-
+gem 'faker'
 gem 'formtastic',:git => 'https://github.com/justinfrench/formtastic.git'
 gem 'formtastic-bootstrap'
 gem 'active_hash'
