@@ -3,6 +3,8 @@ Talent::Application.routes.draw do
 
 
 
+  resources :projects
+  
   resources :job_posts
   match "job_posts/:id/match"=>"job_posts#matching_talent",:as=>'job_post_matching_talent'
   resources :organization_profiles

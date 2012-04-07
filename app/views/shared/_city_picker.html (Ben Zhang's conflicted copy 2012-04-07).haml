@@ -1,0 +1,8 @@
+.span2
+  -required = params[:controller]=~/search/ ? false : true
+  #province_id=f.input :province_id, :as=>:select, :collection=>Province.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one"),:required=> required   
+.span2
+  #city_id=f.input :city_id, :as=>:select, :collection=> option_groups_from_collection_for_select(Province.all,:cities,:name,:id,:name,city_id),:required=>required
+
+
+ 

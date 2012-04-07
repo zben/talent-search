@@ -1,0 +1,53 @@
+
+.row
+  =render 'org_users/side_nav'
+  .span12.offset1
+
+    -if params[:action] == 'new'
+      %h2 #{t("Create")}#{t("org_profile")}
+    -else
+      %h2 #{t("Update")}#{t("org_profile")}
+
+
+    = semantic_nested_form_for @user do |f|
+      = hidden_field_tag :current_step, 'profile'
+      = hidden_field_tag :is_new, 'true' if @is_new
+      
+      = f.semantic_fields_for :org_profile  do |p| 
+        = p.inputs do
+          .row
+            .span10= p.input :company_name
+          .row
+            .span3= p.input :industry_id, :required=>true, :as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
+            .span2= p.input :people_count, :as=>:select, :collection=> OrgProfile.people_counts_for_select,:prompt => t("Select one")   
+            = render 'shared/city_picker',:f=>p, :city_id=>@user.org_profile.city_id
+          .row  
+            .span10= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+            
+          .row
+            .span10.tiny= p.input :long_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 15, :cols => 20, :maxlength => 500  }
+          .row
+          .row  
+            .span3= p.input :contact_person 
+            .span4= p.input :email
+            .span3= p.input :phone_number
+          .row  
+            .span10= p.input :website
+              
+          .row
+            .span5 
+              =f.input :logo
+            .span2
+              = f.label "删除商标"
+              = check_box_tag :remove_avatar, 1, false
+          .row
+            .span5=image_tag @user.logo(:medium) 
+
+
+      .row.span16.actions
+        .span2.offset6= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
+      
+
+
+
+	

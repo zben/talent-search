@@ -60,7 +60,7 @@ class User
   embeds_many :exams
   embeds_many :languages
   has_and_belongs_to_many :skills
-  has_many :project_memberships
+ 
   has_many :industries_users
   has_many :job_posts
   has_many :shouts
@@ -119,6 +119,9 @@ class User
     Shout.top_level.desc(:created_at).where(:user_id.in=>user_ids)
   end
   
-
+  def confirm
+    update_attribute(:confirmed_at,Time.now)
+  end
+  
   
 end
