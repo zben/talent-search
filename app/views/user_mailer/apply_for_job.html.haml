@@ -3,14 +3,14 @@
   %head
     %meta{:content=>"text/html; charset=UTF-8",:'http-equiv'=>"Content-Type"}
   %body    
-    %p="你好，#{link_to @applicant.name, @applicant}申请了以下职位: #{link_to @job_post.title, @job_post}。"
+    %p="你好，#{raw link_to(@applicant.name, @applicant)}申请了以下职位: #{raw link_to(@job_post.title, @job_post)}。"
     -unless @message.empty?
       %p="申请短信:"
       %p{:style=>"background-color:#F5F5FF;width:800px;border-radius:5px;padding:3px;"}=@message
     
 
-    =link_to "点击此处查看申请人信息", ind_user_url(@applicant)
-    =link_to "点击此处查看所有申请", job_post_url(@job_post)
+    %p=link_to "点击此处查看申请人信息", ind_user_url(@applicant)
+    %p=link_to "点击此处查看所有申请", job_post_url(@job_post)
     
     %h2 
       寻找事业机遇，尽在 
