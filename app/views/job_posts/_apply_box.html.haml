@@ -3,7 +3,7 @@
     =link_to "&times;".html_safe,'#',:class=>'close'
     %h3 发送申请
   
-  =semantic_form_for :job_application,:url=>send_job_application_path do |f| 
+  =semantic_form_for @job_application,:url=>send_job_application_path do |f| 
     .modal-body          
       =f.input :job_post_id, :as=>:hidden, :value=>@job_post.id
       =f.input :content, :as=>:text, :hint=>"选填。突出自己的强处，为自己加分。" ,:input_html => { :class => 'autogrow', :rows => 15}

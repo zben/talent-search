@@ -8,6 +8,7 @@ class JobPostsController < ApplicationController
   end
 
   def show
+    @job_application = JobApplication.new
     @job_post = JobPost.find(params[:id])
     @same_industry_jobs = JobPost.current.where(:industry_id=>@job_post.industry_id).limit(6) - @job_post.to_a
     @same_company_jobs = JobPost.current.where(:user_id=>@job_post.user_id).limit(6)-@job_post.to_a
