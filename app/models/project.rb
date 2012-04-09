@@ -29,7 +29,7 @@ class Project
                   
  
     if Rails.env.production?  
-      has_mongoid_attached_file :project_logo,
+      has_mongoid_attached_file :logo,
         :path => ':project_logo/:id/:style.:extension',
         :storage => :s3,
         :bucket => 'talent-search',
