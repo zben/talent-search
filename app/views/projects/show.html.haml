@@ -1,0 +1,44 @@
+.row
+  .span12
+    %h1=@project.title
+    =link_to "更新项目信息", edit_project_path(@project) if @project.status(current_user)=='admin'
+
+    %h3 项目介绍
+    =@project.intro
+
+    
+    %h3 项目图片
+    =render 'projects/slide_show'
+ 
+    .row
+      .span3
+        %h3 项目所在地
+        =@project.province.name
+      .span3
+        %h3 团队人数
+        =@project.people_count
+        人
+      .span3
+        %h3 有无专利（或预期)
+        =@project.has_patent ? "有" : "无"
+    %h3 项目领域
+    -@project.project_fields.each do |field|
+      .skill_item=field.name
+    %h3 项目需求
+    -@project.project_needs.each do |need|
+      .skill_item=need.name
+    -@members = @project.all_members    
+    %h3 项目成员(#{@members.count}人)
+    %ul.horizontal
+      -@members.each do |member|
+        %li
+          =image_tag member.avatar(:small)
+          =link_to member.name, member
+    
+  .span4
+    =image_tag @project.logo(:medium)
+    %p
+      = bookmark_code @project
+      =join_project_buttons_code @project
+    =render 'projects/admin_action'
+   

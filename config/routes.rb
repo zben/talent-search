@@ -3,7 +3,14 @@ Talent::Application.routes.draw do
 
 
 
-  resources :projects
+  resources :projects, :only=>[:index, :show, :new,:create, :edit,:update, :destroy]
+  match 'project/:id/apply'=>"projects#apply", :as=>'project_apply'
+  match 'project_membership/:id/approve'=>"projects#approve",:as=>'project_approve'
+  match 'project_membership/:id/decline'=>"projects#decline",:as=>'project_decline'
+  match 'project_membership/:id/quit'=>"projects#quit", :as=>'project_quit'
+  match 'project/overview'=>'projects#overview', :as=>'project_overview'
+  match 'project/search'=>'projects#search', :via=>[:post,:put],:as=>"project_search"
+  get "project/search(/:search_id)"=>'projects#index', :as=>"projects_list"
   
   resources :job_posts
   match "job_posts/:id/match"=>"job_posts#matching_talent",:as=>'job_post_matching_talent'
@@ -18,7 +25,8 @@ Talent::Application.routes.draw do
   match 'weibo(/:type)'=>'shouts#index', :as=>'myshouts'
   
   post 'send_message'=>"messages#create", :as=>'send_message'
-  
+  post 'send_job_application'=>"job_applications#create", :as=>'send_job_application'
+  get 'cancel_job_application/:id'=>'job_applications#destroy',:as=>"cancel_job_application"
   match 'overview' => 'ind_users#overview', :as=>'ind_user_overview'
   match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'
   match 'talent_searches/default'=>'talent_searches#show',:as=>'default_talent'

@@ -3,6 +3,7 @@ class Education
   include Mongoid::Document
   include Mongoid::Timestamps
   include SimpleEnum::Mongoid
+
   default_scope all(sort: [[ :end_date, :desc ]])
   as_enum :degree_type, :"专科"=>1,
                         :"学士"=>2,
@@ -18,13 +19,14 @@ class Education
   field :program
   field :start_date, type: Date
   field :end_date, type: Date
-  field :GPA, type: Float
+  field :GPA, type: String
   field :comment
   
   
   attr_accessible :user_id, :school, :school_location, :degree_type, :program, :start_date, :end_date, :GPA, :comment
-  validates :school, :degree_type, :program, :start_date, :end_date, :presence=>true
-  
+  validates :school, :degree_type, :program, :start_date, :end_date,  :presence=>true
+  validate :start_must_be_before_end_time	
+
   embedded_in :user
 
 

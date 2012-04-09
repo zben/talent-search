@@ -1,3 +1,4 @@
+#encoding: UTF-8
 module MongoidHack
   extend ActiveSupport::Concern
   module ClassMethods
@@ -23,6 +24,12 @@ module MongoidHack
      def name
       eval("name_#{I18n.locale}")
      end
+     
+     
+    def start_must_be_before_end_time
+      errors.add(:start_date, "开始日期应该在结束日期之前") if
+         self.end_date != nil && (self.start_date > self.end_date) 
+    end 
 
   end
 end

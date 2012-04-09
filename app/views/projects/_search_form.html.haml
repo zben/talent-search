@@ -1,0 +1,13 @@
+=semantic_form_for @search,:url=>project_search_path do |f|
+  =f.inputs do
+    .row 
+      .span3
+        =f.input :keywords
+      
+        =submit_tag "搜索",:class=>"btn"
+      %h4.span3 附加选项
+      .span3=f.input :project_field_id, :collection=>ProjectField.all
+      .span3=f.input :stage, :as=>:select, :collection=>Project.stages_for_select
+      .span3=f.input :province_id, :as=>:select, :collection=> Province.all
+      .span3=submit_tag "搜索",:class=>"btn"
+        

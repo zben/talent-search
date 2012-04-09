@@ -8,8 +8,8 @@
 
 
   %li{:class=>"dropdown #{is_active?("job_posts#new")} #{is_active?("ind_users#job_posts")}",:"data-dropdown"=>"dropdown" }
-    =link_to_function "职位发布",'$(".dropdown-menu").toggle()', :class=>"dropdown-toggle" 
-    %ul.dropdown-menu
+    =link_to_function "职位发布",'$(".dropdown-menu.job_navigation").toggle()', :class=>"dropdown-toggle" 
+    %ul.dropdown-menu.job_navigation
       %li=link_to "发布职位",new_job_post_path
       %li=link_to "发布存档",ind_user_job_posts_path(current_user)
         

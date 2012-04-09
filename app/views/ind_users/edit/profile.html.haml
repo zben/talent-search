@@ -40,25 +40,34 @@
             .span5=image_tag @user.avatar(:medium) unless params[:action]=="new"
 
           .row
-            .span5 
-              =f.input :chinese_resume
-
+            .span10 
+              %h3 中文简历   
+              =f.input :chinese_resume,label: false
+              %p
+                删除简历
+                =check_box_tag :_destroy_chinese_resume
+                =(resume_name=@user.chinese_resume_file_name).nil? ? "(未上载)" : "已上载: "+resume_name+" 如需更新, 请重新上载)"   
           .row
-            .span5 
-              =f.input :english_resume
-
-       
+            .span10
+              %h3 英文简历 
+              =f.input :english_resume,label: false
+              %p
+                删除简历
+                =check_box_tag :_destroy_english_resume
+                =(resume_name=@user.english_resume_file_name).nil? ? "(未上载)" : "已上载: "+resume_name+" 如需更新, 请重新上载)"
       = f.semantic_fields_for :usage  do |m| 
         = m.inputs do
-          %h2 使用本网站的意愿
+          %h3 使用本网站的意愿
           .row
             .span4= m.input :find_job,:as=>:boolean
             .span4= m.input :find_project,:as=>:boolean
           .row
             .span4= m.input :find_partner,:as=>:boolean
-            .span4= m.input :find_money,:as=>:boolean
-            
-
+            .span4= m.input :find_money,:as=>:boolean  
+          .row
+            .span4= m.input :meet_people,:as=>:boolean
+            .span4= m.input :browse,:as=>:boolean
+          
       
 
       .row

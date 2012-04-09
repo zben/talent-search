@@ -9,8 +9,12 @@
           = link_to "编辑", edit_job_post_path(@job_post) ,:class=>'btn' 
           =link_to "删除", @job_post, :confirm => 'Are you sure?', :method => :delete ,:class=>'btn' 
         
-        -elsif current_user.is_a?(IndUser) && current_user!=@job_post.user    
-          =link_to "申请职位",'',:class=>'btn'
+        -elsif current_user.is_a?(IndUser)
+          =render 'job_posts/apply_box'
+          -if !current_user.job_applied?(@job_post)
+            =link_to "申请职位","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn primary'  
+          -else 
+            =link_to "撤销申请", cancel_job_application_path(current_user.get_job_application(@job_post)), :class=>"btn primary"
           =bookmark_code(@job_post) 
         
     %br    
@@ -67,7 +71,7 @@
         %h4=l @job_post.expiration, :format=>:long
     .row
       .span10
-        相关网页:
+        职位申请链接:
         %h4=(url=@job_post.website).blank? ? '未填' : link_to(url, url)
     .row
       .span10

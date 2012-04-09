@@ -44,7 +44,7 @@ class User
                   :educations_attributes,:experiences_attributes,:exams_attributes,:languages_attributes,
                   :profile_attributes,:usage_attributes,:skill_ids,:_type,
                   :avatar,:logo,:chinese_resume,:english_resume,
-                  :org_profile_attributes, :old_password
+                  :org_profile_attributes, :old_password, :job_application_ids
 
   embeds_one :profile
   embeds_one :org_profile
@@ -65,6 +65,7 @@ class User
   has_many :job_posts
   has_many :shouts
   has_many :activity_feeds
+  has_many :job_applications
   #has_many :industries, :through=>:industries_users
   #has_many :interests,:through=>:industries_users
   
@@ -123,5 +124,7 @@ class User
     update_attribute(:confirmed_at,Time.now)
   end
   
-  
+  def projects
+    project_memberships.map(&:project)
+  end
 end

@@ -1,0 +1,9 @@
+-if @project.status(current_user) == 'admin'
+  -@project.pending_applications.each do |app|
+    .row
+      =image_tag app.user.avatar(:small)
+      =link_to app.user.name, app.user
+      请求加入此项目。
+    .row
+      =link_to '批准', project_approve_path(app.id),:class=>'btn primary'
+      =link_to '拒绝', project_decline_path(app.id),:class=>'btn primary'

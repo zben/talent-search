@@ -44,6 +44,7 @@ class IndUsersController < ApplicationController
       logger.info params[:ind_user]
       remove_avatar(@user) unless params["remove_avatar"].nil?
       update_skills(@user,params) unless params[:skills].nil?
+      @user.post_process(params)
       next_step = params[:is_new].nil? ? nil : @user.next_step(params[:current_step])   
       if next_step.nil?
         redirect_to @user

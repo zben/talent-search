@@ -33,7 +33,7 @@ class JobPost
   validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,
       :description, :job_requirement, :job_type, :years_required, 
       :expiration, :email, :presence=>true
-      
+  validates :email, :format =>{:with=> /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i,:message => "请输入有效电子邮件"}
   belongs_to :industry
   field :industry_id, type: Integer
   belongs_to :province

@@ -75,6 +75,9 @@ module ApplicationHelper
     controller, action = controller_and_action.split("#")
     (params[:controller]=~/#{controller}/ && params[:action]=~/#{action}/) ? 'active':''
   end
+
+  
 end
+
 
 

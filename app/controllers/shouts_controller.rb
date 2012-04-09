@@ -9,7 +9,7 @@ class ShoutsController < ApplicationController
     elsif params[:type]=="me"
       @shouts = @user.shouts.page(params[:page]).per(10)
     else
-      @shouts = Shout.all.page(params[:page]).per(10)
+      @shouts = Shout.top_level.page(params[:page]).per(10)
     end
   end
   

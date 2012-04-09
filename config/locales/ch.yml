@@ -10,7 +10,7 @@ ch:
       - 星期日
       - 星期一
       - 星期二
-      - 星期三o
+      - 星期三
       - 星期四
       - 星期五
       - 星期六
@@ -120,6 +120,7 @@ ch:
       profile: "个人信息"
       usage: "使用网站目的"
       job_post: "职位"
+      project: "创业项目"
     attributes:
       job_post:
         title: "职位名称"
@@ -138,7 +139,7 @@ ch:
         email: "电子邮件"
         expiration: "截止日期*"
         logo: "上传图片"
-        website: "职位招聘网站（选填）"
+        website: "职位申请链接（选填）"
         province: "工作省份*"
         city: "工作城市*"
         industry: "行业"
@@ -199,6 +200,8 @@ ch:
         find_project: "寻找短期项目接活"
         find_partner: "寻找创业伙伴和朋友"
         find_money: "寻找创业资金"
+        meet_people: "发展人脉"
+        browse: "随便看看"
         citizenship: "国籍"
         province: "省籍"
         residence_country: "现在居住国"  
@@ -229,6 +232,20 @@ ch:
         province_id: "总部省份"
         city_id: "总部城市"
         industry_id: "行业"
+      project:
+        people_count: "项目人数"
+        project_needs: "项目需求"
+        project_fields: "项目领域"
+        title: "项目标题"
+        intro: "项目介绍"
+        has_patent: "(将)有专利"
+        stage: "项目阶段"
+        province: "项目所在地"
+      project_search:
+        keywords: "关键词"
+        project_field_id: "项目领域"
+        stage: "项目阶段"
+        province_id: "项目所在地"
     errors:
       header: "表格无法提交"
       message: "请改正下列错误再重试"
@@ -264,7 +281,7 @@ ch:
             languages:
               invalid: "您的语言能力信息不符合要求"            
             exams:
-              invalid: "您的考试获奖信息不符合要求"
+              invalid: "您的考试/获奖/信息不符合要求"
             skills:
               invalid: "您的技能信息不符合要求"
             profile:

@@ -1,7 +1,6 @@
 class IndUser < User
     has_many :bookmarks, :foreign_key=>"user_id"
     has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
-    has_many :job_applications
     scope :with_ind_profile, where(:profile.ne=>nil)
    
    include Mongoid::Paperclip
@@ -91,4 +90,16 @@ class IndUser < User
     OrgUser.all
   end
   
+  def post_process params
+    self.update_attributes(chinese_resume: nil) if params[:_destroy_chinese_resume]
+    self.update_attributes(english_resume: nil) if params[:_destroy_english_resume]
+  end
+  
+  def get_job_application job_post
+    job_applications.where(:job_post_id=>job_post.id).first
+  end
+  
+  def job_applied? job_post 
+    job_applications.where(:job_post_id=>job_post.id)!=[]
+  end
 end

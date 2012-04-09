@@ -1,0 +1,30 @@
+%ul{:class=>"tabs",:"data-tabs"=>"tabs"}
+
+  %li{:class=>is_active?('projects#overview')}
+    =link_to "项目圈主页", project_overview_path
+
+  %li{:class=>is_active?('projects#index')}=link_to '搜项目', project_search_path 
+  %li{:class=>is_active?('projects#new')}=link_to '新建项目',new_project_path 
+          
+
+
+:javascript
+  $(".dropdown-toggle").hover(
+    function () {
+      $(this).addClass('active');
+      $(this).next(".dropdown-menu").show();
+    }, 
+    function () {
+      $(this).removeClass('active');
+      $(this).next(".dropdown-menu").hide();
+    }
+  );
+  $(".dropdown-menu").hover(
+    function () {
+      $(this).show();
+    }, 
+    function () {
+      $(this).hide();
+    }
+  );
+

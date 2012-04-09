@@ -12,6 +12,7 @@ class Experience
   
   attr_accessible :user_id, :industry_id, :company_name, :company_location, :job_title, :description, :start_date, :end_date
   validates :company_name, :job_title,:start_date, :industry_id, :presence=>true
+  validate :start_must_be_before_end_time	
   embedded_in :user
   belongs_to :industry
   field :industry_id, type: Integer
