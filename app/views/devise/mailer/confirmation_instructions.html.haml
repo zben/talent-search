@@ -1,6 +1,9 @@
-  %p 您好，
-  %p 欢迎加入悟空海外人才网! 您可以点击以下链接确认您的邮箱。 如果您有任何的疑问, 欢迎和我们联系: info@i5kong.com
-  %p=confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+  %p
+    您好，
+  %p 
+    欢迎加入悟空海外人才网! 您可以点击以下链接确认您的邮箱。 如果您有任何的疑问, 欢迎和我们联系: info@i5kong.com
+  %p
+    =confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
 
   %h4 关于悟空海外人才网
 
