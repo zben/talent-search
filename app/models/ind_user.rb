@@ -31,7 +31,7 @@ class IndUser < User
     
     if Rails.env.production?  
       has_mongoid_attached_file :chinese_resume,
-        :path => ':resume/chinese/:id',
+        :path => ':chinese_resume/:id/:filename',
         :storage => :s3,
         :bucket => 'talent-search',
         :s3_credentials => {:access_key_id => ENV['S3_KEY'],:secret_access_key => ENV['S3_SECRET']},
@@ -43,7 +43,7 @@ class IndUser < User
     
     if Rails.env.production?  
       has_mongoid_attached_file :english_resume,
-        :path => ':resume/english/:id',
+        :path => ':english_resume/:id/:filename',
         :storage => :s3,
         :bucket => 'talent-search',
         :s3_credentials => {:access_key_id => ENV['S3_KEY'],:secret_access_key => ENV['S3_SECRET']},
