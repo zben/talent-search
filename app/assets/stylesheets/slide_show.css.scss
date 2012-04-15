@@ -1,5 +1,5 @@
 #slide_show_container {
-	width:580px;
+	width:500px;
 	padding:10px;
 	margin:0 auto;
 	position:relative;
@@ -7,7 +7,7 @@
   margin-left:15px;
   
   #example {
-  	width:600px;
+  	width:520px;
   	height:350px;
   	position:relative;
   }
@@ -22,7 +22,7 @@
   #frame {
 	  position:absolute;
 	  z-index:0;
-	  width:739px;
+	  width:659px;
 	  height:341px;
 	  top:-3px;
 	  left:-80px;
@@ -47,11 +47,12 @@
   */
 
   .slides_container {
-	  width:570px;
+	  width:490px;
 	  height:270px;
 	  overflow:hidden;
 	  position:relative;
 	  display:none;
+    border:15px solid grey;
   }
 
   /*
@@ -63,7 +64,7 @@
   */
 
   .slides_container a {
-	  width:570px;
+	  width:490px;
 	  height:270px;
 	  display:block;
 	  text-align:center;
@@ -126,7 +127,7 @@
 
   #footer {
 	  text-align:center;
-	  width:580px;
+	  width:500px;
 	  margin-top:9px;
 	  padding:4.5px 0 18px;
 	  border-top:1px solid #dfdfdf;

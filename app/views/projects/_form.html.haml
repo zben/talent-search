@@ -25,7 +25,7 @@
           %li
             =photo.file_field :photo
       %h3 项目Logo
-      =f.input :logo
-    .span4=f.input :project_fields, :as => :select, :collection => ProjectField.all, :multiple=>true, :input_html => {:size => 20} 
+      =f.input :logo, :label=>false
+    .span4=f.input :project_fields, :as => :select, :collection => ProjectField.all, :multiple=>true, :input_html => {:size => 20}, :hint=>"提示: 此项可多选" 
   = f.action :submit, :button_html => { :class=>"btn primary"}
   

@@ -176,7 +176,18 @@ li.fragment{
 
   padding:5px 0;
 }  
-.skill_item{background-color:#F5F5FF;display:inline-block;border-radius:5px;padding:2px;min-width:60px;text-align:center}
+.skill_item{
+  background-color:#4598EA;
+  display:inline-block;
+  border-radius:5px;
+  padding:2px;
+  min-width:60px;
+  text-align:center;
+  color: white;
+  a{
+    color:white;
+  }
+}
 .right{
   text-align:right;
   label{

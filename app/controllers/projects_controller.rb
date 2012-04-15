@@ -34,10 +34,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(params[:project])
-    if @project.save!
+    if @project.save
       @project.add_admin current_user
       redirect_to @project
     else
+      (5-@project.photos.count).times{@project.photos.build}
       render :new
     end
   end

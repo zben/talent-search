@@ -8,14 +8,20 @@
     .span2= link_to t('Sign up'), new_user_registration_path,:class=>"btn"
     .span2= link_to "忘记密码?", new_password_path(:user)
       
-.home_page.row
-  .span8
-    %h4 最新工作
-    
-    
-    =render :partial=>'job_posts/job_post',:as=>:job_post, :collection=>JobPost.desc('created_at').limit(5)
-  .span8
-    %h4 最新加入
-    =render :partial=>'ind_users/ind_user',:as=>:user,:collection=>User.desc('created_at').where(:profile.ne=>nil).limit(5)
+.home_page
+  .row
+    .span16
+      =image_tag 'jobs_icon.jpg',width: 300; 
+      =image_tag 'projects_icon.jpg',width: 300; 
+      =image_tag 'activity_icon.jpg',width: 300; 
+  .row
+    .span8
+      %h4 最新工作
+      
+      
+      =render :partial=>'job_posts/job_post',:as=>:job_post, :collection=>JobPost.desc('created_at').limit(5)
+    .span8
+      %h4 最新加入
+      =render :partial=>'ind_users/ind_user',:as=>:user,:collection=>User.desc('created_at').where(:profile.ne=>nil).limit(5)
     
   

@@ -125,6 +125,6 @@ class User
   end
   
   def projects
-    project_memberships.map(&:project)
+    project_memberships.where(:approved_at.ne=>nil).map(&:project)
   end
 end

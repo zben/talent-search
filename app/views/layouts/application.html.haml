@@ -7,11 +7,11 @@
         = csrf_meta_tags
     %body
         =render 'layouts/header'
-        -if params[:action] == 'home'
-            .container
-                .row
-                    .home_page_image
-                        =image_tag('home_page.png',width: 800) 
+        /-if params[:action] == 'home'
+        /    .container
+        /        .row
+        /            .home_page_image
+        /                =image_tag('home_page.png',width: 800) 
         .container.main
             =render 'layouts/flash',:flash=>flash 
             = yield 
