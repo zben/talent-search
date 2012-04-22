@@ -44,7 +44,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', end
   height:50px;
 }
 
-
 footer{
     text-align:center;
     margin-top:0;
@@ -173,7 +172,7 @@ li.fragment{
 .short{min-height:50px;}  
 
 .job_post_snippet{
-
+  background-color:#C7EEFE;
   padding:5px 0;
 }  
 .skill_item{
@@ -248,12 +247,11 @@ body, td, pre{font-size:15px;}
 
 .shout_box{
   background-color:#C7EEFE;
-  margin:5px;
-  padding:5px;
+  margin-bottom:5px;
+  padding:2px;
 }
-
+.shout_box p, .shout p{margin:0px;}
 .shout img{
-  margin:5px;
   padding:2px;
   border:1px solid silver;
 }
@@ -373,3 +371,19 @@ li.no_dot{
     margin:5px;
   }
 }
+input#user_password, input#user_email{background-color:white;}
+input#user_password, input#user_email{margin-bottom:0px;margin:0 10px;width:80px}
+input#user_email{width: 180px;}
+input.login{display:inline-block;}
+.nav.login{
+  width:520px;
+}
+
+.topbar div > ul.login a, .nav.login a{padding-top:5px;}
+.topbar div > ul a.forgot_password, .nav a.forgot_password{margin:0px;padding:0px;font-size:10px;text-align:right;padding-right:5px;}
+ul.login li{float:right;display:inline-block;}
+ul.login li{padding-top:0px;}
+.center{text-align:center}
+.small{font-size:10px;}
+.home_page img{box-shadow: 3px 3px 3px 5px #555;}
+

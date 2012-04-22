@@ -12,7 +12,7 @@
     = semantic_nested_form_for @user do |f|
       = f.error_messages  
       = hidden_field_tag :current_step, 'profile' 
-      = hidden_field_tag :is_new, 'true' if @is_new
+      /= hidden_field_tag :is_new, 'true' if @is_new
       
       = f.semantic_fields_for :profile  do |p| 
         = p.inputs do
@@ -28,8 +28,8 @@
             .span2
               =f.label "现居省/州*"
               = p.grouped_collection_select :province_id, Country.all, :provinces, :name,:id,:name, include_blank: true
-          .span10= p.input :intro_title,:hint=>"例如：经验丰富的职业经理人，设计独到的新一代平面设计师。"
-          .span10= p.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  },:hint=>"提示：你可以总结自己的长处和特点，让企业更容易的关注你。"
+          /.span10= p.input :intro_title,:hint=>"例如：经验丰富的职业经理人，设计独到的新一代平面设计师。"
+          /.span10= p.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  },:hint=>"提示：你可以总结自己的长处和特点，让企业更容易的关注你。"
           .row
             .span5 
               =f.input :avatar

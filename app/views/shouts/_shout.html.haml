@@ -4,6 +4,10 @@
       %p=image_tag shout.user.avatar(:small)
     .span10.shout_box
       =raw shout.message_with_link
+      -unless shout.project_id.nil?
+        (关于:
+        =link_to shout.project.title, shout.project
+        ）
       %p
         #{link_to shout.user.name, shout.user} #{l(shout.created_at,:format=>:long)}  
         =link_to_function "回复","$(\"##{shout.id}\").toggle()"

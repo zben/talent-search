@@ -1,27 +1,18 @@
-= form_for User.new, :url => 'users/sign_in' do |f| 
-  .row
-    .span4
-      = f.email_field :email,:placeholder=>"电子邮件" 
-    .span3
-      = f.password_field :password,:placeholder=>"密码" 
-    .span1= submit_tag t('Sign in') ,:class=>"btn"
-    .span2= link_to t('Sign up'), new_user_registration_path,:class=>"btn"
-    .span2= link_to "忘记密码?", new_password_path(:user)
       
 .home_page
+  %h1.center 悟空人才网致力于为海外的精英人才和中国的机遇牵线搭桥。
   .row
-    .span16
-      =image_tag 'jobs_icon.jpg',width: 300; 
-      =image_tag 'projects_icon.jpg',width: 300; 
-      =image_tag 'activity_icon.jpg',width: 300; 
-  .row
-    .span8
-      %h4 最新工作
-      
-      
+    .span5
+      =image_tag 'jobs_icon.jpg',width: 280; 
+      %h4 最新职位
       =render :partial=>'job_posts/job_post',:as=>:job_post, :collection=>JobPost.desc('created_at').limit(5)
-    .span8
-      %h4 最新加入
-      =render :partial=>'ind_users/ind_user',:as=>:user,:collection=>User.desc('created_at').where(:profile.ne=>nil).limit(5)
+    .span5
+      =image_tag 'projects_icon.jpg',width: 280; 
+      %h4 最新项目
+      =render :partial=>'projects/project',:as=>:project,:collection=>Project.desc('created_at').limit(5)
     
   
+    .span5
+      =image_tag 'activity_icon.jpg',width: 280; 
+      %h4 最新活动
+      正在建设中。 

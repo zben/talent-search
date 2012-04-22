@@ -1,0 +1,9 @@
+.job_post_snippet
+  .row
+    .span3
+      .lab=link_to project.title, project
+      .lab=project.province.name
+      
+    -if  is_active?("devise/sessions#.")=='active' or is_active?("pages#home")=='active'  
+      .span2.small
+        #{time_ago_in_words(project.created_at)}以前

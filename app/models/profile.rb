@@ -25,8 +25,8 @@ class Profile
 #  }
 #    
 
-  validates :firstname, :lastname, :birthday, :gender, :citizenship, :residence_country,:province_id,
-                  :intro,:intro_title, :presence=>true
+  validates :firstname, :lastname, :birthday, :gender, :citizenship, :residence_country,:province_id, :presence=>true
+  #validates :intro, :intro_title, :presence=>true
                        
   embedded_in :user
   belongs_to :province
