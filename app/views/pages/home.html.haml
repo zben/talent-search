@@ -14,5 +14,8 @@
   
     .span5
       =image_tag 'activity_icon.jpg',width: 280; 
-      %h4 最新活动
-      正在建设中。 
+      %h4 最新加入
+          
+      =render :partial=>'ind_users/ind_user',:as=>:user,:collection=>User.desc('created_at').where(:profile.ne=>nil).limit(5)
+    
+
