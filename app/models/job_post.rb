@@ -4,6 +4,7 @@ class JobPost
   include Mongoid::Timestamps
   include ApplicationHelper
   
+  default_scope all(sort: [[ :end_date, :desc ]])
   scope :current, where(:expiration.gte=>Date.today)
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
   
