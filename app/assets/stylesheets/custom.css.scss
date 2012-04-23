@@ -371,17 +371,21 @@ li.no_dot{
     margin:5px;
   }
 }
-input#user_password, input#user_email{background-color:white;}
-input#user_password, input#user_email{margin-bottom:0px;margin:0 10px;width:80px}
-input#user_email{width: 180px;}
+.topbar-inner {
+  input#user_password, input#user_email{
+    margin-bottom:0px;margin:0 10px;width:80px
+  }
+}
+  .topbar-inner input#user_email{width: 180px;}
 input.login{display:inline-block;}
 .nav.login{
-  width:520px;
+  margin-left:120px;
 }
 
 .topbar div > ul.login a, .nav.login a{padding-top:5px;}
 .topbar div > ul a.forgot_password, .nav a.forgot_password{margin:0px;padding:0px;font-size:10px;text-align:right;padding-right:5px;}
-ul.login li{float:right;display:inline-block;}
+ul.login li{float:left;display:inline-block;}
+ul.login{float:right;}
 ul.login li{padding-top:0px;}
 .center{text-align:center}
 .small{font-size:12px;}

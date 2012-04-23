@@ -44,15 +44,15 @@
       -else
         = form_for User.new, :url => '/users/sign_in' do |f| 
           %ul.nav.login
-            %li= link_to t('Sign up'), new_user_registration_path
-            %li= submit_tag t('Sign in') ,:class=>"btn primary login"
+            %li= f.email_field :email,:placeholder=>"电子邮件" 
+              
             %li
               = f.password_field :password,:placeholder=>"密码" 
               = link_to "忘记密码?", new_password_path(:user),class: "forgot_password"
-            %li= f.email_field :email,:placeholder=>"电子邮件" 
-              
           
             
+            %li= submit_tag t('Sign in') ,:class=>"btn primary login"
+            %li= link_to t('Sign up'), new_user_registration_path
 
 :javascript
   $(".dropdown-toggle").hover(

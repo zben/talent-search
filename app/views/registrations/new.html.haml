@@ -26,7 +26,7 @@
       =t('I agree to') 
       =link_to t('the service terms'),"",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true"
   .row
-    = f.submit t("Agree to service terms first"),:class=>"span4 offset1 btn primary disabled",:disabled=>"disabled"
+    = f.submit t("Agree to service terms first"),:class=>"span4 offset1 btn primary disabled agreement",:disabled=>"disabled"
 
 = render :partial => "devise/shared/links" 
 
@@ -36,12 +36,12 @@
   $("input[name=agreement]").click(function(){
   if ($("input[name=agreement]").is(":checked"))
   {
-    $("input[type=submit]").val("#{t("Sign up")}").removeClass("disabled");
-    $("input[type=submit]")[0].disabled=false;
+    $("input[type=submit].agreement").val("#{t("Sign up")}").removeClass("disabled");
+    $("input[type=submit].agreement")[0].disabled=false;
   }
   else
   {
-    $("input[type=submit]").val("#{t('Agree to service terms first')}").addClass("disabled");
-    $("input[type=submit]")[0].disabled="disabled";
+    $("input[type=submit].agreement").val("#{t('Agree to service terms first')}").addClass("disabled");
+    $("input[type=submit].agreement")[0].disabled="disabled";
   }
   });
