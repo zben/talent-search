@@ -52,7 +52,10 @@ class Project
     end
     
   attr_accessible :title, :intro, :logo, :province_id, :stage, :has_patent, :photos_attributes, :people_count, :project_need_ids, :project_field_ids
-  validates :people_count, :title, :intro, :province,:province_id, :has_patent, :stage, :presence =>true
+  validates :people_count, :title, :intro, :province,:province_id, :stage, :presence =>true
+  validates_inclusion_of :has_patent, :in => [true, false]
+  
+  
   accepts_nested_attributes_for :photos, :allow_destroy => true
   
   def add_admin user
