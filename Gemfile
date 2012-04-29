@@ -17,6 +17,7 @@ gem "seedbank"
 gem 'kaminari'
 gem 'declarative_authorization'
 gem "bourbon", "~> 1.4.0"
+gem 'letter_opener', :group => :development
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -33,7 +34,10 @@ group :development do
 end
 gem 'mongoid'
 gem 'bson_ext'
+
 gem 'mongoid_fulltext'
+
+
 gem 'simple_enum', :git => 'git://github.com/lwe/simple_enum.git'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "aws-sdk",            :require => "aws/s3"

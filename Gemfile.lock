@@ -125,6 +125,8 @@ GEM
       railties (>= 3.0.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
+    letter_opener (0.0.2)
+      launchy
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -241,6 +243,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   kaminari
+  letter_opener
   mocha
   mongoid
   mongoid-paperclip

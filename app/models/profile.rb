@@ -4,6 +4,7 @@ class Profile
   include Mongoid::Timestamps
   include Mongoid::Paperclip
   include SimpleEnum::Mongoid
+  include Mongoid::Search
 
   as_enum :gender, :"女" => 1, :"男" => 0
   
@@ -15,7 +16,7 @@ class Profile
   field :residence_state, type: Integer
   field :intro
   field :intro_title
- 
+
 #  has_mongoid_attached_file :avatar,
 #  :styles => {
 #    :original => ['1920x1680>', :jpg],
