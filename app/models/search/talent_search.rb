@@ -4,17 +4,14 @@ class TalentSearch
   include ApplicationHelper
 
 
-  field :min_age, type: Integer
-  field :max_age, type: Integer
+  belongs_to :province
   field :keywords
-  field :skills
-  
+
+
   def matching_talent
 
       users = IndUser.with_ind_profile
-      users = users.where("profile.birthday"=>{'$lte'=>Time.now - min_age.to_i.years}) unless min_age.nil?
-      users = users.where("profile.birthday"=>{'$gte'=>Time.now - max_age.to_i.years})  unless max_age.nil?
-      users = users.any_of({"profile.name"=> /#{keywords}/}) if keywords
-      users
+      users = users.where("profile.province_id"=>province_id.to_i) unless province_id.nil?
+      users = users.any_of({"full_text"=> /#{keywords}/}) if keywords
   end
 end

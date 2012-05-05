@@ -6,7 +6,7 @@ class IndUser < User
 
     perform_search_on :profile=>[:name,:intro,:intro_title],
       :educations=>[:degree_type,:school,:program,:comment],
-      :experiences=>[:company_name, :job_title, :description],
+      :experiences=>[:company_name, :job_title, :description,:industry],
       :skills=>[:name_en,:name_ch]
 
     include Mongoid::Paperclip

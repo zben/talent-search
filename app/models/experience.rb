@@ -16,4 +16,6 @@ class Experience
   embedded_in :user
   belongs_to :industry
   field :industry_id, type: Integer
+
+
 end

@@ -51,15 +51,16 @@ module Mongoid
       def generate_full_text_search
         full_text =  ""
         self.class.class_variable_get('@@attributes_to_index').map do |attr|
-          full_text += " " + self.send(attr)
+          full_text += " " + self.send(attr).to_s
         end
         self.class.class_variable_get('@@sub_attributes_to_index').map do |key, attr_array|
           attr_array.map do |attr|
-            full_text += " " +self.send(key).to_a.map{|x| x.send(attr)}.join(' ')
+            full_text += " " +self.send(key).to_a.map{|x| x.send(attr).to_s}.join(' ')
           end
         end
         self.full_text = full_text
       end
+
     end
   end
 end

@@ -225,8 +225,7 @@ ch:
       job_application:
         content: "申请短信"
       talent_search:
-        min_age: "最低年龄"
-        max_age: "最高年龄"
+        province: "所在地"
         keywords: "关键词"
       company_search:
         keywords: "关键词"

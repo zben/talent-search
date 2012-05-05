@@ -25,6 +25,8 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-ui-rails'
 end
 gem 'jquery-rails'
 gem 'tinymce-rails',:git => 'git://github.com/spohlenz/tinymce-rails.git'
@@ -36,7 +38,6 @@ gem 'mongoid'
 gem 'bson_ext'
 
 gem 'mongoid_fulltext'
-
 
 gem 'simple_enum', :git => 'git://github.com/lwe/simple_enum.git'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
