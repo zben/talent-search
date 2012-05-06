@@ -6,8 +6,8 @@ GIT
       activesupport (>= 3.0.0)
 
 GIT
-  remote: git://github.com/rweng/jquery-datatables-rails
-  revision: dfe4d39c10b485828809cc75443232fbb16c3149
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 5535ec30e487989b824e8a0de06be5165f4ef89f
   specs:
     jquery-datatables-rails (1.9.1.3)
       jquery-rails
@@ -80,6 +80,12 @@ GEM
     bson_ext (1.5.2)
       bson (= 1.5.2)
     builder (3.0.0)
+    capistrano (2.12.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     cocaine (0.2.1)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
@@ -116,6 +122,7 @@ GEM
       rest-client (~> 1.6.1)
       rubyzip
       term-ansicolor (~> 1.0.5)
+    highline (1.6.11)
     hike (1.2.1)
     hpricot (0.8.5)
     httparty (0.8.1)
@@ -133,6 +140,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
+    kgio (2.7.4)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     letter_opener (0.0.2)
@@ -157,6 +165,13 @@ GEM
       unicode_utils (~> 1.0.0)
     multi_json (1.0.4)
     multi_xml (0.4.1)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.3.0)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     nifty-generators (0.4.6)
     nokogiri (1.5.0)
     orm_adapter (0.0.6)
@@ -191,6 +206,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
+    raindrops (0.8.0)
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
@@ -229,6 +245,10 @@ GEM
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     unicode_utils (1.0.0)
+    unicorn (4.3.1)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     uuidtools (2.1.2)
     warden (1.1.1)
       rack (>= 1.0)
@@ -241,6 +261,7 @@ DEPENDENCIES
   aws-sdk
   bourbon (~> 1.4.0)
   bson_ext
+  capistrano
   coffee-rails (~> 3.1.0)
   declarative_authorization
   devise (~> 2.0.0)
@@ -272,3 +293,4 @@ DEPENDENCIES
   tinymce-rails!
   turn
   uglifier
+  unicorn
