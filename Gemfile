@@ -31,9 +31,6 @@ end
 gem 'jquery-rails'
 gem 'tinymce-rails',:git => 'git://github.com/spohlenz/tinymce-rails.git'
 #gem "paperclip", "~> 2.0"
-group :development do
-  gem 'sqlite3'
-end
 gem 'mongoid'
 gem 'bson_ext'
 
