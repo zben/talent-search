@@ -19,9 +19,7 @@ gem 'declarative_authorization'
 gem "bourbon", "~> 1.4.0"
 gem 'letter_opener', :group => :development
 
-group :development do
- gem 'sqlite3'
-end
+gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
