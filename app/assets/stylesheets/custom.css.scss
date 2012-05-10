@@ -62,7 +62,7 @@ footer{
 
 form{
     input{
-      margin-bottom:10px;
+      margin-bottom:15px;
     }
     .input{
       margin:0px;
@@ -73,7 +73,8 @@ form{
   
 }
 select{
-  width:100%;
+  width:95%;
+  margin-bottom: 15px;
 }
 select.date{
   width:68px;
@@ -86,7 +87,7 @@ label{
 }
 
 input, textarea{
-  width:100%;
+  width:90%;
 }
 form .clearfix {
     margin-bottom: 0px;
@@ -390,4 +391,32 @@ ul.login li{padding-top:0px;}
 .center{text-align:center}
 .small{font-size:12px;}
 .home_page img{box-shadow: 3px 3px 3px 5px #555;}
+.home_page form{
+  background-color: blue;
+  padding: 75px 0px;
+  label{
+    color: white;
+    text-align: right;
+  }
+  .span2{
+ 
+  }
+}
+.circle {
+  h1{
+    font-size:50px;
+    color: red;
+    display:inline-block;
+    float:left;
+  }
+  p{
+    color: #111;
+    font-size: 20px;
+    color: grey;
+    display: block;
+  }
+  ul{
+    clear:both; 
+  }
 
+}

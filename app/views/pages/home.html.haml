@@ -1,21 +1,40 @@
-      
 .home_page
-  %h1.center 悟空人才网致力于为海外的精英人才和中国的机遇牵线搭桥。
   .row
-    .span5
-      =image_tag 'jobs_icon.jpg',width: 280; 
-      %h4 最新职位
-      =render :partial=>'job_posts/job_post',:as=>:job_post, :collection=>JobPost.desc('created_at').limit(5)
-    .span5
-      =image_tag 'projects_icon.jpg',width: 280; 
-      %h4 最新项目
-      =render :partial=>'projects/project',:as=>:project,:collection=>Project.desc('created_at').limit(5)
-    
-  
-    .span5
-      =image_tag 'activity_icon.jpg',width: 280; 
-      %h4 最新加入
-          
-      =render :partial=>'ind_users/ind_user',:as=>:user,:collection=>User.desc('created_at').where(:profile.ne=>nil).limit(5)
-    
-
+    .span10
+      =image_tag 'homepage-image.png', width: "580"
+    .span6
+      = form_for(User.new, :as => :user, :url => registration_path(:user)) do |f|
+        .row
+          .span2= f.label :email 
+          .span4= f.email_field :email,:placeholder=> "使用学校或公司邮件地址"
+        .row
+          .span2= f.label :password
+          .span4= f.password_field :password 
+        .row
+          .span2= f.label :password_confirmation
+          .span4= f.password_field :password_confirmation
+        .row
+          .span2= f.label '用户类别'
+          .span4= f.select :_type, options_for_select([['个人用户','IndUser'],['机构/企业用户','OrgUser']])
+        .row
+          .span2= f.label '邀请码'
+          .span4= text_field_tag :invitation_code  
+        .row
+          .span4.offset2= f.submit "加入悟空人才网", :class => "btn"
+  .row.circle
+    .span8
+      %h1 工作圈
+      %p 寻找工作实习机会，提升自我能力. 寻找工作实习机会，提升自我能力
+      %ul
+        %li="test"
+        %li="test"
+        %li="test"
+        %li="test"
+    .span8
+      %h1 创业圈
+      %p 找资金，找人才，海外创业归国路. 找资金，找人才，海外创业归国路
+      %ul
+        %li="test"
+        %li="test"
+        %li="test"
+        %li="test"
