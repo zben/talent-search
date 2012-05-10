@@ -6,11 +6,10 @@
  *= require jquery.ui.core
  *= require jquery.ui.theme
  *= require dataTables/src/demo_table_jui
-
  *= require_tree . 
+ *= require formtastic
+ *= require my_formtastic_changes
+ *= require formtastic_ie6
+ *= require formtastic_ie7
+ *= require formtastic-bootstrap
 */
-  *= require formtastic
-  *= require my_formtastic_changes
-  *= require formtastic_ie6
-  *= require formtastic_ie7
-  *= require formtastic-bootstrap
