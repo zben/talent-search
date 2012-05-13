@@ -5,11 +5,13 @@ class BookmarksController < ApplicationController
       logger.info "no bookmark yet"
       @bookmark = Bookmark.create(:user_id=>current_user.id,:bookmarkable=>eval(params[:type]).find(params[:id]))
       @is_bookmarked = true
+      logger.info @is_bookmarked
     else
       logger.info 'already has bookmark'
       @bookmark = @bookmarks.first
       @bookmarks.destroy_all
       @is_bookmarked = false
+      logger.info @is_bookmarked
     end
     @bookmarkable = @bookmark.bookmarkable
     
