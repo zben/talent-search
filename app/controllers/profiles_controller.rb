@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_filter :authenticate!
   def new
     redirect_to user_new_path(current_user.id,'profile')
   end

@@ -1,7 +1,7 @@
 /=render 'ind_users/navigation' unless params[:controller]=="ind_users" and params[:action]=="new"
 
 .row
-  =render 'ind_users/side_nav'
+  =render 'ind_users/side_nav' if @user.profile
   .span12.offset1
     -if params[:action] == 'new'
       %h2 #{t("Create")}#{t("profile")}
@@ -57,7 +57,8 @@
                 =(resume_name=@user.english_resume_file_name).nil? ? "(未上载)" : "已上载: "+resume_name+" 如需更新, 请重新上载)"
       = f.semantic_fields_for :usage  do |m| 
         = m.inputs do
-          %h3 使用本网站的意愿
+          .row
+            %h3.span10 使用本网站的意愿
           .row
             .span4= m.input :find_job,:as=>:boolean
             .span4= m.input :find_project,:as=>:boolean

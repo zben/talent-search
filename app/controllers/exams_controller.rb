@@ -1,4 +1,5 @@
 class ExamsController < ApplicationController
+  before_filter :authenticate!
   def new
     @exam = Exam.new
   end

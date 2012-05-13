@@ -36,7 +36,7 @@
           %li{:class=>"dropdown #{is_active?("users#edit")}",:"data-dropdown"=>"dropdown"}
             =link_to_function "我的账户",'$(".dropdown-menu.setting").toggle()', :class=>"dropdown-toggle" 
             %ul.dropdown-menu.setting
-              %li=link_to "浏览#{current_user.is_a?(IndUser) ? "个人" : "机构"}主页",current_user
+              %li=link_to "浏览#{current_user.is_a?(IndUser) ? "我的" : "机构"}主页",current_user
               %li=link_to "更改密码",user_edit_path(current_user.id,'account') 
               %li=link_to "更改#{current_user.is_a?(IndUser) ? "个人" : "机构"}信息",user_edit_path(current_user.id,'profile')
               %li=link_to "邀请朋友加入",new_invitation_path(:user)
@@ -52,7 +52,6 @@
           
             
             %li= submit_tag t('Sign in') ,:class=>"btn primary login"
-            %li= link_to t('Sign up'), new_user_registration_path
 
 :javascript
   $(".dropdown-toggle").hover(

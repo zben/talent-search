@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_filter :authenticate!
   def bookmark
     @bookmarks = Bookmark.where(:bookmarkable_type=>params[:type]).where(:bookmarkable_id=>params[:id])
     if @bookmarks.empty?

@@ -1,16 +1,14 @@
 .profile_item
-  .row  
+  .row
     .span4 学校: #{education.school} 
     .span4 
       学历: #{education.program}#{education.degree_type}
       ="(#{education.GPA})" unless education.GPA.blank?
     .span4="#{yearmonth(education.start_date)} - #{yearmonth(education.end_date) || '至今'}"
-  
   -unless education.comment.blank?
     .row
       .span12
-        %h5 学业点评: 
-        %p #{education.comment}
+        %p.toggle #{education.comment}
 
 
 

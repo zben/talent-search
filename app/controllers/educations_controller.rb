@@ -1,4 +1,5 @@
 class EducationsController < ApplicationController
+  before_filter :authenticate!
   def new
     @education = Education.new
   end

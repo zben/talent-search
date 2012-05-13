@@ -1,4 +1,5 @@
 class OrganizationProfilesController < ApplicationController
+  before_filter :authenticate!
   def index
     @organization_profiles = OrganizationProfile.all
   end

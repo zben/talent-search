@@ -136,9 +136,6 @@ ul#triple li{
 }
 
 .main{
-  padding:10px;
-  border-left:1px solid black;
-  border-right:1px solid black;
 }
 .skill_list{
 display:none;
@@ -212,7 +209,14 @@ form.job_search {
 #error{background-color:red;}
 
 h3 .edit, h4 .edit{display:inline-block;}
-h3 .edit a, h4 .edit a{font-size:12px;font-weight:normal;}
+h3 .edit a, h4 .edit a{
+  font-size:12px;
+  font-weight:normal;
+  color:#FFF;
+  &:visited{
+    color: #FFF;
+  }
+}
 
 ul.side_nav{
   padding:0;
@@ -235,7 +239,7 @@ span.mceEditor{
   float:left;
 }
 
-body, td, pre{font-size:15px;}
+body, td, pre{font-family: "arial"; font-size:15px;}
 .avatar img{
   padding:4px;
   border:1px solid #888;
@@ -390,16 +394,29 @@ ul.login{float:right;}
 ul.login li{padding-top:0px;}
 .center{text-align:center}
 .small{font-size:12px;}
-.home_page img{box-shadow: 3px 3px 3px 5px #555;}
-.home_page form{
-  background-color: blue;
-  padding: 75px 0px;
-  label{
-    color: white;
-    text-align: right;
+.home_page img{
+  width:550px;
+}
+.home_page{
+  form{
+    background-color: #4396E9;
+    border-radius: 10px;
+    padding: 75px 0px;
+    label{
+      color: white;
+      text-align: right;
+    }
   }
-  .span2{
- 
+  h2{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    text-shadow: 0.05em 0.05em 0.1em black;
+    margin-bottom: 10px;
+    span{
+      font-size: 35px;
+      color: red;
+    }
   }
 }
 .circle {
@@ -419,4 +436,28 @@ ul.login li{padding-top:0px;}
     clear:both; 
   }
 
+}
+
+.span12 h3{
+  background: #3386C9;
+  padding: 2px 5px;
+  color: white;
+  border-radius: 5px;
+  margin:5px 0;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 17px;
+}
+.toggle{
+  display: none;
+  background-color: #A1E1FD;
+  padding:5px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+.profile_item{
+  margin:10px 0px;
+  .title{
+    cursor: pointer;
+  }
 }

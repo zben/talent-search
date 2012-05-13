@@ -1,6 +1,7 @@
 #encoding: UTF-8
 class TalentSearchesController < ApplicationController
   include ApplicationHelper
+  before_filter :authenticate!
   
   
   def show

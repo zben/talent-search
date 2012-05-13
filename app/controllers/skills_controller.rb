@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+  before_filter :authenticate!
 
   def list
       render :json=>Skill.where("name_#{I18n.locale}" => /#{params[:q]}/i)

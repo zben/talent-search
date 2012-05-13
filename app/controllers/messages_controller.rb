@@ -1,6 +1,7 @@
 #encoding: UTF-8
 class MessagesController < ApplicationController
   include ApplicationHelper
+  before_filter :authenticate!
   
   
   def new 

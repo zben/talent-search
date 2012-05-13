@@ -2,6 +2,7 @@
 class CompanySearchesController < ApplicationController
   include ApplicationHelper
   
+  before_filter :authenticate!
   
   def show
     @user = current_user

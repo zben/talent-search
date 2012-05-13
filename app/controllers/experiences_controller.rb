@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  before_filter :authenticate!
   def new
     @experience = Experience.new
   end

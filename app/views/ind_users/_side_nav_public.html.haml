@@ -4,7 +4,7 @@
   .avatar.medium=image_tag @user.avatar.url(:medium),:width=>150
   %h3
     =@user.profile.name
-    .edit=link_to "更新",ind_user_edit_path(@user,'profile') if @user==current_user
+    .edit=link_to raw("<i class='icon-edit '></i>"),ind_user_edit_path(@user,'profile') if @user==current_user
   %p 
     %b 年龄:
     #{@user.profile.age}岁 
@@ -27,12 +27,12 @@
   -unless @user.chinese_resume_file_name.nil?
     %h4 
       中文简历
-      .edit=link_to "更新",ind_user_edit_path(current_user.id,'profile') if current_user==@user
+      .edit=link_to raw("<i class='icon-edit '></i>"),ind_user_edit_path(current_user.id,'profile') if current_user==@user
     =link_to "下载", @user.chinese_resume.to_s
 
   -unless @user.english_resume_file_name.nil?
     %h4 
       英文简历
-      .edit=link_to "更新",ind_user_edit_path(current_user.id,'profile') if current_user==@user
+      .edit=link_to raw("<i class='icon-edit '></i>"),ind_user_edit_path(current_user.id,'profile') if current_user==@user
     =link_to "下载", @user.english_resume.to_s
   

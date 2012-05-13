@@ -1,5 +1,15 @@
 .home_page
   .row
+    .span16
+      %h2
+        %span 400
+        个中国合作企业,
+        %span 4239
+        位全球留学精英,
+        %span 98
+        个创业项目,
+        等你来发现！
+  .row
     .span10
       =image_tag 'homepage-image.png', width: "580"
     .span6
@@ -21,20 +31,4 @@
           .span4= text_field_tag :invitation_code  
         .row
           .span4.offset2= f.submit "加入悟空人才网", :class => "btn"
-  .row.circle
-    .span8
-      %h1 工作圈
-      %p 寻找工作实习机会，提升自我能力. 寻找工作实习机会，提升自我能力
-      %ul
-        %li="test"
-        %li="test"
-        %li="test"
-        %li="test"
-    .span8
-      %h1 创业圈
-      %p 找资金，找人才，海外创业归国路. 找资金，找人才，海外创业归国路
-      %ul
-        %li="test"
-        %li="test"
-        %li="test"
-        %li="test"
+

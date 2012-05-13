@@ -1,6 +1,7 @@
 #encoding: UTF-8
 class JobSearchesController < ApplicationController
   include ApplicationHelper
+  before_filter :authenticate!
   
   
   def show

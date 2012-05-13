@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery
     before_filter :set_locale
 
-    def authenticate!    
+    def authenticate!
         if !user_signed_in?
             flash[:notice]="请先登录"
             redirect_to new_user_session_path
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
             logger.info params[:info]
             logger.info params[:info]!='profile'
             if params[:info]!='profile' && params[:action]!='update' 
-              flash[:error]="请先填写以下基本信息,以便我们更好的了解您的需求。"
+              flash[:error]="以下信息为必填信息"
               redirect_to ind_user_new_path(current_user.id, 'profile') if current_user.is_a? IndUser
               redirect_to org_user_new_path(current_user.id, 'profile') if current_user.is_a? OrgUser
             end
