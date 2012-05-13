@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   def bookmark
-    @bookmarks = Bookmark.where(:bookmarkable_type=>params[:type]).where(:bookmarkable_id=>params[:id])
+    @bookmarks = current_user.bookmarks.where(:bookmarkable_type=>params[:type]).where(:bookmarkable_id=>params[:id])
     if @bookmarks.empty?
       logger.info "no bookmark yet"
       @bookmark = Bookmark.create(:user_id=>current_user.id,:bookmarkable=>eval(params[:type]).find(params[:id]))
