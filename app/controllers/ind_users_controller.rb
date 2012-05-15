@@ -84,5 +84,11 @@ class IndUsersController < ApplicationController
     @user = User.find(params[:id])
     @shouts = @user.shouts.page(params[:page]).per(10) 
   end
+
+  def school_search
+    @schools = School.where(:name_ch => Regexp.new(params[:q]))
+
+    render :layout => false
+  end
  
 end

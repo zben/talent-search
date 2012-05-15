@@ -15,7 +15,11 @@
       = f.semantic_fields_for :educations do |education|
         .list_item_box
           .row
-            .span6= education.input :school, :placeholder=>"例如： 北京大学"
+            .span6
+              %li{:class => "string input required stringish"}
+                %label 学校名称
+                = text_field_tag  :school, "", :placeholder => "例如：北京大学", :class => "autocomplete_school"
+              = education.input :school, :placeholder=>"例如： 北京大学", :input_html => {:style => "display: none", :class => "school_field"}
           
             .span2= education.input :degree_type,:as=>:select,:collection=>Education.degree_types_for_select
             .span3= education.input :GPA, :placeholder=>"例如: 3.8/4"
@@ -38,3 +42,7 @@
     $(document).ready(function() {
        $('.add_nested_fields').click();
     });
+:javascript
+  $(function(){
+    IndUsers.load();   
+  });

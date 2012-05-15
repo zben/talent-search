@@ -78,6 +78,7 @@ class JobPost
         post["industry_id"]=post["industry_id"].to_i
         puts city[0].name
         puts post
+        post["years_required"] = 1 if post["years_required"].to_i == 0
         JobPost.create(post.merge({"city_id"=>city[0].id })
         )
       end

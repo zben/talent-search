@@ -19,7 +19,11 @@ Talent::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :users
-  resources :ind_users
+  resources :ind_users do 
+    collection do 
+      get :school_search
+    end
+  end
   resources :org_users
   resources :shouts
   match 'weibo(/:type)'=>'shouts#index', :as=>'myshouts'

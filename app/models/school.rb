@@ -1,3 +1,4 @@
+require 'iconv' 
 class School
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -6,9 +7,9 @@ class School
   field :name_en
   field :country_name
   
-  belongs_to :province
-  belongs_to :country
-  has_many :educations
+#  belongs_to :province
+#  belongs_to :country
+#  has_many :educations
 
   def self.populate
     School.delete_all

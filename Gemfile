@@ -1,4 +1,7 @@
-source 'http://rubygems.org'
+#source 'http://rubygems.org'
+source 'http://ruby.taobao.org'
+
+
 
 gem 'rails', '3.1.1'
 gem 'haml'
@@ -45,10 +48,14 @@ gem 'thin'
 group :production do
   # gems specifically for Heroku go here
   gem "heroku"
-  gem "pg"
+#  gem "pg"
 end
 gem "erb2haml", :group => :development
 gem "faker"
+
+# just for read excel file
+gem "roo"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
