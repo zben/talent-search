@@ -212,6 +212,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-ole (1.2.11.3)
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubyzip (0.9.5)
@@ -223,6 +224,8 @@ GEM
       tilt (~> 1.3.2)
     seedbank (0.0.7)
     sexp_processor (3.0.10)
+    spreadsheet (0.7.1)
+      ruby-ole (>= 1.0)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -288,6 +291,7 @@ DEPENDENCIES
   sass-rails (~> 3.1.0)
   seedbank
   simple_enum!
+  spreadsheet
   sqlite3
   thin
   tinymce-rails!

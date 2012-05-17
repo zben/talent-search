@@ -31,10 +31,10 @@ class JobPost
       :job_type, :salary, :expiration, :contact_person, 
       :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
   
-  validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,
-      :description, :job_requirement, :job_type, :years_required, 
-      :expiration, :email, :presence=>true
-  validates :email, :format =>{:with=> /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i,:message => "请输入有效电子邮件"}
+  #validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,
+  #    :description, :job_requirement, :job_type, :years_required, 
+  #    :expiration, :email, :presence=>true
+  #validates :email, :format =>{:with=> /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i,:message => "请输入有效电子邮件"}
   belongs_to :industry
   field :industry_id, type: Integer
   belongs_to :province
@@ -71,17 +71,34 @@ class JobPost
     JobPost.delete_all
     data = get_csv_data 'db/base_data/job_posts.csv'
 
-      data.each do |post|
-        city = City.where(:name_ch => /#{post['city_id']}/) 
-        city = City.where(:name_ch => /其他/) if city.empty?
-        post["job_type_cd"]=post["job_type_cd"].to_i
-        post["industry_id"]=post["industry_id"].to_i
-        puts city[0].name
-        puts post
-        JobPost.create(post.merge({"city_id"=>city[0].id })
-        )
+    data.each do |post|
+      city = City.where(:name_ch => /#{post['city_id']}/) 
+      city = City.where(:name_ch => /其他/) if city.empty?
+      post["job_type_cd"]=post["job_type_cd"].to_i
+      post["industry_id"]=post["industry_id"].to_i
+
+      years_required = JobPost.years_requireds.index(post["years_required"].to_i)
+      years_required = JobPost.years_requireds.index(1) unless JobPost.years_requireds.has_value?(post["years_required"].to_i)
+      post["years_required"]=years_required.to_s
+      
+      salary=post["salary"].to_i if post["salary"]
+      if salary then
+        if salary<5000 then
+          post["salary"]=JobPost.salaries.index(1).to_s
+        elsif salary<10000 then
+          post["salary"]=JobPost.salaries.index(2).to_s
+        elsif salary<20000 then
+          post["salary"]=JobPost.salaries.index(3).to_s
+        elsif salary<30000 then
+          post["salary"]=JobPost.salaries.index(4).to_s
+        else
+          post["salary"]=JobPost.salaries.index(5).to_s
+        end
       end
+      
+      JobPost.create(post.merge({"city_id"=>city[0].id }))
+      
+    end
   end
-  
 
 end
