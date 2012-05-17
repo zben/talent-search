@@ -1,24 +1,27 @@
+require "spreadsheet/excel"
+
 class School
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  
   field :name_ch
   field :name_en
   field :country_name
   
   belongs_to :province
   belongs_to :country
-  has_many :educations
+#  has_many :educations
 
   def self.populate
     School.delete_all
-    data = Excel.new('db/base_data/university_list.xls')
-    data.sheets.each do |sheet_name|
-      data.default_sheet = sheet_name
-      1.upto(data.last_row) do |line|
-        school_name = data.cell(line,'A')
-        School.create(name_ch: school_name, name_en: school_name, country_name: data.default_sheet)
-      end 
+    Spreadsheet.client_encoding = "UTF-8"
+    data = Spreadsheet.open "db/base_data/university_list.xls"
+    data.worksheets.each do |sheet|
+
+      sheet.each do |row|
+        School.create(name_ch: row[0], name_en: row[0], country_name: sheet.name) if row[0]
+      end
     end
   end
 end
