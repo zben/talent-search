@@ -76,7 +76,7 @@
     .row
       .span10
         相关技能:
-        %h4=(skills=@job_post.skills).blank? ? '未填' : render(skills)
+        %p=(skills=@job_post.skills).blank? ? '未填' : render(skills)
       
 
 

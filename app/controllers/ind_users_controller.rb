@@ -13,7 +13,7 @@ class IndUsersController < ApplicationController
     @ind_activity_feeds = ActivityFeed.feed_for(current_user,'IndUser').limit(10)
     @org_activity_feeds = ActivityFeed.feed_for(current_user,'OrgUser').limit(10)
     @matching_jobs = current_user.matches[0..10] 
-    @status_update = current_user.related_shouts.limit(10)
+    @status_update = current_user.related_shouts.limit(20)
   end
   
   def show 

@@ -54,10 +54,10 @@ module ApplicationHelper
     result = bookmarkable.bookmarkings.where(:user_id=>current_user.id)
     if result.count==0
       link_to "关注",toggle_bookmark_path(bookmarkable.class.name,bookmarkable.id.to_s),
-        :class=>"btn primary #{bookmarkable.id}",:remote=>true
+        :class=>"btn spinner bookmark primary #{bookmarkable.id}",:remote=>true
     else
       link_to "取消关注",toggle_bookmark_path(bookmarkable.class.name,bookmarkable.id.to_s),
-        :class=>"btn primary #{bookmarkable.id}",:remote=>true
+        :class=>"btn bookmark primary #{bookmarkable.id}",:remote=>true
     end
   end
   

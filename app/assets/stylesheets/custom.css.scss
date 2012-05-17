@@ -1,4 +1,3 @@
-
 .topbar{
   position:static;
   height:85px;
@@ -87,7 +86,7 @@ label{
 }
 
 input, textarea{
-  width:90%;
+  width:100%;
 }
 form .clearfix {
     margin-bottom: 0px;
@@ -253,10 +252,36 @@ body, td, pre{font-family: "arial"; font-size:15px;}
 .shout_box{
   background-color:#C7EEFE;
   margin-bottom:5px;
-  padding:2px;
+  margin-left:50px;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: 13px;  
+  p{
+    margin-top: 2px;
+    margin-bottom: 0px;
+    font-size: 11px;
+  }
 }
-.shout_box p, .shout p{margin:0px;}
+.shout .row{
+  margin-left:10px;
+}
+.shout form{
+  margin-left: 50px;
+  input[type="submit"]{
+    margin:0px;
+    margin-top: -20px;
+    float:right;
+    display: inline-block;
+  }
+  .inline-hints{
+    display:inline-block;
+  }
+}
+.reply{
+  padding-left:20px;
+}
 .shout img{
+  position: absolute;
   padding:2px;
   border:1px solid silver;
 }
@@ -366,14 +391,20 @@ li.image_upload{
 }
 li.no_dot{
   list-style:none;
+  float: left;
+  width: 160px;
+  text-align: center;
+  margin: 10px;
   img{
-    max-width:100px;
-
-  }
-  .image{
-    width:100px;
+    max-width:150px;
+    border:5px solid #B8B8B8;
     display: inline-block;
-    margin:5px;
+    margin-bottom:5px;
+  }
+  a{
+    font-size:20px;
+    font-weight: bold;
+    display:block;
   }
 }
 .topbar-inner {
@@ -459,5 +490,32 @@ ul.login li{padding-top:0px;}
   margin:10px 0px;
   .title{
     cursor: pointer;
+  }
+}
+li.choice input{
+  margin: 5px;
+}
+li .name{
+  display: inline-block;
+}
+a.bookmark{
+  width:60px;
+  height:20px;
+  text-align: center;
+  font-size: 14px;
+}
+.sidebar{
+  width:100%;
+  text-align: center;
+  .image{
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+    margin-bottom: 10px;
+  }
+  a{
+    width:100%;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }

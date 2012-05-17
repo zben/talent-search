@@ -37,8 +37,8 @@ class Project
         :styles => {
           :original => ['1920x1680>', :jpg],
           :small    => ['30x30#',   :jpg],
-          :medium   => ['150x250',    :jpg],
-          :large    => ['500x500>',   :jpg]
+          :medium   => ['150x100',    :jpg],
+          :large    => ['400x300>',   :jpg]
         }
     else    
       has_mongoid_attached_file :logo,
@@ -46,15 +46,15 @@ class Project
         :styles => {
           :original => ['1920x1680>', :jpg],
           :small    => ['30x30#',   :jpg],
-          :medium   => ['150x250',    :jpg],
-          :large    => ['500x500>',   :jpg]
+          :medium   => ['150x100',    :jpg],
+          :large    => ['400x300>',   :jpg]
         }
     end
     
   attr_accessible :title, :intro, :logo, :province_id, :stage, :has_patent, :photos_attributes, :people_count, :project_need_ids, :project_field_ids
   validates :people_count, :title, :intro, :province,:province_id, :stage, :presence =>true
   validates_inclusion_of :has_patent, :in => [true, false]
-  
+  validates_presence_of :project_field_ids
   
   accepts_nested_attributes_for :photos, :allow_destroy => true
   

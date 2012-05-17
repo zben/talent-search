@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
     before_filter :set_locale
 
     def authenticate!
+        logger.info "USER IS SIGNED IN??????????"
+        logger.info user_signed_in?
+        session[:user_return_to] = request.path
         if !user_signed_in?
             flash[:notice]="请先登录"
             redirect_to new_user_session_path
@@ -18,24 +21,30 @@ class ApplicationController < ActionController::Base
             end
         end 
     end
-    
-    
+
     def after_sign_in_path_for(resource)
-      if current_user._type=="IndUser"
-        if current_user.profile
-          ind_user_overview_path
-        else
-          ind_user_new_path(current_user.id,'profile')
-        end
-      else
-        if current_user.org_profile
-          org_user_job_posts_path(current_user.id)
-        else
-          org_user_new_path(current_user.id,'profile')
-        end
-      end
+      stored_location_for(resource) || user_specific_path(resource)
     end
 
+    def user_specific_path(resource)
+      if current_user._type=="IndUser"
+          if current_user.profile
+            ind_user_overview_path
+          else
+            ind_user_new_path(current_user.id,'profile')
+          end
+        else
+          if current_user.org_profile
+            org_user_job_posts_path(current_user.id)
+          else
+            org_user_new_path(current_user.id,'profile')
+          end
+        end
+    end
+
+    def after_invite_path_for(resource)
+      new_invitation_path(resource)
+    end
 
     def set_locale
       I18n.default_locale = params[:locale] if params[:locale]

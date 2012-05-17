@@ -5,7 +5,6 @@ class Photo < Attachment
   include Mongoid::Paperclip
 
 
-  
      if Rails.env.production?  
       has_mongoid_attached_file :photo,
         :path => ':photo/:id/:style.:extension',
@@ -15,7 +14,8 @@ class Photo < Attachment
   :styles => {
     :original => ['1920x1680>', :jpg],
     :thumb    => ['100x100',   :jpg],
-    :medium   => ['200x150',    :jpg]
+    :medium   => ['200x150',    :jpg],
+    :large =>['400x300>', :jpg]
   }
     else    
       has_mongoid_attached_file :photo,
@@ -23,7 +23,8 @@ class Photo < Attachment
   :styles => {
     :original => ['1920x1680>', :jpg],
     :thumb    => ['100x100',   :jpg],
-    :medium   => ['200x150',    :jpg]
+    :medium   => ['200x150',    :jpg],
+    :large =>['400x300>', :jpg]
   }
     end
     

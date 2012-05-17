@@ -1,8 +1,5 @@
 Talent::Application.routes.draw do
 
-
-
-
   resources :projects, :only=>[:index, :show, :new,:create, :edit,:update, :destroy]
   match 'project/:id/apply'=>"projects#apply", :as=>'project_apply'
   match 'project_membership/:id/approve'=>"projects#approve",:as=>'project_approve'
@@ -16,7 +13,7 @@ Talent::Application.routes.draw do
   match "job_posts/:id/match"=>"job_posts#matching_talent",:as=>'job_post_matching_talent'
   resources :organization_profiles
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations", :invitations => 'invitations'}
 
   resources :users
   resources :ind_users

@@ -1,9 +1,9 @@
 %h2 发送邀请
+
 = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f|
-  = devise_error_messages!
-  =f.hidden_field :_type,:value=>'IndUser'
   %p
-    = f.label :email
+    = f.label "电子邮件"
     %br/
-    = f.text_field :email
+    = f.text_field :email, value: @emails, placeholder: "example@gmail.com, example@yahoo.com"
+  %p 使用逗号可以同时邀请多人。
   %p= f.submit "发送",:class=>'btn'

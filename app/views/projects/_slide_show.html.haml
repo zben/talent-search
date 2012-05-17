@@ -3,8 +3,7 @@
     #slides
       .slides_container
         -@project.photos.each do |photo|
-          =link_to image_tag(photo.photo,alt: "Slide 1", height: "270"),"http://www.flickr.com/photos/jliba/4665625073/", target: "_blank", title: "145.365 - Happy Bokeh Thursday! | Flickr - Photo Sharing!"
-
+          =image_tag(photo.photo(:large),alt: "Slide 1", height: "300")
 
       /%a.prev{:href => "#"}
       /  %img{:alt => "Arrow Prev", :height => "43", :src => "/assets/img/arrow-prev.png", :width => "24"}/

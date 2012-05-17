@@ -4,13 +4,20 @@
     %meta{:content=>"text/html; charset=UTF-8",:'http-equiv'=>"Content-Type"}
   %body
     %h3 你好，#{@sender.name} 对您发送了如下信息。
-    %p{:style=>"background-color:#F5F5FF;width:800px;border-radius:5px;padding:3px;"}=@message
-    
-    *若想直接回复对方,
-    =link_to "请点击此处", ind_user_url(@sender) if @sender.is_a? IndUser
-    =link_to "请点击此处", org_user_url(@sender) if @sender.is_a? OrgUser
-    在对方的主页上留言。
-    
+    %pre{:style=>"background-color:#F5F5FF;width:500px;border-radius:5px;padding:3px;white-space:pre-wrap"}=@message
+
+    -if @sender.is_a? IndUser
+      %p
+        若想直接回复对方,
+        =link_to "请点击此处", ind_user_url(@sender)
+        在对方的主页上点击留言按钮留言。
+    -elsif @sender.is_a? OrgUser
+      %p
+        若想了解#{@sender.name},
+        =link_to "请点击此处", org_user_url(@sender)
+      %p
+        若想回复对方，可直接回复到
+        =mail_to @sender.email
     %h2 
       寻找事业机遇，尽在 
       =link_to "i5kong.com", root_url

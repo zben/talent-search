@@ -1,1 +1,15 @@
+你好，#{@sender.name} 对您发送了如下信息。
+#{"\r\n"}
 =@message
+#{"\r\n"}
+-if @sender.is_a? IndUser
+  若想直接回复对方, 请点击此处: #{ind_user_url(@sender)}, 在对方的主页上点击留言按钮留言。
+-elsif @sender.is_a? OrgUser
+  若想了解#{@sender.name}, 请点击此处: #{org_user_url(@sender)}
+#{"\r\n"}
+
+若想回复对方，可直接回复到 #{@sender.email}
+#{"\r\n"}
+
+寻找事业机遇，尽在i5KONG.com
+

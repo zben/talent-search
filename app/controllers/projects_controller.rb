@@ -15,6 +15,8 @@ class ProjectsController < ApplicationController
   end
 
   def overview
+    @latest_projects = Project.limit(10)
+    @latest_project_shouts = Shout.where(:project_id.in => current_user.bookmarked_ids("Project")).limit(10)
   end
   
   def search
@@ -65,7 +67,7 @@ class ProjectsController < ApplicationController
   def apply
     @project= Project.find(params[:id])
     @project.new_application current_user
-    flash[:notice]="申请成功"
+    flash[:success]="您的申请已递交，请等待项目负责人审批"
     redirect_to :back
   end
   

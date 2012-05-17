@@ -6,8 +6,10 @@
      
 
 
-=render 'form'
-=render @shouts
+.row
+  .span11=render 'form'
+.row
+  .span11=render @shouts
 
 .row
   .span10.offset1= paginate @shouts

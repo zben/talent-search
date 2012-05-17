@@ -19,6 +19,4 @@ class UserMailer < ActionMailer::Base
          :to=>"#{job_post.email}",
          :subject=>"您收到了#{current_user.name}的职位申请")
   end
-
-      
 end

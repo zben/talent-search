@@ -47,8 +47,8 @@
     -unless @user.projects.empty?
       %h3
         我的项目
-        %ul
-          -@user.projects.each do |project|
-            %li.no_dot
-              .image=image_tag project.logo(:small)
-              =link_to project.title, project
+      %ul
+        -@user.projects.each do |project|
+          %li.no_dot
+            .image=link_to image_tag(project.logo(:medium)), project
+            =link_to project.title, project

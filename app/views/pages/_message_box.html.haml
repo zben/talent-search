@@ -6,7 +6,12 @@
   =semantic_form_for :message,:url=>send_message_path do |f| 
     .modal-body          
       =f.input :user_id, :as=>:hidden, :value=>@user.id
-      =f.input :content, :as=>:text, :input_html => { :class => 'autogrow', :rows => 15}
+      =f.input :content, :label=> "内容", :as=>:text, :input_html => { :class => 'autogrow', :rows => 15}
     .modal-footer
-      =submit_tag "发送",:class=>'btn '
-
+      =link_to_function "取消","$('.close').click();", :class=>'btn'
+      =submit_tag "发送",:class=>'btn primary'
+-if params[:message]
+  :javascript
+    $(document).ready(function() {
+      $('a[data-controls-modal="modal-from-dom"]').click();
+    });

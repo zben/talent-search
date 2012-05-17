@@ -12,20 +12,20 @@
 $(document).ready(function() {
   $('#skill_picker').click(function(event){ 
     if($(this).text() == '查看所有技能'){
-       $('.skill_list').show();
-       $(this).text('不使用选择列表');
-       $('.skill_list input').attr("disabled", false);
-     }
-     else{
-       $('.skill_list').hide();
-       $(this).text('查看所有技能');
-       $('.skill_list input').attr("disabled", true);
-     }
-     event.preventDefault();
+      $('.skill_list').show();
+      $(this).text('不使用选择列表');
+      $('.skill_list input').attr("disabled", false);
+    }
+    else{
+      $('.skill_list').hide();
+      $(this).text('查看所有技能');
+      $('.skill_list input').attr("disabled", true);
+    }
+  event.preventDefault();
   });
-  
 
-    $('.tiny textarea').tinymce({
+
+  $('.tiny textarea').tinymce({
     theme : "advanced",
     theme_advanced_buttons1 : "bullist,numlist",
     theme_advanced_buttons2: "",
@@ -33,17 +33,26 @@ $(document).ready(function() {
     theme_advanced_buttons4: "",
     theme_advanced_toolbar_location : "top",
     theme_advanced_toolbar_align : "left",
-      
-    });
-    
-    $(".alert-message").alert()
-    
+
+  });
+
+  $(".alert-message").alert()
+
     $('#slides').slides({
-				preload: true,
-				preloadImage: 'img/loading.gif',
-				play: 5000,
-				pause: 2500,
-				hoverPause: true
-			});
-   $('#items').dataTable()
+      preload: true,
+      preloadImage: 'img/loading.gif',
+      play: 5000,
+      pause: 2500,
+      hoverPause: true
+    });
+  $('#items').dataTable();
+
+  $('a.bookmark').bind('click',function(){
+    $(this).text('加载中...');
+  });
+
+  $('#modal-from-dom').modal({
+    backdrop: "static"
+  });
+
 });

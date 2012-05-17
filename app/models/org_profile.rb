@@ -33,4 +33,8 @@ class OrgProfile
   validates :company_name, :short_description, :people_count,:contact_person,:phone_number,:email,:website,
             :city_id,:province_id,:industry_id,  :presence=>true
   validates :email, :format => {:with=> /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i,:message => "请输入有效电子邮件"}
+
+  def name
+    company_name
+  end
 end

@@ -245,7 +245,7 @@ ch:
       project_search:
         keywords: "关键词"
         project_field_id: "项目领域"
-        stage: "项目阶段"
+        stage_cd: "项目阶段"
         province_id: "项目所在地"
     errors:
       header: "表格无法提交"

@@ -2,9 +2,9 @@
   .row
     .span12
       .row
-        .span5= f.input :title
+        .span11= f.input :title
       .row
-        .span10= f.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 7, :cols => 15, :maxlength => 500  }
+        .span11= f.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 7, :cols => 15, :maxlength => 500  }
       .row
         .span3= f.input :people_count
         .span2.radio_buttons_row= f.input :has_patent, :as=>:radio,:collection => [["有",true], ["无",false]]
@@ -13,19 +13,21 @@
       .row
         .span10.check_boxes_row= f.input :project_needs, :as=>:check_boxes
 
-      %h3 项目图片
-      %p 最多上传5张
+      %h3.span11 项目图片
+      %p 最多上传5张,推荐使用3:4的图片比例.
       =f.semantic_fields_for :photos do |photo|
         -if !photo.object.new_record?
           %li.image_upload
-            =image_tag photo.object.photo.url(:thumb)
+            =link_to image_tag(photo.object.photo.url(:thumb)), photo.object.photo.url(:original)
             =photo.label "删除图片"
             =photo.check_box :_destroy
         -else
           %li
             =photo.file_field :photo
-      %h3 项目Logo
+      %h3.span11 项目Logo
       =f.input :logo, :label=>false
-    .span4=f.input :project_fields, :as => :select, :collection => ProjectField.all, :multiple=>true, :input_html => {:size => 20}, :hint=>"提示: 此项可多选" 
+    %div{class: "span4 #{'error' unless @project.errors.messages[:project_field_ids].nil?}"}
+      =f.input :project_fields, :label => "项目领域*", :as => :check_boxes, :collection => ProjectField.all, :multiple=>true
+      %p.inline-errors=@project.errors.messages[:project_field_ids][0] unless @project.errors.messages[:project_field_ids].nil?
   = f.action :submit, :button_html => { :class=>"btn primary"}
   

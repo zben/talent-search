@@ -1,13 +1,18 @@
-%h2 Set your password
+%h2 设置密码
 = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f|
   = devise_error_messages!
   = f.hidden_field :invitation_token
-  %p
+  .span5
     = f.label :password
     %br/
     = f.password_field :password
-  %p
+  .span5
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
-  %p= f.submit "Set my password"
+  .span5
+    =f.label "选择您的用户类别"
+    =f.select "_type", [['个人用户','IndUser'],['企业用户','OrgUser']]
+    %p 非个人用户需要额外认证。
+  .span5
+    = f.submit "下一步", :class=>'btn primary'
