@@ -43,7 +43,7 @@
     =image_tag @project.logo(:medium)
     %p
       = bookmark_code @project
-      =join_project_buttons_code @project
+      =join_project_buttons_code @project if current_user.is_a? IndUser
     =render 'projects/admin_action'
     %h4 项目微博
     =render 'projects/shout_form_for_project' if current_user.projects.include?(@project)

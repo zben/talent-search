@@ -6,7 +6,6 @@ class OrgUser < User
     has_many :bookmarks, :foreign_key=>"user_id"   
 
     scope :with_org_profile, where(:org_profile.ne=>nil) 
-    delegate :name, to: :org_profile
     if Rails.env.production?  
       has_mongoid_attached_file :logo,
         :path => ':logo/:id/:style.:extension',
@@ -16,8 +15,8 @@ class OrgUser < User
         :styles => {
         :original => ['1920x1680>', :jpg],
         :small    => ['30x30#',   :jpg],
-        :medium   => ['150x250',    :jpg],
-        :large    => ['500x500>',   :jpg]
+        :medium   => ['150x100',    :jpg],
+        :large    => ['400x300>',   :jpg]
       }
     else    
       has_mongoid_attached_file :logo,
@@ -25,8 +24,8 @@ class OrgUser < User
         :styles => {
         :original => ['1920x1680>', :jpg],
         :small    => ['30x30#',   :jpg],
-        :medium   => ['150x250',    :jpg],
-        :large    => ['500x500>',   :jpg]
+        :medium   => ['150x100',    :jpg],
+        :large    => ['400x300>',   :jpg]
       }
     end
 

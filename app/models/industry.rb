@@ -7,7 +7,6 @@ class Industry
   field :name_en
   
   has_many :job_posts
-
   
   has_many :industries_users
 #  has_many :users, :through=>:industries_users

@@ -17,5 +17,4 @@ class Experience
   belongs_to :industry
   field :industry_id, type: Integer
 
-
 end

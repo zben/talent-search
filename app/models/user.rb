@@ -2,7 +2,6 @@
 class User 
   include Mongoid::Document
   include Mongoid::Timestamps
-  
 
   default_scope all(sort: [[ :created_at, :desc ]])
 ## Database authenticatable
@@ -108,9 +107,9 @@ class User
   
   def name
     if is_a? IndUser
-      profile.name || "匿名用户"
+      profile.try(:name) || "匿名用户"
     elsif is_a? OrgUser
-      org_profile.company_name || "匿名公司"
+      org_profile.try(:company_name) || "匿名公司"
     end  
   end
   
