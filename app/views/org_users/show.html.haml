@@ -66,11 +66,11 @@
                   - for job_post in @user.job_posts.limit(5)
                     %tr
                       %td=link_to job_post.title,job_post
-                %td= job_post.salary ||'面议'
-                %td= job_post.city.name
-                %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
-                %td= link_to "收藏", job_post
-                %td= link_to "查看", edit_job_post_path(job_post)
+                      %td= job_post.salary ||'面议'
+                      %td= job_post.city.name
+                      %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
+                      %td= link_to "收藏", job_post
+                      %td= link_to "查看", edit_job_post_path(job_post)
           =link_to "查看全部职位", org_user_job_posts_path(@user)  
   .span4
     .sidebar

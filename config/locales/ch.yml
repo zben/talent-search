@@ -123,6 +123,7 @@ ch:
       project: "创业项目"
     attributes:
       job_post:
+        degree_requirement: "学历要求"
         title: "职位名称"
         company_name: "公司名称"
         company_type: "公司性质"

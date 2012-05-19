@@ -13,7 +13,14 @@ class JobPost
   as_enum :salary, :"面议"=>0, :"5000元以下"=>1, :"5000元-1万元"=>2, :"1万元-2万元"=>3, :"2万元-3万元"=>4, :"3万以上"=>5
   as_enum :years_required, :"无要求"=>1, :"1年以上"=>2, :"3年以上"=>3, :"5年以上"=>4, :"10年以上"=>5
   as_enum :company_type, :"国企"=>1, :"民企"=>2, :"外企"=>3, :"非营利组织"=>4, :"学术研究机构"=>5
-  
+  as_enum :degree_requirement, :"不限"=>0,
+                        :"专科"=>1,
+                        :"学士"=>2,
+                        :"硕士"=>3,
+                        :"博士"=>4,
+                        :"医学博士"=>5,  
+                        :"法学博士"=>6
+
   field :title
   field :description
   field :job_requirement
@@ -26,13 +33,13 @@ class JobPost
   field :website
   field :is_official, type: Boolean, default: true
   
-  attr_accessible :title, :city_id, :province_id, :company_type, :industry_id, :years_required, 
+  attr_accessible :title, :city_id, :province_id, :company_type, :industry_id, :years_required, :degree_requirement,
       :company_name, :company_id, :description, :job_requirement, 
       :job_type, :salary, :expiration, :contact_person, 
       :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
   
   validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,
-      :description, :job_requirement, :job_type, :years_required, 
+      :description, :job_requirement, :job_type, :degree_requirement, :years_required, 
       :expiration, :email, :presence=>true
   validates :email, email: true
   belongs_to :industry

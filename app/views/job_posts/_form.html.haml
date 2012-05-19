@@ -14,12 +14,14 @@
         .span3=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
         .span2=f.input :company_type, :as=>:select, :collection=>JobPost.company_types_for_select,:prompt => t("Select one")
     .row
-      .span3=f.input :title
+      .span5=f.input :title
       .span2=f.input :job_type, :as=>:select, :collection=>JobPost.job_types_for_select,:prompt => t("Select one")
-      .span2=f.input :years_required, :as=>:select, :collection=>JobPost.years_requireds_for_select,:prompt => t("Select one")
       .span2=f.input :salary, :as=>:select, :collection=>JobPost.salaries_for_select,:prompt => t("Select one")
-      
       =render 'shared/city_picker',:f=>f,:city_id=>@job_post.city_id
+    .row
+      .span3=f.input :degree_requirement, :as=>:select, :collection=>JobPost.degree_requirements_for_select, :prompt=>t("Select one")
+      .span2=f.input :years_required, :as=>:select, :collection=>JobPost.years_requireds_for_select,:prompt => t("Select one")
+
     .row
       .span13
         .tiny=f.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
