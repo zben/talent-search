@@ -10,7 +10,7 @@ class JobPost
   
   include SimpleEnum::Mongoid
   as_enum :job_type,    :"全职"=>1,:"兼职"=>2, :"短期项目"=>3, :"实习"=>4
-  as_enum :salary, :"5000元以下"=>1, :"5000元-1万元"=>2, :"1万元-2万元"=>3, :"2万元-3万元"=>4, :"3万以上"=>5
+  as_enum :salary, :"面议"=>0, :"5000元以下"=>1, :"5000元-1万元"=>2, :"1万元-2万元"=>3, :"2万元-3万元"=>4, :"3万以上"=>5
   as_enum :years_required, :"无要求"=>1, :"1年以上"=>2, :"3年以上"=>3, :"5年以上"=>4, :"10年以上"=>5
   as_enum :company_type, :"国企"=>1, :"民企"=>2, :"外企"=>3, :"非营利组织"=>4, :"学术研究机构"=>5
   
@@ -34,7 +34,7 @@ class JobPost
   validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,
       :description, :job_requirement, :job_type, :years_required, 
       :expiration, :email, :presence=>true
-  validates :email, :format =>{:with=> /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i,:message => "请输入有效电子邮件"}
+  validates :email, email: true
   belongs_to :industry
   field :industry_id, type: Integer
   belongs_to :province

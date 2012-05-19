@@ -22,10 +22,10 @@
             .span2= p.input :people_count, :as=>:select, :collection=> OrgProfile.people_counts_for_select,:prompt => t("Select one")   
             = render 'shared/city_picker',:f=>p, :city_id=>@user.org_profile.city_id
           .row  
-            .span10= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  }
+            .span10= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20 }
             
           .row
-            .span10.tiny= p.input :long_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 15, :cols => 20, :maxlength => 500  }
+            .span10.tiny= p.input :long_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 15, :cols => 20 }
           .row
           .row  
             .span3= p.input :contact_person

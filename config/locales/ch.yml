@@ -311,4 +311,4 @@ ch:
   Education History: "学历"
   Add: "添加"
   Remove: "删除"
-
+  is_not_an_email: "不是有效邮件"
