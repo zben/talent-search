@@ -15,7 +15,7 @@ class OrgUser < User
         :s3_credentials => {:access_key_id => ENV['S3_KEY'],:secret_access_key => ENV['S3_SECRET']},
         :styles => {
         :original => ['1920x1680>', :jpg],
-        :small    => ['30x30#',   :jpg],
+        :small    => ['40x40#',   :jpg],
         :medium   => ['150x100',    :jpg],
         :large    => ['400x300>',   :jpg]
       }
@@ -24,7 +24,7 @@ class OrgUser < User
         :default_url => '/assets/logo/:style/missing.jpg',
         :styles => {
         :original => ['1920x1680>', :jpg],
-        :small    => ['30x30#',   :jpg],
+        :small    => ['40x40#',   :jpg],
         :medium   => ['150x100',    :jpg],
         :large    => ['400x300>',   :jpg]
       }
