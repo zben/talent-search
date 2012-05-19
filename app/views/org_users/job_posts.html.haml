@@ -16,4 +16,4 @@
       %td= job_post.city.name
       %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
       %td= job_post.bookmarkings.count
-      %td= link_to "查看匹配人才", job_post_matching_talent_path(job_post.id), :class=>'btn'
+      %td= link_to "查看匹配人才", job_post_matching_talent_path(job_post.id)

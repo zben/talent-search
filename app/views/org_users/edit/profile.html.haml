@@ -1,7 +1,7 @@
 
 .row
   =render 'org_users/side_nav'
-  .span12.offset1
+  .span13
 
     -if params[:action] == 'new'
       %h2 #{t("Create")}#{t("org_profile")}
@@ -16,23 +16,24 @@
       = f.semantic_fields_for :org_profile  do |p| 
         = p.inputs do
           .row
-            .span10= p.input :company_name
+            .span11= p.input :company_name
           .row
             .span3= p.input :industry_id, :required=>true, :as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
             .span2= p.input :people_count, :as=>:select, :collection=> OrgProfile.people_counts_for_select,:prompt => t("Select one")   
             = render 'shared/city_picker',:f=>p, :city_id=>@user.org_profile.city_id
-          .row  
-            .span10= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20 }
+            .span2= p.input :company_type, :required=>true, :as=>:select, :collection => OrgProfile.company_types_for_select, :prompt=>t('Select one')
+          .row
+            .span11= p.input :short_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20 }
             
           .row
-            .span10.tiny= p.input :long_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 15, :cols => 20 }
+            .span11.tiny= p.input :long_description, :as=>:text,:input_html => { :class => 'autogrow', :rows => 15, :cols => 20 }
           .row
           .row  
             .span3= p.input :contact_person
             .span4= p.input :email
-            .span3= p.input :phone_number
+            .span4= p.input :phone_number
           .row  
-            .span10= p.input :website
+            .span11= p.input :website
               
           .row
             .span5 

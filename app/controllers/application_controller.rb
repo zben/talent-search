@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
     before_filter :set_locale
 
     def authenticate!
-        logger.info "USER IS SIGNED IN??????????"
-        logger.info user_signed_in?
         session[:user_return_to] = request.path
         if !user_signed_in?
             flash[:notice]="请先登录"
@@ -20,6 +18,10 @@ class ApplicationController < ActionController::Base
               redirect_to org_user_new_path(current_user.id, 'profile') if current_user.is_a? OrgUser
             end
         end 
+    end
+
+    def check_owner!
+    
     end
 
     def after_sign_in_path_for(resource)

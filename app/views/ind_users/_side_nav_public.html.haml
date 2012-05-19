@@ -20,9 +20,10 @@
   %p
     %b 省/州:
     #{@user.profile.province.name} 
-  = bookmark_code @user unless @user==current_user
-  =render 'pages/message_box'
-  =link_to "留言","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn' unless @user==current_user
+  .sidebar
+    = bookmark_code @user unless @user==current_user
+    =render 'pages/message_box'
+    =link_to "留言","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn' unless @user==current_user
 
   -unless @user.chinese_resume_file_name.nil?
     %h4 

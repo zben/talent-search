@@ -76,7 +76,9 @@ module ApplicationHelper
     (params[:controller]=~/#{controller}/ && params[:action]=~/#{action}/) ? 'active':''
   end
 
-  
+  def controller_action
+    params["controller"] + "-" + params["action"]
+  end
 end
 
 

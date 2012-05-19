@@ -164,7 +164,8 @@ li.fragment{
 .collapse h3{
   font-size:14px;
 } 
-.lab{font-weight:bold;}
+.lab{font-weight:bold}
+
 .description{
   background-color:#F5F5FF;
   min-height:100px;
@@ -176,8 +177,14 @@ li.fragment{
 
 .job_post_snippet{
   background-color:#C7EEFE;
-  padding:5px 0;
-}  
+  .job_snippet_left{
+    padding: 0 0 0 15px;
+  }
+  margin: 5px 0px;
+  padding: 5px 0px;
+  border-radius: 3px;
+  .span3{font-size: 12px;}
+}
 .skill_item{
   background-color:#4598EA;
   display:inline-block;
@@ -198,7 +205,7 @@ li.fragment{
 }
 form.job_search {
   input[type="submit"],a.btn{
-  margin-top:22px;
+  margin-top: 0px;
   width:100%;
   }
 }
@@ -244,7 +251,7 @@ span.mceEditor{
   float:left;
 }
 
-body, td, pre{font-family: "arial"; font-size:15px;}
+body, td, pre{font-family: "arial"; font-size:14px;}
 .avatar img{
   padding:4px;
   border:1px solid #888;
@@ -480,7 +487,7 @@ ul.login li{padding-top:0px;}
 
 }
 
-.span12 h3{
+.span12 h3, job_posts-show h4, org_users-show h4{
   background: #3386C9;
   padding: 2px 5px;
   color: white;
@@ -488,8 +495,9 @@ ul.login li{padding-top:0px;}
   margin:5px 0;
   line-height: 20px;
   font-weight: normal;
-  font-size: 17px;
+  font-size: 15px;
 }
+
 .toggle{
   display: none;
   background-color: #A1E1FD;
@@ -528,6 +536,7 @@ a.bookmark{
     width:100%;
     padding-left: 0px;
     padding-right: 0px;
+    margin-bottom: 5px;
   }
 }
 .agreement_note{

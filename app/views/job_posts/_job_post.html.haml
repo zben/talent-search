@@ -4,7 +4,7 @@
       .lab=link_to job_post.company_name,job_post.user if job_post.user.is_a? OrgUser
       .lab=job_post.company_name unless job_post.user.is_a? OrgUser
       
-      =link_to job_post.title ,job_post
-    -if  is_active?("devise/sessions#.")=='active' or is_active?("pages#home")=='active'  
+      .lab=link_to job_post.title ,job_post
+    -if  is_active?("devise/sessions#.")=='active' or is_active?("pages#home")=='active'
       .span2.small
         #{time_ago_in_words(job_post.created_at)}以前

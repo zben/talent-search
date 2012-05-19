@@ -1,25 +1,26 @@
--if @user==current_user
-  =render 'org_users/navigation'
--else
-  %ul{:class=>"tabs",:"data-tabs"=>"tabs"}
-    %li.active=link_to "企业/机构介绍", @user
-    %li=link_to "微博",ind_user_shouts_path(@user.id) if @user.is_a? IndUser
-    %li=link_to "微博",org_user_shouts_path(@user.id) if @user.is_a? OrgUser
+=render 'org_users/navigation'
 
 .row
-  .span12
+  .span3
+    .sidebar
+      .image=image_tag @user.logo.url(:medium)
+      =bookmark_code @user if current_user.is_a? IndUser
+      =link_to("编辑公司信息", org_user_edit_path(@user,'profile'), :class=>'btn primary') if @user == current_user
+  .span13
     %h1=@user.org_profile.company_name  
-    =link_to "编辑公司信息", org_user_edit_path(@user,'profile') if @user == current_user
     .row
       .span3
-        所属行业:
+        %b 所属行业:
         =@user.org_profile.industry.name    
       .span3
-        公司总部:
+        %b 公司总部:
         =@user.org_profile.city.fullname
       .span3
-        公司人数:
-        =@user.org_profile.people_count  
+        %b 公司人数:
+        =@user.org_profile.people_count
+      .span3
+        %b 公司性质:
+        =@user.org_profile.company_type
 
 
     .row
@@ -57,22 +58,14 @@
         -else
           %table.zebra-striped
             %tr
-              %th 职位
-              %th 月薪
-              %th 地点
-              %th 截止日期
-              %th
-                %th
-                  - for job_post in @user.job_posts.limit(5)
-                    %tr
-                      %td=link_to job_post.title,job_post
-                      %td= job_post.salary ||'面议'
-                      %td= job_post.city.name
-                      %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
-                      %td= link_to "收藏", job_post
-                      %td= link_to "查看", edit_job_post_path(job_post)
+              %th{width: 300} 职位
+              %th{width: 200} 月薪
+              %th{width: 200} 地点
+              %th{width: 140} 截止日期
+              - for job_post in @user.job_posts.limit(5)
+                %tr
+                  %td=link_to job_post.title,job_post
+                  %td= job_post.salary ||'面议'
+                  %td= job_post.city.name
+                  %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
           =link_to "查看全部职位", org_user_job_posts_path(@user)  
-  .span4
-    .sidebar
-      .image=image_tag @user.logo.url(:medium)
-      =bookmark_code @user if current_user.is_a? IndUser  

@@ -1,18 +1,10 @@
 = semantic_form_for @job_post do |f|
 
   = f.inputs do
-    =hidden_field_tag "job_post[user_id]", current_user.id
-    =hidden_field_tag "job_post[is_official]", current_user.is_a?(OrgUser)
-    -if current_user.is_a? OrgUser
-      .row
-        .span8=f.input :company_name
-        .span3=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
-        .span2=f.input :company_type, :as=>:select, :collection=>JobPost.company_types_for_select,:prompt => t("Select one")
-    -else
-      .row
-        .span8=f.input :company_name
-        .span3=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
-        .span2=f.input :company_type, :as=>:select, :collection=>JobPost.company_types_for_select,:prompt => t("Select one")
+    .row
+      .span8=f.input :company_name
+      .span3=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
+      .span2=f.input :company_type, :as=>:select, :collection=>JobPost.company_types_for_select,:prompt => t("Select one")
     .row
       .span5=f.input :title
       .span2=f.input :job_type, :as=>:select, :collection=>JobPost.job_types_for_select,:prompt => t("Select one")

@@ -20,64 +20,63 @@
     %br    
     .row
       .span7
-        公司名称
-        %h4=@job_post.user.is_a?(OrgUser) ? link_to(@job_post.company_name,@job_post.user) : @job_post.company_name
+        %h4 公司名称
+        =@job_post.user.is_a?(OrgUser) ? link_to(@job_post.company_name,@job_post.user) : @job_post.company_name
       .span2
-        行业
-        %h4=@job_post.industry.name 
+        %h4 行业
+        =@job_post.industry.name 
       .span2
-        公司性质
-        %h4=@job_post.company_type
+        %h4 公司性质
+        =@job_post.company_type
     .row
       .span3 
-        职位名称
-        %h4=@job_post.title 
+        %h4 职位名称
+        =@job_post.title 
       .span2
-        工作性质
-        %h4=@job_post.job_type
+        %h4 工作性质
+        =@job_post.job_type
       .span2
-        经验要求
-        %h4=@job_post.years_required 
+        %h4 经验要求
+        =@job_post.years_required 
       .span2
-        月薪
-        %h4=@job_post.salary
+        %h4 月薪
+        =@job_post.salary
       .span2
-        工作地点
-        %h4
-          =@job_post.province.name
-          =@job_post.city.name    
-     
+        %h4 工作地点
+        =@job_post.province.name
+        =@job_post.city.name    
+
     .row
       .span11
-        职位描述
+        %h4 职位描述
         .description=raw @job_post.description
     .row
       .span11 
-        用人要求:
+        %h4 用人要求:
         .description=raw @job_post.job_requirement
 
     .row
       .span2
-        联系人
-        %h4=(person=@job_post.contact_person).blank? ? '未填' : person 
+        %h4 联系人
+        =(person=@job_post.contact_person).blank? ? '未填' : person 
       .span3
-        电话号码:
-        %h4=(no=@job_post.phone_number).blank? ? '未填' : no
-      .span4
-        电子邮件:
-        %h4=(email=@job_post.email).blank? ? '未填' : mail_to(email)
+        %h4 电话号码:
+        =(no=@job_post.phone_number).blank? ? '未填' : no
       .span3
-        截止日期:
-        %h4=l @job_post.expiration, :format=>:long
+        %h4 电子邮件:
+        =(email=@job_post.email).blank? ? '未填' : mail_to(email)
+      .span3
+        %h4 截止日期:
+        =l @job_post.expiration, :format=>:long
     .row
-      .span10
-        职位申请链接:
-        %h4=(url=@job_post.website).blank? ? '未填' : link_to(url, url)
+      .span11
+        %h4 职位申请链接:
+        =(url=@job_post.website).blank? ? '未填' : link_to(url, url)
     .row
-      .span10
-        相关技能:
+      .span11
+        %h4 相关技能:
         -if (skills=@job_post.skills).blank?
-          %h4 未填
+          未填
         -else
           %p=render(skills)
       

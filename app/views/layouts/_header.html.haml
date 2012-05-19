@@ -6,7 +6,7 @@
       
       %ul.nav
         %li{:class=>is_active?("shouts#index")}=link_to "悟空微博",myshouts_path
-        %li{:class=>"#{is_active?("job#.")}#{is_active?("company_searches#.")}"}=link_to '工作圈',ind_user_overview_path || root_path
+        %li{:class=>"#{is_active? 'job#.'} #{is_active? 'company_searches#.'} #{is_active? 'ind_users#overview'}"}=link_to '工作圈',ind_user_overview_path || root_path
 
 
        

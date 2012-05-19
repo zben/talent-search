@@ -19,13 +19,16 @@ class JobPostsController < ApplicationController
   def new
     @user = current_user
     @job_post = JobPost.new
-    @job_post.company_name = current_user.org_profile.company_name unless current_user.org_profile.nil?
-    @job_post.industry_id=current_user.org_profile.industry_id unless current_user.org_profile.nil?
+    if current_user.org_profile
+      @job_post.company_name = current_user.org_profile.company_name
+      @job_post.industry_id=current_user.org_profile.industry_id
+      @job_post.company_type=current_user.org_profile.company_type
+    end
   end
 
   def create
-    @job_post = JobPost.new(params[:job_post])
-
+    @job_post = current_user.job_posts.new(params[:job_post])
+    @job_post.is_official = current_user.is_a?(OrgUser)
     if @job_post.save
       update_skills(@job_post, params)
       current_user.job_posts << @job_post
@@ -38,7 +41,6 @@ class JobPostsController < ApplicationController
 
   def edit
     @job_post = JobPost.find(params[:id])
-    @provinces=Province.all
   end
 
   def update

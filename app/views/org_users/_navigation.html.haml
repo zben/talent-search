@@ -1,10 +1,7 @@
-%ul.tabs
-  %li{:class=>"#{params[:controller]=='org_users' && params[:action]=='show' ? 'active':''}"}=link_to t('org_profile'), @user || current_user
-  %li{:class=>"#{params[:action]=='job_posts' ? 'active':''}"}=link_to "职位存档",org_user_job_posts_path(current_user.id)
-  -if @user.nil? || @user == current_user
-    %li{:class=>"#{params[:controller]=='job_posts' ? 'active':''}"}=link_to '发布职位',new_job_post_path 
-
-    
-    /%li=link_to '搜索人才',"#" 
-    /%li=link_to '收藏夹',"#" 
+%ul{:class=>"tabs",:"data-tabs"=>"tabs"}
+  %li{class: "#{is_active? 'org_users#show'}"}=link_to "企业/机构介绍", @user
+  %li{class: "#{is_active? 'org_users#shouts'}"}=link_to "微博",org_user_shouts_path(@user.id)
+  %li{class: "#{is_active? 'org_users#job_posts'}"}=link_to "职位存档",org_user_job_posts_path(@user.id)
+  -if current_user.is_a?(OrgUser) && @user == current_user
+    %li{:class=>"#{is_active? 'job_posts#new'}"}=link_to '发布职位',new_job_post_path
 

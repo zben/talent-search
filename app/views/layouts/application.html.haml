@@ -6,7 +6,7 @@
         =stylesheet_link_tag    "application", :debug => false
         =javascript_include_tag "application", :debug => false
         = csrf_meta_tags
-    %body
+    %body{class: "#{controller_action}"}
         =render 'layouts/header'
         /-if params[:action] == 'home'
         /    .container

@@ -184,6 +184,7 @@ ch:
         intro_title: "个性标题"
       org_profile:
         company_name: "公司名称"
+        company_type: "公司性质"
         short_description: "简要介绍"
         long_description: "详细介绍"
         people_count: "机构人数"

@@ -1,9 +1,10 @@
 .job_post_snippet
   .row
+    .span5
+      .job_snippet_left
+        .lab=link_to project.title, project
+        .lab=project.province.name
     .span3
-      .lab=link_to project.title, project
-      .lab=project.province.name
-      
-    -if  is_active?("devise/sessions#.")=='active' or is_active?("pages#home")=='active'  
-      .span2.small
-        #{time_ago_in_words(project.created_at)}以前
+      =project.project_fields.first.name
+      %br
+      发布于#{time_ago_in_words(project.created_at)}以前
