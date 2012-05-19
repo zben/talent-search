@@ -1,9 +1,8 @@
 =render 'ind_users/navigation'
 .row
   .span3.search
-    %h3 搜索选项
     =render 'company_searches/form'
-  .span12
+  .span13
     %h4 
       -if @is_new 
         所有公司  
@@ -13,8 +12,7 @@
 
     -if @users.empty?   
       搜索结果为0,请试试别的搜索参数！
-    -else    
-           
+    -else
       %table.zebra-striped
         %tr
           %th{width: "60px"} 公司Logo
@@ -25,7 +23,6 @@
         - for user in @users
           %tr
             %td=image_tag user.logo(:small),height: "40px";
-           
             %td=link_to user.org_profile.company_name, user
             %td=user.org_profile.city.name
             %td=user.org_profile.people_count 

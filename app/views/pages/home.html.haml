@@ -30,5 +30,9 @@
           .span2= f.label '邀请码'
           .span4= text_field_tag :invitation_code  
         .row
+          =render 'pages/agreement'
+          .span4.offset2.agreement_note
+            注册本网站，表示您同意
+            =link_to "用户协议","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true"
           .span4.offset2= f.submit "加入悟空人才网", :class => "btn"
 

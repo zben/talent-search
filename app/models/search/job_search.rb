@@ -9,7 +9,8 @@ class JobSearch
   field :years_required, type: Integer
   field :keywords
   field :skills
-  
+  before_save :clean_keywords
+
   def matching_jobs
       job_posts = JobPost.all
       job_posts = job_posts.where(:industry_id=>industry_id) if industry_id.present?
@@ -28,8 +29,10 @@ class JobSearch
             ).map(&:job_posts).flatten.map(&:_id)
           }
           ) if keywords
-      
       job_posts
   end
-  
+
+  def clean_keywords
+    self.keywords = keywords.strip
+  end
 end

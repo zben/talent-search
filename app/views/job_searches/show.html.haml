@@ -1,31 +1,40 @@
 =render 'ind_users/navigation'
-=render 'job_searches/form'
-%h4 
-  =@is_new ? "自动匹配职位" : "搜索结果"
+.row
+  .span3.search
+    =render 'job_searches/form'
+  .span13
+    %h4
+      -if @is_new
+        匹配职位
+        =link_to "最新职位", job_search_path("all")
+      -elsif @show_all
+        =link_to "匹配职位", default_jobs_path
+        最新职位
+      -else
+        =link_to "最新职位", job_search_path("all")
+        =link_to "匹配职位", default_jobs_path
+        搜索结果
 
--if @job_posts.empty?   
-  -if @is_new
-    没有找到匹配您技能的职位。请添加技能获取匹配！
-    =link_to "添加技能",user_edit_path(current_user.id,"skill"),:class=>"btn"
-  -else
-    搜索结果为0,请试试别的搜索参数！
--else    
-  %table.zebra-striped
-    %tr
-      %th 公司/机构
-      %th 职位
-      %th 月薪
-      %th 地点
-      %th 截止日期
-      %th
-      %th
-    - for job_post in @job_posts
-      %tr
-        %td= job_post.company_name 
-        %td=link_to job_post.title,job_post
-        %td= job_post.salary ||'面议'
-        %td= job_post.city.name
-        %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
-        %td.span3= bookmark_code job_post
-        %td= view_code job_post
-  =paginate @job_posts
+    -if @job_posts.empty?
+      -if @is_new
+        没有找到匹配您的技能的职位，
+        =link_to "现在去添加更多的技能吧", ind_user_edit_path(current_user, 'skill')
+        。
+      -else
+        请试试别的搜索关键词吧！
+    -else
+      %table.zebra-striped
+        %tr
+          %th{width: 300} 职位
+          %th{width: 300} 公司/机构
+          %th{width: 200} 月薪
+          %th{width: 200} 地点
+          %th{width: 200} 截止日期
+        - for job_post in @job_posts
+          %tr
+            %td=link_to job_post.title,job_post
+            %td= job_post.company_name
+            %td= job_post.salary ||'面议'
+            %td= job_post.city.name
+            %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
+      =paginate @job_posts

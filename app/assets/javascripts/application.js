@@ -26,6 +26,7 @@ $(document).ready(function() {
 
 
   $('.tiny textarea').tinymce({
+    content_css: "/style.css",
     theme : "advanced",
     theme_advanced_buttons1 : "bullist,numlist",
     theme_advanced_buttons2: "",

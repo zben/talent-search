@@ -3,8 +3,8 @@
   %li{:class=>"#{params[:controller]=='ind_users' && params[:action]=='overview' ? 'active':''}"}
     =link_to "工作圈主页", ind_user_overview_path
 
-  %li{:class=>is_active?('job_searches#show')}=link_to '搜职位',default_jobs_path 
-  %li{:class=>is_active?('company_searches#show')}=link_to '搜公司',default_companies_path 
+  %li{:class=>is_active?('job_searches#show')}=link_to '职位信息',default_jobs_path 
+  %li{:class=>is_active?('company_searches#show')}=link_to '公司信息',default_companies_path 
 
 
   %li{:class=>"dropdown #{is_active?("job_posts#new")} #{is_active?("ind_users#job_posts")}",:"data-dropdown"=>"dropdown" }

@@ -1,13 +1,14 @@
 =semantic_form_for @search do |f|
   =f.inputs do
     .row 
-      .span2=f.input :keywords
+      .span3
+        %h3 搜索选项
+        =f.input :keywords
+        =submit_tag "搜索",:class=>'btn'
+      %h4.span3 附加选项
       .span3=f.input :industry_id, :as=>:select, :collection=>Industry.all
-      .span2=f.input :province_id, :as=>:select, :collection=>Province.all
-      .span2=f.input :salary, :as=>:select, :collection => JobPost.salaries_for_select(:value)
-      .span2=f.input :years_required, :as=>:select, :collection => JobPost.years_requireds_for_select(:value)
-      .span2
-        =submit_tag "搜索全部职位",:class=>"btn"
-      .span2
-        =link_to "查看默认匹配",default_jobs_path,:class=>"btn"
-        
+      .span3=f.input :province_id, :as=>:select, :collection=>Province.all
+      .span3=f.input :salary, :as=>:select, :collection => JobPost.salaries_for_select(:value)
+      .span3=f.input :years_required, :as=>:select, :collection => JobPost.years_requireds_for_select(:value)
+      %br
+      .span3=submit_tag "搜索全部职位",:class=>"btn"

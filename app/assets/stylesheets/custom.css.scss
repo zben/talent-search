@@ -316,10 +316,15 @@ body, td, pre{font-family: "arial"; font-size:15px;}
 
 .search{
   background-color:#C7EEFE;
-  padding:15px;
+  padding:0px;
   border-radius:5px;
 }
-
+.search form{
+  padding: 15px;
+  input, textarea, select, input[type="submit"]{
+    width: 80%;
+  }
+}
 fieldset legend{
   height:23px;
 }
@@ -523,5 +528,14 @@ a.bookmark{
     width:100%;
     padding-left: 0px;
     padding-right: 0px;
+  }
+}
+.agreement_note{
+  font-size: 10px;
+  color: white;
+  padding-bottom: 5px;
+  a{
+    color: white;
+    text-decoration: underline; 
   }
 }
