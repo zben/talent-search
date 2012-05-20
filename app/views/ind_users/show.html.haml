@@ -18,12 +18,12 @@
     %h3
       工作经验
       .edit=link_to raw("<i class='icon-edit icon-white'></i>"),ind_user_edit_path(current_user.id,'experience') if current_user==@user
-      .edit=link_to_function "查看详情", "$('.toggle:not(.experience_list .toggle)').hide(); $('.experience_list .toggle').toggle(300);"
+      .edit=link_to_function "查看详情", "$('.toggle:not(.experience_list .toggle)').hide(); $('.experience_list .toggle').toggle(300);" if @user.experiences.detect{|x| !x.description.empty?}
     .experience_list=@user.experiences.empty? ? "尚未填写" : render(@user.experiences)
     %h3 
       学历
       .edit=link_to raw("<i class='icon-edit icon-white'></i>"),ind_user_edit_path(current_user.id,'education') if current_user==@user
-      .edit=link_to_function "查看详情", "$('.toggle:not(.education_list .toggle)').hide(); $('.education_list .toggle').toggle(300);"
+      .edit=link_to_function "查看详情", "$('.toggle:not(.education_list .toggle)').hide(); $('.education_list .toggle').toggle(300);" if @user.educations.detect{|x| !x.comment.empty?}
     .education_list=@user.educations.empty? ? "尚未填写" : render(@user.educations)
 
     %h3 

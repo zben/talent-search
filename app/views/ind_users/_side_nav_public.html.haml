@@ -25,15 +25,15 @@
     =render 'pages/message_box'
     =link_to "留言","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn' unless @user==current_user
 
-  -unless @user.chinese_resume_file_name.nil?
+  -unless @user.chinese_resume_file_name.nil? && current_user != @user
     %h4 
       中文简历
       .edit=link_to raw("<i class='icon-edit '></i>"),ind_user_edit_path(current_user.id,'profile') if current_user==@user
-    =link_to "下载", @user.chinese_resume.to_s
+    =link_to "下载", @user.chinese_resume.to_s if @user.chinese_resume_file_name
 
-  -unless @user.english_resume_file_name.nil?
+  -unless @user.english_resume_file_name.nil? && current_user != @user
     %h4 
       英文简历
       .edit=link_to raw("<i class='icon-edit '></i>"),ind_user_edit_path(current_user.id,'profile') if current_user==@user
-    =link_to "下载", @user.english_resume.to_s
+    =link_to "下载", @user.english_resume.to_s if @user.chinese_resume_file_name
   
