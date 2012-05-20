@@ -281,15 +281,17 @@ body, td, pre{font-family: "arial"; font-size:14px;}
 .shout form{
   margin-left: 50px;
   input[type="submit"]{
-    margin:0px;
-    margin-top: -20px;
+    margin:5px 0 10px;
     float:right;
     display: inline-block;
   }
   .inline-hints{
     display:inline-block;
+    margin-top:5px;
+    float:left;
   }
 }
+
 .reply{
   padding-left:20px;
 }
