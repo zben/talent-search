@@ -9,8 +9,8 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     # add custom create logic here
     if params[:invitation_code]!="12345"
-      flash[:notice] = "邀请码不正确"
-      redirect_to :action=>:new 
+      flash[:error] = "悟空人才网出于测试阶段。请完整填写下列信息，包括邀请码。你也可以发信给i5kongtalent@gmail.com请求加入。"
+      redirect_to :back
     else
       user = User.where(:email=>params[:user][:email]).first
       if user!=nil && user.invitation_sent_at!=nil && user.invitation_accepted_at.nil?
