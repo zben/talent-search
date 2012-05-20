@@ -15,6 +15,7 @@ gem 'formtastic-bootstrap'
 gem 'active_hash'
 gem "seedbank"
 gem 'kaminari'
+gem 'cancan'
 gem 'declarative_authorization'
 gem "bourbon", "~> 1.4.0"
 gem 'letter_opener', :group => :development
