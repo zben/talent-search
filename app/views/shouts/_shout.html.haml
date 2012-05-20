@@ -18,7 +18,7 @@
       =form_for Shout.new do |f|
         =f.hidden_field :shout_id,:value=>shout.id
         =f.text_area :message,:rows=>2
-        =submit_tag "发布回复",:class=>"btn"
+        =submit_tag "发布回复",:class=>"btn margin0"
 
   -shout.shouts.asc(:created_at).each do |reply|
 
