@@ -1,7 +1,9 @@
 %h4 收藏职位
 
 -if @job_posts.empty?   
-  您没有收藏任何职位。现在就去浏览职位吧!
+  您没有收藏任何职位。
+  =link_to "现在就去浏览职位吧", default_jobs_path
+  !
 -else    
   %table.zebra-striped
     %tr

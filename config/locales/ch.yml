@@ -229,6 +229,7 @@ ch:
       talent_search:
         province: "所在地"
         keywords: "关键词"
+        industry: "行业经历"
       company_search:
         keywords: "关键词"
         people_count: "公司人数"

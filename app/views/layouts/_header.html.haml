@@ -21,7 +21,9 @@
        
       -if user_signed_in?
         %ul.nav
-          %li{:class=>is_active?("ind_users#index")}=link_to '找人',default_talent_path 
+          %li{:class=>is_active?("ind_users#index")}=link_to '找八戒',default_talent_path 
+          %li{:class=>is_active?("shouts#index")}=link_to "悟空微博",myshouts_path
+        %ul{class: "nav", style: "float: right;"}
           %li{:class=>"dropdown #{params[:action]=~/bookmarked/  ? 'active':''}",:"data-dropdown"=>"dropdown" }
             =link_to_function "收藏夹",'$(".dropdown-menu.bookmark_dropdown").toggle()', :class=>"dropdown-toggle" 
             
@@ -30,11 +32,8 @@
               -if current_user.is_a? IndUser
                 %li{:class=>"#{params[:action]=='bookmarked_companies'  ? 'active':''}"}=link_to "关注的企业",bookmarked_companies_path
                 %li{:class=>"#{params[:action]=='bookmarked_jobs'  ? 'active':''}"}=link_to "收藏的职位",bookmarked_jobs_path
-
-        %ul{class: "nav", style: "float: right;"}
-          %li{:class=>is_active?("shouts#index")}=link_to "悟空微博",myshouts_path
           %li{:class=>"dropdown #{is_active?("users#edit")}",:"data-dropdown"=>"dropdown"}
-            =link_to_function "我的账户",'$(".dropdown-menu.setting").toggle()', :class=>"dropdown-toggle" 
+            =link_to_function current_user.name,'$(".dropdown-menu.setting").toggle()', :class=>"dropdown-toggle" 
             %ul.dropdown-menu.setting
               %li=link_to "浏览#{current_user.is_a?(IndUser) ? "我的" : "机构"}主页",current_user
               %li=link_to "更改密码",user_edit_path(current_user.id,'account') 
