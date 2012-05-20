@@ -4,6 +4,10 @@ ch:
       messages:
         blank:
           不能为空
+        not_a_number:
+          需要填写数字
+        greater_than:
+          需要大于%{count}
         callbacks:
           "Calling %{method} on %{klass} resulted in a false return from a callback."
         taken:

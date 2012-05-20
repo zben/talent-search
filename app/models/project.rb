@@ -55,7 +55,8 @@ class Project
   validates :people_count, :title, :intro, :province,:province_id, :stage, :presence =>true
   validates_inclusion_of :has_patent, :in => [true, false]
   validates_presence_of :project_field_ids
-  
+  validates_numericality_of :people_count, :only_integer=>true, :greater_than=>0  
+
   accepts_nested_attributes_for :photos, :allow_destroy => true
   
   def add_admin user

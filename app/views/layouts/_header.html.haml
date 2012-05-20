@@ -5,7 +5,6 @@
       =link_to image_tag('logo.png',height: 60),root_path, :class=>"brand"
       
       %ul.nav
-        %li{:class=>is_active?("shouts#index")}=link_to "悟空微博",myshouts_path
         %li{:class=>"#{is_active?("job#.")}#{is_active?("company_searches#.")}"}=link_to '工作圈',ind_user_overview_path || root_path
 
 
@@ -33,6 +32,7 @@
                 %li{:class=>"#{params[:action]=='bookmarked_jobs'  ? 'active':''}"}=link_to "收藏的职位",bookmarked_jobs_path
 
         %ul{class: "nav", style: "float: right;"}
+          %li{:class=>is_active?("shouts#index")}=link_to "悟空微博",myshouts_path
           %li{:class=>"dropdown #{is_active?("users#edit")}",:"data-dropdown"=>"dropdown"}
             =link_to_function "我的账户",'$(".dropdown-menu.setting").toggle()', :class=>"dropdown-toggle" 
             %ul.dropdown-menu.setting
