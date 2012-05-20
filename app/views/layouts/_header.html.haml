@@ -8,16 +8,16 @@
         %li{:class=>"#{is_active?("job#.")} #{is_active?("company_searches#.")} #{is_active?('ind_users#overview')}"}=link_to '工作圈',ind_user_overview_path || root_path
 
 
-       
-        -if user_signed_in? && !current_user.projects.empty?
-          %li{:class=>"dropdown #{is_active?("projects#.")}",:"data-dropdown"=>"dropdown" }
-            =link_to "创业圈", project_overview_path, :class=>"dropdown-toggle" 
-            %ul.dropdown-menu.project_drop_down
-              -current_user.projects.each do |project|
-                %li=link_to project.title, project
-              
-        -else
-          %li=link_to '创业圈',project_overview_path
+        -if false
+          -if user_signed_in? && !current_user.projects.empty?
+            %li{:class=>"dropdown #{is_active?("projects#.")}",:"data-dropdown"=>"dropdown" }
+              =link_to "创业圈", project_overview_path, :class=>"dropdown-toggle" 
+              %ul.dropdown-menu.project_drop_down
+                -current_user.projects.each do |project|
+                  %li=link_to project.title, project
+                
+          -else
+            %li=link_to '创业圈',project_overview_path
        
       -if user_signed_in?
         %ul.nav

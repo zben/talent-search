@@ -30,8 +30,7 @@ class OrgProfile
 #  field :province_id, type: Integer
 #  field :industry_id, type: Integer
   
-  validates :company_name, :short_description, :people_count,:contact_person,:phone_number,:email,:website,
-            :city_id,:province_id,:industry_id, :company_type,  :presence=>true
+  validates :company_name, :short_description, :people_count,:contact_person,:phone_number,:email,:website,:province_id,:industry_id, :company_type,  :presence=>true
   validates :email, email: true
 
   def name

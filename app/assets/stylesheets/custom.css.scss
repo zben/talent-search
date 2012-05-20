@@ -489,7 +489,7 @@ ul.login li{padding-top:0px;}
 
 }
 
-.span12 h3, job_posts-show h4, org_users-show h4{
+.span12 h3, .job_posts-show h4, .org_users-show h4, .job_posts-show h4{
   background: #3386C9;
   padding: 2px 5px;
   color: white;
@@ -519,7 +519,7 @@ li.choice input{
 li .name{
   display: inline-block;
 }
-a.bookmark{
+a.bookmark, .btn{
   width:60px;
   height:20px;
   text-align: center;

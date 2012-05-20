@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class OrgUsersController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate!
@@ -21,18 +22,20 @@ class OrgUsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    authorize! :manage, @user
     render "org_users/edit/#{params[:info]}"
   end
 
   def update
     @user =  OrgUser.find(params[:id])
+    authorize! :manage, @user
     @user.update_attributes(params[:org_user])
     if @user.save
       remove_avatar(@user) unless params["remove_avatar"].nil?
       update_skills(@user,params) unless params[:skills].nil?
       next_step = params[:is_new].nil? ? nil : @user.next_step(params[:current_step])   
       if next_step.nil?
-        redirect_to @user
+        redirect_to @user, :success=>"修改成功"
       else
         @is_new = true
         redirect_to org_user_new_path(@user.id,"#{next_step}")

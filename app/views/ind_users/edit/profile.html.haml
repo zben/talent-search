@@ -1,7 +1,7 @@
 /=render 'ind_users/navigation' unless params[:controller]=="ind_users" and params[:action]=="new"
 
 .row
-  =render 'ind_users/side_nav' if @user.profile
+  =render 'ind_users/side_nav' unless @user.profile.firstname.nil?
   .span12.offset1
     -if params[:action] == 'new'
       %h2 #{t("Create")}#{t("profile")}

@@ -47,11 +47,18 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    unless @project.users.include?(current_user)
+      redirect_to root_url
+    end
     (5-@project.photos.count).times{@project.photos.build}
   end
 
   def update
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:id])  
+    unless @project.users.include?(current_user)
+      redirect_to root_url
+    end
+
     if @project.update_attributes(params[:project])
       redirect_to @project  
     else

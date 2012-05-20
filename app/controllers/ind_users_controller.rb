@@ -31,6 +31,7 @@ class IndUsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    authorize! :manage, @user
     @user.build_profile if @user.profile.nil?
     @user.build_usage if @user.usage.nil?
     render "ind_users/edit/#{params[:info]}"
@@ -38,6 +39,7 @@ class IndUsersController < ApplicationController
 
   def update
     @user =  User.find(params[:id])
+    authorize! :manage, @user
     @user.update_attributes(params[:ind_user])
     if @user.save
       sign_in(@user, :bypass => true)

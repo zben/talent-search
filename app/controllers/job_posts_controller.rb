@@ -41,11 +41,12 @@ class JobPostsController < ApplicationController
 
   def edit
     @job_post = JobPost.find(params[:id])
+    authorize! :manage, @job_post
   end
 
   def update
     @job_post = JobPost.find(params[:id])
-    
+    authorize! :manage, @job_post
     if @job_post.update_attributes(params[:job_post])
       update_skills(@job_post, params)
       redirect_to @job_post, :notice  => "成功更新职位。"
@@ -56,6 +57,7 @@ class JobPostsController < ApplicationController
 
   def destroy
     @job_post = JobPost.find(params[:id])
+    authorize! :manage, @job_post
     @job_post.destroy
     redirect_to org_user_job_posts_url, :notice => "成功删除职位"
   end

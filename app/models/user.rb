@@ -7,7 +7,7 @@ class User
 ## Database authenticatable
   field :email,              :type => String, :null => false
   field :encrypted_password, :type => String, :null => false
-
+  field :admin, :type => Boolean
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time

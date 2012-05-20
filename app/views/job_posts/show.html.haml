@@ -9,13 +9,7 @@
           = link_to "编辑", edit_job_post_path(@job_post) ,:class=>'btn' 
           =link_to "删除", @job_post, :confirm => 'Are you sure?', :method => :delete ,:class=>'btn' 
         
-        -elsif current_user.is_a?(IndUser)
-          =render 'job_posts/apply_box'
-          -if !current_user.job_applied?(@job_post)
-            =link_to "申请职位","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn primary'  
-          -else 
-            =link_to "撤销申请", cancel_job_application_path(current_user.get_job_application(@job_post)), :class=>"btn primary"
-          =bookmark_code(@job_post) 
+
         
     %br    
     .row
@@ -79,11 +73,25 @@
           未填
         -else
           %p=render(skills)
-      
+
+  .span5
+    .sidebar
+      %br
+      .image
+        -if @job_post.user.is_a?(OrgUser)
+          =image_tag @job_post.user.avatar.url(:medium)
+        -else
+          =image_tag 'logo/medium/missing.jpg'
 
 
-    
-  .span5.side
+      -if current_user.is_a?(IndUser)
+        =render 'job_posts/apply_box'
+        -if !current_user.job_applied?(@job_post)
+          =link_to "申请职位","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn primary'
+        -else 
+          =link_to "撤销申请", cancel_job_application_path(current_user.get_job_application(@job_post)), :class=>"btn primary"
+      =bookmark_code(@job_post)
+
     -unless @latest_jobs.blank?
       .module
         %h4 悟空最新职位

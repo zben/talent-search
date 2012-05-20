@@ -3,11 +3,11 @@ class JobPost
   include Mongoid::Document
   include Mongoid::Timestamps
   include ApplicationHelper
-  
-  default_scope all(sort: [[ :end_date, :desc ]])
+
+  default_scope all(sort: [[ :created_at, :desc ]])
   scope :current, where(:expiration.gte=>Date.today)
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
-  
+
   include SimpleEnum::Mongoid
   as_enum :job_type,    :"全职"=>1,:"兼职"=>2, :"短期项目"=>3, :"实习"=>4
   as_enum :salary, :"面议"=>0, :"5000元以下"=>1, :"5000元-1万元"=>2, :"1万元-2万元"=>3, :"2万元-3万元"=>4, :"3万以上"=>5

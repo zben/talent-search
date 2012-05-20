@@ -1,1 +1,1 @@
-School.populate
+#School.populate
