@@ -561,3 +561,26 @@ a.bookmark, .btn{
 .topbar form{
   float:right;
 }
+#beta{
+  position: absolute;
+  color: white;
+  top: 55px;
+  padding-left:10px;
+}
+#feedback{
+  position: fixed;
+  right: 0px;
+  top: 300px;
+  display: inline-block;
+  width: 20px;
+  background-color: yellow;
+  margin: 10px;
+  margin-right: 0px;
+  font-size: 15px;
+  padding: 10px;
+  a{text-decoration: none;}
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px #888;
+  box-shadow: 0 0 5px #888;
+
+}

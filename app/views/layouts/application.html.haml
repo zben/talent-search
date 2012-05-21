@@ -8,6 +8,7 @@
         = csrf_meta_tags
     %body{class: "#{controller_action}"}
         =render 'layouts/header'
+        #feedback=mail_to "i5kongtalent@gmail.com","给我们建议"
         /-if params[:action] == 'home'
         /    .container
         /        .row
