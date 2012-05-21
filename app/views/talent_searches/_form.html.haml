@@ -1,10 +1,10 @@
 =semantic_form_for @search do |f|
   =f.inputs do
-    .row 
-      .span3=f.input :industry
-      .span2=f.input :province
-      .span2=f.input :keywords
-      .span2
-        %label &nbsp;
+    .row
+      .span3
+        %h3 搜索选项
+        =f.input :industry
+        =f.input :province
+        =f.input :keywords
         =submit_tag "搜索",:class=>"btn"
 

@@ -1,47 +1,48 @@
-=render 'talent_searches/form'
-%h4 
-  =@is_new ? "所有人才(#{IndUser.with_ind_profile.count}人)" : "搜索结果"
-
--if @users.empty?   
-  -if @is_new
-    没有找到匹配您需求的人才。请添加技能获取匹配！
-    =link_to "添加所需技能",user_edit_path(current_user.id,"skill"),:class=>"btn"
-  -else
-    搜索结果为0,请试试别的搜索参数！
--else    
-  %table.zebra-striped
-    %thead
-      %tr
-        %th{width:250} 名字
-        %th{width:500} 最近工作/学历
-        %th{width:75} 关注人数  
-        %th{width:75} 被关注
-        %th{width:100}
-    %tbody
-      - for user in @users
-        %tr{:id=>"#{user.id}"}
-          %td
-            .left= image_tag user.avatar(:small)
-            .left
-              %b= link_to user.profile.name, user
-              %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
-          %td    
-            -if !user.experiences.empty?
-              -ex = user.experiences[0]
-              %p
-                ="#{ex.job_title},#{ex.company_name}"
-                ="(#{l(ex.start_date,format: :short2)}-#{ex.end_date.nil? ? "至今" : l(ex.end_date,format: :short2)})"
-            -if !user.educations.empty?
-              -ed = user.educations[0]
-              %p
-                ="#{ed.program} #{ed.degree_type},#{ed.school}"
-                ="(#{l(ed.start_date,format: :short2)}-#{ed.end_date.nil? ? "至今" : l(ed.end_date,format: :short2)})"
-          %td= user.bookmarks.count
-          %td= user.bookmarkings.count
-
-          %td= bookmark_code(user)
-        
 .row
-  .span10= paginate @users
+  .span3.search
+    =render 'talent_searches/form'
+  .span13
+    %h4
+      -if @is_new 
+        ="所有人才(#{IndUser.with_ind_profile.count}人)" 
+      -else
+        搜索结果
+
+    -if @users.empty?
+      搜索结果为0,请试试别的搜索参数！
+    -else
+      %table.zebra-striped
+        %thead
+          %tr
+            %th{width:250} 名字
+            %th{width:400} 最近工作/学历
+            %th{width:100} 关注人数  
+            %th{width:100} 被关注
+            %th{width:100}
+        %tbody
+          - for user in @users
+            %tr{:id=>"#{user.id}"}
+              %td
+                .left= image_tag user.avatar(:small)
+                .left
+                  %b= link_to user.profile.name, user
+                  %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
+              %td    
+                -if !user.experiences.empty?
+                  -ex = user.experiences[0]
+                  %p
+                    ="#{ex.job_title},#{ex.company_name}"
+                    ="(#{l(ex.start_date,format: :short2)}-#{ex.end_date.nil? ? "至今" : l(ex.end_date,format: :short2)})"
+                -if !user.educations.empty?
+                  -ed = user.educations[0]
+                  %p
+                    ="#{ed.program} #{ed.degree_type},#{ed.school}"
+                    ="(#{l(ed.start_date,format: :short2)}-#{ed.end_date.nil? ? "至今" : l(ed.end_date,format: :short2)})"
+              %td= user.bookmarks.count
+              %td= user.bookmarkings.count
+
+              %td= bookmark_code(user)
+      = paginate @users
+
 
 

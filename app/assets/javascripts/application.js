@@ -28,7 +28,15 @@ $(document).ready(function() {
   $('.tiny textarea').tinymce({
     content_css: "/style.css",
     theme : "advanced",
-    theme_advanced_buttons1 : "bullist,numlist",
+    oninit : "setPlainText",
+    plugins : "paste",
+    paste_text_sticky : true,
+    setup : function(ed) {
+      ed.onInit.add(function(ed) {
+        ed.pasteAsPlainText = true;
+      });
+    },
+    theme_advanced_buttons1 : "bold,bullist,numlist",
     theme_advanced_buttons2: "",
     theme_advanced_buttons3: "",
     theme_advanced_buttons4: "",
@@ -36,6 +44,7 @@ $(document).ready(function() {
     theme_advanced_toolbar_align : "left",
 
   });
+
 
   $(".alert-message").alert()
 

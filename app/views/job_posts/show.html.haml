@@ -1,19 +1,7 @@
 .row
   .span11
     .row
-      .span11
-        -if current_user==@job_post.user 
-          =link_to "所有发布",send("#{current_user.class.to_s.underscore}_job_posts_path", current_user.id),:class=>'btn'
-          =link_to "添加",new_job_post_path,:class=>'btn' 
-        
-          = link_to "编辑", edit_job_post_path(@job_post) ,:class=>'btn' 
-          =link_to "删除", @job_post, :confirm => 'Are you sure?', :method => :delete ,:class=>'btn' 
-        
-
-        
-    %br    
-    .row
-      .span7
+      .span5
         %h4 公司名称
         =@job_post.user.is_a?(OrgUser) ? link_to(@job_post.company_name,@job_post.user) : @job_post.company_name
       .span2
@@ -22,23 +10,26 @@
       .span2
         %h4 公司性质
         =@job_post.company_type
+      .span2
+        %h4 工作地点
+        =@job_post.province.name
+        =@job_post.city.name
     .row
       .span3 
         %h4 职位名称
-        =@job_post.title 
+        =@job_post.title
       .span2
         %h4 工作性质
         =@job_post.job_type
       .span2
         %h4 经验要求
-        =@job_post.years_required 
+        =@job_post.years_required
+      .span2
+        %h4 学历要求
+        =@job_post.degree_requirement
       .span2
         %h4 月薪
         =@job_post.salary
-      .span2
-        %h4 工作地点
-        =@job_post.province.name
-        =@job_post.city.name    
 
     .row
       .span11
@@ -48,20 +39,20 @@
       .span11 
         %h4 用人要求:
         .description=raw @job_post.job_requirement
-
-    .row
-      .span2
-        %h4 联系人
-        =(person=@job_post.contact_person).blank? ? '未填' : person 
-      .span3
-        %h4 电话号码:
-        =(no=@job_post.phone_number).blank? ? '未填' : no
-      .span3
-        %h4 电子邮件:
-        =(email=@job_post.email).blank? ? '未填' : mail_to(email)
-      .span3
-        %h4 截止日期:
-        =l @job_post.expiration, :format=>:long
+    -if false
+      .row
+        .span2
+          %h4 联系人
+          =(person=@job_post.contact_person).blank? ? '未填' : person 
+        .span3
+          %h4 电话号码:
+          =(no=@job_post.phone_number).blank? ? '未填' : no
+        .span3
+          %h4 电子邮件:
+          =(email=@job_post.email).blank? ? '未填' : mail_to(email)
+        .span3
+          %h4 截止日期:
+          =l @job_post.expiration, :format=>:long
     .row
       .span11
         %h4 职位申请链接:
@@ -84,15 +75,20 @@
           =image_tag 'logo/medium/missing.jpg'
 
 
-      -if current_user.is_a?(IndUser)
+      -if current_user.is_a?(IndUser) && current_user!=@job_post.user
         =render 'job_posts/apply_box'
         -if !current_user.job_applied?(@job_post)
           =link_to "申请职位","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn primary'
         -else 
           =link_to "撤销申请", cancel_job_application_path(current_user.get_job_application(@job_post)), :class=>"btn primary"
-      =bookmark_code(@job_post)
-
-    -unless @latest_jobs.blank?
+        =bookmark_code(@job_post)
+      -if current_user == @job_post.user
+        =link_to "所有发布",send("#{current_user.class.to_s.underscore}_job_posts_path", current_user.id),:class=>'btn'
+        =link_to "添加",new_job_post_path,:class=>'btn' 
+      
+        = link_to "编辑", edit_job_post_path(@job_post) ,:class=>'btn' 
+        =link_to "删除", @job_post, :confirm => '确认删除吗?', :method => :delete ,:class=>'btn' 
+    -unless @latest_jobs.blank? || current_user == @job_post.user
       .module
         %h4 悟空最新职位
         .list=render @latest_jobs

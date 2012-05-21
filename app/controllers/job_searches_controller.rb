@@ -9,7 +9,7 @@ class JobSearchesController < ApplicationController
     if params[:id] == "all"
       @search = JobSearch.new
       @show_all = true
-      @job_posts = JobPost.all.page(params[:page]).per(10)
+      @job_posts = JobPost.current.all.page(params[:page]).per(10)
     elsif params[:id]
       @search = JobSearch.find(params[:id]) 
       @job_posts = Kaminari.paginate_array(@search.matching_jobs).page(params[:page]).per(10)

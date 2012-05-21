@@ -21,7 +21,7 @@
        
       -if user_signed_in?
         %ul.nav
-          %li{:class=>is_active?("ind_users#index")}=link_to '找八戒',default_talent_path 
+          %li{:class=>is_active?("talent_searches#show")}=link_to '找八戒',default_talent_path 
           %li{:class=>is_active?("shouts#index")}=link_to "悟空微博",myshouts_path
         %ul{class: "nav", style: "float: right;"}
           %li{:class=>"dropdown #{params[:action]=~/bookmarked/  ? 'active':''}",:"data-dropdown"=>"dropdown" }

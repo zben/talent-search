@@ -12,7 +12,7 @@ class JobSearch
   before_save :clean_keywords
 
   def matching_jobs
-      job_posts = JobPost.all
+      job_posts = JobPost.all.current
       job_posts = job_posts.where(:industry_id=>industry_id) if industry_id.present?
       job_posts = job_posts.where(:city_id.in=>Province.find(province_id.to_i).cities.map(&:id)) if province_id.present?
       job_posts = job_posts.where(:salary_cd=>salary) if salary.present?
