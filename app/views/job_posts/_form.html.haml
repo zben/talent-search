@@ -28,9 +28,9 @@
         =f.label :expiration
         =f.date_select :expiration,{},{:class=>"date"}
    
-    .row
-      .span13
-        =f.input :website,:input_html => { :placeholder => 'http://www.example.com'}
+    /.row
+    /  .span13
+    /    =f.input :website,:input_html => { :placeholder => 'http://www.example.com'}
     =render 'shared/skill_picker',:item=>@job_post
 
     = f.action :submit, :button_html => { :class=>"btn primary"}

@@ -25,7 +25,7 @@
               %td
                 .left= image_tag user.avatar(:small)
                 .left
-                  %b= link_to user.profile.name, user
+                  %b= link_to user.profile.name(current_user), user
                   %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
               %td    
                 -if !user.experiences.empty?

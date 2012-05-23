@@ -3,7 +3,7 @@
 
   .avatar.medium=image_tag @user.avatar.url(:medium),:width=>150
   %h3
-    =@user.profile.name
+    =@user.profile.name current_user
     .edit=link_to raw("<i class='icon-edit '></i>"),ind_user_edit_path(@user,'profile') if @user==current_user
   %p 
     %b 年龄:

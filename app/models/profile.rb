@@ -56,11 +56,15 @@ class Profile
 #        }
 #    end
   
-  def name
-    fullname = (lastname || "") +(firstname || "")
-    fullname.length > 5 ? (firstname|| "")+" "+(lastname||"") : fullname 
-  end  
-  
+  def name user = nil
+    if user.is_a? OrgUser
+      "X X X"
+    else
+      fullname = (lastname || "") +(firstname || "")
+      fullname.length > 5 ? (firstname|| "")+" "+(lastname||"") : fullname 
+    end
+  end
+
   def nationality
       Country.find(citizenship).name
   end

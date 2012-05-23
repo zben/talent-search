@@ -53,10 +53,10 @@
         .span3
           %h4 截止日期:
           =l @job_post.expiration, :format=>:long
-    .row
-      .span11
-        %h4 职位申请链接:
-        =(url=@job_post.website).blank? ? '未填' : link_to(url, url)
+    /.row
+    /  .span11
+    /    %h4 职位申请链接:
+    /    =(url=@job_post.website).blank? ? '未填' : link_to(url, url)
     .row
       .span11
         %h4 相关技能:
