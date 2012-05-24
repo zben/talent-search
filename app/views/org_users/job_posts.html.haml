@@ -7,7 +7,7 @@
     %th{width: 100} 地点
     %th{width: 150} 截止日期
     %th{width: 50} 关注
-    %th
+    /%th
   - for job_post in @job_posts
     %tr
 
@@ -16,4 +16,4 @@
       %td= job_post.city.name
       %td= l job_post.expiration,:format=>:long unless job_post.expiration.nil?
       %td= job_post.bookmarkings.count
-      %td= link_to "查看匹配人才", job_post_matching_talent_path(job_post.id)
+      /%td= link_to "查看匹配人才", job_post_matching_talent_path(job_post.id)
