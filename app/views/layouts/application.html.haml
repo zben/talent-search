@@ -6,6 +6,7 @@
         =stylesheet_link_tag    "application", :debug => false
         =javascript_include_tag "application", :debug => false
         = csrf_meta_tags
+        =render "layouts/google_analytics"
     %body{class: "#{controller_action}"}
         =render 'layouts/header'
         #feedback=mail_to "i5kongtalent@gmail.com","给我们建议"
