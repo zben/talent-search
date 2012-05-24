@@ -7,6 +7,8 @@
     .modal-body          
       =f.input :user_id, :as=>:hidden, :value=>@user.id
       =f.input :content, :label=> "内容", :as=>:text, :input_html => { :class => 'autogrow', :rows => 15}
+      -if current_user.is_a? OrgUser
+        %p 机构联系方式暂时没有向个人用户公开。如需对方回复此留言，请留下您的联系方式。
     .modal-footer
       =link_to_function "取消","$('.close').click();", :class=>'btn'
       =submit_tag "发送",:class=>'btn primary'

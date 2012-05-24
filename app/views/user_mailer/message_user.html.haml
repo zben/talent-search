@@ -13,12 +13,9 @@
         在对方的主页上点击留言按钮留言。
     -elsif @sender.is_a? OrgUser
       %p
-        若想了解#{@sender.name},
+        若想了解或回复#{@sender.name},
         =link_to "请点击此处", org_user_url(@sender)
-      %p
-        若想回复对方，可直接回复到
-        =mail_to @sender.email
-    %h2 
-      寻找事业机遇，尽在 
-      =link_to "i5kong.com", root_url
-    =image_tag "http://talent.herokuapp.com/assets/logo.png"
+    %h2
+      寻找事业机遇，尽在
+      =link_to "i5Kong", root_url
+    =image_tag "logo.png"

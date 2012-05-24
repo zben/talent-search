@@ -85,22 +85,22 @@
       -if current_user == @job_post.user
         =link_to "所有发布",send("#{current_user.class.to_s.underscore}_job_posts_path", current_user.id),:class=>'btn'
         =link_to "添加",new_job_post_path,:class=>'btn' 
-      
         = link_to "编辑", edit_job_post_path(@job_post) ,:class=>'btn' 
         =link_to "删除", @job_post, :confirm => '确认删除吗?', :method => :delete ,:class=>'btn' 
-    -unless @latest_jobs.blank? || current_user == @job_post.user
-      .module
-        %h4 悟空最新职位
-        .list=render @latest_jobs
-    -unless @same_company_jobs.blank?
-      .module
-        %h4 同一来源职位
-        .list=render @same_company_jobs
-    -unless @related_skill_jobs.blank?
-      .module
-        %h4 相关技能职位
-        .list=render @related_skill_jobs  
-    -unless @same_industry_jobs.blank?
-      .module
-        %h4 同一行业职位
-        .list=render @same_industry_jobs  
+    -if current_user != @job_post.user
+      -unless @latest_jobs.blank?
+        .module
+          %h4 悟空最新职位
+          .list=render @latest_jobs
+      -unless @same_company_jobs.blank?
+        .module
+          %h4 同一来源职位
+          .list=render @same_company_jobs
+      -unless @related_skill_jobs.blank?
+        .module
+          %h4 相关技能职位
+          .list=render @related_skill_jobs  
+      -unless @same_industry_jobs.blank?
+        .module
+          %h4 同一行业职位
+          .list=render @same_industry_jobs  

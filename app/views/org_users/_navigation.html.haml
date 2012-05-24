@@ -3,5 +3,5 @@
   %li{class: "#{is_active? 'org_users#shouts'}"}=link_to "微博",org_user_shouts_path(@user.id)
   %li{class: "#{is_active? 'org_users#job_posts'}"}=link_to "职位存档",org_user_job_posts_path(@user.id)
   -if current_user.is_a?(OrgUser) && @user == current_user
-    %li{:class=>"#{is_active? 'job_posts#new'}"}=link_to '发布职位',new_job_post_path
+    %li{:class=>"#{is_active? 'job_posts#'}"}=link_to '发布职位',new_job_post_path
 

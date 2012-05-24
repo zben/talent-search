@@ -1,4 +1,7 @@
 ch:
+  support:
+    array:
+      two_words_connector: ", "
   date:
     formats:
       default: "%Y-%m-%d"

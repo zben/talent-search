@@ -19,20 +19,24 @@ class JobPostsController < ApplicationController
   def new
     @user = current_user
     @job_post = JobPost.new
-    if current_user.org_profile
+    @job_post.expiration = Date.today + 1.month
+    if (profile = current_user.org_profile)
       @job_post.company_name = current_user.org_profile.company_name
       @job_post.industry_id=current_user.org_profile.industry_id
       @job_post.company_type=current_user.org_profile.company_type
+      @job_post.contact_person = profile.contact_person
+      @job_post.phone_number = profile.phone_number
+      @job_post.email = profile.email
     end
   end
 
   def create
+    @user = current_user
     @job_post = current_user.job_posts.new(params[:job_post])
     @job_post.is_official = current_user.is_a?(OrgUser)
     if @job_post.save
       update_skills(@job_post, params)
       current_user.job_posts << @job_post
-      
       redirect_to @job_post, :notice => "成功新建职位。"
     else
       render :action => 'new'
@@ -59,7 +63,7 @@ class JobPostsController < ApplicationController
     @job_post = JobPost.find(params[:id])
     authorize! :manage, @job_post
     @job_post.destroy
-    redirect_to org_user_job_posts_url, :notice => "成功删除职位"
+    redirect_to org_user_job_posts_url(current_user), :notice => "成功删除职位"
   end
   
   def matching_talent
