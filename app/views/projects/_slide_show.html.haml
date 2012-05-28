@@ -2,7 +2,7 @@
   #example
     #slides
       .slides_container
-        -@project.photos.each do |photo|
+        -subject.photos.each do |photo|
           =image_tag(photo.photo(:large),alt: "Slide 1", height: "300")
 
       /%a.prev{:href => "#"}

@@ -1,0 +1,12 @@
+=semantic_form_for @search do |f|
+  =f.inputs do
+    .row 
+      .span3
+        %h3 搜索选项
+        =f.input :keywords
+        =submit_tag "搜索",:class=>"btn"
+      %h4.span3 附加选项
+      .span3=f.input :province_id, :collection=>Province.where(:country_id=>1)
+      %br
+      .span3=submit_tag "搜索",:class=>"btn"
+

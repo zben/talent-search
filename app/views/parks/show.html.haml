@@ -1,0 +1,22 @@
+=render 'parks/navigation'
+.row
+  .span3
+    .sidebar
+      .image=image_tag @park.logo(:medium)
+      =link_to "编辑园区信息", edit_park_path(@park), class: 'btn primary' if can? :update, @park
+      =link_to "下载大礼包", @park.downloads.first.download.url, class: "btn primary" if @park.downloads.present? && can?(:view, @park)
+  .span12
+    %h1=@park.name
+    .row
+      .span3
+        %b 地点:
+        =@park.city.fullname
+
+    %h4 园区简介
+    =@park.short_intro
+
+    %h4 园区详情
+    =raw @park.long_intro
+
+    %h4 园区图片
+    =render 'projects/slide_show', subject: @park

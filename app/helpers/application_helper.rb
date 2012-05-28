@@ -77,7 +77,7 @@ module ApplicationHelper
   end
 
   def controller_action
-    params["controller"] + "-" + params["action"]
+    params["controller"] + " " + params["action"]
   end
 end
 

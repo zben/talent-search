@@ -1,4 +1,4 @@
-class CompanySearch 
+class CompanySearch
   include Mongoid::Document
   include Mongoid::Timestamps
   include ApplicationHelper

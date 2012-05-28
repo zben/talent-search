@@ -124,6 +124,8 @@ ch:
       usage: "使用网站目的"
       job_post: "职位"
       project: "创业项目"
+      park: "创业园区"
+      photo: "图片"
     attributes:
       job_post:
         degree_requirement: "学历要求"
@@ -173,7 +175,6 @@ ch:
       shout:
         message: "微博内容"
       profile:
-        name: "明"
         firstname: "名"
         lastname: "姓"
         birthday: "出生年"
@@ -227,6 +228,9 @@ ch:
         salary: "月薪"
         years_required: "经验要求"
         keywords: "关键词"
+      park_search:
+        province_id: "省份"
+        keywords: "关键词"
       job_application:
         content: "求职申请信"
       talent_search:
@@ -253,6 +257,20 @@ ch:
         project_field_id: "项目领域"
         stage_cd: "项目阶段"
         province_id: "项目所在地"
+      park:
+        name_ch: "园区名称"
+        short_intro: "简要介绍"
+        long_intro: "详细介绍"
+        contact_person: "联系人"
+        email: "电子邮件"
+        phone_number: "电话号码"
+        province_id: "省份"
+        city_id: "城市"
+        logo: "园区图标"
+      photo:
+        photo: "图片"
+      download:
+        download: "大礼包"
     errors:
       header: "表格无法提交"
       message: "请改正下列错误再重试"
@@ -265,7 +283,10 @@ ch:
           attributes:
             org_profile:
               invalid: "公司信息不完全,请重新提交"
-            
+        project:
+          attributes:
+            has_patent:
+              inclusion: "必选"
         user:
           attributes:
             email:

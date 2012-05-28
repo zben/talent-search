@@ -1,0 +1,36 @@
+=render 'parks/navigation'
+= semantic_nested_form_for @park, html: {multipart: true} do |f|
+  .row
+    .span12=f.input :name_ch
+    =render 'shared/city_picker', f: f, city_id: @park.city_id
+  .row
+    .span16=f.input :short_intro, as: :text, input_html: {rows: 5}
+  .row
+    .span16.tiny=f.input :long_intro, as: :text, input_html: {rows: 10}
+  .row
+    .span5=f.input :contact_person
+    .span5=f.input :phone_number
+    .span6=f.input :email
+
+  =f.input :logo
+  -unless @park.logo_file_name.nil?
+    =image_tag @park.logo.url(:medium) if @park.logo
+    =check_box_tag :_destroy_logo
+    =f.label "删除Logo"
+  %li.input
+    %label 园区图片
+  =f.semantic_fields_for :photos do |photo|
+    -if !photo.object.new_record?
+      =link_to image_tag(photo.object.photo.url(:thumb)), photo.object.photo.url(:original)
+      =photo.link_to_remove "删除图片"
+    -else
+      =photo.file_field :photo
+  =f.link_to_add "添加图片", :photos
+  %li.input
+    %label 大礼包
+  =f.semantic_fields_for :downloads do |download|
+    =download.file_field :download
+    -if download.object.download.present?
+      =link_to download.object.download_file_name, download.object.download.url     
+      =download.link_to_remove "删除大礼包"
+  =f.action :submit, button_html: {class: "btn primary"}

@@ -1,0 +1,28 @@
+=render 'projects/navigation'
+.row
+  .span3.search
+    =render 'park_searches/form'
+  .span13
+    %h4 
+      -if @is_new
+        ="所有园区(#{Park.count}个)"
+      -else
+        搜索结果
+        %span.view_all=link_to("浏览所有园区",default_parks_path)
+      .add=link_to '新建园区',new_park_path
+    -if @parks.empty?
+      搜索结果为0,请试试别的搜索参数！
+    -else
+      %table.zebra-striped
+        %tr
+          %th{width: "60px"} 园区Logo
+          %th{width: "300px"} 园区名称
+          %th{width: "70px"} 城市
+        - for park in @parks
+          %tr
+            %td=image_tag park.logo(:small),height: "40px";
+            %td=link_to park.name, park
+            %td=park.city.fullname
+      =paginate @parks
+
+

@@ -3,36 +3,36 @@
     %h1=@project.title
     =link_to "更新项目信息", edit_project_path(@project) if @project.status(current_user)=='admin'
 
-    %h3 项目介绍
+    %h4 项目介绍
     =@project.intro
 
     
-    %h3 项目图片
-    =render 'projects/slide_show'
+    %h4 项目图片
+    =render 'projects/slide_show', subject: @project
  
     .row
       .span2
-        %h3 项目所在地
+        %h4 项目所在地
         =@project.province.name
       .span2
-        %h3 团队人数
+        %h4 团队人数
         =@project.people_count
         人
       .span2
-        %h3 涉及专利
+        %h4 涉及专利
         =@project.has_patent ? "有" : "无"
       .span3
-        %h3 项目阶段
+        %h4 项目阶段
         =@project.stage
-    %h3 项目领域
+    %h4 项目领域
     -@project.project_fields.each do |field|
       .skill_item=field.name
     -unless @project.project_needs.nil?
-      %h3 项目需求
+      %h4 项目需求
       -@project.project_needs.each do |need|
         .skill_item=need.name
     -@members = @project.all_members    
-    %h3 项目成员(#{@members.count}人)
+    %h4 项目成员(#{@members.count}人)
     %ul.horizontal
       -@members.each do |member|
         %li

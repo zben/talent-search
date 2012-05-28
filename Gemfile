@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
-gem 'haml'
+gem 'haml-rails'
 gem 'devise',           '~> 2.0.0'
 gem 'devise_invitable', '~> 1.0.0'
 gem "nifty-generators", :group => :development

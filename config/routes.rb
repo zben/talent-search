@@ -1,5 +1,7 @@
 Talent::Application.routes.draw do
 
+  resources :parks
+
   resources :projects, :only=>[:index, :show, :new,:create, :edit,:update, :destroy]
   match 'project/:id/apply'=>"projects#apply", :as=>'project_apply'
   match 'project_membership/:id/approve'=>"projects#approve",:as=>'project_approve'
@@ -28,9 +30,11 @@ Talent::Application.routes.draw do
   match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'
   match 'talent_searches/default'=>'talent_searches#show',:as=>'default_talent'
   match 'company_searches/default'=>'company_searches#show',:as=>'default_companies'
+  match 'park_searches/default'=>'park_searches#show', :as=>'default_parks'
   resources :job_searches
   resources :company_searches
   resources :talent_searches
+  resources :park_searches
   match 'ind_users/:id/new/:info'=>'ind_users#new',:as=>'ind_user_new'
   match 'ind_users/:id/edit/:info'=>'ind_users#edit',:as=>'ind_user_edit'
   match 'ind_users/:id/profile'=>'ind_users#profile',:as=>'ind_user_profile'
