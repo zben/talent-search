@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    unless @project.admins.include?(current_user)
+    unless @project.admins.include?(current_user) || current_user.admin
       redirect_to root_url
     end
     (5-@project.photos.count).times{@project.photos.build}

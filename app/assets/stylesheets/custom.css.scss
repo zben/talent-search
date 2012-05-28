@@ -1,3 +1,6 @@
+body.pages{
+  background:url('homepage_background.jpg')
+}
 .topbar{
   position:static;
   height:85px;
@@ -453,9 +456,7 @@ ul.login{float:right;}
 ul.login li{padding-top:0px;}
 .center{text-align:center}
 .small{font-size:12px;}
-.home_page img{
-  width:550px;
-}
+
 .home_page{
   form{
     background-color: #4396E9;
@@ -608,4 +609,14 @@ span.view_all{
   font-size:0.8em;
   font-weight: normal;
   a{text-decoration: none}
+}
+
+.home_page img,.home_page form{
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px#888;
+  box-shadow: 0 0 5px #888;
+}
+
+.home_page img{
+  opacity: 0.6;
 }

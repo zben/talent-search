@@ -59,16 +59,14 @@ class User
   embeds_many :exams
   embeds_many :languages
   has_and_belongs_to_many :skills
-  has_many :project_memberships
-  has_many :industries_users
-  has_many :job_posts
-  has_many :shouts
-  has_many :activity_feeds
-  has_many :job_applications
+  has_many :project_memberships, dependent: :destroy
+  has_many :industries_users, dependent: :destroy
+  has_many :job_posts, dependent: :destroy
+  has_many :shouts, dependent: :destroy
+  has_many :activity_feeds, dependent: :destroy
+  has_many :job_applications, dependent: :destroy
   #has_many :industries, :through=>:industries_users
   #has_many :interests,:through=>:industries_users
-  
- 
   accepts_nested_attributes_for :educations,:allow_destroy => true
   accepts_nested_attributes_for :experiences,:allow_destroy => true
   accepts_nested_attributes_for :exams,:allow_destroy => true
