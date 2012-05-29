@@ -460,8 +460,7 @@ ul.login li{padding-top:0px;}
 .home_page{
   form{
     background-color: #4396E9;
-    border-radius: 10px;
-    padding: 75px 0px;
+    padding: 30px 0px 27px 0;
     label{
       color: white;
       text-align: right;
@@ -470,13 +469,10 @@ ul.login li{padding-top:0px;}
   h2{
     width: 100%;
     text-align: center;
-    font-size: 25px;
-    text-shadow: 0.05em 0.05em 0.1em black;
+    font-size: 30px;
+    text-shadow: 0.0em 0.08em 0.4em black;
     margin-bottom: 10px;
-    span{
-      font-size: 35px;
-      color: red;
-    }
+    color: white;
   }
 }
 .circle {
@@ -585,12 +581,16 @@ a.bookmark{
   top: 300px;
   display: inline-block;
   width: 20px;
-  background-color: yellow;
+  background-color: #4396E9;
   margin: 10px;
   margin-right: 0px;
   font-size: 15px;
   padding: 10px;
-  a{text-decoration: none;}
+  a{
+    text-decoration: none;
+    color:white;
+    text-shadow: 0.0em 0.08em 0.4em black;
+  }
   -moz-box-shadow: 0 0 5px #888;
   -webkit-box-shadow: 0 0 5px #888;
   box-shadow: 0 0 5px #888;
@@ -611,12 +611,20 @@ span.view_all{
   a{text-decoration: none}
 }
 
-.home_page img,.home_page form{
+.home_page .image,.home_page form{
   -moz-box-shadow: 0 0 5px #888;
   -webkit-box-shadow: 0 0 5px#888;
   box-shadow: 0 0 5px #888;
 }
 
-.home_page img{
+.home_page .image{
   opacity: 0.6;
+  height: 330px;
+  overflow: hidden;
+}
+.slogan{
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-bottom: 0px;
+  width: 920px;
 }
