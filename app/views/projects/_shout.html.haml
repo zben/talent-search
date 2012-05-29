@@ -1,6 +1,6 @@
 .shout
   .row
-    .span6.shout_box
+    .span16.shout_box
       =raw shout.message_with_link
       %p
         #{link_to shout.user.name, shout.user} #{l(shout.created_at,:format=>:long)}  
@@ -8,7 +8,7 @@
         =link_to "删除",shout_path(shout),:method=>:delete if current_user==shout.user
 
   %div{:class=>'row hidden',:id=>"#{shout.id}"}
-    .span6
+    .span16
       =form_for Shout.new do |f|
         =f.hidden_field :shout_id,:value=>shout.id
         =f.text_area :message,:rows=>2
@@ -17,7 +17,7 @@
       -shout.shouts.each do |reply|
 
         .row
-          .span6.shout_box
+          .span15.shout_box
             =raw reply.message_with_link
             %p
               #{link_to reply.user.name, shout.user} (发布于#{time_ago_in_words(reply.created_at)}以前)

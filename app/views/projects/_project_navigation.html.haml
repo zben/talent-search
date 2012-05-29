@@ -1,0 +1,3 @@
+%ul{:class=>"tabs",:"data-tabs"=>"tabs"}
+  %li{class: "#{is_active? 'projects#show'}"}=link_to "项目主页", @project
+  %li{class: "#{is_active? 'projects#shouts'}"}=link_to "项目微博",project_shouts_path(@project)

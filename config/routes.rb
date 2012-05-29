@@ -51,6 +51,7 @@ Talent::Application.routes.draw do
   match 'org_users/:id/edit/:info'=>'org_users#edit',:as=>'org_user_edit'
   match 'org_users/:id/profile'=>'org_users#profile',:as=>'org_user_profile'
   match 'org_users/:id/weibo'=>'org_users#shouts',:as=>'org_user_shouts'
+  match 'projects/:id/weibo'=>'projects#shouts',:as=>'project_shouts'
   
   match 'users/:id/update/account'=>"users#update_email_or_password",:as=>'user_update_email_or_password'
   match 'users/:id/new/:info'=>'users#new',:as=>'user_new'

@@ -1,0 +1,5 @@
+=render 'projects/project_navigation'
+=render 'projects/shout_form_for_project' if current_user.projects.include?(@project)
+=render @shouts
+.row
+  .span10= paginate @shouts

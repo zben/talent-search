@@ -1,4 +1,4 @@
-body.pages{
+body.pages, body.devise-sessions{
   background:url('homepage_background.jpg')
 }
 .topbar{
@@ -532,12 +532,6 @@ li.choice input{
 }
 li .name{
   display: inline-block;
-}
-a.bookmark{
-  width:60px;
-  height:20px;
-  text-align: center;
-  font-size: 14px;
 }
 .sidebar{
   width:100%;

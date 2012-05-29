@@ -98,4 +98,9 @@ class ProjectsController < ApplicationController
     @application.save!
     redirect_to :back
   end
+
+  def shouts
+    @project = Project.find(params[:id])
+    @shouts = @project.shouts.page(params[:page]).per(10) 
+  end
 end
