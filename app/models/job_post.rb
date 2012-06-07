@@ -35,7 +35,7 @@ class JobPost
   
   attr_accessible :title, :city_id, :province_id, :company_type, :industry_id, :years_required, :degree_requirement,
       :company_name, :company_id, :description, :job_requirement, 
-      :job_type, :salary, :expiration, :contact_person, 
+      :job_type, :job_type_cd, :salary, :expiration, :contact_person, 
       :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
   
   validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,

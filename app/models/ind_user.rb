@@ -4,6 +4,15 @@ class IndUser < User
     has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
     scope :with_ind_profile, where(:profile.ne=>nil)
 
+  accepts_nested_attributes_for :educations,:allow_destroy => true
+  accepts_nested_attributes_for :experiences,:allow_destroy => true
+  accepts_nested_attributes_for :exams,:allow_destroy => true
+  accepts_nested_attributes_for :languages,:allow_destroy => true
+  accepts_nested_attributes_for :profile,:allow_destroy => true
+  accepts_nested_attributes_for :org_profile,:allow_destroy => true
+  accepts_nested_attributes_for :usage,:allow_destroy => true
+
+
     perform_search_on :profile=>[:name,:intro,:intro_title],
       :educations=>[:degree_type,:school,:program,:comment],
       :experiences=>[:company_name, :job_title, :description,:industry],
@@ -56,7 +65,6 @@ class IndUser < User
     else
       has_mongoid_attached_file :english_resume
     end
-
 
   def steps
     %w{profile education exam language experience skill}

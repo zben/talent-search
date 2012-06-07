@@ -1,4 +1,13 @@
 ch:
+  views:
+    pagination:
+      first: "<< 首页"
+      last: "末页 >>"
+      previous: "< 前一页"
+      next: "后一页 >"
+      truncate: "..."
+
+
   support:
     array:
       two_words_connector: ", "

@@ -1,5 +1,7 @@
 Talent::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :parks
 
   resources :projects, :only=>[:index, :show, :new,:create, :edit,:update, :destroy]

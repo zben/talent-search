@@ -144,8 +144,12 @@ ul#triple li{
 }
 
 .skill_list{
-display:none;
+  display:none;
+  h3 {
+    margin-left: 20px;
+  }
 }
+a
 .label{
   background-color:transparent;
 }
@@ -256,6 +260,7 @@ span.mceEditor{
 body, td, pre{font-family: "arial"; font-size:14px;}
 table td {
   padding: 5px;
+  padding-left: 10px;
   p{
     margin-bottom:0px;margin-top:0px;
   }
@@ -493,16 +498,12 @@ ul.login li{padding-top:0px;}
   }
 
 }
-
-.span12 h3,
+.ind_users.show h4,
 .job_posts.show h4,
 .org_users.show h4,
 .job_posts.show h4,
 .parks.show h4,
 .projects.show h4,
-.new li.input>label,
-.edit li.input>label,
-.new legend label
 {
   background: #3386C9;
   padding: 2px 5px;

@@ -22,10 +22,11 @@ module MongoidHack
  
   module InstanceMethods
      def name
-      eval("name_#{I18n.locale}")
+       eval("name_#{I18n.locale}")
+     rescue
+       ""
      end
-     
-     
+
     def start_must_be_before_end_time
       errors.add(:start_date, "开始日期应该在结束日期之前") if
          self.end_date != nil && (self.start_date > self.end_date) 

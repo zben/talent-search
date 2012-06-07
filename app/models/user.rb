@@ -74,9 +74,7 @@ class User
   accepts_nested_attributes_for :profile,:allow_destroy => true
   accepts_nested_attributes_for :org_profile,:allow_destroy => true
   accepts_nested_attributes_for :usage,:allow_destroy => true
-  
-  
-  
+
   def matches
     jobs = skills.map{|skill| skill.job_posts.current}.flatten.uniq
     jobs.sort!{|a,b| a.mcount(self) <=> b.mcount(self)}
