@@ -3,8 +3,8 @@ class JobSearch
   include Mongoid::Timestamps
   include ApplicationHelper
 
-  field :industry_id, type: Integer
-  field :province_id, type: Integer 
+  belongs_to :industry
+  field :province_id, type: Integer
   field :salary, type: Integer
   field :years_required, type: Integer
   field :keywords

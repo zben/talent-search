@@ -2,78 +2,77 @@
 
 .row
   =render 'ind_users/side_nav' unless @user.profile.firstname.nil?
-  .span12.offset1
-    -if params[:action] == 'new'
-      %h2 #{t("Create")}#{t("profile")}
-    -else
-      %h2 #{t("Update")}#{t("profile")}
+  .span13
+    .row
+      .span13
+        -if params[:action] == 'new'
+          %h2 #{t("Create")}#{t("profile")}
+        -else
+          %h2 #{t("Update")}#{t("profile")}
 
+    .row
+      .span13
+        = semantic_nested_form_for @user do |f|
+          .row
+            .span8
+              = hidden_field_tag :current_step, 'profile' 
+              = f.semantic_fields_for :profile  do |p| 
+                = p.inputs do
+                  .row
+                    .span2= p.input :firstname if I18n.default_locale!=:ch
+                    .span2= p.input :lastname
+                    .span2= p.input :firstname if I18n.default_locale==:ch
+                    .span4.yearonly= p.input :birthday, :as=>:date,:start_year=>1960, :end_year=>Date.today.year-18
+                  .row  
+                    .span2= p.input :gender, :as=>:select,:collection => Profile.genders_for_select,:prompt => t("Select one") 
+                    .span2= p.input :citizenship,:as=>:select, :collection => Country.all,:prompt => t("Select one") 
+                    .span2= p.input :residence_country, :as=>:select, :collection => Country.all,:prompt => t("Select one") 
+                    .span2
+                      =f.label "现居省/州*"
+                      = p.grouped_collection_select :province_id, Country.all, :provinces, :name,:id,:name, include_blank: true
+                  .row
+                    .span5 
+                      =f.input :avatar
+                    .span2
+                      = f.label "删除头像"
+                      = check_box_tag :remove_avatar, 1, false
+                  .row
+                    .span5=image_tag @user.avatar(:medium) unless params[:action]=="new"
 
-    = semantic_nested_form_for @user do |f|
-      = f.error_messages  
-      = hidden_field_tag :current_step, 'profile' 
-      /= hidden_field_tag :is_new, 'true' if @is_new
-      
-      = f.semantic_fields_for :profile  do |p| 
-        = p.inputs do
-          .row
-            .span2= p.input :firstname if I18n.default_locale!=:ch
-            .span2= p.input :lastname
-            .span2= p.input :firstname if I18n.default_locale==:ch
-            .span4.yearonly= p.input :birthday, :as=>:date,:start_year=>1960, :end_year=>Date.today.year-18
-          .row  
-            .span2= p.input :gender, :as=>:select,:collection => Profile.genders_for_select,:prompt => t("Select one") 
-            .span2= p.input :citizenship,:as=>:select, :collection => Country.all,:prompt => t("Select one") 
-            .span2= p.input :residence_country, :as=>:select, :collection => Country.all,:prompt => t("Select one") 
-            .span2
-              =f.label "现居省/州*"
-              = p.grouped_collection_select :province_id, Country.all, :provinces, :name,:id,:name, include_blank: true
-          /.span10= p.input :intro_title,:hint=>"例如：经验丰富的职业经理人，设计独到的新一代平面设计师。"
-          /.span10= p.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 5, :cols => 20, :maxlength => 500  },:hint=>"提示：你可以总结自己的长处和特点，让企业更容易的关注你。"
-          .row
-            .span5 
-              =f.input :avatar
-            .span2
-              = f.label "删除头像"
-              = check_box_tag :remove_avatar, 1, false
-          .row
-            .span5=image_tag @user.avatar(:medium) unless params[:action]=="new"
+                  .row
+                    .span8 
+                      %h3 中文简历   
+                      =f.input :chinese_resume,label: false
+                      %p
+                        删除简历
+                        =check_box_tag :_destroy_chinese_resume
+                        =(resume_name=@user.chinese_resume_file_name).nil? ? "(未上载)" : "已上载: "+resume_name+" 如需更新, 请重新上载)"   
+                  .row
+                    .span8
+                      %h3 英文简历 
+                      =f.input :english_resume,label: false
+                      %p
+                        删除简历
+                        =check_box_tag :_destroy_english_resume
+                        =(resume_name=@user.english_resume_file_name).nil? ? "(未上载)" : "已上载: "+resume_name+" 如需更新, 请重新上载)"
+              = f.semantic_fields_for :usage  do |m| 
+                = m.inputs do
+                  .row
+                    %h3.span8 使用本网站的意愿
+                  .row
+                    .span4= m.input :find_job,:as=>:boolean
+                    .span4= m.input :find_project,:as=>:boolean
+                  .row
+                    .span4= m.input :find_partner,:as=>:boolean
+                    .span4= m.input :find_money,:as=>:boolean  
+                  .row
+                    .span4= m.input :meet_people,:as=>:boolean
+                    .span4= m.input :browse,:as=>:boolean
+            .span5
+              =f.input :industries, as: :check_boxes, required: true
 
           .row
-            .span10 
-              %h3 中文简历   
-              =f.input :chinese_resume,label: false
-              %p
-                删除简历
-                =check_box_tag :_destroy_chinese_resume
-                =(resume_name=@user.chinese_resume_file_name).nil? ? "(未上载)" : "已上载: "+resume_name+" 如需更新, 请重新上载)"   
-          .row
-            .span10
-              %h3 英文简历 
-              =f.input :english_resume,label: false
-              %p
-                删除简历
-                =check_box_tag :_destroy_english_resume
-                =(resume_name=@user.english_resume_file_name).nil? ? "(未上载)" : "已上载: "+resume_name+" 如需更新, 请重新上载)"
-      = f.semantic_fields_for :usage  do |m| 
-        = m.inputs do
-          .row
-            %h3.span10 使用本网站的意愿
-          .row
-            .span4= m.input :find_job,:as=>:boolean
-            .span4= m.input :find_project,:as=>:boolean
-          .row
-            .span4= m.input :find_partner,:as=>:boolean
-            .span4= m.input :find_money,:as=>:boolean  
-          .row
-            .span4= m.input :meet_people,:as=>:boolean
-            .span4= m.input :browse,:as=>:boolean
-          
-      
-
-      .row
-        .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
-      
+            .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
 
 
 

@@ -57,6 +57,7 @@ module Mongoid
         self.class.class_variable_get('@@sub_attributes_to_index').map do |key, attr_array|
           attr_array.map do |attr|
             full_text += " " +self.send(key).to_a.map{|x| x.send(attr).to_s}.join(' ')
+            puts full_text
           end
         end
         self.full_text = full_text

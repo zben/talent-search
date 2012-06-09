@@ -43,7 +43,7 @@ class User
                   :educations_attributes,:experiences_attributes,:exams_attributes,:languages_attributes,
                   :profile_attributes,:usage_attributes,:skill_ids,:_type,
                   :avatar,:logo,:chinese_resume,:english_resume,
-                  :org_profile_attributes, :old_password, :job_application_ids
+                  :org_profile_attributes, :old_password, :job_application_ids, :industry_ids
 
   embeds_one :profile
   embeds_one :org_profile
@@ -77,7 +77,7 @@ class User
 
   def matches
     jobs = skills.map{|skill| skill.job_posts.current}.flatten.uniq
-    jobs.sort!{|a,b| a.mcount(self) <=> b.mcount(self)}
+    jobs += industries.map{|industry| industry.job_posts.current}.flatten.uniq
   end
   
   def mcount job

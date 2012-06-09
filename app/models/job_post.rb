@@ -9,17 +9,17 @@ class JobPost
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
 
   include SimpleEnum::Mongoid
-  as_enum :job_type,    :"全职"=>1,:"兼职"=>2, :"短期项目"=>3, :"实习"=>4
-  as_enum :salary, :"面议"=>0, :"5000元以下"=>1, :"5000元-1万元"=>2, :"1万元-2万元"=>3, :"2万元-3万元"=>4, :"3万元－5万元"=>5, :"5万元－10万元"=>6, :"10万元以上"=>7
-  as_enum :years_required, :"无要求"=>1, :"1年以上"=>2, :"3年以上"=>3, :"5年以上"=>4, :"10年以上"=>5
-  as_enum :company_type, :"国企"=>1, :"民企"=>2, :"外企"=>3, :"非营利组织"=>4, :"学术研究机构"=>5
-  as_enum :degree_requirement, :"不限"=>0,
-                        :"专科"=>1,
-                        :"学士"=>2,
-                        :"硕士"=>3,
-                        :"博士"=>4,
-                        :"医学博士"=>5,  
-                        :"法学博士"=>6
+  as_enum :job_type,    :"全职"=>"1",:"兼职"=>"2", :"短期项目"=>"3", :"实习"=>"4"
+  as_enum :salary, :"面议"=>"0", :"5000元以下"=>"1", :"5000元-1万元"=>"2", :"1万元-2万元"=>"3", :"2万元-3万元"=>"4", :"3万元－5万元"=>"5", :"5万元－10万元"=>"6", :"10万元以上"=>"7"
+  as_enum :years_required, :"无要求"=>"1", :"1年以上"=>"2", :"3年以上"=>"3", :"5年以上"=>"4", :"10年以上"=>"5"
+  as_enum :company_type, :"国企"=>"1", :"民企"=>"2", :"外企"=>"3", :"非营利组织"=>"4", :"学术研究机构"=>"5"
+  as_enum :degree_requirement, :"不限"=>"0",
+                        :"专科"=>"1",
+                        :"学士"=>"2",
+                        :"硕士"=>"3",
+                        :"博士"=>"4",
+                        :"医学博士"=>"5",
+                        :"法学博士"=>"6"
 
   field :title
   field :description
@@ -33,9 +33,11 @@ class JobPost
   field :website
   field :is_official, type: Boolean, default: true
   
-  attr_accessible :title, :city_id, :province_id, :company_type, :industry_id, :years_required, :degree_requirement,
-      :company_name, :company_id, :description, :job_requirement, 
-      :job_type, :job_type_cd, :salary, :expiration, :contact_person, 
+  attr_accessible :title, :city_id, :province_id, :company_type, :industry_id, 
+    :years_required, :years_required_cd,
+    :degree_requirement, :degree_requirement_cd,
+      :company_name, :company_id, :description, :job_requirement,
+      :job_type, :job_type_cd, :salary, :salary_cd, :expiration, :contact_person, 
       :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
   
   validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,

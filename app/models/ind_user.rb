@@ -2,6 +2,7 @@ class IndUser < User
     include Mongoid::BasicSearch
     has_many :bookmarks, :foreign_key=>"user_id"
     has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
+    has_and_belongs_to_many :industries
     scope :with_ind_profile, where(:profile.ne=>nil)
 
   accepts_nested_attributes_for :educations,:allow_destroy => true
@@ -12,6 +13,7 @@ class IndUser < User
   accepts_nested_attributes_for :org_profile,:allow_destroy => true
   accepts_nested_attributes_for :usage,:allow_destroy => true
 
+  validates_presence_of :industry_ids
 
     perform_search_on :profile=>[:name,:intro,:intro_title],
       :educations=>[:degree_type,:school,:program,:comment],

@@ -149,10 +149,6 @@ ul#triple li{
     margin-left: 20px;
   }
 }
-a
-.label{
-  background-color:transparent;
-}
 
 fieldset{margin:0;padding:0;}
 
@@ -623,3 +619,14 @@ span.view_all{
   padding-bottom: 0px;
   width: 920px;
 }
+li#ind_user_industries_input{
+  ol{
+    width:100%;
+    li{
+      width:50%;
+      float:left;
+      label{font-size: 0.8em;}
+    }
+  }
+}
+.label{background-color:white;}

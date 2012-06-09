@@ -54,13 +54,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])  
-    unless @project.users.include?(current_user)
+    @project = Project.find(params[:id])
+    unless @project.admins.include?(current_user)
       redirect_to root_url
     end
 
     if @project.update_attributes(params[:project])
-      redirect_to @project  
+      redirect_to @project
     else
       flash[:notice]="请修改下列错误再提交"
       (5-@project.photos.count).times{@project.photos.build}
