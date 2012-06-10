@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.visibility = :"公开"
     5.times{@project.photos.build}
   end
 

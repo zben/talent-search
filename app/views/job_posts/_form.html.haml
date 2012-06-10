@@ -3,7 +3,7 @@
   = f.inputs do
     .row
       .span8=f.input :company_name
-      .span3=f.input :industry_id,:as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
+      .span3=f.input :industry_id,:as=>:select, :collection=>Industry.all.pinyin_order.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
       .span2=f.input :company_type, :as=>:select, :collection=>JobPost.company_types_for_select,:prompt => t("Select one")
     .row
       .span5=f.input :title

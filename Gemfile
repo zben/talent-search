@@ -20,7 +20,7 @@ gem "bourbon", "~> 1.4.0"
 gem 'letter_opener', :group => :development
 gem 'rails_admin'
 gem 'sqlite3', :group => :development
-
+gem 'toPinyin'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

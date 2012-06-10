@@ -254,6 +254,7 @@ ch:
         city_id: "总部城市"
         industry_id: "行业"
       project:
+        visibility: "公开程度"
         one_liner: "一句话简介"
         people_count: "项目人数"
         project_needs: "项目需求"

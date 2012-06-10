@@ -10,8 +10,7 @@
     %h1=@user.org_profile.company_name  
     .row
       .span3
-        %b 所属行业:
-        =@user.org_profile.industry.name    
+        %p.one_liner=@user.org_profile.industry.name    
       .span3
         %b 公司总部:
         =@user.org_profile.city.fullname
@@ -25,14 +24,14 @@
 
     .row
       .span12
-        %h3 简要介绍
+        %h4 简要介绍
         .short.description=@user.org_profile.short_description
-      .span12
-        %h3 详细介绍
-        .description=raw @user.org_profile.long_description
+      -unless (desc = @user.org_profile.long_description).empty?
+        .span12
+          %h3 详细介绍
+          .description=raw desc
     -if false
       .row
-
         .span2
           %h4 联系人
           =@user.org_profile.contact_person

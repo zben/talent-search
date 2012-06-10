@@ -1,5 +1,6 @@
-%h4 收藏公司
-
+%h4.with_span 收藏公司
+%span=link_to "查看所有公司", default_companies_path unless @companies.empty?
+%p
 -if @companies.empty?   
   您没有收藏任何公司。
   =link_to '现在就去看看公司吧!',default_companies_path

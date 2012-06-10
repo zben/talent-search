@@ -6,7 +6,7 @@
         =f.input :keywords
         =submit_tag "搜索",:class=>"btn"
       %h4.span3 附加选项
-      .span3=f.input :industry_id, :collection=>Industry.all
+      .span3=f.input :industry_id, :collection=>Industry.all.pinyin_order
       .span3=f.input :people_count, :as=>:select, :collection=>OrgProfile.people_counts_for_select
       .span3=f.input :province_id, :collection=>Province.where(:country_id=>1)
       %br

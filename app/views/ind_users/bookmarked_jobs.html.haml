@@ -1,5 +1,6 @@
-%h4 收藏职位
-
+%h4.with_span 收藏职位
+%span=link_to "查看所有职位", job_posts_path unless @job_posts.empty?
+%p
 -if @job_posts.empty?   
   您没有收藏任何职位。
   =link_to "现在就去浏览职位吧", default_jobs_path

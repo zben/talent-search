@@ -1,6 +1,7 @@
-%h4 收藏的项目
-
--if @projects.empty?   
+%h4.with_span 收藏的项目
+%span=link_to '查看所有项目', projects_list_path unless @projects.empty?
+%p
+-if @projects.empty?
   您没有收藏任何项目。
   =link_to "现在就去浏览项目吧", projects_path
   !

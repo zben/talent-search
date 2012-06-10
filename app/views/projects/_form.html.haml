@@ -13,7 +13,8 @@
         .span3= f.input :stage, :as=>:select, :collection=>Project.stages_for_select
         .span3= f.input :province
       .row
-        .span10.check_boxes_row= f.input :project_needs, :as=>:check_boxes
+        .span6.check_boxes_row= f.input :project_needs, :as=>:check_boxes
+        .span4=f.input :visibility, collection: Project.visibilities_for_select, include_blank: false
 
       %h3.span11 项目图片
       %p 最多上传5张,推荐使用3:4的图片比例.
