@@ -1,1 +1,0 @@
-window.tinyMCEPreInit=window.tinyMCEPreInit||{base:"http://www.i5kong.com/assets/tinymce",query:"3.4.8",suffix:""}

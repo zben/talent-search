@@ -2,15 +2,28 @@
 
 .row
   .span8
-    -unless @matching_jobs.empty?
+    -if @matching_jobs.empty?
+      %h4.with_span 最新职位
+      %span
+        查看自动匹配职位,
+        请
+        =link_to "添加技能", ind_user_edit_path(current_user,'skill')
+        或者
+        =link_to "添加感兴趣行业", ind_user_edit_path(current_user, 'profile')
+      =render collection: JobPost.limit(10), partial: 'job_post'
+    -else
       %h4 匹配职位
       =render collection: @matching_jobs, partial: 'job_post'
-    
-    %h4 最新职位
-    =render collection: JobPost.limit(10), partial: 'job_post'
+
   .span8
-    %h4 关注微博
-    =render collection: @status_update, partial: 'shouts/shout'
+    %h4.with_span 关注微博
+    -if @status_update.empty?
+      %span
+        您还没有关注任何人,
+        =link_to "现在就去看看人才吧", default_talent_path
+      =render Shout.limit(8)
+    -else
+      =render @status_update
 .row
   .span8
 

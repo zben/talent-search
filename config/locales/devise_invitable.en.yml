@@ -8,7 +8,6 @@ en:
     mailer:
       invitation_instructions:
         subject: 'Invitation instructions'
-        
 ch:
   devise:
     invitations:

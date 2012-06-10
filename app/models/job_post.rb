@@ -41,7 +41,7 @@ class JobPost
       :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
   
   validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,
-      :description, :job_requirement, :job_type, :degree_requirement, :years_required, 
+      :description, :job_requirement, :job_type, :degree_requirement, :years_required, :salary,
       :expiration, :email, :presence=>true
   validates :email, email: true
   belongs_to :industry

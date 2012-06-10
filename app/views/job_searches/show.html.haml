@@ -3,22 +3,27 @@
   .span3.search
     =render 'job_searches/form'
   .span13
-    %h4
+    %h4.list_tabs
       -if @is_new
-        匹配职位
+        %span.active 推荐职位
         =link_to "最新职位", job_search_path("all")
       -elsif @show_all
-        =link_to "匹配职位", default_jobs_path
-        最新职位
+        =link_to "推荐职位", default_jobs_path
+        %span.active 最新职位
       -else
+        =link_to "推荐职位", default_jobs_path
         =link_to "最新职位", job_search_path("all")
-        =link_to "匹配职位", default_jobs_path
-        搜索结果
+        %span.active 搜索结果
 
     -if @job_posts.empty?
       -if @is_new
-        没有找到匹配您的技能的职位，
-        =link_to "现在去添加更多的技能吧", ind_user_edit_path(current_user, 'skill')
+        没有找到匹配您技能或兴趣的职位。
+        您可以
+        =link_to "添加技能", ind_user_edit_path(current_user, 'skill')
+        ,
+        =link_to "添加感兴趣的行业", ind_user_edit_path(current_user, 'profile')
+        或者
+        =link_to "查看最新职位", job_search_path(:all)
         。
       -else
         请试试别的搜索关键词吧！

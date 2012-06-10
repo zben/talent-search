@@ -14,28 +14,29 @@
       %table.zebra-striped
         %thead
           %tr
-            %th{width:250} 名字
-            %th{width:500} 最近工作/学历
-            %th{width:100} 粉丝数
-            %th{width:100} 微博数
+            %th{width:180} 名字
+            %th{width:650} 最近工作/学历
+            %th{width:50} 粉丝
+            %th{width:50} 微博
         %tbody
           - for user in @users
             %tr{:id=>"#{user.id}"}
-              %td
-                .left= image_tag user.avatar(:small)
-                .left
-                  %b= link_to user.profile.name(current_user), user
-                  %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
-              %td    
+              %td{style: "width: 190px; display: inline-block;"}
+                .name
+                  .left= image_tag user.avatar(:small)
+                  .left
+                    %b= link_to user.profile.name(current_user), user
+                    %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
+              %td{width: 650}
                 -if !user.experiences.empty?
                   -ex = user.experiences[0]
                   %p
-                    ="#{ex.job_title},#{ex.company_name}"
+                    =word_wrap "#{ex.job_title},#{ex.company_name}"
                     ="(#{l(ex.start_date,format: :short2)}-#{ex.end_date.nil? ? "至今" : l(ex.end_date,format: :short2)})"
                 -if !user.educations.empty?
                   -ed = user.educations[0]
                   %p
-                    ="#{ed.program} #{ed.degree_type},#{ed.school}"
+                    =word_wrap "#{ed.program} #{ed.degree_type},#{ed.school}"
                     ="(#{l(ed.start_date,format: :short2)}-#{ed.end_date.nil? ? "至今" : l(ed.end_date,format: :short2)})"
               %td= user.bookmarkings.count
 

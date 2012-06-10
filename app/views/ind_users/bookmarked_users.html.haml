@@ -19,7 +19,7 @@
           .left
             %b= link_to user.profile.name, user
             %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
-        %td    
+        %td
           -if !user.experiences.empty?
             -ex = user.experiences[0]
             %p

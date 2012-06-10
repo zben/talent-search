@@ -55,11 +55,9 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    unless @project.admins.include?(current_user)
+    if !@project.admins.include?(current_user) && !current_user.admin?
       redirect_to root_url
-    end
-
-    if @project.update_attributes(params[:project])
+    elsif @project.update_attributes(params[:project])
       redirect_to @project
     else
       flash[:notice]="请修改下列错误再提交"

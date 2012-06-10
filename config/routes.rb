@@ -47,6 +47,7 @@ Talent::Application.routes.draw do
   match 'bookmarked/org/users'=>'org_users#bookmarked_users', :as=>"bookmarked_users_for_companies"
   match 'bookmarked/companies'=>'ind_users#bookmarked_companies', :as=>"bookmarked_companies"
   match 'bookmarked/jobs'=>'ind_users#bookmarked_jobs', :as=>"bookmarked_jobs"
+  match 'bookmarked/projects'=>'ind_users#bookmarked_projects', :as=>"bookmarked_projects"
   
   
   match 'org_users/:id/new/:info'=>'org_users#new',:as=>'org_user_new'

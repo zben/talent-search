@@ -15,9 +15,9 @@ ch:
     formats:
       default: "%Y-%m-%d"
       short: "%b%d日"
-      long: "%Y年%b%d日"
+      long: "%Y年%m月%d日"
       long2: "%Y 年 %m 月"
-      short2: "%Y年"
+      short2: "%Y"
     day_names:
       - 星期日
       - 星期一
@@ -254,6 +254,7 @@ ch:
         city_id: "总部城市"
         industry_id: "行业"
       project:
+        one_liner: "一句话简介"
         people_count: "项目人数"
         project_needs: "项目需求"
         project_fields: "项目领域"
@@ -289,6 +290,10 @@ ch:
           attributes:
             firstname:
               blank: "名不能为空"
+              too_long: "过长"
+            lastname:
+              blank: "姓不能为空"
+              too_long: "过长"
         org_user:
           attributes:
             org_profile:

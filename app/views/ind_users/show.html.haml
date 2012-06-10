@@ -11,7 +11,7 @@
     /.edit=link_to raw("<i class='icon-edit icon-white'></i>"),ind_user_edit_path(current_user.id,'profile') if current_user==@user
     /=@user.profile.intro_title
 
-    -if current_user == @user or !@user.experiences.empty?
+    -if true # current_user == @user or !@user.experiences.empty?
       %h4
         工作经验
         .edit=link_to raw("<i class='icon-edit icon-white'></i>"),ind_user_edit_path(current_user.id,'experience') if current_user==@user
@@ -47,6 +47,11 @@
     /.edit=link_to raw("<i class='icon-edit icon-white'></i>"),ind_user_edit_path(current_user.id,'profile') if current_user==@user'
     /  .span12=@user.profile.intro
 
+    -if current_user == @user or !@user.industries.empty?
+      %h4 
+        感兴趣的行业
+        .edit=link_to raw("<i class='icon-edit icon-white'></i>"),ind_user_edit_path(current_user.id,'profile') if current_user==@user
+      =@user.industries.empty? ? "尚未填写" : render(collection: @user.industries, partial: 'skills/skill', as: :skill)
     -if @user.projects.present? && SHOW_PROJECT_CIRCLE
       %h4
         我的项目

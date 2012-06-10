@@ -9,7 +9,7 @@
       =link_to "更新项目信息", edit_project_path(@project),class: 'btn primary' if @project.status(current_user)=='admin'
   .span13
     %h1=@project.title
-
+    %p.one_liner=@project.one_liner
     %h4 项目介绍
     =@project.intro
 

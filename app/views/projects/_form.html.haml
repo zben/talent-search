@@ -4,7 +4,7 @@
       .row
         .span11= f.input :title
       .row
-        .span11= f.input :one_liner, hint: "用一句话总结你的项目"
+        .span11= f.input :one_liner, :input_html =>{:placeholder=> "用一句话总结你的项目,不超过20个字"}
       .row
         .span11= f.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 7, :cols => 15, :maxlength => 500  }
       .row

@@ -11,13 +11,13 @@
         -if SHOW_PROJECT_CIRCLE
           -if user_signed_in? && !current_user.projects.empty?
             %li{:class=>"dropdown #{is_active?("projects#.")}",:"data-dropdown"=>"dropdown" }
-              =link_to "创业圈", project_overview_path, :class=>"dropdown-toggle" 
+              =link_to "项目圈", project_overview_path, :class=>"dropdown-toggle" 
               %ul.dropdown-menu.project_drop_down
                 -current_user.projects.each do |project|
                   %li=link_to project.title, project
                 
           -else
-            %li=link_to '创业圈',project_overview_path
+            %li=link_to '项目圈',project_overview_path
        
       -if user_signed_in?
         %ul.nav
@@ -32,6 +32,7 @@
               -if current_user.is_a? IndUser
                 %li{:class=>"#{params[:action]=='bookmarked_companies'  ? 'active':''}"}=link_to "关注的企业",bookmarked_companies_path
                 %li{:class=>"#{params[:action]=='bookmarked_jobs'  ? 'active':''}"}=link_to "收藏的职位",bookmarked_jobs_path
+                %li{:class=>"#{params[:action]=='bookmarked_projects'  ? 'active':''}"}=link_to "收藏的项目",bookmarked_projects_path
           %li{:class=>"dropdown #{is_active?("users#edit")}",:"data-dropdown"=>"dropdown"}
             =link_to_function current_user.name,'$(".dropdown-menu.setting").toggle()', :class=>"dropdown-toggle" 
             %ul.dropdown-menu.setting

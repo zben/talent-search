@@ -28,7 +28,8 @@ class Profile
 
   validates :firstname, :lastname, :birthday, :gender, :citizenship, :residence_country,:province_id, :presence=>true
   #validates :intro, :intro_title, :presence=>true
-                       
+  validates_length_of :firstname, :maximum => 20
+  validates_length_of :lastname, :maximum => 20
   embedded_in :user
   belongs_to :province
   field :province_id, type: Integer

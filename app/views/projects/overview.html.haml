@@ -5,5 +5,11 @@
     %h4 最新项目
     =render @latest_projects
   .span8
-    %h4 关注项目微博
-    =render collection: @latest_project_shouts, partial: 'shouts/shout'
+    %h4.with_span 关注项目微博
+    -if @latest_project_shouts.empty?
+      %span 
+        您没有关注任何项目,
+        =link_to '现在就去看看吧', project_search_path
+      =render Shout.where('project_id.ne'=>nil).limit(8)
+    -else
+      =render @latest_project_shouts

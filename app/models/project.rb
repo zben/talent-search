@@ -54,7 +54,7 @@ class Project
     end
     
   attr_accessible :title, :one_liner, :intro, :logo, :province_id, :stage, :has_patent, :photos_attributes, :people_count, :project_need_ids, :project_field_ids
-  validates :people_count, :title, :intro, :province,:province_id, :stage, :presence =>true
+  validates :people_count, :one_liner, :title, :intro, :province,:province_id, :stage, :presence =>true
   validates_inclusion_of :has_patent, :in => [true, false]
   validates_presence_of :project_field_ids
   validates_numericality_of :people_count, :only_integer=>true, :greater_than=>0
