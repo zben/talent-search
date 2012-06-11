@@ -52,7 +52,7 @@
           =image_tag @tech_post.user.avatar.url(:medium)
         -else
           =image_tag 'logo/medium/missing.jpg'    
- 
+    -#  
       -if current_user.is_a?(IndUser) && current_user!=@tech_post.user
         =render 'tech_posts/apply_box'
         -if !current_user.tech_applied?(@tech_post)
