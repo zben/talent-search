@@ -5,7 +5,6 @@ class Project
   include Mongoid::Paperclip
   include SimpleEnum::Mongoid
 
-  
   field :title
   field :one_liner
   field :intro
@@ -15,10 +14,10 @@ class Project
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
   has_and_belongs_to_many :project_fields
   has_and_belongs_to_many :project_needs
-  
+
   field :has_patent, type: Boolean
   field :people_count, type: Integer
-  
+
   belongs_to :province
   field :province_id, type: Integer
   has_many :project_memberships
@@ -29,7 +28,7 @@ class Project
                   :"规模化"=>5
   as_enum :visibility, :"公开" =>"1", :"只给关注的人公开"=>"2", :"隐藏"=>"3"
 
- 
+
     if Rails.env.production?  
       has_mongoid_attached_file :logo,
         :path => ':project_logo/:id/:style.:extension',
@@ -43,7 +42,7 @@ class Project
           :medium   => ['150x100',    :jpg],
           :large    => ['400x300>',   :jpg]
         }
-    else    
+    else
       has_mongoid_attached_file :logo,
         :default_url => '/assets/project_logo/:style/missing.jpg',
         :styles => {

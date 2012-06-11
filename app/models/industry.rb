@@ -1,6 +1,7 @@
 class Industry
   include Mongoid::Document
   include Mongoid::Timestamps
+  field :_id, type: String
   field :name_ch
   field :name_en
 
