@@ -17,7 +17,7 @@
                   %li=link_to project.title, project
                 
           -else
-            %li=link_to '项目圈',project_overview_path
+            %li{class: is_active?("projects#")}=link_to '项目圈',project_overview_path
        
       -if user_signed_in?
         %ul.nav
