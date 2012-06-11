@@ -45,7 +45,6 @@ class JobPost
       :expiration, :email, :presence=>true
   validates :email, email: true
   belongs_to :industry
-  field :industry_id, type: Integer
   belongs_to :province
   field :province_id, type: Integer
   belongs_to :city

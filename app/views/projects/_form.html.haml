@@ -30,7 +30,7 @@
       %h3.span11 项目Logo
       =f.input :logo, :label=>false
     %div{class: "span4 #{'error' unless @project.errors.messages[:project_field_ids].nil?}"}
-      =f.input :project_fields, :label => "项目领域*", :as => :check_boxes, :collection => ProjectField.all, :multiple=>true
+      =f.input :project_fields, :label => "项目领域*", :as => :check_boxes, :collection => ProjectField.all.pinyin_order, :multiple=>true
       %p.inline-errors=@project.errors.messages[:project_field_ids][0] unless @project.errors.messages[:project_field_ids].nil?
   = f.action :submit, :button_html => { :class=>"btn primary"}
   
