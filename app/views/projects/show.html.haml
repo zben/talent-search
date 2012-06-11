@@ -1,8 +1,15 @@
+=render 'projects/project_navigation'
 .row
-  .span10
+  .span3
+    .sidebar
+      .image=image_tag @project.logo(:medium)
+      = bookmark_code @project
+      =join_project_buttons_code @project if current_user.is_a? IndUser
+      =render 'projects/admin_action'
+      =link_to "更新项目信息", edit_project_path(@project),class: 'btn primary' if @project.status(current_user)=='admin'
+  .span13
     %h1=@project.title
-    =link_to "更新项目信息", edit_project_path(@project) if @project.status(current_user)=='admin'
-
+    %p.one_liner=@project.one_liner
     %h4 项目介绍
     =@project.intro
 
@@ -11,14 +18,14 @@
     =render 'projects/slide_show', subject: @project
  
     .row
-      .span2
+      .span4
         %h4 项目所在地
         =@project.province.name
-      .span2
+      .span3
         %h4 团队人数
         =@project.people_count
         人
-      .span2
+      .span3
         %h4 涉及专利
         =@project.has_patent ? "有" : "无"
       .span3
@@ -39,13 +46,3 @@
           =image_tag member.avatar(:small)
           .name=link_to member.name, member
     
-  .span4
-    =image_tag @project.logo(:medium)
-    %p
-      = bookmark_code @project
-      =join_project_buttons_code @project if current_user.is_a? IndUser
-    =render 'projects/admin_action'
-    %h4 项目微博
-    =render 'projects/shout_form_for_project' if current_user.projects.include?(@project)
-    =render :partial=> 'projects/shout', :collection=>@project.shouts
-

@@ -1,12 +1,11 @@
 development:
   host: localhost
-  database: talent_development
+  database: talent
 
 test:
   host: localhost
-  database: talent_search_test
+  database: talent_test
 
 # set these environment variables on your prod server
 production:
   uri: <%= ENV['MONGOHQ_URL'] %>
- 

@@ -3,7 +3,7 @@
     .row
       .span3
         %h3 搜索选项
-        =f.input :industry
+        =f.input :industry, collection: Industry.all.pinyin_order
         =f.input :province
         =f.input :keywords
         =submit_tag "搜索",:class=>"btn"

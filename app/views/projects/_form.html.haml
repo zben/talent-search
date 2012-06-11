@@ -4,6 +4,8 @@
       .row
         .span11= f.input :title
       .row
+        .span11= f.input :one_liner, :input_html =>{:placeholder=> "用一句话总结你的项目,不超过20个字"}
+      .row
         .span11= f.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 7, :cols => 15, :maxlength => 500  }
       .row
         .span3= f.input :people_count
@@ -11,7 +13,8 @@
         .span3= f.input :stage, :as=>:select, :collection=>Project.stages_for_select
         .span3= f.input :province
       .row
-        .span10.check_boxes_row= f.input :project_needs, :as=>:check_boxes
+        .span6.check_boxes_row= f.input :project_needs, :as=>:check_boxes
+        .span4=f.input :visibility, collection: Project.visibilities_for_select, include_blank: false
 
       %h3.span11 项目图片
       %p 最多上传5张,推荐使用3:4的图片比例.
@@ -27,7 +30,7 @@
       %h3.span11 项目Logo
       =f.input :logo, :label=>false
     %div{class: "span4 #{'error' unless @project.errors.messages[:project_field_ids].nil?}"}
-      =f.input :project_fields, :label => "项目领域*", :as => :check_boxes, :collection => ProjectField.all, :multiple=>true
+      =f.input :project_fields, :label => "项目领域*", :as => :check_boxes, :collection => ProjectField.all.pinyin_order, :multiple=>true
       %p.inline-errors=@project.errors.messages[:project_field_ids][0] unless @project.errors.messages[:project_field_ids].nil?
   = f.action :submit, :button_html => { :class=>"btn primary"}
   

@@ -5,8 +5,8 @@ class Project
   include Mongoid::Paperclip
   include SimpleEnum::Mongoid
 
-  
   field :title
+  field :one_liner
   field :intro
   field :project_update
   has_many :shouts
@@ -14,10 +14,10 @@ class Project
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
   has_and_belongs_to_many :project_fields
   has_and_belongs_to_many :project_needs
-  
+
   field :has_patent, type: Boolean
   field :people_count, type: Integer
-  
+
   belongs_to :province
   field :province_id, type: Integer
   has_many :project_memberships
@@ -26,11 +26,13 @@ class Project
                   :"产品原型"=>3,
                   :"市场化"=>4,
                   :"规模化"=>5
-                  
- 
+  as_enum :visibility, :"公开" =>"1", :"只给关注的人公开"=>"2", :"隐藏"=>"3"
+
+
     if Rails.env.production?  
       has_mongoid_attached_file :logo,
         :path => ':project_logo/:id/:style.:extension',
+        :default_url => '/assets/project_logo/:style/missing.jpg',
         :storage => :s3,
         :bucket => 'talent-search',
         :s3_credentials => {:access_key_id => ENV['S3_KEY'],:secret_access_key => ENV['S3_SECRET']},
@@ -40,7 +42,7 @@ class Project
           :medium   => ['150x100',    :jpg],
           :large    => ['400x300>',   :jpg]
         }
-    else    
+    else
       has_mongoid_attached_file :logo,
         :default_url => '/assets/project_logo/:style/missing.jpg',
         :styles => {
@@ -51,8 +53,8 @@ class Project
         }
     end
     
-  attr_accessible :title, :intro, :logo, :province_id, :stage, :has_patent, :photos_attributes, :people_count, :project_need_ids, :project_field_ids
-  validates :people_count, :title, :intro, :province,:province_id, :stage, :presence =>true
+  attr_accessible :title, :one_liner, :intro, :logo, :province_id, :stage, :has_patent, :photos_attributes, :people_count, :project_need_ids, :project_field_ids
+  validates :people_count, :one_liner, :visibility, :title, :intro, :province,:province_id, :stage, :presence =>true
   validates_inclusion_of :has_patent, :in => [true, false]
   validates_presence_of :project_field_ids
   validates_numericality_of :people_count, :only_integer=>true, :greater_than=>0

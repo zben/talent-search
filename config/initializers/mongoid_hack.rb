@@ -22,10 +22,11 @@ module MongoidHack
  
   module InstanceMethods
      def name
-      eval("name_#{I18n.locale}")
+       eval("name_#{I18n.locale}")
+     rescue
+       ""
      end
-     
-     
+
     def start_must_be_before_end_time
       errors.add(:start_date, "开始日期应该在结束日期之前") if
          self.end_date != nil && (self.start_date > self.end_date) 
@@ -56,6 +57,7 @@ module Mongoid
         self.class.class_variable_get('@@sub_attributes_to_index').map do |key, attr_array|
           attr_array.map do |attr|
             full_text += " " +self.send(key).to_a.map{|x| x.send(attr).to_s}.join(' ')
+            puts full_text
           end
         end
         self.full_text = full_text

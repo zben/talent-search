@@ -3,9 +3,16 @@ class OrgUser < User
     has_many :bookmarks, :foreign_key=>"user_id"
     has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
 
-    has_many :bookmarks, :foreign_key=>"user_id"   
+    has_many :bookmarks, :foreign_key=>"user_id"
+  accepts_nested_attributes_for :educations,:allow_destroy => true
+  accepts_nested_attributes_for :experiences,:allow_destroy => true
+  accepts_nested_attributes_for :exams,:allow_destroy => true
+  accepts_nested_attributes_for :languages,:allow_destroy => true
+  accepts_nested_attributes_for :profile,:allow_destroy => true
+  accepts_nested_attributes_for :org_profile,:allow_destroy => true
+  accepts_nested_attributes_for :usage,:allow_destroy => true
 
-    scope :with_org_profile, where(:org_profile.ne=>nil) 
+    scope :with_org_profile, where(:org_profile.ne=>nil)
     if Rails.env.production?  
       has_mongoid_attached_file :logo,
         :path => ':logo/:id/:style.:extension',

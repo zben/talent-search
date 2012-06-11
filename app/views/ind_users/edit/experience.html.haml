@@ -20,7 +20,7 @@
               .row
                 .span5= exp.input :company_name
                 .span3= exp.input :job_title
-                .span3= exp.input :industry_id,:as=>:select,:collection=>Industry.all,:required=>true
+                .span3= exp.input :industry_id,:as=>:select,:collection=>Industry.all.pinyin_order,:required=>true
               .row
                 .span11= exp.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 3, :maxlength => 500 }
               .row

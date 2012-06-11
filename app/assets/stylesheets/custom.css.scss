@@ -1,3 +1,6 @@
+body.pages, body.devise-sessions{
+  background:url('homepage_background.jpg')
+}
 .topbar{
   position:static;
   height:85px;
@@ -141,10 +144,10 @@ ul#triple li{
 }
 
 .skill_list{
-display:none;
-}
-.label{
-  background-color:transparent;
+  display:none;
+  h3 {
+    margin-left: 20px;
+  }
 }
 
 fieldset{margin:0;padding:0;}
@@ -253,6 +256,7 @@ span.mceEditor{
 body, td, pre{font-family: "arial"; font-size:14px;}
 table td {
   padding: 5px;
+  padding-left: 10px;
   p{
     margin-bottom:0px;margin-top:0px;
   }
@@ -453,14 +457,11 @@ ul.login{float:right;}
 ul.login li{padding-top:0px;}
 .center{text-align:center}
 .small{font-size:12px;}
-.home_page img{
-  width:550px;
-}
+
 .home_page{
   form{
     background-color: #4396E9;
-    border-radius: 10px;
-    padding: 75px 0px;
+    padding: 30px 0px 27px 0;
     label{
       color: white;
       text-align: right;
@@ -469,13 +470,10 @@ ul.login li{padding-top:0px;}
   h2{
     width: 100%;
     text-align: center;
-    font-size: 25px;
-    text-shadow: 0.05em 0.05em 0.1em black;
+    font-size: 30px;
+    text-shadow: 0.0em 0.08em 0.4em black;
     margin-bottom: 10px;
-    span{
-      font-size: 35px;
-      color: red;
-    }
+    color: white;
   }
 }
 .circle {
@@ -496,16 +494,12 @@ ul.login li{padding-top:0px;}
   }
 
 }
-
-.span12 h3,
+.ind_users.show h4,
 .job_posts.show h4,
 .org_users.show h4,
 .job_posts.show h4,
 .parks.show h4,
 .projects.show h4,
-.new li.input>label,
-.edit li.input>label,
-.new legend label
 {
   background: #3386C9;
   padding: 2px 5px;
@@ -535,12 +529,6 @@ li.choice input{
 }
 li .name{
   display: inline-block;
-}
-a.bookmark{
-  width:60px;
-  height:20px;
-  text-align: center;
-  font-size: 14px;
 }
 .sidebar{
   width:100%;
@@ -584,12 +572,16 @@ a.bookmark{
   top: 300px;
   display: inline-block;
   width: 20px;
-  background-color: yellow;
+  background-color: #4396E9;
   margin: 10px;
   margin-right: 0px;
   font-size: 15px;
   padding: 10px;
-  a{text-decoration: none;}
+  a{
+    text-decoration: none;
+    color:white;
+    text-shadow: 0.0em 0.08em 0.4em black;
+  }
   -moz-box-shadow: 0 0 5px #888;
   -webkit-box-shadow: 0 0 5px #888;
   box-shadow: 0 0 5px #888;
@@ -608,4 +600,58 @@ span.view_all{
   font-size:0.8em;
   font-weight: normal;
   a{text-decoration: none}
+}
+
+.home_page .image,.home_page form{
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px#888;
+  box-shadow: 0 0 5px #888;
+}
+
+.home_page .image{
+  opacity: 0.6;
+  height: 330px;
+  overflow: hidden;
+}
+.slogan{
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-bottom: 0px;
+  width: 920px;
+}
+li#ind_user_industries_input{
+  ol{
+    width:100%;
+    li{
+      width:50%;
+      float:left;
+      label{font-size: 0.8em;}
+    }
+  }
+}
+.label{background-color:white;}
+
+.job_searches.show .list_tabs{
+  a, span.active{
+    background-color: rgb(73,155,234);
+    font-weight: normal;
+    color: white;
+    padding: 5px 10px;
+    margin: 0px 0px;
+  }
+  a{
+    background-color: #999;
+    text-decoration: none;
+  }
+}
+h3.with_span, h4.with_span{
+  display: inline-block;
+  margin-right: 20px;
+}
+p.one_liner{
+  background-color: orange;
+  display: inline-block;
+  padding: 2px 10px;
+  color: white;
+
 }

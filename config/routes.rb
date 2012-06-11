@@ -1,5 +1,7 @@
 Talent::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :parks
 
   resources :projects, :only=>[:index, :show, :new,:create, :edit,:update, :destroy]
@@ -50,12 +52,14 @@ Talent::Application.routes.draw do
   match 'bookmarked/org/users'=>'org_users#bookmarked_users', :as=>"bookmarked_users_for_companies"
   match 'bookmarked/companies'=>'ind_users#bookmarked_companies', :as=>"bookmarked_companies"
   match 'bookmarked/jobs'=>'ind_users#bookmarked_jobs', :as=>"bookmarked_jobs"
+  match 'bookmarked/projects'=>'ind_users#bookmarked_projects', :as=>"bookmarked_projects"
   
   
   match 'org_users/:id/new/:info'=>'org_users#new',:as=>'org_user_new'
   match 'org_users/:id/edit/:info'=>'org_users#edit',:as=>'org_user_edit'
   match 'org_users/:id/profile'=>'org_users#profile',:as=>'org_user_profile'
   match 'org_users/:id/weibo'=>'org_users#shouts',:as=>'org_user_shouts'
+  match 'projects/:id/weibo'=>'projects#shouts',:as=>'project_shouts'
   
   match 'users/:id/update/account'=>"users#update_email_or_password",:as=>'user_update_email_or_password'
   match 'users/:id/new/:info'=>'users#new',:as=>'user_new'

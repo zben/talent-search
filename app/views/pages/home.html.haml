@@ -1,16 +1,10 @@
 .home_page
   .row
-    .span16
+    .span16.slogan
       %h2
-        %span 400
-        个中国合作企业,
-        %span 4239
-        位全球留学精英,
-        %span 98
-        个创业项目,
-        等你来发现！
+        汇集中国优秀企业, 高端职位, 全球华人精英, 创业项目, 等你来发现！
   .row
-    .span10
+    .span10.image
       =image_tag 'homepage-image.png', width: "580"
     .span6
       = form_for(User.new, :as => :user, :url => registration_path(:user)) do |f|

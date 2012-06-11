@@ -8,6 +8,7 @@
   %br
   %br
   .span10.skills=text_field_tag :skills
+%br
 .row
   .span2=link_to '查看所有技能','',:id=>'skill_picker'
   %br
@@ -16,7 +17,7 @@
 
   
 .row
-  .span12.offset1.skill_list
+  .span12.skill_list
 
     -SkillCategory.all.values_at(0,1,2,3,4,6,7,5).compact.each do |category|
       .row.collapse

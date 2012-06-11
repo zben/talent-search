@@ -1,13 +1,13 @@
 .profile_item
   .row
-    .span4 学校: #{education.school} 
-    .span4 
+    .span5 学校: #{education.school}
+    .span4
       学历: #{education.program}#{education.degree_type}
       ="(#{education.GPA})" unless education.GPA.blank?
     .span4="#{yearmonth(education.start_date)} - #{yearmonth(education.end_date) || '至今'}"
   -unless education.comment.blank?
     .row
-      .span12
+      .span13
         %p.toggle #{education.comment}
 
 

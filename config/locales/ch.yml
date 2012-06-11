@@ -1,4 +1,13 @@
 ch:
+  views:
+    pagination:
+      first: "<< 首页"
+      last: "末页 >>"
+      previous: "< 前一页"
+      next: "后一页 >"
+      truncate: "..."
+
+
   support:
     array:
       two_words_connector: ", "
@@ -6,9 +15,9 @@ ch:
     formats:
       default: "%Y-%m-%d"
       short: "%b%d日"
-      long: "%Y年%b%d日"
+      long: "%Y年%m月%d日"
       long2: "%Y 年 %m 月"
-      short2: "%Y年"
+      short2: "%Y"
     day_names:
       - 星期日
       - 星期一
@@ -222,6 +231,7 @@ ch:
         chinese_resume: "中文简历"
         english_resume: "英文简历"
         languages: "语言"
+        industries: "感兴趣行业"
       job_search:
         province_id: "省份"
         industry_id: "行业"
@@ -244,6 +254,8 @@ ch:
         city_id: "总部城市"
         industry_id: "行业"
       project:
+        visibility: "公开程度"
+        one_liner: "一句话简介"
         people_count: "项目人数"
         project_needs: "项目需求"
         project_fields: "项目领域"
@@ -279,6 +291,10 @@ ch:
           attributes:
             firstname:
               blank: "名不能为空"
+              too_long: "过长"
+            lastname:
+              blank: "姓不能为空"
+              too_long: "过长"
         org_user:
           attributes:
             org_profile:

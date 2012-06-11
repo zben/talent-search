@@ -3,8 +3,7 @@
     .x
       =image_tag shout.user.avatar(:small)
       .shout_box
-        -if !shout.project_id.nil?
-          =link_to "@"+shout.project.title, shout.project
+        =link_to "@"+shout.project.title, shout.project unless shout.project_id.nil?
         =link_to shout.user.name, shout.user
         =raw shout.message_with_link
         %p
@@ -27,7 +26,7 @@
         .reply
           =image_tag reply.user.avatar(:small)
           .shout_box
-            =link_to shout.user.name, shout.user
+            =link_to reply.user.name, reply.user
             =raw reply.message_with_link
             %p
               #{l(reply.created_at,:format=>:long)}

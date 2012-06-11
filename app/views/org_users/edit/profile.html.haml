@@ -18,7 +18,7 @@
           .row
             .span11= p.input :company_name
           .row
-            .span3= p.input :industry_id, :required=>true, :as=>:select, :collection=>Industry.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
+            .span3= p.input :industry_id, :required=>true, :as=>:select, :collection=>Industry.all.pinyin_order.map{|x| [t(x.name), x.id]},:prompt => t("Select one")   
             .span2= p.input :people_count, :as=>:select, :collection=> OrgProfile.people_counts_for_select,:prompt => t("Select one")   
             = render 'shared/city_picker',:f=>p, :city_id=>@user.org_profile.city_id
             .span2= p.input :company_type, :required=>true, :as=>:select, :collection => OrgProfile.company_types_for_select, :prompt=>t('Select one')

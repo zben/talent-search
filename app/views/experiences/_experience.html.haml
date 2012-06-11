@@ -1,11 +1,11 @@
 .profile_item
   .row
     .span5 公司: #{experience.company_name}
-    .span3 职位: #{experience.job_title} 
+    .span4 职位: #{experience.job_title} 
     .span4="#{yearmonth(experience.start_date)} - #{yearmonth(experience.end_date) || '至今'}"
   -unless experience.description.blank?
     .row
-      .span12
+      .span13
         %p.toggle #{experience.description}
 
 

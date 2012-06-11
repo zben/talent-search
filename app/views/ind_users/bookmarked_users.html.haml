@@ -1,5 +1,6 @@
-%h4 您关注的人
-
+%h4.with_span 您关注的人
+%span=link_to "查看所有人", default_talent_path unless @users.empty?
+%p
 -if @users.empty?   
   您没有关注任何人。
   =link_to "现在就去认识一些人吧", default_talent_path
@@ -19,7 +20,7 @@
           .left
             %b= link_to user.profile.name, user
             %p="#{user.profile.province.name}, #{user.profile.province.country.name}"
-        %td    
+        %td
           -if !user.experiences.empty?
             -ex = user.experiences[0]
             %p

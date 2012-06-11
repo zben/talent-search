@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.visibility = :"公开"
     5.times{@project.photos.build}
   end
 
@@ -47,20 +48,18 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    unless @project.admins.include?(current_user)
+    unless @project.admins.include?(current_user) || current_user.admin
       redirect_to root_url
     end
     (5-@project.photos.count).times{@project.photos.build}
   end
 
   def update
-    @project = Project.find(params[:id])  
-    unless @project.users.include?(current_user)
+    @project = Project.find(params[:id])
+    if !@project.admins.include?(current_user) && !current_user.admin?
       redirect_to root_url
-    end
-
-    if @project.update_attributes(params[:project])
-      redirect_to @project  
+    elsif @project.update_attributes(params[:project])
+      redirect_to @project
     else
       flash[:notice]="请修改下列错误再提交"
       (5-@project.photos.count).times{@project.photos.build}
@@ -97,5 +96,10 @@ class ProjectsController < ApplicationController
     @application.declined_at = Time.now
     @application.save!
     redirect_to :back
+  end
+
+  def shouts
+    @project = Project.find(params[:id])
+    @shouts = @project.shouts.page(params[:page]).per(10) 
   end
 end

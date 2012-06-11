@@ -6,7 +6,7 @@ class Download < Attachment
 
 
   if Rails.env.production?
-    has_mongoid_attached_file :downlaod,
+    has_mongoid_attached_file :download,
       :path => ':download/:id/:file_name',
       :storage => :s3,
       :bucket => 'talent-search',

@@ -1,6 +1,7 @@
 !!!
 %html
     %head
+        =favicon_link_tag
         %meta{"http-equiv"=> "content-type", "content"=> "text/html;charset=gb2312"}
         %title 悟空人才
         =stylesheet_link_tag    "application", :debug => false
@@ -9,7 +10,6 @@
         =render "layouts/google_analytics"
     %body{class: "#{controller_action}"}
         =render 'layouts/header'
-        #feedback=mail_to "i5kongtalent@gmail.com","给我们建议"
         /-if params[:action] == 'home'
         /    .container
         /        .row
@@ -20,4 +20,4 @@
             = yield 
         =render 'layouts/footer'
         =debug(params) if Rails.env.development?    
-
+        =render 'layouts/olark'

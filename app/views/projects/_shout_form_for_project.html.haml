@@ -1,5 +1,5 @@
 .shout.row
-  .span6
+  .span16
     =semantic_form_for Shout.new do |f|
       =f.input :project_id, :as=>:hidden, :value=>@project.id
       =f.input :message, :as=>:text, :label=>false,:hint=>"请控制字数,链接会被自动缩短。", :input_html => { :class => 'autogrow', :rows => 4, :maxlength => 340  }

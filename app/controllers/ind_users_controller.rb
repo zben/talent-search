@@ -77,6 +77,11 @@ class IndUsersController < ApplicationController
     @job_posts = Kaminari.paginate_array(current_user.bookmarked("JobPost").compact).page(params[:page]).per(10)
   end
 
+  def bookmarked_projects
+    @user = current_user
+    @projects = Kaminari.paginate_array(current_user.bookmarked("Project").compact).page(params[:page]).per(10)
+  end
+
   def job_posts 
     @user = User.find(params[:id])  
     @job_posts = JobPost.where(:user_id=>params[:id]).page(params[:page]).per(10)

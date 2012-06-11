@@ -18,5 +18,8 @@ class ProjectField
          ProjectField.create(:name_ch=>item.split("//")[0].strip,:name_en=>item.split("//")[1].strip)
      end
   end
-  
+
+  def self.pinyin_order
+    self.all.sort {|a ,b|   a.name_ch.pinyin.join <=> b.name_ch.pinyin.join }
+  end
 end
