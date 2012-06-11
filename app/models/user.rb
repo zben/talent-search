@@ -3,6 +3,8 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  attr_accessor :invitation_message
+
   default_scope all(sort: [[ :created_at, :desc ]])
   ## Database authenticatable
   field :email,              :type => String, :null => false
@@ -126,6 +128,8 @@ class User
   def headers_for(action)
     if action == :invitation_instructions
       {:subject => "您的朋友#{self.invited_by.name}邀请你加入悟空人才网！"}
+    else
+      super
     end
   end
 end

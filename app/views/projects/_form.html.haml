@@ -8,13 +8,16 @@
       .row
         .span11= f.input :intro, :as=>:text,:input_html => { :class => 'autogrow', :rows => 7, :cols => 15, :maxlength => 500  }
       .row
+        .span11= f.input :video_code,:as=>:text,:input_html => { :class => 'autogrow', :rows => 3, :cols => 15, :placeholder => '可粘贴<iframe>的Youtube等视频,例如: <iframe width="560" height="315" src="http://www.youtube.com/embed/U8CMtRS6IUw" frameborder="0" allowfullscreen></iframe>'}
+      .row
         .span3= f.input :people_count
-        .span2.radio_buttons_row= f.input :has_patent, :as=>:radio,:collection => [["有",true], ["无",false]]
+        .span2= f.input :has_patent, collection: Project.has_patents_for_select, prompt: t("Select one")
         .span3= f.input :stage, :as=>:select, :collection=>Project.stages_for_select
         .span3= f.input :province
       .row
         .span6.check_boxes_row= f.input :project_needs, :as=>:check_boxes
-        .span4=f.input :visibility, collection: Project.visibilities_for_select, include_blank: false
+        .span4
+          =f.input :visibility, collection: Project.visibilities_for_select, include_blank: false
 
       %h3.span11 项目图片
       %p 最多上传5张,推荐使用3:4的图片比例.
@@ -29,6 +32,9 @@
             =photo.file_field :photo
       %h3.span11 项目Logo
       =f.input :logo, :label=>false
+      %h3.span11 项目方案
+      =f.semantic_fields_for :download do |download|
+        =download.file_field :download
     %div{class: "span4 #{'error' unless @project.errors.messages[:project_field_ids].nil?}"}
       =f.input :project_fields, :label => "项目领域*", :as => :check_boxes, :collection => ProjectField.all.pinyin_order, :multiple=>true
       %p.inline-errors=@project.errors.messages[:project_field_ids][0] unless @project.errors.messages[:project_field_ids].nil?

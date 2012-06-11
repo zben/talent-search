@@ -9,13 +9,14 @@ class Project
   field :one_liner
   field :intro
   field :project_update
+  field :video_code
   has_many :shouts
   has_many :photos, autosave: true, as: :attachable
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
+  has_one :download, autosave: true, as: :attachable
   has_and_belongs_to_many :project_fields
   has_and_belongs_to_many :project_needs
 
-  field :has_patent, type: Boolean
   field :people_count, type: Integer
 
   belongs_to :province
@@ -27,7 +28,8 @@ class Project
                   :"市场化"=>4,
                   :"规模化"=>5
   as_enum :visibility, :"公开" =>"1", :"只给关注的人公开"=>"2", :"隐藏"=>"3"
-
+  as_enum :has_patent, :"有"=>"1", :"无"=>"2", :"申请中"=>"3"
+  scope :public, where(visibility_cd: "1")
 
     if Rails.env.production?  
       has_mongoid_attached_file :logo,
@@ -53,9 +55,8 @@ class Project
         }
     end
     
-  attr_accessible :title, :one_liner, :intro, :logo, :province_id, :stage, :has_patent, :photos_attributes, :people_count, :project_need_ids, :project_field_ids
+  attr_accessible :title, :video_code, :download, :one_liner, :intro, :visibility, :logo, :province_id, :stage, :has_patent, :photos_attributes, :people_count, :project_need_ids, :project_field_ids
   validates :people_count, :one_liner, :visibility, :title, :intro, :province,:province_id, :stage, :presence =>true
-  validates_inclusion_of :has_patent, :in => [true, false]
   validates_presence_of :project_field_ids
   validates_numericality_of :people_count, :only_integer=>true, :greater_than=>0
 
@@ -105,5 +106,4 @@ class Project
         'admin'
     end
   end
-  
 end

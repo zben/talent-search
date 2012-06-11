@@ -1,11 +1,12 @@
-%p
-  您好，
-%p="#{User.find(@resource.invited_by_id).name}邀请您加入悟空人才网，一个连接海外高端中国人才和中国机遇的事业发展平台。"
-%p
-  如果您对中国的事业机遇感兴趣，悟空人才将向您展示众多优秀企业和适合您的职位空缺。如果您对创业和兼职有兴趣，悟空人才网同样可以帮助您找到机遇。
-%p
-  看看悟空人才网能够给你带来什么，请点击以下链接。
-
-%p=link_to '接受邀请', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)
-%p
-  如果您对悟空人才网有什么建议和意见，请和我们联系。我们的电子邮件是i5kongtalent@gmail.com.
+%div{style: "width:600px"}
+  %p
+    您好，
+  %p
+    =@resource.invited_by.name
+    邀请您加入悟空人才网
+  -unless (message = @resource.invited_by.invitation_message).nil?
+    %p{style: "background-color: #C7EEFE; padding: 10px; width: 600px;"}=word_wrap(message).gsub(/\n/, '<br/>').html_safe
+  %p 悟空人才网是一个连接海外高端中国人才和中国机遇的事业发展平台。如果您对中国的事业机遇感兴趣，悟空人才将向您展示众多优秀企业和适合您的职位空缺。如果您对创业和兼职有兴趣，悟空人才网同样可以帮助您找到机遇。
+  %p 看看悟空人才网能够给你带来什么，请点击以下链接。
+  %p=link_to '接受邀请', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)
+  %p 如果您对悟空人才网有什么建议和意见，请和我们联系。我们的电子邮件是i5kongtalent@gmail.com.

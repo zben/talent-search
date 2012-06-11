@@ -254,6 +254,7 @@ ch:
         city_id: "总部城市"
         industry_id: "行业"
       project:
+        video_code: "项目视频"
         visibility: "公开程度"
         one_liner: "一句话简介"
         people_count: "项目人数"
@@ -261,7 +262,7 @@ ch:
         project_fields: "项目领域"
         title: "项目标题"
         intro: "项目介绍"
-        has_patent: "(将)有专利"
+        has_patent: "有无专利"
         stage: "项目阶段"
         province: "项目所在地"
       project_search:

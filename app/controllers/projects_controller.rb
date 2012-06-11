@@ -1,16 +1,16 @@
 # encoding: UTF-8
 class ProjectsController < ApplicationController
-  
+
   include ApplicationHelper
   before_filter :authenticate!
-  
+
   def index
     if params[:search_id]
       @search = ProjectSearch.find(params[:search_id])
       @projects = Kaminari.paginate_array(@search.matching_projects).page(params[:page]).per(10)
     else
       @search = ProjectSearch.new
-      @projects = Project.all.page(params[:page]).per(10)
+      @projects = Project.public.page(params[:page]).per(10)
     end
   end
 
@@ -18,15 +18,14 @@ class ProjectsController < ApplicationController
     @latest_projects = Project.limit(10)
     @latest_project_shouts = Shout.where(:project_id.in => current_user.bookmarked_ids("Project")).limit(10)
   end
-  
+
   def search
     @search = ProjectSearch.create(params[:project_search])
     redirect_to projects_list_path(@search.id)
   end
-  
+
   def show
     @project = Project.find(params[:id])
-    
   end
 
   def new

@@ -7,16 +7,19 @@
       =join_project_buttons_code @project if current_user.is_a? IndUser
       =render 'projects/admin_action'
       =link_to "更新项目信息", edit_project_path(@project),class: 'btn primary' if @project.status(current_user)=='admin'
+      =link_to "下载项目商业方案", @project.download.download.url, class: 'btn primary' unless @project.download.nil?
   .span13
-    %h1=@project.title
+    %h1.project_title=@project.title
     %p.one_liner=@project.one_liner
     %h4 项目介绍
     =@project.intro
+    -unless @project.video_code.blank?
+      %h4 项目视频
+      =@project.video_code.html_safe
+    -unless @project.photos.empty?
+      %h4 项目图片
+      =render 'projects/slide_show', subject: @project
 
-    
-    %h4 项目图片
-    =render 'projects/slide_show', subject: @project
- 
     .row
       .span4
         %h4 项目所在地
@@ -26,19 +29,19 @@
         =@project.people_count
         人
       .span3
-        %h4 涉及专利
-        =@project.has_patent ? "有" : "无"
+        %h4 有无专利
+        =@project.has_patent
       .span3
         %h4 项目阶段
         =@project.stage
     %h4 项目领域
     -@project.project_fields.each do |field|
       .skill_item=field.name
-    -unless @project.project_needs.nil?
+    -unless @project.project_needs.empty?
       %h4 项目需求
       -@project.project_needs.each do |need|
         .skill_item=need.name
-    -@members = @project.all_members    
+    -@members = @project.all_members
     %h4 项目成员(#{@members.count}人)
     %ul.horizontal
       -@members.each do |member|

@@ -17,19 +17,21 @@
       %table.zebra-striped
         %tr
           %th{width: "60px"} 项目Logo
-          %th{width: "200px"} 项目名称
+          %th{width: "340px"} 项目名称
           %th{width: "100px"} 项目领域
-          %th{width: "70px"} 项目所在地
-          %th{width: "70px"} 项目人数
-          %th{width: "70px"} 关注人数
+          %th{width: "70px"} 所在地
+          %th{width: "30px"} 团队
+          %th{width: "30px"} 粉丝
 
         - for project in @projects
           %tr
             %td=image_tag project.logo(:small),height: "40px";
            
-            %td=link_to project.title, project
             %td
-              -project.project_fields.each do |field|
+              %b=link_to project.title, project
+              %p=project.one_liner
+            %td
+              -project.project_fields.limit(2).each do |field|
                 .skill_item=field.name 
             %td=project.province.name
             %td=project.people_count 
