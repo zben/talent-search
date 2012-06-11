@@ -5,8 +5,7 @@
 
   %li{:class=>is_active?('project_searches#')}=link_to '创业项目', project_search_path
   %li{:class=>is_active?('park_searches#')}=link_to '创业园区', default_parks_path
-  %li{:class=>is_active?('tech_searches#')}=link_to '技术需求', default_tech_post_path
-  %li{:class=>is_active?('tech_posts#')}=link_to '技术需求', tech_posts_path  
+  %li{:class=>is_active?('tech_post#')}=link_to '技术需求', default_tech_post_path
 
 :javascript
   $(".dropdown-toggle").hover(

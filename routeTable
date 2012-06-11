@@ -1,0 +1,158 @@
+                             parks GET      /parks(.:format)                              {:action=>"index", :controller=>"parks"}
+                                   POST     /parks(.:format)                              {:action=>"create", :controller=>"parks"}
+                          new_park GET      /parks/new(.:format)                          {:action=>"new", :controller=>"parks"}
+                         edit_park GET      /parks/:id/edit(.:format)                     {:action=>"edit", :controller=>"parks"}
+                              park GET      /parks/:id(.:format)                          {:action=>"show", :controller=>"parks"}
+                                   PUT      /parks/:id(.:format)                          {:action=>"update", :controller=>"parks"}
+                                   DELETE   /parks/:id(.:format)                          {:action=>"destroy", :controller=>"parks"}
+                          projects GET      /projects(.:format)                           {:action=>"index", :controller=>"projects"}
+                                   POST     /projects(.:format)                           {:action=>"create", :controller=>"projects"}
+                       new_project GET      /projects/new(.:format)                       {:action=>"new", :controller=>"projects"}
+                      edit_project GET      /projects/:id/edit(.:format)                  {:action=>"edit", :controller=>"projects"}
+                           project GET      /projects/:id(.:format)                       {:action=>"show", :controller=>"projects"}
+                                   PUT      /projects/:id(.:format)                       {:action=>"update", :controller=>"projects"}
+                                   DELETE   /projects/:id(.:format)                       {:action=>"destroy", :controller=>"projects"}
+                     project_apply          /project/:id/apply(.:format)                  {:controller=>"projects", :action=>"apply"}
+                   project_approve          /project_membership/:id/approve(.:format)     {:controller=>"projects", :action=>"approve"}
+                   project_decline          /project_membership/:id/decline(.:format)     {:controller=>"projects", :action=>"decline"}
+                      project_quit          /project_membership/:id/quit(.:format)        {:controller=>"projects", :action=>"quit"}
+                  project_overview          /project/overview(.:format)                   {:controller=>"projects", :action=>"overview"}
+                    project_search POST|PUT /project/search(.:format)                     {:controller=>"projects", :action=>"search"}
+                     projects_list GET      /project/search(/:search_id)(.:format)        {:controller=>"projects", :action=>"index"}
+                         job_posts GET      /job_posts(.:format)                          {:action=>"index", :controller=>"job_posts"}
+                                   POST     /job_posts(.:format)                          {:action=>"create", :controller=>"job_posts"}
+                      new_job_post GET      /job_posts/new(.:format)                      {:action=>"new", :controller=>"job_posts"}
+                     edit_job_post GET      /job_posts/:id/edit(.:format)                 {:action=>"edit", :controller=>"job_posts"}
+                          job_post GET      /job_posts/:id(.:format)                      {:action=>"show", :controller=>"job_posts"}
+                                   PUT      /job_posts/:id(.:format)                      {:action=>"update", :controller=>"job_posts"}
+                                   DELETE   /job_posts/:id(.:format)                      {:action=>"destroy", :controller=>"job_posts"}
+          job_post_matching_talent          /job_posts/:id/match(.:format)                {:controller=>"job_posts", :action=>"matching_talent"}
+             organization_profiles GET      /organization_profiles(.:format)              {:action=>"index", :controller=>"organization_profiles"}
+                                   POST     /organization_profiles(.:format)              {:action=>"create", :controller=>"organization_profiles"}
+          new_organization_profile GET      /organization_profiles/new(.:format)          {:action=>"new", :controller=>"organization_profiles"}
+         edit_organization_profile GET      /organization_profiles/:id/edit(.:format)     {:action=>"edit", :controller=>"organization_profiles"}
+              organization_profile GET      /organization_profiles/:id(.:format)          {:action=>"show", :controller=>"organization_profiles"}
+                                   PUT      /organization_profiles/:id(.:format)          {:action=>"update", :controller=>"organization_profiles"}
+                                   DELETE   /organization_profiles/:id(.:format)          {:action=>"destroy", :controller=>"organization_profiles"}
+                        tech_posts GET      /tech_posts(.:format)                         {:action=>"index", :controller=>"tech_posts"}
+                                   POST     /tech_posts(.:format)                         {:action=>"create", :controller=>"tech_posts"}
+                     new_tech_post GET      /tech_posts/new(.:format)                     {:action=>"new", :controller=>"tech_posts"}
+                    edit_tech_post GET      /tech_posts/:id/edit(.:format)                {:action=>"edit", :controller=>"tech_posts"}
+                         tech_post GET      /tech_posts/:id(.:format)                     {:action=>"show", :controller=>"tech_posts"}
+                                   PUT      /tech_posts/:id(.:format)                     {:action=>"update", :controller=>"tech_posts"}
+                                   DELETE   /tech_posts/:id(.:format)                     {:action=>"destroy", :controller=>"tech_posts"}
+                 default_tech_post          /tech_searches/defualt(.:format)              {:controller=>"tech_searches", :action=>"show"}
+                     tech_searches POST     /tech_searches(.:format)                      {:action=>"create", :controller=>"tech_searches"}
+                 new_tech_searches GET      /tech_searches/new(.:format)                  {:action=>"new", :controller=>"tech_searches"}
+                edit_tech_searches GET      /tech_searches/edit(.:format)                 {:action=>"edit", :controller=>"tech_searches"}
+                                   GET      /tech_searches(.:format)                      {:action=>"show", :controller=>"tech_searches"}
+                                   PUT      /tech_searches(.:format)                      {:action=>"update", :controller=>"tech_searches"}
+                                   DELETE   /tech_searches(.:format)                      {:action=>"destroy", :controller=>"tech_searches"}
+                  new_user_session GET      /users/sign_in(.:format)                      {:action=>"new", :controller=>"devise/sessions"}
+                      user_session POST     /users/sign_in(.:format)                      {:action=>"create", :controller=>"devise/sessions"}
+              destroy_user_session DELETE   /users/sign_out(.:format)                     {:action=>"destroy", :controller=>"devise/sessions"}
+                     user_password POST     /users/password(.:format)                     {:action=>"create", :controller=>"devise/passwords"}
+                 new_user_password GET      /users/password/new(.:format)                 {:action=>"new", :controller=>"devise/passwords"}
+                edit_user_password GET      /users/password/edit(.:format)                {:action=>"edit", :controller=>"devise/passwords"}
+                                   PUT      /users/password(.:format)                     {:action=>"update", :controller=>"devise/passwords"}
+          cancel_user_registration GET      /users/cancel(.:format)                       {:action=>"cancel", :controller=>"registrations"}
+                 user_registration POST     /users(.:format)                              {:action=>"create", :controller=>"registrations"}
+             new_user_registration GET      /users/sign_up(.:format)                      {:action=>"new", :controller=>"registrations"}
+            edit_user_registration GET      /users/edit(.:format)                         {:action=>"edit", :controller=>"registrations"}
+                                   PUT      /users(.:format)                              {:action=>"update", :controller=>"registrations"}
+                                   DELETE   /users(.:format)                              {:action=>"destroy", :controller=>"registrations"}
+            accept_user_invitation GET      /users/invitation/accept(.:format)            {:action=>"edit", :controller=>"invitations"}
+                   user_invitation POST     /users/invitation(.:format)                   {:action=>"create", :controller=>"invitations"}
+               new_user_invitation GET      /users/invitation/new(.:format)               {:action=>"new", :controller=>"invitations"}
+                                   PUT      /users/invitation(.:format)                   {:action=>"update", :controller=>"invitations"}
+                             users GET      /users(.:format)                              {:action=>"index", :controller=>"users"}
+                                   POST     /users(.:format)                              {:action=>"create", :controller=>"users"}
+                          new_user GET      /users/new(.:format)                          {:action=>"new", :controller=>"users"}
+                         edit_user GET      /users/:id/edit(.:format)                     {:action=>"edit", :controller=>"users"}
+                              user GET      /users/:id(.:format)                          {:action=>"show", :controller=>"users"}
+                                   PUT      /users/:id(.:format)                          {:action=>"update", :controller=>"users"}
+                                   DELETE   /users/:id(.:format)                          {:action=>"destroy", :controller=>"users"}
+                         ind_users GET      /ind_users(.:format)                          {:action=>"index", :controller=>"ind_users"}
+                                   POST     /ind_users(.:format)                          {:action=>"create", :controller=>"ind_users"}
+                      new_ind_user GET      /ind_users/new(.:format)                      {:action=>"new", :controller=>"ind_users"}
+                     edit_ind_user GET      /ind_users/:id/edit(.:format)                 {:action=>"edit", :controller=>"ind_users"}
+                          ind_user GET      /ind_users/:id(.:format)                      {:action=>"show", :controller=>"ind_users"}
+                                   PUT      /ind_users/:id(.:format)                      {:action=>"update", :controller=>"ind_users"}
+                                   DELETE   /ind_users/:id(.:format)                      {:action=>"destroy", :controller=>"ind_users"}
+                         org_users GET      /org_users(.:format)                          {:action=>"index", :controller=>"org_users"}
+                                   POST     /org_users(.:format)                          {:action=>"create", :controller=>"org_users"}
+                      new_org_user GET      /org_users/new(.:format)                      {:action=>"new", :controller=>"org_users"}
+                     edit_org_user GET      /org_users/:id/edit(.:format)                 {:action=>"edit", :controller=>"org_users"}
+                          org_user GET      /org_users/:id(.:format)                      {:action=>"show", :controller=>"org_users"}
+                                   PUT      /org_users/:id(.:format)                      {:action=>"update", :controller=>"org_users"}
+                                   DELETE   /org_users/:id(.:format)                      {:action=>"destroy", :controller=>"org_users"}
+                            shouts GET      /shouts(.:format)                             {:action=>"index", :controller=>"shouts"}
+                                   POST     /shouts(.:format)                             {:action=>"create", :controller=>"shouts"}
+                         new_shout GET      /shouts/new(.:format)                         {:action=>"new", :controller=>"shouts"}
+                        edit_shout GET      /shouts/:id/edit(.:format)                    {:action=>"edit", :controller=>"shouts"}
+                             shout GET      /shouts/:id(.:format)                         {:action=>"show", :controller=>"shouts"}
+                                   PUT      /shouts/:id(.:format)                         {:action=>"update", :controller=>"shouts"}
+                                   DELETE   /shouts/:id(.:format)                         {:action=>"destroy", :controller=>"shouts"}
+                          myshouts          /weibo(/:type)(.:format)                      {:controller=>"shouts", :action=>"index"}
+                      send_message POST     /send_message(.:format)                       {:action=>"create", :controller=>"messages"}
+              send_job_application POST     /send_job_application(.:format)               {:action=>"create", :controller=>"job_applications"}
+            cancel_job_application GET      /cancel_job_application/:id(.:format)         {:controller=>"job_applications", :action=>"destroy"}
+                 ind_user_overview          /overview(.:format)                           {:action=>"overview", :controller=>"ind_users"}
+                      default_jobs          /job_searches/default(.:format)               {:controller=>"job_searches", :action=>"show"}
+                    default_talent          /talent_searches/default(.:format)            {:controller=>"talent_searches", :action=>"show"}
+                 default_companies          /company_searches/default(.:format)           {:controller=>"company_searches", :action=>"show"}
+                     default_parks          /park_searches/default(.:format)              {:controller=>"park_searches", :action=>"show"}
+                      job_searches GET      /job_searches(.:format)                       {:action=>"index", :controller=>"job_searches"}
+                                   POST     /job_searches(.:format)                       {:action=>"create", :controller=>"job_searches"}
+                    new_job_search GET      /job_searches/new(.:format)                   {:action=>"new", :controller=>"job_searches"}
+                   edit_job_search GET      /job_searches/:id/edit(.:format)              {:action=>"edit", :controller=>"job_searches"}
+                        job_search GET      /job_searches/:id(.:format)                   {:action=>"show", :controller=>"job_searches"}
+                                   PUT      /job_searches/:id(.:format)                   {:action=>"update", :controller=>"job_searches"}
+                                   DELETE   /job_searches/:id(.:format)                   {:action=>"destroy", :controller=>"job_searches"}
+                  company_searches GET      /company_searches(.:format)                   {:action=>"index", :controller=>"company_searches"}
+                                   POST     /company_searches(.:format)                   {:action=>"create", :controller=>"company_searches"}
+                new_company_search GET      /company_searches/new(.:format)               {:action=>"new", :controller=>"company_searches"}
+               edit_company_search GET      /company_searches/:id/edit(.:format)          {:action=>"edit", :controller=>"company_searches"}
+                    company_search GET      /company_searches/:id(.:format)               {:action=>"show", :controller=>"company_searches"}
+                                   PUT      /company_searches/:id(.:format)               {:action=>"update", :controller=>"company_searches"}
+                                   DELETE   /company_searches/:id(.:format)               {:action=>"destroy", :controller=>"company_searches"}
+                   talent_searches GET      /talent_searches(.:format)                    {:action=>"index", :controller=>"talent_searches"}
+                                   POST     /talent_searches(.:format)                    {:action=>"create", :controller=>"talent_searches"}
+                 new_talent_search GET      /talent_searches/new(.:format)                {:action=>"new", :controller=>"talent_searches"}
+                edit_talent_search GET      /talent_searches/:id/edit(.:format)           {:action=>"edit", :controller=>"talent_searches"}
+                     talent_search GET      /talent_searches/:id(.:format)                {:action=>"show", :controller=>"talent_searches"}
+                                   PUT      /talent_searches/:id(.:format)                {:action=>"update", :controller=>"talent_searches"}
+                                   DELETE   /talent_searches/:id(.:format)                {:action=>"destroy", :controller=>"talent_searches"}
+                     park_searches GET      /park_searches(.:format)                      {:action=>"index", :controller=>"park_searches"}
+                                   POST     /park_searches(.:format)                      {:action=>"create", :controller=>"park_searches"}
+                   new_park_search GET      /park_searches/new(.:format)                  {:action=>"new", :controller=>"park_searches"}
+                  edit_park_search GET      /park_searches/:id/edit(.:format)             {:action=>"edit", :controller=>"park_searches"}
+                       park_search GET      /park_searches/:id(.:format)                  {:action=>"show", :controller=>"park_searches"}
+                                   PUT      /park_searches/:id(.:format)                  {:action=>"update", :controller=>"park_searches"}
+                                   DELETE   /park_searches/:id(.:format)                  {:action=>"destroy", :controller=>"park_searches"}
+                      ind_user_new          /ind_users/:id/new/:info(.:format)            {:controller=>"ind_users", :action=>"new"}
+                     ind_user_edit          /ind_users/:id/edit/:info(.:format)           {:controller=>"ind_users", :action=>"edit"}
+                  ind_user_profile          /ind_users/:id/profile(.:format)              {:controller=>"ind_users", :action=>"profile"}
+                   ind_user_shouts          /ind_users/:id/weibo(.:format)                {:controller=>"ind_users", :action=>"shouts"}
+                  bookmarked_users          /bookmarked/ind/users(.:format)               {:controller=>"ind_users", :action=>"bookmarked_users"}
+    bookmarked_users_for_companies          /bookmarked/org/users(.:format)               {:controller=>"org_users", :action=>"bookmarked_users"}
+              bookmarked_companies          /bookmarked/companies(.:format)               {:controller=>"ind_users", :action=>"bookmarked_companies"}
+                   bookmarked_jobs          /bookmarked/jobs(.:format)                    {:controller=>"ind_users", :action=>"bookmarked_jobs"}
+                      org_user_new          /org_users/:id/new/:info(.:format)            {:controller=>"org_users", :action=>"new"}
+                     org_user_edit          /org_users/:id/edit/:info(.:format)           {:controller=>"org_users", :action=>"edit"}
+                  org_user_profile          /org_users/:id/profile(.:format)              {:controller=>"org_users", :action=>"profile"}
+                   org_user_shouts          /org_users/:id/weibo(.:format)                {:controller=>"org_users", :action=>"shouts"}
+     user_update_email_or_password          /users/:id/update/account(.:format)           {:controller=>"users", :action=>"update_email_or_password"}
+                          user_new          /users/:id/new/:info(.:format)                {:controller=>"users", :action=>"new"}
+                         user_edit          /users/:id/edit/:info(.:format)               {:controller=>"users", :action=>"edit"}
+                      user_profile          /users/:id/profile(.:format)                  {:controller=>"users", :action=>"profile"}
+                org_user_job_posts          /org_users/:id/jobs_posts(.:format)           {:controller=>"org_users", :action=>"job_posts"}
+                ind_user_job_posts          /ind_users/:id/jobs_posts(.:format)           {:controller=>"ind_users", :action=>"job_posts"}
+                       skills_list          /skills/list(.:format)                        {:controller=>"skills", :action=>"list"}
+                   toggle_bookmark          /bookmark/:type/:id(.:format)                 {:controller=>"bookmarks", :action=>"bookmark"}
+                              root          /                                             {:controller=>"pages", :action=>"home"}
+         graph_authorization_rules GET      /authorization_rules/graph(.:format)          {:action=>"graph", :controller=>"authorization_rules"}
+        change_authorization_rules GET      /authorization_rules/change(.:format)         {:action=>"change", :controller=>"authorization_rules"}
+suggest_change_authorization_rules GET      /authorization_rules/suggest_change(.:format) {:action=>"suggest_change", :controller=>"authorization_rules"}
+               authorization_rules GET      /authorization_rules(.:format)                {:action=>"index", :controller=>"authorization_rules"}
+              authorization_usages GET      /authorization_usages(.:format)               {:action=>"index", :controller=>"authorization_usages"}

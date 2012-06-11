@@ -67,7 +67,7 @@ class User
   has_many :job_applications
   #has_many :industries, :through=>:industries_users
   #has_many :interests,:through=>:industries_users
-  
+  has_many :tech_posts  
  
   accepts_nested_attributes_for :educations,:allow_destroy => true
   accepts_nested_attributes_for :experiences,:allow_destroy => true

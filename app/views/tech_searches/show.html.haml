@@ -1,0 +1,31 @@
+=render 'projects/navigation'
+.row
+  .span3.search
+    =render 'form'
+  .span13
+    %h4 
+      -if @is_new
+        ="所有技术需求(#{TechPost.count}个)"
+      -else
+        搜索结果
+        %span.view_all=link_to("浏览所有技术需求",default_tech_post_path)
+    -if @tech_posts.empty?
+      搜索结果为0,请试试别的搜索参数！
+    -else
+      %table.zebra-striped
+        %tr
+          %th{width: "80px"} 技术需求
+          %th{width: "80px"} 公司名称
+          %th{width: "80px"} 行业
+          %th{width: "180px"} 简介
+        - for tech in @tech_posts
+          %tr
+            %td=link_to tech.title,tech;
+            %td=tech.company_name
+            %td
+              -tech.project_fields.each do |field|
+                .skill_item=field.name
+            %td=tech.description.present? ? tech.description[0..30]:"" 
+      =paginate @tech_posts
+
+

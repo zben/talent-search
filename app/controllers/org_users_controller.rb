@@ -53,6 +53,11 @@ class OrgUsersController < ApplicationController
     @job_posts = JobPost.where(:user_id=>params[:id])
   end
   
+  def tech_posts
+    @user = User.find(params[:id])
+    @tech_posts=TechPost.where(:user_id=>params[:id])
+  end 
+ 
   def bookmarked_users
       @users = current_user.bookmarked("IndUser")
       @users = Kaminari.paginate_array(@users).page(params[:page]).per(10)
