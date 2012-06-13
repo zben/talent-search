@@ -20,7 +20,6 @@ class OrgProfile
   as_enum :company_type, :"国企"=>1, :"民企"=>2, :"外企"=>3, :"非营利组织"=>4, :"学术研究机构"=>5
 
   belongs_to :industry
-  field :industry_id, type: Integer
   belongs_to :province
   field :province_id, type: Integer
   belongs_to :city
