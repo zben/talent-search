@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content=>"text/html; charset=UTF-8",:'http-equiv'=>"Content-Type"}
+  %body    
+    %p
+      你好,
+      =link_to @applicant.name, ind_user_url(@applicant)
+      申请了以下项目需求: 
+      =link_to @tech_post.title, tech_post_url(@tech_post)
+      。
+    -unless @message.empty?
+      %p="申请短信:"
+      %p{:style=>"background-color:#F5F5FF;width:800px;border-radius:5px;padding:3px;"}=@message
+
+    %p=link_to "点击此处查看申请人信息与简历", ind_user_url(@applicant)
+    %h2 
+      寻找事业机遇，尽在 
+      =link_to "i5kong.com", root_url
+    =image_tag "http://talent.herokuapp.com/assets/logo.png"
+

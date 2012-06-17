@@ -2,6 +2,7 @@ class IndUser < User
     include Mongoid::BasicSearch
     has_many :bookmarks, :foreign_key=>"user_id"
     has_many :bookmarkings, :class_name=>"Bookmark", as: :bookmarkable
+    has_many :tech_applications
     has_and_belongs_to_many :industries
     scope :with_ind_profile, where(:profile.ne=>nil)
 

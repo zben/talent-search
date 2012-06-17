@@ -135,6 +135,7 @@ ch:
       project: "创业项目"
       park: "创业园区"
       photo: "图片"
+      tech_post: "技术需求"
     attributes:
       job_post:
         degree_requirement: "学历要求"
@@ -158,7 +159,21 @@ ch:
         province: "工作省份*"
         city: "工作城市*"
         industry: "行业"
-      language: 
+      tech_search:
+        keywords: "关键词"
+        province_id: "身份"
+        co_type_cd: "合作形式"
+        project_field_id: "技术领域"
+      tech_post:
+        title: "技术需求名称"
+        description: "技术需求描述"
+        province_id: "省份"
+        co_type: "合作形式"
+        compensation: "待遇"
+        contact_person: "联系人"
+        phone_number: "联系电话"
+        email: "电子邮件"
+      language:
         language_option_id: "语言"
         language_level: "能力程度"
       experience:

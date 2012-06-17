@@ -33,6 +33,9 @@ Talent::Application.routes.draw do
   post 'send_message'=>"messages#create", :as=>'send_message'
   post 'send_job_application'=>"job_applications#create", :as=>'send_job_application'
   get 'cancel_job_application/:id'=>'job_applications#destroy',:as=>"cancel_job_application"
+  post 'send_tech_application'=>"tech_applications#create", :as=>'send_tech_application'
+  get 'cancel_tech_application/:id'=>'tech_applications#destroy',:as=>"cancel_tech_application"
+
   match 'overview' => 'ind_users#overview', :as=>'ind_user_overview'
   match 'job_searches/default'=>'job_searches#show',:as=>'default_jobs'
   match 'talent_searches/default'=>'talent_searches#show',:as=>'default_talent'

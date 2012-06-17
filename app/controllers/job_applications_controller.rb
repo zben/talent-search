@@ -16,7 +16,7 @@ class JobApplicationsController < ApplicationController
       redirect_to :back 
     end
   end
-  
+
   def destroy
     @job_application = JobApplication.find(params[:id])
     @job_application.destroy

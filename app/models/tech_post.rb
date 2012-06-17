@@ -7,7 +7,7 @@ class TechPost
   default_scope all(sort: [[ :created_at, :desc ]])
   scope :current, where(:expiration.gte=>Date.today)
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
-
+  has_many :tech_applications
   include SimpleEnum::Mongoid
   as_enum :company_type, :"国企"=>1, :"民企"=>2, :"外企"=>3, :"非营利组织"=>4, :"学术研究机构"=>5
   as_enum :co_type, :"技术引进"=>1, :"合作开发"=>2 , :"合作创办企业"=>3
@@ -21,7 +21,6 @@ class TechPost
   field :email
   field :phone_number
   has_and_belongs_to_many :project_fields 
- 
   attr_accessible :title, :company_type, :industry_id,
       :company_name, :company_id, :description, 
        :compensation, :expiration, :contact_person, 
@@ -33,7 +32,6 @@ class TechPost
   belongs_to :province
   field :province_id, type: Integer
 
- 
   def self.populate
     #TechPost.delete_all
     #data = get_csv_data 'db/base_data/tech_posts.csv'
@@ -41,6 +39,9 @@ class TechPost
      # data.each do |post|
      # end
   end
-  
+
+  def get_application(user)
+    TechApplication.where(tech_post_id: self.id, user_id: user.id).first
+  end
 
 end

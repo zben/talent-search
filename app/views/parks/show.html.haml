@@ -3,7 +3,7 @@
   .span3
     .sidebar
       .image=image_tag @park.logo(:medium)
-      =link_to "编辑园区信息", edit_park_path(@park), class: 'btn primary' if can? :update, @park
+      =link_to "编辑园区信息", edit_park_path(@park), class: 'btn primary' if current_user.admin?
       =link_to "下载大礼包", @park.downloads.first.download.url, class: "btn primary" if @park.downloads.present? && can?(:view, @park)
   .span12
     %h1=@park.name

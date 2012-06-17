@@ -1,0 +1,13 @@
+#modal-from-dom.modal.hide.fade
+  .modal-header
+    =link_to "&times;".html_safe,'#',:class=>'close'
+    %h3 发送申请
+  
+  =semantic_form_for TechApplication.new, :url=>send_tech_application_path do |f| 
+    .modal-body          
+      =f.input :tech_post_id, :as=>:hidden, :value=>@tech_post.id
+      =f.input :content, :as=>:text, :hint=>"选填" ,:input_html => { :class => 'autogrow', :rows => 15}
+    .modal-footer
+      =submit_tag "申请",:class=>'btn'
+
+

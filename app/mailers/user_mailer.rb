@@ -19,4 +19,13 @@ class UserMailer < ActionMailer::Base
          :to=>"#{job_post.email}",
          :subject=>"您收到了#{current_user.name}的职位申请")
   end
+
+  def apply_for_tech(current_user, tech_post, content)
+    @applicant = current_user
+    @tech_post = tech_post
+    @message = content
+    mail(:from=>"悟空人才网 <i5kongtalent@gmail.com>",
+         :to=>"#{tech_post.email}",
+         :subject=>"您收到了#{current_user.name}的项目需求申请")
+  end
 end

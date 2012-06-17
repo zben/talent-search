@@ -1,25 +1,21 @@
 = semantic_form_for @tech_post do |f|
-
   = f.inputs do
     .row
-      .span8=f.input :title
-    .row
-      .span10=f.input :description, :as=>:text,:input_html => { :class=> 'autogrow', :rows=>10}
-    .row
-      .span6=f.input :province_id, :as=>:select, :collection=>Province.all.map{|x| [t(x.name), x.id]},:prompt => t("Select one")
-    .row
-      .span6=f.input :project_fields, :label => "技术领域*", :as => :check_boxes, :collection => ProjectField.all, :multiple=>true
+      .span12
+        .row
+          .span7=f.input :title
+          .span2=f.input :province_id, :as=>:select, :collection=>Province.all,:prompt => t("Select one")
+          .span3=f.input :co_type, :as => :select , :collection => TechPost.co_types_for_select, prompt: t("Select one")
+        .row
+          .span12=f.input :description, :as=>:text,:input_html => { :class=> 'autogrow', :rows=>10}
+        .row
+          .span12=f.input :compensation , :as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
+        .row
+          .span2=f.input :contact_person
+          .span3=f.input :phone_number
+          .span4=f.input :email
+        = f.action :submit, :button_html => { :class=>"btn primary"}
+      .span4
+        =f.input :project_fields, :label => "技术领域*", :as => :check_boxes, :collection => ProjectField.pinyin_order, :multiple=>true
 
-    .row
-      .span10=f.input :co_type, :as => :select , :collection => TechPost.co_types_for_select
-    .row
-      .span8=f.input :compensation , :as=>:text,:input_html => { :class => 'autogrow', :rows => 10}
-    .row
-      .span2=f.input :contact_person
-      .span3=f.input :phone_number
-      .span4=f.input :email
-   
-
-    = f.action :submit, :button_html => { :class=>"btn primary"}
- 
 

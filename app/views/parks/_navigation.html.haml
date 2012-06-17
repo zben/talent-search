@@ -1,5 +1,5 @@
 %ul{:class=>"tabs",:"data-tabs"=>"tabs"}
   %li{class: "#{is_active? 'parks#show'}"}=link_to "园区主页", @park
-  %li{class: "#{is_active? 'parks#edit'}"}=link_to "编辑园区",edit_park_path(@park) if can?(:update, @park) && @park.persisted?
+  %li{class: "#{is_active? 'parks#edit'}"}=link_to "编辑园区",edit_park_path(@park) if current_user.admin?
   %li=link_to "回到园区列表", default_parks_path
 

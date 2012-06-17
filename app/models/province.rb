@@ -10,4 +10,7 @@ class Province
   has_many :cities
   
 
+  def self.pinyin_order
+    self.all.sort {|a ,b|   a.name_ch.pinyin.join <=> b.name_ch.pinyin.join }
+  end
 end
