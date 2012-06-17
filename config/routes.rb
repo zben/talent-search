@@ -16,6 +16,11 @@ Talent::Application.routes.draw do
   resources :job_posts
   match "job_posts/:id/match"=>"job_posts#matching_talent",:as=>'job_post_matching_talent'
   resources :organization_profiles
+   
+  resources :tech_posts
+  match 'tech_searches/default'=>'tech_searches#show',:as=>'default_tech_post'
+  resources :tech_searches
+  
 
   devise_for :users, :controllers => {:registrations => "registrations", :invitations => 'invitations'}
 

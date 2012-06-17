@@ -1,0 +1,63 @@
+=render "projects/navigation"
+
+.row
+  .span11
+    .row
+      .span8
+        %h4 技术需求
+        =@tech_post.title
+    .row
+      .span10
+        %h4 详细描述
+        .description=raw @tech_post.description
+    .row
+      .span6
+        %h4 地址
+        =@tech_post.province.name
+    .row
+      .span6
+        %h4 技术领域
+        -@tech_post.project_fields.each do |field|
+          .skill_item=field.name
+
+    .row
+      .span10
+        %h4 合作方式
+        =@tech_post.co_type
+    .row
+      .span8
+        %h4 提供条件
+        .description=raw @tech_post.compensation
+    .row
+      .span2
+        %h4 联系人
+        =@tech_post.contact_person
+      .span3
+        %h4 联系电话
+        =@tech_post.phone_number
+      .span4
+        %h4 电子邮件地址
+        =@tech_post.email
+    .row
+      .span10
+        -if @user == @tech_post.user 
+          =link_to "添加",new_tech_post_path,:class=>'btn'
+          =link_to "编辑", edit_tech_post_path(@tech_post) ,:class=>'btn'
+          =link_to "删除", @tech_post, :confirm => '确认删除吗?', :method => :delete ,:class=>'btn'
+  .span5
+    .sidebar
+      %br
+      .image
+        -if @tech_post.user.is_a?(OrgUser)
+          =image_tag @tech_post.user.avatar.url(:medium)
+        -else
+          =image_tag 'logo/medium/missing.jpg'    
+    -#  
+      -if current_user.is_a?(IndUser) && current_user!=@tech_post.user
+        =render 'tech_posts/apply_box'
+        -if !current_user.tech_applied?(@tech_post)
+          =link_to "申请合作","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn primary'
+        -else
+          =link_to "撤销申请", cancel_tech_application_path(current_user.get_tech_application(@tech_post)), :class=>"btn primary"
+        
+

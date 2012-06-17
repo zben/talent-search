@@ -1,0 +1,7 @@
+= # coding: UTF-8 
+
+=render "projects/navigation"
+%h3 发布新技术需求
+-if current_user.is_a? IndUser
+  注意:如需以个人名义发布职位,您必须得到此公司的授权,发布信息必须为真实信息。虚假信息将被删除。
+=render 'form'

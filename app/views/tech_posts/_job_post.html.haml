@@ -1,0 +1,7 @@
+.job_post_snippet
+  .row
+    .span5
+      .job_snippet_left
+        .lab=link_to job_post.company_name,job_post.user if job_post.user.is_a? OrgUser
+        .lab=job_post.company_name unless job_post.user.is_a? OrgUser
+        .lab=link_to job_post.title ,job_post

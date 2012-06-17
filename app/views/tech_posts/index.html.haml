@@ -1,0 +1,17 @@
+=render 'projects/navigation'
+.row
+  .add=link_to "新建技术需求",new_tech_post_path
+  
+.row
+  %table.zebra-striped
+    %tr
+      %th 技术需求
+      %th 行业
+      %th 简介
+    - for tech_post in @tech_posts
+      %tr 
+        %td=link_to tech_post.title,tech_post
+        %td
+          -tech_post.project_fields.each do |field|
+            .skill_item=field.name
+        %td= tech_post.description[0..30]

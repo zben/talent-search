@@ -9,6 +9,7 @@ class ProjectField
   field :name_ch
   field :name_en
   has_and_belongs_to_many :projects
+  has_and_belongs_to_many :tech_posts
 
  def self.populate
      ProjectField.destroy_all

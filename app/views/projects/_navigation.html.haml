@@ -1,10 +1,9 @@
 %ul{:class=>"tabs",:"data-tabs"=>"tabs"}
-
-  %li{:class=>is_active?('projects#overview')}
-    =link_to "项目圈主页", project_overview_path
-
+  %li{:class=>is_active?('projects#overview')}=link_to "项目圈主页", project_overview_path
   %li{:class=>"#{is_active?('project_searches#')} #{is_active?('projects#index')}"}=link_to '项目搜索', project_search_path
   %li{:class=>is_active?('park#')}=link_to '创业园区', default_parks_path
+  %li{:class=>is_active?('tech_searches#')}=link_to '技术需求', default_tech_post_path
+  %li{:class=>is_active?('tech_posts#')}=link_to '技术需求', tech_posts_path  
 
 
 :javascript
