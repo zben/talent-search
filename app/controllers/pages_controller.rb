@@ -11,4 +11,6 @@ class PagesController < ApplicationController
   def landing
   end
 
+  def referralbonus
+  end
 end

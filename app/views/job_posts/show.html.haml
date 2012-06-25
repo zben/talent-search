@@ -73,7 +73,13 @@
           =image_tag @job_post.user.avatar.url(:medium)
         -else
           =image_tag 'logo/medium/missing.jpg'
+      -if @job_post.on_promo?
+        %p.one_liner
+          ="千元奖金推荐职位"
+          =link_to "详情", pages_referralbonus_path
 
+      =render 'pages/invitation_message_box'
+      =link_to "推荐给朋友","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn primary'
 
       -if current_user.is_a?(IndUser) && current_user!=@job_post.user
         =render 'job_posts/apply_box'

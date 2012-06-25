@@ -164,6 +164,8 @@ ch:
         province_id: "身份"
         co_type_cd: "合作形式"
         project_field_id: "技术领域"
+      tech_application:
+        content: "申请留言"
       tech_post:
         title: "技术需求名称"
         description: "技术需求描述"

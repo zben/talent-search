@@ -10,23 +10,23 @@
 
         -if SHOW_PROJECT_CIRCLE
           -if user_signed_in? && !current_user.projects.empty?
-            %li{:class=>"dropdown #{is_active?("projects#")}",:"data-dropdown"=>"dropdown" }
+            %li{:class=>"dropdown #{is_active?("projects#")} #{is_active?("tech#")}",:"data-dropdown"=>"dropdown" }
               =link_to "项目圈", project_overview_path, :class=>"dropdown-toggle" 
               %ul.dropdown-menu.project_drop_down
                 -current_user.projects.each do |project|
                   %li=link_to project.title, project
-                
           -else
-            %li{class: is_active?("projects#")}=link_to '项目圈',project_overview_path
-       
+            %li{class: "#{is_active?("projects#")} #{is_active?("tech#")}"}=link_to '项目圈',project_overview_path
+            %li{:class=>is_active?("pages#referralbonus")}=link_to "有奖推荐", pages_referralbonus_path
       -if user_signed_in?
         %ul.nav
           %li{:class=>is_active?("talent_searches#show")}=link_to '找悟空',default_talent_path 
           %li{:class=>is_active?("shouts#index")}=link_to "悟空微博",myshouts_path
+          %li{:class=>is_active?("pages#referralbonus")}=link_to "有奖推荐", pages_referralbonus_path
         %ul{class: "nav", style: "float: right;"}
+          %li{:class=>"#{is_active?("invitation#new")}"}=link_to "邀请好友", new_invitation_path(:user)
           %li{:class=>"dropdown #{params[:action]=~/bookmarked/  ? 'active':''}",:"data-dropdown"=>"dropdown" }
             =link_to_function "收藏夹",'$(".dropdown-menu.bookmark_dropdown").toggle()', :class=>"dropdown-toggle" 
-            
             %ul.dropdown-menu.bookmark_dropdown
               %li{:class=>"#{params[:action]=='bookmarked_users'  ? 'active':''}"}=link_to "关注的个人",bookmarked_users_path
               -if current_user.is_a? IndUser

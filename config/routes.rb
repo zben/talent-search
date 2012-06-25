@@ -76,7 +76,7 @@ Talent::Application.routes.draw do
   
   match 'bookmark/:type/:id'=>'bookmarks#bookmark', :as=>'toggle_bookmark'
 
-
+  get "pages/referralbonus"
   root :to => 'pages#home' 
   
 end

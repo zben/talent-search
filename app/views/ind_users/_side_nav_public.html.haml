@@ -20,6 +20,9 @@
   %p
     %b 省/州:
     #{@user.profile.province.name} 
+  -if current_user.admin?
+    邀请人:
+    =link_to @user.invited_by.name, @user.invited_by if @user.invited_by
   .sidebar
     = bookmark_code @user unless @user==current_user
     =render 'pages/message_box'

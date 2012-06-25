@@ -6,6 +6,8 @@ class JobPost
 
   default_scope all(sort: [[ :created_at, :desc ]])
   scope :current, where(:expiration.gte=>Date.today)
+  scope :on_promo, where(:promo_start_date.lte=>Date.today).where(:promo_end_date.gte=>Date.today)
+
   has_many :bookmarkings,:class_name=>"Bookmark", as: :bookmarkable
 
   include SimpleEnum::Mongoid
@@ -32,14 +34,17 @@ class JobPost
   field :logo
   field :website
   field :is_official, type: Boolean, default: true
-  
+  field :promo_start_date, type: Date
+  field :promo_end_date, type: Date
+
   attr_accessible :title, :city_id, :province_id, :company_type, :industry_id, 
     :years_required, :years_required_cd,
     :degree_requirement, :degree_requirement_cd,
       :company_name, :company_id, :description, :job_requirement,
       :job_type, :job_type_cd, :salary, :salary_cd, :expiration, :contact_person, 
-      :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official
-  
+      :phone_number, :email, :logo, :website, :user_id, :skill_ids, :is_official,
+      :promo_start_date, :promo_end_date
+
   validates :title, :company_name, :industry_id, :company_type, :province_id, :city_id,
       :description, :job_requirement, :job_type, :degree_requirement, :years_required, :salary,
       :expiration, :email, :presence=>true
@@ -90,6 +95,12 @@ class JobPost
         )
       end
   end
-  
+
+  def on_promo?
+    promo_start_date != nil and
+    promo_end_date != nil and
+    promo_start_date <= Date.today and
+    promo_end_date >=Date.today
+  end
 
 end

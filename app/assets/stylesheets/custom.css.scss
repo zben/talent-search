@@ -611,9 +611,38 @@ span.view_all{
 }
 
 .home_page .image{
-  opacity: 0.6;
+  opacity: 1;
   height: 330px;
   overflow: hidden;
+  h1, h2{
+    color:black;
+    font-weight: normal;
+  }
+  h1{
+   font-size: 3.5em;
+   padding:20px;
+   padding-bottom: 10px;
+   margin-bottom:0px;
+   text-align: center;
+  }
+  h2{
+   text-align: center;
+   text-shadow: none;
+  }
+  li{
+    text-align:center;
+    list-style:none;
+    font-size:2em;
+    line-height: 1.2em;
+  }
+  .right{
+    margin-top:15px;
+    padding:10px;
+    background-color: red;
+    display: inline-block;
+    float:right;
+    a{color: #fff;text-decoration: none;}
+  }
 }
 .slogan{
   margin-bottom: 20px;
@@ -661,4 +690,57 @@ p.one_liner{
 }
 .project_title{
   margin-bottom:0px;
+}
+.pages.referralbonus{
+  h1{
+    padding-top: 20px;
+    font-size: 2em;
+    font-weight: normal;
+    border-bottom: 3px solid green;
+  }
+  p{
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+
+  ol li{
+    font-size:0.9em;
+    color: #000;
+    float: left;
+  }
+  .side{
+    padding-left: 10px;
+    border-left: 5px solid #eee;
+    min-height: 400px;
+    h2{
+      -moz-box-shadow: 0 0 5px #888;
+      -webkit-box-shadow: 0 0 5px#888;
+      box-shadow: 0 0 5px #888;
+      background-color: #2070E0;
+      color: #fff;
+      font-weight: normal;
+      display: inline-block;
+      padding:0px 30px;
+    }
+    li.promo_job{
+      -moz-box-shadow: 0 0 5px #888;
+      -webkit-box-shadow: 0 0 5px#888;
+      box-shadow: 0 0 5px #888;
+      list-style: none;
+      background: #2983E6;
+      .company_name{}
+      .job_name{}
+      margin-top: 10px;
+      padding: 5px;
+      width: 230px;
+      a{
+        color: #fff;
+        font-size: 1.4em;
+        font-weight: normal;
+        line-height: 1.2em;
+       }
+    }
+  }
+
+
 }

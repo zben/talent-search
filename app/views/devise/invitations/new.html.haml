@@ -1,6 +1,6 @@
-%h2 发送邀请
 .row
   .span8
+    %h2 发送邀请
     = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f|
       %p
         = f.label "电子邮件"
@@ -10,3 +10,7 @@
         = text_area_tag :message, nil, :rows => 10
       %p 使用逗号可以同时邀请多人。
       %p= f.submit "发送",:class=>'btn'
+  .span8
+    %h2 你知道吗？
+    邀请好友,即可获得1000美金推荐奖励的机会。邀请越多朋友,获奖机会越大。
+    =link_to "查看详情", pages_referralbonus_path

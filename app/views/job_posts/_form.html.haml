@@ -13,7 +13,12 @@
     .row
       .span3=f.input :degree_requirement, :as=>:select, :collection=>JobPost.degree_requirements_for_select, :prompt=>t("Select one")
       .span2=f.input :years_required, :as=>:select, :collection=>JobPost.years_requireds_for_select,:prompt => t("Select one")
-
+      .span4
+        =f.label "推广开始日期"
+        =f.date_select :promo_start_date, {prompt: {day: t("Select one"), month: t("Select one"), year: t("Select one")}},{class: "date"}
+      .span4
+        =f.label "推广结束日期"
+        =f.date_select :promo_end_date, {prompt: {day: t("Select one"), month: t("Select one"), year: t("Select one")}},{class: "date"}
     .row
       .span13
         .tiny=f.input :description,:as=>:text,:input_html => { :class => 'autogrow', :rows => 10}

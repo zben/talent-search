@@ -1,0 +1,30 @@
+#modal-from-dom.modal.hide.fade
+  .modal-header
+    =link_to "&times;".html_safe,'#',:class=>'close'
+    %h3 发送邀请
+  =form_for User.new, :url=>invitation_path(:user), html: {method: :post} do |f|
+    .modal-body
+      %p
+        -if session[:emails]
+          .alert-message.error
+            %p Email格式有问题，请修改
+        =hidden_field_tag :job_post_id, @job_post.id
+        =f.label "电子邮件"
+        %br/
+        =f.text_field :email, value: session[:emails], placeholder: "example.com@gmail.com, example@yahoo.com"
+        =f.label :留言
+        -session[:message]=""
+        -session[:message] += "\n\n\n推荐职位:\n名称: #{@job_post.title}\n发布者: #{@job_post.user.name}\n职位链接: #{job_post_url(@job_post)}\n发布者链接: #{user_url(@job_post.user)}\n"
+        =text_area_tag :message, session[:message], :rows => 10
+      %p 使用逗号可以同时邀请多人。
+    .modal-footer
+      =link_to_function "取消","$('.close').click();", :class=>'btn'
+      =f.submit "发送",:class=>'btn primary'
+
+-if session[:emails]
+  :javascript
+    $(document).ready(function() {
+      $('a[data-controls-modal="modal-from-dom"]').click();
+    });
+-session[:emails] = nil
+-session[:message] = nil

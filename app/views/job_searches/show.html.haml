@@ -37,7 +37,10 @@
           %th{width: 200} 截止日期
         - for job_post in @job_posts
           %tr
-            %td=link_to job_post.title,job_post
+            %td
+              =link_to job_post.title,job_post
+              -if job_post.on_promo?
+                %p.one_liner="推荐有奖"
             %td= job_post.company_name
             %td= job_post.salary ||'面议'
             %td= job_post.city.name
