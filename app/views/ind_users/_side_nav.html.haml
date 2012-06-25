@@ -15,7 +15,7 @@
       %li 修改个人信息
       %li{:class=>"#{params[:info]=='profile'? "active":""}"}=link_to "基本信息",ind_user_edit_path(current_user.id,'profile')
       %li{:class=>"#{params[:info]=='education'? "active":""}"}=link_to "教育经历",ind_user_edit_path(current_user.id,'education')
-      %li{:class=>"#{params[:info]=='exam'? "active":""}"}=link_to "考试/获奖/证书",ind_user_edit_path(current_user.id,'exam')
+      /%li{:class=>"#{params[:info]=='exam'? "active":""}"}=link_to "考试/获奖/证书",ind_user_edit_path(current_user.id,'exam')
       %li{:class=>"#{params[:info]=='language'? "active":""}"}=link_to "语言能力",ind_user_edit_path(current_user.id,'language')
       %li{:class=>"#{params[:info]=='experience'? "active":""}"}=link_to "工作经历",ind_user_edit_path(current_user.id,'experience')
 

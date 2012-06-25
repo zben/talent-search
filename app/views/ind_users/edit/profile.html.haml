@@ -69,8 +69,9 @@
                     .span4= m.input :meet_people,:as=>:boolean
                     .span4= m.input :browse,:as=>:boolean
             .span5
-              =f.input :industries, as: :check_boxes, required: true
-
+              %div{class: "span4 #{'error' unless @user.errors.messages[:industry_ids].nil?}"}
+                =f.input :industries, as: :check_boxes, required: true
+                %p.inline-errors=@user.errors.messages[:industry_ids][0] unless @user.errors.messages[:industry_ids].nil?
           .row
             .span2= submit_tag "#{@is_new ? t('Next Step') : t('Save Changes')}",:class=>"btn primary"
 
