@@ -24,5 +24,5 @@
           %h2 7月有奖推荐职位
           -JobPost.on_promo.each do |job|
             %li.promo_job
-              .company_name=link_to job.user.name, job.user
+              .company_name=link_to job.company_name, job.user
               .job_name=link_to job.title, job

@@ -72,5 +72,20 @@ class JobPostsController < ApplicationController
     @users = Kaminari.paginate_array(@users).page(params[:page]).per(10)
   end
   
-
+  def toggle_promo
+    @job_post = JobPost.find(params[:id])
+    if can? :manage, :job_posts
+      if @job_post.promo_start_date.nil?
+        today = Date.today
+        @job_post.promo_start_date = Date.new(today.year, today.month, 1)
+        @job_post.promo_end_date = Date.new(today.year, today.month + 1, 1) - 1
+        @job_post.save!
+      else
+        @job_post.promo_start_date = nil
+        @job_post.promo_end_date = nil
+        @job_post.save!
+      end
+    end
+    redirect_to :back
+  end
 end

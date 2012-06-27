@@ -79,4 +79,5 @@ Talent::Application.routes.draw do
   get "pages/referralbonus"
   root :to => 'pages#home' 
   
+  match 'job_posts/:id/toggle_promo'=>"job_posts#toggle_promo", as: 'toggle_promo'
 end

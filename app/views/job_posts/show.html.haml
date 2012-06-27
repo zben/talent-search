@@ -77,7 +77,11 @@
         %p.one_liner
           ="千元奖金推荐职位"
           =link_to "详情", pages_referralbonus_path
-
+      -if current_user.admin?
+        -if @job_post.promo_start_date.nil?
+          =link_to "设本月奖",toggle_promo_path(@job_post), class: "btn primary"
+        -else
+          =link_to "取消奖金",toggle_promo_path(@job_post), class: "btn primary"
       =render 'pages/invitation_message_box'
       =link_to "推荐给朋友","",:'data-controls-modal'=>"modal-from-dom",:'data-backdrop'=>"true", :class=>'btn primary'
 
