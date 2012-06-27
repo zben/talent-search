@@ -8,8 +8,8 @@
       -JobPost.on_promo.each do |job|
         %li
           .row
-            .span5=link_to job.company_name, job.user
-            .span5=link_to job.title, job
+            .span7=link_to job.company_name, job.user
+            .span3=link_to job.title, job
 
       .right=link_to "点击查看活动详情", pages_referralbonus_path
     .span6

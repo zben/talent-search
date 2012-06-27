@@ -4,6 +4,7 @@ class Industry
   field :_id, type: String
   field :name_ch
   field :name_en
+  field :parent_industry_id
 
   has_many :job_posts
   has_many :industries_users
@@ -26,5 +27,13 @@ class Industry
 
   def to_s
     "#{name_en} #{name_ch}"
+  end
+
+  def parent
+    Industry.find(parent_industry_id)
+  end
+
+  def children
+    Industry.where(parent_industry_id: id)
   end
 end

@@ -52,3 +52,110 @@
  政府 // Government Organization
  非营利行业 // NPO
  其他 // Others
+
+IT行业 // IT Industry
+计算机软件 // IT Software // IT Industry
+计算机硬件 // IT Hardware // IT Industry
+IT服务 // IT Services // IT Industry
+互联网 // Internet // IT Industry
+电子商务// E-Commerce // IT Industry
+游戏// Gaming // IT Industry
+通信// Telecommunication// IT Industry
+电子/半导体 // Electronics// IT Industry
+
+金融行业 // Financial Industry
+银行 // Banking// Financial Industry
+保险 // Insurance// Financial Industry
+证券/基金/期货 // Stock/Funds/Futures// Financial Industry
+投资 // Investments// Financial Industry
+
+专业服务 // Professional Services
+会计/审计 // Accounting/Auditing // Professional Services
+人力资源 // Human Resource // Professional Services
+管理咨询 // Management Consulting // Professional Services
+法律 // Legal // Professional Services
+检测/认证 // Examination/Certification // Professional Services
+翻译 // Translation // Professional Services
+
+
+教育培训行业 // Education and Training
+高等教育 // Higher Education // Education and Training
+初中等教育 // Pre-University Education// Education and Training
+培训 // Training// Education and Training
+
+
+消费品行业 // Consumer Goods
+日用品/化妆品 // Household and Cosmetics// Consumer Goods
+食品/饮料 // Food and Drink// Consumer Goods
+服装/纺织 // Clothing and Fabric// Consumer Goods
+家电/数码产品 //Household Electronics// Consumer Goods
+奢侈品/珠宝 // Luxury and Jewry// Consumer Goods
+家具/家居 // Furniture and Home// Consumer Goods
+酒品 // Wine// Consumer Goods
+烟草业 // Tabacco// Consumer Goods
+办公用品 // Office// Consumer Goods
+
+
+文化传媒行业//Cultura and Media Industry
+广告/公关/会展 // Advertising/PR/Events//Cultura and Media Industry
+报纸/杂志 //Newspaper and Magazine//Cultura and Media Industry
+广播//Broadcasting//Cultura and Media Industry
+影视//Film//Cultura and Media Industry
+出版//Publishing//Cultura and Media Industry
+艺术/工艺//Arts and Crafts//Cultura and Media Industry
+体育//Sports//Cultura and Media Industry
+动漫//Comics and Animation//Cultura and Media Industry
+
+
+建筑/房地产行业//Architecture and Real Estate
+建筑设计/规划 //Architectural Design and Planning//Architecture and Real Estate
+土木工程//Civil Engineering//Architecture and Real Estate
+房地产//Real Estate//Architecture and Real Estate
+物业管理//Real Estate Management//Architecture and Real Estate
+建材//Construction Matrial//Architecture and Real Estate
+装修装潢//Interior Design//Architecture and Real Estate
+
+
+贸易物流行业 // Exporting and Logistics
+进出口// Import and Export
+批发/零售 //Wholesale and 
+商店/超市
+物流/仓储
+运输/铁路/航空
+
+制造工业: 
+化工
+原材料/加工
+新材料
+汽车
+机械/自动化
+军工/国防
+采矿/金属
+原油/能源
+造纸
+印刷/包装
+航天/造船
+
+医疗/卫生: 
+医疗/护理
+医疗器械
+生物技术
+医药
+动物医疗
+
+服务业: 
+酒店
+餐饮
+旅游
+休闲/娱乐/健身
+私人/家政服务
+图书馆/展览馆
+
+其他: 
+环境
+农/林/牧/渔
+研究所/研究院
+公共事业
+非营利组织
+政府部门
+
