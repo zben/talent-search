@@ -17,7 +17,6 @@
                   %li=link_to project.title, project
           -else
             %li{class: "#{is_active?("projects#")} #{is_active?("tech#")}"}=link_to '项目圈',project_overview_path
-            %li{:class=>is_active?("pages#referralbonus")}=link_to "有奖推荐", pages_referralbonus_path
       -if user_signed_in?
         %ul.nav
           %li{:class=>is_active?("talent_searches#show")}=link_to '找悟空',default_talent_path 
@@ -42,6 +41,8 @@
               %li=link_to "邀请朋友加入",new_invitation_path(:user)
               %li=link_to "退出",destroy_user_session_path,:method => :delete if user_signed_in?
       -else
+        %ul.nav
+          %li{:class=>is_active?("pages#referralbonus")}=link_to "有奖推荐", pages_referralbonus_path
         = form_for User.new, :url => '/users/sign_in' do |f| 
           %ul.nav.login
             %li= f.email_field :email,:placeholder=>"电子邮件" 
