@@ -2,9 +2,8 @@
   .row
     .span10.image{style: "background-color:#FFF;"}
       /=image_tag 'homepage-image.png', width: "580"
-      %h1 盛夏七月 名企悬赏招聘
+      %h1 2012盛夏 名企悬赏招聘
       %h2 推荐好友, 即有可能获得1000美金奖金
-      /%h2.title 七月份合作单位与有奖职位
       -JobPost.on_promo.each do |job|
         %li
           .row

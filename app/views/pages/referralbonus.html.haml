@@ -21,7 +21,7 @@
 
       .span5
         .side
-          %h2 7月有奖推荐职位
+          %h2 本月有奖推荐职位
           -JobPost.on_promo.each do |job|
             %li.promo_job
               .company_name=link_to job.company_name, job.user
