@@ -10,7 +10,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:zben/#{application}.git"
-set :branch, "master"
+set :branch, "ec2"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true

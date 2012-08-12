@@ -41,11 +41,6 @@ gem 'simple_enum', :git => 'git://github.com/lwe/simple_enum.git'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "aws-sdk",            :require => "aws/s3"
 gem 'thin'
-group :production do
-  # gems specifically for Heroku go here
-  gem "heroku"
-  gem "pg"
-end
 gem "erb2haml", :group => :development
 gem "faker"
 # Use unicorn as the web server
