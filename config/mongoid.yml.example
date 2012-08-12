@@ -1,0 +1,12 @@
+development:
+  host: localhost
+  database: talent_development
+
+test:
+  host: localhost
+  database: talent_test
+
+# set these environment variables on your prod server
+production:
+  host: localhost
+  database: talent_production
