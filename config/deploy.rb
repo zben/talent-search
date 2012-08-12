@@ -1,9 +1,9 @@
 require "bundler/capistrano"
 
-server "106.187.54.251", :web, :app, :db, primary: true
+server "23.21.146.98", :web, :app, :db, primary: true
 
 set :application, "talent-search"
-set :user, "deployer"
+set :user, "ubuntu"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
