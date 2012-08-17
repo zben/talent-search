@@ -33,7 +33,7 @@ end
 gem 'jquery-rails'
 gem 'tinymce-rails',:git => 'git://github.com/spohlenz/tinymce-rails.git'
 #gem "paperclip", "~> 2.0"
-gem 'mongoid'
+gem 'mongoid', "~>2.4.0"
 gem 'bson_ext'
 gem 'mongoid_fulltext'
 gem 'cancan'

@@ -155,17 +155,16 @@ GEM
     mime-types (1.19)
     mocha (0.12.3)
       metaclass (~> 0.0.1)
-    mongoid (3.0.4)
+    mongo (1.6.2)
+      bson (~> 1.6.2)
+    mongoid (2.4.12)
       activemodel (~> 3.1)
-      moped (~> 1.1)
-      origin (~> 1.0)
+      mongo (<= 1.6.2)
       tzinfo (~> 0.3.22)
     mongoid-paperclip (0.0.7)
       paperclip (>= 2.3.6)
-    mongoid_fulltext (0.6.0)
-      mongoid (~> 3.0.1)
+    mongoid_fulltext (0.5.8)
       unicode_utils (~> 1.0.0)
-    moped (1.2.0)
     multi_json (1.3.6)
     multi_xml (0.5.1)
     net-scp (1.0.4)
@@ -177,7 +176,6 @@ GEM
       net-ssh (>= 1.99.1)
     nifty-generators (0.4.6)
     nokogiri (1.5.5)
-    origin (1.0.6)
     orm_adapter (0.0.7)
     paperclip (3.1.4)
       activemodel (>= 3.0.0)
@@ -292,7 +290,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   mocha
-  mongoid
+  mongoid (~> 2.4.0)
   mongoid-paperclip
   mongoid_fulltext
   nested_form!
