@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.2.8'
 gem 'haml-rails'
 gem 'devise',           '~> 2.0.0'
 gem 'devise_invitable', '~> 1.0.0'
@@ -11,7 +11,7 @@ gem 'nested_form',:git => 'git://github.com/ryanb/nested_form.git'
 gem 'thin'
 gem 'faker'
 gem 'formtastic',:git => 'https://github.com/justinfrench/formtastic.git'
-gem 'formtastic-bootstrap'
+#gem 'formtastic-bootstrap'
 gem 'active_hash'
 gem "seedbank"
 gem 'kaminari'
@@ -24,8 +24,8 @@ gem 'toPinyin'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails', "  ~> 3.2.0"
+  gem 'coffee-rails', "~> 3.2.0"
   gem 'uglifier'
   gem 'jquery-datatables-rails', :git => 'git://github.com/rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
