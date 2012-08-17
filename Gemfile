@@ -45,6 +45,7 @@ gem "erb2haml", :group => :development
 gem "faker"
 # Use unicorn as the web server
 gem 'unicorn'
+gem 'sqlite3'
 
 # Deploy with Capistrano
 gem 'capistrano'
