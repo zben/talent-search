@@ -2,6 +2,10 @@ require "bundler/capistrano"
 
 server "23.21.146.98", :web, :app, :db, primary: true
 
+set :user, "ubuntu"
+set :group, "staff"
+set :use_sudo, false
+
 set :application, "talent-search"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
@@ -12,10 +16,6 @@ set :branch, "origin/ec2"
 set :migrate_target, :current
 set :rails_env, "production"
 set :ssh_options, {:forward_agent => true}
-
-set :user, "ubuntu"
-set :group, "staff"
-set :use_sudo, false
 
 set(:last_release) { fetch(:current_path)}
 set(:release_path) { fetch(:current_path)}
