@@ -30,13 +30,13 @@ Talent::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
   ActionMailer::Base.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :user_name            => "i5kongtalent@gmail.com",
     :domain               => "localhost:3000",
-    :password             => 'i5kongboston',
+    :password             => 'wrong-password',
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
