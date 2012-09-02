@@ -7,10 +7,25 @@ class PagesController < ApplicationController
       redirect_to org_user_path(current_user)
     end
   end
-  
+
   def landing
   end
 
   def referralbonus
+  end
+
+  def team
+  end
+
+  def jobs
+  end
+
+  def company
+  end
+
+  def contact
+  end
+
+  def services
   end
 end
