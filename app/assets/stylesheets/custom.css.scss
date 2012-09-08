@@ -565,8 +565,13 @@ li .name{
 #beta{
   position: absolute;
   color: white;
-  top: 55px;
+  top: 60px;
   padding-left:10px;
+  font-size: 12px;
+}
+
+.brand img{
+  padding-top: 10px;
 }
 #feedback{
   position: fixed;

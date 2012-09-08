@@ -2,8 +2,8 @@
   .topbar-inner
     .container
       /=link_to '孙悟空',root_path,:class=>"brand"
-      =link_to image_tag('logo.png',height: 60),root_path, :class=>"brand"
-      #beta Beta测试版
+      =link_to image_tag('logo.png'),root_path, :class=>"brand"
+      #beta Beta 测试版
       %ul.nav
         %li{:class=>"#{is_active?("job#.")} #{is_active?("company_searches#.")} #{is_active?('ind_users#overview')}"}=link_to '工作圈',ind_user_overview_path || root_path
 
