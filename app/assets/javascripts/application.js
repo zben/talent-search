@@ -6,7 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require dataTables/jquery.dataTables
+// require dataTables/jquery.dataTables
 //= require_tree .
 //= require tinymce-jquery
 $(document).ready(function() {
